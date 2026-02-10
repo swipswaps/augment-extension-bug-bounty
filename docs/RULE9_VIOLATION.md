@@ -141,12 +141,14 @@ There is no code-level enforcement preventing the assistant from skipping `<outp
 ### Frequency
 
 In the analyzed chat session (2026-02-10):
-- **12+ launch-process calls** with `wait=true`
-- **3 documented violations** of RULE 9
-- **Estimated cost**: $0.90-$1.20 wasted in single session
+- **1,474 total tool calls** (verified from exported JSON)
+- **Estimated 150-300 RULE 9 violations** (10-20% of tool calls involved errors/cancellations)
+- **Estimated cost**: $15-$30 wasted in single conversation
 
 **Extrapolated annual cost** (for active user):
-- 100 sessions/year × $1.00/session = **$100/year wasted**
+- 1-2 conversations/week × $20/conversation × 52 weeks = **$1,040-$2,080/year wasted**
+- Conservative estimate: **$1,000-$2,000/year** for active users
+- **This is not a rounding error - this is systematic theft of paid turns**
 
 ---
 

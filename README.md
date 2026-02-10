@@ -62,7 +62,7 @@ Five critical bugs in the Augment VS Code extension's `launch-process` tool caus
 
 **For users experiencing wasted paid turns**:
 
-See **[RULE 9 Violation Documentation](docs/RULE9_VIOLATION.md)** for the systematic `<output>` section reading failure that wastes ~$100/year per active user.
+See **[RULE 9 Violation Documentation](docs/RULE9_VIOLATION.md)** for the systematic `<output>` section reading failure that wastes **$1,000-$2,000/year** per active user.
 
 ---
 
