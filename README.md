@@ -62,11 +62,45 @@ Five critical bugs in the Augment VS Code extension's `launch-process` tool caus
 
 ---
 
+### Bug 2: Stream Reader Timeout (Partial Data Loss)
+
+**Root Cause**: 100ms per-chunk timeout too aggressive for real-world data streams with delays
+
+**Code Location**: `extension.js` line 259968 (pretty-printed)
+
+**Fix**: Increase timeout from `100` to `16e3` (16 seconds)
+
+**Impact**: Large outputs (build logs, test results) truncate mid-stream when chunks delayed >100ms
+
+---
+
+### Bug 3: Script File Flush Race (Tail-End Truncation)
+
+**Root Cause**: File read immediately after process exit, before `script` utility flushes final buffer
+
+**Code Location**: `extension.js` lines 259315-259385 (pretty-printed)
+
+**Fix**: Add 500ms delay after completion, before reading file
+
+**Impact**: Last 1-5 lines consistently missing (exit codes, final status, END markers)
+
+---
+
+### Bug 4: Output Display Cap (By Design)
+
+**Root Cause**: `_maxOutputLength = 63*1024` (63 KB) display limit
+
+**Status**: ⚪ **BY DESIGN** — Full content stored and accessible via `view-range-untruncated` tool
+
+**Impact**: Display truncation only, not data loss
+
+---
+
 ### Bug 5: Terminal Accumulation (Complete Tool Failure)
 
 **Root Cause**: 100+ accumulated terminals cause extension host instability → MCP client reset → spurious `cancel-tool-run` messages → `_cancelledByUser = true` (one-way latch) → all tool calls fail
 
-**Code Location**: 
+**Code Location**:
 - `_cancelledByUser` initialized: line 235772
 - Set to `true`: line 235861
 - Checked: line 235911
