@@ -1,0 +1,26 @@
+--- extension.beautified.js.original	2026-02-10 10:31:00.000000000 -0500
++++ extension.beautified.js.fixed	2026-02-10 10:31:00.000000000 -0500
+@@ -235908,8 +235908,20 @@
+                 return Cr(c, t)
+             } catch (f) {
+                 if (this._cancelledByUser) {
+-                    return nt("Cancelled by user.");
++                    // RULE 9 ENFORCEMENT: Check if output was captured before returning error
++                    if (c && c.content && Array.isArray(c.content) && c.content.length > 0) {
++                        this._logger.info(`RULE 9: Returning captured output despite cancellation (${c.content.length} items)`);
++                        // Process the captured output normally (continue to normal flow after catch)
++                        // Set a flag to skip the error return
++                        this._rule9OutputCaptured = true;
++                    } else {
++                        return nt("Cancelled by user.");
++                    }
+                 }
++                if (!this._rule9OutputCaptured) {
+                 let p = f instanceof Error ? f.message : String(f);
+                 return this._logger.error(`MCP tool call failed: ${p}`), nt(`Tool execution failed: ${p}`, t)
++                }
++                // Reset flag
++                this._rule9OutputCaptured = false;
+             } finally {
+                 this._runningTool = void 0
+
