@@ -64,6 +64,10 @@ Five critical bugs in the Augment VS Code extension's `launch-process` tool caus
 
 See **[RULE 9 Violation Documentation](docs/RULE9_VIOLATION.md)** for the systematic `<output>` section reading failure that wastes **$1,000-$2,000/year** per active user.
 
+**✅ RULE 9 Code-Level Fix Available**: See **[RULE9_CODE_FIX.md](docs/RULE9_CODE_FIX.md)** for the code-level fix that prevents the extension from returning "Cancelled by user." errors when output was actually captured. Run `fixes/apply-rule9-fix.sh` to apply.
+
+**Note**: The RULE 9 fix uses beautified extension.js (13 MB vs 8 MB original) to preserve all code without minifier optimizations. This is necessary to prevent code removal.
+
 ---
 
 ## Quick Links
