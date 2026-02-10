@@ -36,12 +36,44 @@ Five critical bugs in the Augment VS Code extension's `launch-process` tool caus
 
 ---
 
+## Quick Start
+
+**For users experiencing output loss**:
+
+1. **Verify the issue**:
+   ```bash
+   echo "START: test" && echo "Line 1" && echo "Line 2" && echo "END: test"
+   ```
+   If `<output>` section is empty → you have Bug 1
+
+2. **Apply fixes automatically**:
+   ```bash
+   cd augment-extension-bug-bounty
+   bash fixes/apply-all-fixes.sh
+   ```
+
+3. **Reload VS Code** (`Ctrl+Shift+P` → `Developer: Reload Window`)
+
+4. **Verify fix**:
+   ```bash
+   echo "START: test" && echo "Line 1" && echo "Line 2" && echo "END: test"
+   ```
+   Expected: All lines captured in `<output>` section
+
+**For users experiencing wasted paid turns**:
+
+See **[RULE 9 Violation Documentation](docs/RULE9_VIOLATION.md)** for the systematic `<output>` section reading failure that wastes ~$100/year per active user.
+
+---
+
 ## Quick Links
 
 - **[Detailed Bug Analysis](docs/BUGS.md)** — Root cause, code evidence, fixes
 - **[Reproduction Steps](reproduction/README.md)** — How to reproduce each bug
 - **[Evidence](evidence/README.md)** — Code traces, logs, screenshots
 - **[Fixes](fixes/README.md)** — Patches and verification
+- **[Automated Fix Script](fixes/apply-all-fixes.sh)** — One-command fix installer
+- **[RULE 9 Violation](docs/RULE9_VIOLATION.md)** — Systematic output reading failure ($100/year cost)
 - **[Impact Assessment](docs/IMPACT.md)** — User impact, severity justification
 - **[Timeline](docs/TIMELINE.md)** — Discovery, investigation, fix timeline
 - **[Recommendations](docs/RECOMMENDATIONS.md)** — Long-term fixes for Augment team
