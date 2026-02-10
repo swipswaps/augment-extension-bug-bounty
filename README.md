@@ -77,7 +77,9 @@ See **[RULE 9 Violation Documentation](docs/RULE9_VIOLATION.md)** for the system
 - **[Evidence](evidence/README.md)** — Code traces, logs, screenshots
 - **[Fixes](fixes/README.md)** — Patches and verification
 - **[Automated Fix Script](fixes/apply-all-fixes.sh)** — One-command fix installer
-- **[RULE 9 Violation](docs/RULE9_VIOLATION.md)** — Systematic output reading failure ($100/year cost)
+- **[RULE 9 Code Fix](docs/RULE9_CODE_FIX.md)** — Code-level fix with exact line numbers ($1,000-$2,000/year prevention)
+- **[RULE 9 Violation](docs/RULE9_VIOLATION.md)** — Systematic output reading failure
+- **[RULE 22 Violation](docs/RULE22_WAIT_FALSE_VIOLATION.md)** — wait=false creates hidden terminals
 - **[Impact Assessment](docs/IMPACT.md)** — User impact, severity justification
 - **[Timeline](docs/TIMELINE.md)** — Discovery, investigation, fix timeline
 - **[Recommendations](docs/RECOMMENDATIONS.md)** — Long-term fixes for Augment team
@@ -90,8 +92,8 @@ See **[RULE 9 Violation Documentation](docs/RULE9_VIOLATION.md)** for the system
 
 **Root Cause**: `cleanupTerminal()` called BEFORE output-reading loop, deleting script capture file before it's read.
 
-**Code Location**: `extension.js` line 259373 (pretty-printed)
-
+**File Changed**: `/home/owner/.vscode/extensions/augment.vscode-augment-0.754.3/out/extension.js`
+**Line Changed**: 259373 (pretty-printed version)
 **Fix**: Move `cleanupTerminal()` to AFTER output-reading loop
 
 **Impact**: Every `launch-process` call with Script Capture (T0) returns empty `<output>` section
@@ -102,8 +104,8 @@ See **[RULE 9 Violation Documentation](docs/RULE9_VIOLATION.md)** for the system
 
 **Root Cause**: 100ms per-chunk timeout too aggressive for real-world data streams with delays
 
-**Code Location**: `extension.js` line 259968 (pretty-printed)
-
+**File Changed**: `/home/owner/.vscode/extensions/augment.vscode-augment-0.754.3/out/extension.js`
+**Line Changed**: 259968 (pretty-printed version)
 **Fix**: Increase timeout from `100` to `16e3` (16 seconds)
 
 **Impact**: Large outputs (build logs, test results) truncate mid-stream when chunks delayed >100ms
@@ -114,8 +116,8 @@ See **[RULE 9 Violation Documentation](docs/RULE9_VIOLATION.md)** for the system
 
 **Root Cause**: File read immediately after process exit, before `script` utility flushes final buffer
 
-**Code Location**: `extension.js` lines 259315-259385 (pretty-printed)
-
+**File Changed**: `/home/owner/.vscode/extensions/augment.vscode-augment-0.754.3/out/extension.js`
+**Lines Changed**: 259315-259385 (pretty-printed version)
 **Fix**: Add 500ms delay after completion, before reading file
 
 **Impact**: Last 1-5 lines consistently missing (exit codes, final status, END markers)
@@ -136,9 +138,11 @@ See **[RULE 9 Violation Documentation](docs/RULE9_VIOLATION.md)** for the system
 
 **Root Cause**: 100+ accumulated terminals → resource pressure → MCP client instability → spurious `cancel-tool-run` signals → `_cancelledByUser` one-way latch
 
+**File Changed**: `/home/owner/.vscode/extensions/augment.vscode-augment-0.754.3/out/extension.js`
+**Lines Changed**: 235911-235925 (RULE 9 fix in beautified version)
 **Code Path**: Lines 235772 (init), 235861 (set), 235911 (check), 270918 (trigger)
 
-**Mitigation**: RULE 22 (Terminal Hygiene) + TIMEOUT PROTOCOL (RULE 9)
+**Mitigation**: RULE 22 (Terminal Hygiene) + TIMEOUT PROTOCOL (RULE 9 code fix)
 
 **Impact**: All tool calls fail with "Cancelled by user." — user didn't cancel anything
 
