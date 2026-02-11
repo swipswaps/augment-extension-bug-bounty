@@ -108,9 +108,17 @@ The actual output is visible in the user's terminal, but the AI receives the dia
 
 ## Test Results
 
-**Tested**: 2026-02-10 17:07 (after VS Code restart at 17:06)
+### Test 1: Wrong Fix Location (2026-02-10 17:07)
 
+**Tested**: After VS Code restart at 17:06
+**Fix Location**: Line 235910-235931 (MCP Host catch block)
 **Result**: ❌ FAILED - Fix does NOT work
+
+### Test 2: Correct Fix Location (2026-02-11 07:49)
+
+**Tested**: After VS Code restart at 07:48
+**Fix Location**: Line 233312-233337 (MCP Client timeout handler)
+**Result**: ❌ FAILED - Fix STILL does NOT work
 
 **Evidence**:
 - VS Code restarted: ✅ (log directory `20260210T170621`)
@@ -155,7 +163,18 @@ Modify the Augment Agent infrastructure to:
 2. Retrieve output from extension BEFORE returning timeout error, OR
 3. Include <output> section even when timeout occurs
 
-**This requires changes to Augment's proprietary code, which I cannot modify.**
+**CRITICAL FINDING (2026-02-11 07:50):**
+
+The error message "Tool call was cancelled **due to timeout**" is NOT in extension.js.
+
+**Searched extension.js for:**
+- "cancelled due to timeout" - NOT FOUND
+- "canceled due to timeout" - NOT FOUND
+- "Tool call was cancelled" - FOUND (lines 238339, 238371, etc.) but WITHOUT "due to timeout"
+
+**The "due to timeout" suffix is added by Augment Agent infrastructure**, not the VS Code extension.
+
+**This confirms the timeout happens in Augment's proprietary AI infrastructure code, which I cannot modify.**
 
 ## Next Steps
 
