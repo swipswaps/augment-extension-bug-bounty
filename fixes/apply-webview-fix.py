@@ -1,7 +1,17 @@
 #!/usr/bin/env python3
 """
-WEBVIEW FIX - Wait for cancelToolRun to complete and return output
-Replaces line 44333 to wait for output instead of throwing immediately
+WEBVIEW FIX - CORRECTED VERSION
+Uses GS (markToolAsCompleted) instead of Qs (markToolAsError) when output exists
+
+KEY FIXES:
+1. Call GS(n, o, toolState.result) when output exists (line 44339)
+2. Only call Qs when NO output exists (line 44344)
+3. Wait for cancelToolRun to complete before checking state
+
+EVIDENCE:
+- Line 10818: GS = S("tools/markToolAsCompleted") ← SUCCESS action
+- Line 10819: Qs = S("tools/markToolAsError") ← ERROR action
+- Line 44294: Normal flow uses GS for success, Qs for error
 """
 
 import os
@@ -10,7 +20,11 @@ from datetime import datetime
 
 WEBVIEW_JS = "/home/owner/.vscode/extensions/augment.vscode-augment-0.754.3/common-webviews/assets/extension-client-context-CN64fWtK.js"
 
-print("=== APPLYING WEBVIEW FIX ===\n")
+print("=== APPLYING CORRECTED WEBVIEW FIX ===\n")
+print("CHANGES:")
+print("  - Use GS (markToolAsCompleted) when output exists")
+print("  - Use Qs (markToolAsError) only when no output")
+print("  - Wait for cancelToolRun before checking state\n")
 
 # Step 1: Backup
 timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -30,25 +44,26 @@ print("Step 3: Current code (line 44333):")
 lines = content.split('\n')
 print(f"  44333: {lines[44332][:150]}\n")
 
-# Step 4: Replace the throw with wait-and-return
-print("Step 4: Replacing throw with wait-and-return...")
+# Step 4: Replace the throw with CORRECTED wait-and-return
+print("Step 4: Replacing with CORRECTED code (GS for success, Qs for error)...")
 
 old_code = '                throw yield* w([m, m.cancelToolRun], n, o), new Error("Tool call was cancelled due to timeout")'
 
-new_code = '''                // TIMEOUT FIX: Wait for cancelToolRun to complete and get output
+new_code = '''                // TIMEOUT FIX: Wait for cancelToolRun and dispatch correct action
                 yield* w([m, m.cancelToolRun], n, o);
                 // Wait 500ms for extension to read output
                 yield* je(500);
                 // Check if we got output from the cancelled process
                 const toolState = yield* Ln.effect(n, o);
-                if (toolState.result && toolState.result.text) {
-                    // Got output - return it
+                if (toolState.result) {
+                    // Got output - use GS (markToolAsCompleted) NOT Qs
+                    yield* E(GS(n, o, toolState.result));
                     return;
                 }
-                // No output - return diagnostic message
+                // No output - use Qs (markToolAsError)
                 yield* E(Qs(n, o, {
-                    isError: !1,
-                    text: "Tool call timed out. Process was terminated. Output may have been captured before termination."
+                    isError: !0,
+                    text: "Tool call timed out. No output was captured."
                 }));
                 return;'''
 

@@ -30,16 +30,25 @@ console.log(`✓ Backups created with timestamp: ${timestamp}\n`);
 console.log('Step 2: Applying Extension Host fix (read output before kill)...');
 let extensionCode = fs.readFileSync(EXTENSION_JS, 'utf8');
 
-const oldKillCode = 'this._isLongRunningTerminal(n.terminal) ? (this._logger.debug("Sending Ctrl+C to interrupt current command in long-running terminal"), n.terminal.sendText("", !1)) : n.terminal.dispose(), n.state = "killed", n.exitCode = -1;\\n            let o = await this.hybridReadOutput(r);';
+// The code is minified on one line - match the actual pattern
+const oldKillCode = 'this._isLongRunningTerminal(n.terminal) ? (this._logger.debug("Sending Ctrl+C to interrupt current command in long-running terminal"), n.terminal.sendText("\\u0003", !1)) : n.terminal.dispose(), n.state = "killed", n.exitCode = -1;\n            let o = await this.hybridReadOutput(r);';
 
-const newKillCode = 'let o = await this.hybridReadOutput(r);\\n            n.output = o?.output ?? "";\\n            this._logger.debug(`Captured ${n.output.length} bytes of output before killing process`);\\n            this._isLongRunningTerminal(n.terminal) ? (this._logger.debug("Sending Ctrl+C after capturing output"), n.terminal.sendText("", !1)) : n.terminal.dispose(), n.state = "killed", n.exitCode = -1;';
+const newKillCode = 'let o = await this.hybridReadOutput(r);\n            n.output = o?.output ?? "";\n            this._logger.debug(`Captured ${n.output.length} bytes of output before killing process`);\n            this._isLongRunningTerminal(n.terminal) ? (this._logger.debug("Sending Ctrl+C after capturing output"), n.terminal.sendText("\\u0003", !1)) : n.terminal.dispose(), n.state = "killed", n.exitCode = -1;';
 
 if (extensionCode.includes(oldKillCode)) {
     extensionCode = extensionCode.replace(oldKillCode, newKillCode);
     fs.writeFileSync(EXTENSION_JS, extensionCode);
     console.log('✓ Extension host fix applied (line 259682)\n');
 } else {
-    console.log('⚠ Extension host code not found - may already be fixed or version mismatch\n');
+    console.log('⚠ Extension host code not found - checking if already fixed...');
+    if (extensionCode.includes('Captured') && extensionCode.includes('before killing')) {
+        console.log('✓ Extension host already has fix applied\n');
+    } else {
+        console.log('✗ Code pattern mismatch - manual inspection needed\n');
+        console.log('Expected pattern around line 259682:');
+        console.log('  sendText("\\u0003", !1)) : n.terminal.dispose(), n.state = "killed"');
+        process.exit(1);
+    }
 }
 
 // Fix 2: Webview - Wait for output before throwing
