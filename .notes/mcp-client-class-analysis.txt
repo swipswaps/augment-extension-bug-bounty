@@ -1,0 +1,144 @@
+MCP CLIENT CLASS ANALYSIS
+=========================
+Date: 2026-02-22
+Purpose: Provide precise information for surgical instrumentation
+
+ANSWERS TO USER'S QUESTIONS (from .notes/69935426-075c-8329-b732-ceb8a5e0b600_0095.txt):
+
+1. Exact absolute path of the MCP client module?
+   ANSWER: ~/.vscode/extensions/augment.vscode-augment-0.792.0/out/extension.js
+   
+   NOTE: This is a MINIFIED, BUNDLED file. The MCP client is NOT in a separate module.
+   All code is bundled into a single extension.js file.
+
+2. Exact exported symbol name?
+   ANSWER: RM (minified class name)
+   
+   EVIDENCE FROM LINE 837:
+   ```
+   var RM=class e{constructor(t,r,n=void 0,i,o,s=!1,a=0,c){
+     this._mcpAuth=t;
+     this._config=r;
+     this._onStartupError=i;
+     this._untruncatedContentManager=o;
+     this._enableUntruncatedContentStorage=s;
+     this._maxLineLengthCharacters=a;
+     this._onStatusChanged=c;
+     this._client=new Mpe({name:"augment-mcp-client",version:"1.0.0"},{capabilities:{}}),
+     this.validateConfig(r),
+     this._serverName=e.getServerName(r.name,r.type==="stdio"?r.command:r.url),
+     this._initializingPromise=this.initialize(n)
+   }
+   _client=void 0;
+   _initializingPromise;
+   _initializationStatus="initializing";
+   _closingPromise=void 0;
+   _cancelledByUser=!1;
+   ```
+
+3. Is it default export or named export?
+   ANSWER: Neither - it's a bundled variable assignment.
+   
+   The class is assigned to variable `RM` within the bundle.
+   It is NOT exported as a module - it's internal to the bundle.
+   
+   This means Module._load interception WILL NOT WORK because:
+   - There is no separate module to load
+   - Everything is already loaded in extension.js
+   - The class is instantiated directly within the bundle
+
+4. Does _cancelledByUser get defined in constructor?
+   ANSWER: YES - as a class field with default value
+   
+   EVIDENCE FROM LINE 837:
+   ```
+   _closingPromise=void 0;
+   _cancelledByUser=!1;  // <-- Initialized to false as class field
+   ```
+   
+   MUTATION POINTS FOUND:
+   
+   Line 838 (close method):
+   ```
+   close(t=!1){
+     return this._closingPromise===void 0&&(
+       this._cancelledByUser=t,  // <-- MUTATION POINT 1
+       this._closingPromise=(async()=>{...})()
+     ),
+     this._closingPromise
+   }
+   ```
+   
+   Line 838 (callTool method):
+   ```
+   if(this._cancelledByUser)return tt("Cancelled by user.");
+   ```
+
+CRITICAL FINDINGS:
+
+1. BUNDLED CODE ARCHITECTURE
+   - All code is in a single minified extension.js file
+   - No separate modules to intercept
+   - Module._load hook will NOT work
+   - Must use different instrumentation strategy
+
+2. CLASS FIELD INITIALIZATION
+   - _cancelledByUser is initialized as class field (not in constructor body)
+   - Default value: false
+   - Mutation happens in close() method when parameter t=true
+
+3. INSTRUMENTATION STRATEGY MUST CHANGE
+   
+   CURRENT APPROACH (WILL FAIL):
+   - Module._load hook to intercept class loading
+   - ❌ Won't work - class is already loaded in bundle
+   
+   CORRECT APPROACH:
+   - Global scope injection BEFORE extension.js loads
+   - Patch RM class AFTER it's defined but BEFORE instantiation
+   - Use Object.defineProperty on RM.prototype
+   - Or wrap RM constructor globally
+
+4. EXACT INSTRUMENTATION POINT
+   
+   The instrumentation must execute:
+   - AFTER line 837 (where RM class is defined)
+   - BEFORE any RM instances are created
+   - Within the same JavaScript context
+   
+   This requires:
+   - Injection at extension.js load time
+   - Global scope access to RM variable
+   - Immediate execution (not deferred)
+
+5. MUTATION DETECTION STRATEGY
+   
+   Since _cancelledByUser is a class field, we must:
+   - Define getter/setter on RM.prototype._cancelledByUser
+   - Capture stack trace in setter
+   - Log to file when value changes from false to true
+   
+   Example:
+   ```javascript
+   const originalDescriptor = Object.getOwnPropertyDescriptor(RM.prototype, '_cancelledByUser');
+   let value = false;
+   
+   Object.defineProperty(RM.prototype, '_cancelledByUser', {
+     get() { return value; },
+     set(newValue) {
+       if (!value && newValue) {
+         const stack = new Error().stack;
+         fs.appendFileSync('./augment-latch-debug.log', 
+           `[LATCH DETECTED] _cancelledByUser: false -> true\n${stack}\n`);
+       }
+       value = newValue;
+     },
+     configurable: true
+   });
+   ```
+
+CONCLUSION:
+
+The current Module._load approach is fundamentally incompatible with the bundled architecture.
+A new instrumentation strategy is required that operates on the global RM class after bundle load.
+

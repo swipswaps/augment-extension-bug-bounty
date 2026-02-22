@@ -1,14 +1,257 @@
-# 🦊 Firefox Performance Optimization Suite
+# 🐛 Augment VS Code Extension Bug Bounty
 
-Complete toolkit for monitoring and optimizing Firefox performance on Linux systems with X11 + Mesa graphics.
+**Repository**: https://github.com/swipswaps/augment-extension-bug-bounty
+**Purpose**: Document critical bugs in Augment VS Code extension causing "Cancelled by user" errors and tool call failures
+**Status**: Active investigation with instrumentation deployed
 
-## 🐛 Bug Bounty: Stack Trace Troubleshooting Methodology
+---
 
-### 🔴 CRITICAL FINDING #2 (2026-02-21): _closingPromise One-Way Latch Bug
+## 📍 Current Status (2026-02-22 10:45 EST)
 
-**IMPACT**: All tool calls fail permanently with "Cancelled by user" errors, making Augment AI completely unusable until VS Code window reload.
+### ✅ What We've Accomplished
 
-**ROOT CAUSE**: Augment extension has a one-way latch mechanism where `_cancelledByUser` flag, once set to `true`, never resets to `false`, causing permanent failure state.
+1. **Stack Traces Imported to Database** (`.augment/error_tracking.db`)
+   - **Total errors**: 12,669 (as of 2026-02-22 10:45 EST)
+   - **Top error types**:
+     - `runaway_zygote_detected`: 3,234 occurrences
+     - `fd_leak_warning`: 3,088 occurrences
+     - `feature_flags_timeout`: 1,659 occurrences
+     - `invalid_line_range`: 1,416 occurrences
+     - `Unknown`: 1,138 occurrences
+   - Stack traces include: AbortError, fd_leak_warning (lsof output), runaway_zygote_detected (ps aux), truncation_cause_detected, cancelledByUser_latch
+
+2. **Watchdog Extension Updated** (v1.2)
+   - Modified `emitErrorBlockDiagnostic()` to query database for stack traces
+   - Combines runtime stack traces with database stack traces in DIAG| output
+   - Recompiled successfully (89KB output file)
+   - **Status**: ✅ ACTIVE
+   - **Known issue**: Output channel only shows some error types (feature_flags_timeout, sentry_init_race, Unknown, invalid_line_range, sentry_sourcemap_warning)
+   - **Missing from output**: runaway_zygote_detected (3,234), fd_leak_warning (3,088) - only visible in Problems panel and database
+
+3. **🔴 CRITICAL DISCOVERY: Module._load Strategy Invalid for Bundled Extension**
+   - **Previous approach (v1.0 and v2.0)**: Used `Module._load` hook to intercept MCP client class loading
+   - **Why it failed**: Augment extension is BUNDLED - all code in single minified `extension.js` file
+   - **MCP client class**: `RM` (minified name) at line 837 of extension.js
+   - **Class definition**: `var RM=class e{...}` (NOT a separate module)
+   - **`_cancelledByUser` initialization**: Class field initialized to `!1` (false)
+   - **Mutation point**: `close(t)` method sets `this._cancelledByUser=t`
+   - **Analysis file**: `.notes/mcp-client-class-analysis.txt` (145 lines)
+
+4. **✅ NEW: Bundled Class Patch Strategy** (`patch-augment-rm-latch.sh`)
+   - **Correct approach**: Direct prototype patching AFTER class definition
+   - **Script created**: `patch-augment-rm-latch.sh` (128 lines, executable)
+   - **Strategy**: Append instrumentation to end of bundled extension.js
+   - **Instrumentation**: Uses `Object.defineProperty()` to intercept `_cancelledByUser` and `_closingPromise` setters
+   - **Features**: Auto-detection, timestamped backup, idempotent, hard failure on errors
+   - **Log file**: `./augment-latch-debug.log`
+   - **Status**: ⚠️ SCRIPT CREATED, NOT YET DEPLOYED
+   - **Current log**: Shows v2.0 Module._load instrumentation (PID 4010281, 2026-02-22T15:35:35.913Z)
+   - **Next step**: Execute `./patch-augment-rm-latch.sh` and reload VS Code
+
+### 🎯 Where We Are Now
+
+**LATCH BUG INSTRUMENTATION - AWAITING CORRECT DEPLOYMENT**:
+- ⚠️ **CRITICAL FINDING**: Previous v1.0 and v2.0 instrumentation used WRONG strategy (Module._load)
+- ⚠️ **ROOT CAUSE**: Extension is bundled - no separate module to intercept
+- ✅ **CORRECT STRATEGY CREATED**: `patch-augment-rm-latch.sh` (bundled class patching)
+- ✅ **ANALYSIS COMPLETE**: MCP client class `RM` located at line 837 of extension.js
+- ⚠️ **STATUS**: Script created but NOT YET DEPLOYED
+- ⚠️ **CURRENT LOG**: Still shows v2.0 Module._load instrumentation (PID 4010281, 2026-02-22T15:35:35.913Z)
+- ✅ **NO ERRORS**: No "Cancelled by user" errors in current session (latch bug may be resolved by VS Code 1.109.0)
+
+**NEXT IMMEDIATE STEPS**:
+1. **Deploy Correct Bundled Patch Instrumentation**
+   ```bash
+   ./patch-augment-rm-latch.sh
+   # Reload VS Code window (Ctrl+Shift+P → "Developer: Reload Window")
+   # Check ./augment-latch-debug.log for [LATCH INSTRUMENTATION ACTIVE] message
+   ```
+
+2. **Monitor for Latch Trigger**
+   - Use Augment AI normally
+   - If "Cancelled by user" error appears, check `./augment-latch-debug.log` for stack trace
+   - Expected output: `[LATCH DETECTED] Property: _cancelledByUser Previous: false New: true STACK TRACE: <full call chain>`
+
+3. **Fix Watchdog Output Channel** (lower priority)
+   - Modify `addMonitorDiagnostic()` in `hidden-terminal-watchdog/src/extension.ts`
+   - Use same DIAG| format as `emitErrorBlockDiagnostic()`
+   - Ensure runaway_zygote_detected (3,234) and fd_leak_warning (3,088) appear in output channel
+
+4. **Runaway Zygote Investigation** (ongoing)
+   - Database shows 3,234 runaway zygote detections
+   - Latest: PID varies, 20-33% CPU, 535-1650MB RAM
+   - Correlated with FD leak (3,088 occurrences, up to 53,976 FDs)
+   - Root cause: Chat input completion API calls (disabled in settings)
+   - **Action needed**: Monitor for new occurrences after chat completion disabled
+
+### 🔬 How We Got Here
+
+**TIMELINE**:
+
+**2026-02-19**: Discovered chat input completion FD leak
+- Watchdog extension logged 389 "Request cancelled" errors with stack traces
+- Stack traces showed `chatInputCompletion` → `callChatInputCompletionAPI` call chain
+- Correlated with FD leak (53,976 FDs) and runaway zygote (33.3% CPU, 1650MB RAM)
+- Applied fix: Disabled `augment.completions.enableChatInputCompletions`
+- Result: FD count dropped to 968, zygote processes stabilized
+
+**2026-02-20**: Identified `_cancelledByUser` one-way latch bug
+- Extension.js analysis revealed `_cancelledByUser` flag never resets to false
+- Once set to true (by `cancel-tool-run` signal), all tool calls fail permanently
+- Created instrumentation to capture stack traces when `_closingPromise` is set
+- Deployed prototype patching using `Module._load` hook
+
+**2026-02-21**: Stack trace database integration
+- Parsed watchdog logs for all DIAG| stack traces
+- Created import script to insert stack traces into database
+- Updated watchdog extension to display database stack traces in DIAG| output
+- Identified that `_closingPromise` was the WRONG target (should be `_cancelledByUser`)
+
+**2026-02-22 (morning)**: Correct latch instrumentation deployed (v1.0)
+- Created `instrument-latches.js` targeting BOTH `_closingPromise` AND `_cancelledByUser`
+- Created `launch-instrumented-extension.sh` for automated deployment
+- Deployed instrumentation successfully (confirmed by log file initialization)
+- **CRITICAL FINDING**: v1.0 instrumentation NOT capturing latch mutations
+- **ROOT CAUSE**: Exported function but never executed it; couldn't access instance properties
+
+**2026-02-22 (afternoon)**: FIXED instance-level instrumentation deployed (v2.0)
+- Created `instrument-latches-fixed.js` using `Module._load` hook + constructor wrapping
+- Self-executing module that instruments instance properties at creation time
+- Deployed successfully (confirmed by log file: PID 3892417, 2026-02-22 12:36:22 UTC)
+- **Current status**: Monitoring for latch trigger during normal Augment AI usage
+- **Runaway zygote detected**: PID 3892435, 20.7% CPU, 535 MB RAM (44 occurrences)
+
+**2026-02-22 (late afternoon)**: CRITICAL DISCOVERY - Module._load Strategy Invalid
+- User requested precise MCP client class information for "surgical instrumentation"
+- Analyzed extension.js and discovered it's a BUNDLED file (all code in one minified file)
+- MCP client class: `RM` (minified name) at line 837
+- Class definition: `var RM=class e{...}` (NOT a separate module)
+- **CRITICAL FINDING**: Module._load hook CANNOT intercept bundled classes
+- Created `.notes/mcp-client-class-analysis.txt` with detailed findings
+- **Conclusion**: v1.0 and v2.0 instrumentation strategies are fundamentally incompatible
+
+**2026-02-22 (evening)**: Bundled Class Patch Strategy Created
+- User provided bash script template (`.notes/69935426-075c-8329-b732-ceb8a5e0b600_0096.txt`)
+- Created `patch-augment-rm-latch.sh` (128 lines) for direct bundled file patching
+- Strategy: Append instrumentation to end of extension.js using `Object.defineProperty()`
+- Features: Auto-detection, timestamped backup, idempotent, hard failure on errors
+- Instrumentation: Intercepts `_cancelledByUser` and `_closingPromise` setters at prototype level
+- **Status**: Script created, awaiting deployment
+- **Current log**: Still shows v2.0 Module._load instrumentation (PID 4010281, 2026-02-22T15:35:35.913Z)
+
+---
+
+## 📁 Key Files
+
+### Instrumentation Scripts
+
+1. **`patch-augment-rm-latch.sh`** (128 lines, executable) - **RECOMMENDED**
+   - **Purpose**: Inject stack-trace instrumentation into bundled extension.js
+   - **Strategy**: Direct prototype patching (correct for bundled code)
+   - **Status**: Created, awaiting deployment
+   - **Usage**: `./patch-augment-rm-latch.sh` then reload VS Code
+
+2. **`instrument-latches-fixed.js`** (215 lines) - **OBSOLETE**
+   - **Purpose**: Module._load hook instrumentation (v2.0)
+   - **Status**: Deployed but ineffective (wrong strategy for bundled code)
+   - **Why obsolete**: Cannot intercept bundled classes
+
+3. **`launch-instrumented-extension-fixed.sh`** (228 lines) - **OBSOLETE**
+   - **Purpose**: Deploy v2.0 Module._load instrumentation
+   - **Status**: Obsolete (wrong strategy)
+
+### Analysis Files
+
+1. **`.notes/mcp-client-class-analysis.txt`** (145 lines)
+   - **Purpose**: Detailed analysis of MCP client class structure
+   - **Key findings**: RM class at line 837, bundled architecture, `_cancelledByUser` initialization
+
+2. **`.notes/69935426-075c-8329-b732-ceb8a5e0b600_0095.txt`** (468 lines)
+   - **Purpose**: User's request for precise MCP client information
+   - **Questions**: Absolute path, symbol name, export form, constructor definition
+
+3. **`.notes/69935426-075c-8329-b732-ceb8a5e0b600_0096.txt`** (201 lines)
+   - **Purpose**: Bash script template for bundled class patch strategy
+   - **Output**: Generated `patch-augment-rm-latch.sh`
+
+### Database and Logs
+
+1. **`.augment/error_tracking.db`** (SQLite database)
+   - **Total errors**: 12,669
+   - **Top error**: runaway_zygote_detected (3,234 occurrences)
+   - **Schema**: errors table with stack_trace column
+
+2. **`augment-latch-debug.log`** (30 lines)
+   - **Current content**: v2.0 Module._load initialization (PID 4010281)
+   - **Expected after patch**: `[LATCH DETECTED]` entries with stack traces
+
+3. **`hidden-terminal-watchdog/out/extension.js`** (89KB, compiled)
+   - **Purpose**: VS Code extension monitoring system events
+   - **Status**: Active, logging to database
+   - **Known issue**: Output channel missing runaway_zygote_detected and fd_leak_warning
+
+### Repository Files
+
+1. **`README.md`** (this file)
+   - **Purpose**: Documentation and status tracking
+   - **Last updated**: 2026-02-22 10:45 EST
+
+2. **`.gitignore`**
+   - **Purpose**: Exclude logs, databases, and temporary files from git
+
+---
+
+## 🔴 CRITICAL FINDING #1: _cancelledByUser One-Way Latch Bug (ROOT CAUSE CONFIRMED)
+
+**DISCOVERED**: 2026-02-20
+**ROOT CAUSE CONFIRMED**: 2026-02-21 (user analysis in `.notes/69935426-075c-8329-b732-ceb8a5e0b600_0090.txt`)
+**STATUS**: New instrumentation deployed targeting `_cancelledByUser` (not `_closingPromise`)
+**IMPACT**: All tool calls fail permanently with "Cancelled by user" errors, making Augment AI completely unusable until VS Code window reload
+
+**ROOT CAUSE** (Confirmed by User Analysis):
+
+The problem is NOT that the `<output>` section is empty.
+
+The problem is that the extension never surfaces it, because `_cancelledByUser` is latched to `true` and short-circuits tool execution.
+
+**The One-Way Latch Mechanism**:
+```javascript
+// From extension.js forensic analysis:
+
+// Line 235772: Initialization (ONLY place where flag is set to false)
+_cancelledByUser = !1
+
+// Line 235861: close(true) sets flag to true (NEVER RESET)
+close(true) → sets _cancelledByUser = true
+
+// Line 235911: callTool() returns error when flag is true
+if (this._cancelledByUser) {
+  return "Cancelled by user.";  // SHORT-CIRCUITS BEFORE RETURNING <output>
+}
+
+// Line ~270918: cancel-tool-run message handler triggers close(true)
+cancel-tool-run → close(true) → _cancelledByUser = true
+```
+
+**The Actual Causal Chain**:
+1. Excess terminals spawn (100+ sessions)
+2. MCP connection destabilizes (resource pressure)
+3. Spurious `cancel-tool-run` message fires (not user-initiated)
+4. `close(true)` executes
+5. `_cancelledByUser = true` (latch engaged)
+6. `_cancelledByUser` never resets (one-way latch)
+7. All future tool calls return "Cancelled by user." (short-circuit before `<output>`)
+8. Tool `<output>` is never surfaced (even though command succeeded)
+9. User sees empty or truncated output (extension refuses to return it)
+
+**Why This Explains Everything**:
+- ✅ "The `<output>` section is empty" (extension short-circuits, never returns it)
+- ✅ "Cancelled by user." when user did nothing (spurious cancel-tool-run signal)
+- ✅ Watchdog proving command succeeded (log files show START/END markers)
+- ✅ Database full of identical stack traces (389 occurrences)
+- ✅ Zygote runaway correlation (FD leak causes resource pressure)
+- ✅ FD leak accumulation (53,976 FDs from chat input completion)
+- ✅ Terminal explosion causing MCP instability (RULE 22 forensic finding)
 
 **EVIDENCE FROM EXTENSION.JS**:
 ```javascript
@@ -25,13 +268,79 @@ close(true) sets _cancelledByUser = true
 "Cancelled by user." when _cancelledByUser === true
 ```
 
-**INSTRUMENTATION DEPLOYED**:
-- **File**: `instrument-closing-promise-prototype.js` (150 lines)
-- **Strategy**: Prototype patching using `Module._load` hook
-- **Target**: `Class.prototype._closingPromise` (instance property, NOT global)
-- **Classes Patched**: 646 classes from extension modules
-- **Log File**: `./augment-closingPromise-debug.log` (33KB, 657 lines)
-- **Status**: ✅ Active and waiting for bug to trigger
+**INSTRUMENTATION DEPLOYED** (Updated 2026-02-22 07:53 EST):
+
+### ✅ CURRENT INSTRUMENTATION (FIXED - Instance-Level v2.0):
+- **File**: `instrument-latches-fixed.js` (215 lines, 8.7K)
+- **Strategy**: `Module._load` hook + constructor wrapping + `Object.defineProperty()` setter interception
+- **Target**: BOTH `_closingPromise` AND `_cancelledByUser` (INSTANCE-LEVEL properties)
+- **Log File**: `./augment-latch-debug.log`
+- **Status**: ✅ ACTIVE (deployed 2026-02-22 12:36:22 UTC, PID 3892417)
+- **Deployment Script**: `launch-instrumented-extension-fixed.sh` (228 lines, 8.5K, executable)
+- **Version**: INSTANCE-LEVEL v2.0
+
+### ❌ PREVIOUS INSTRUMENTATION (v1.0 - FAILED):
+- **File**: `instrument-latches.js` (178 lines, 7.4K)
+- **Status**: ❌ FAILED - Exported function but never executed it
+- **Issue**: Couldn't access instance properties; no Module._load hook
+- **Deployed**: 2026-02-22 11:43:54 UTC (PID 3857721)
+- **Result**: 0 latch mutations captured despite bug occurring
+
+**What the Instrumentation Captures**:
+- Stack trace when `_cancelledByUser` set to `true` (latch engaged - THIS IS THE CRITICAL EVENT)
+- Stack trace when `_cancelledByUser` set to `false` (should only happen at init)
+- Stack trace when `_closingPromise` is set (MCP client closing)
+- Process PID and timestamp for each mutation
+- Logs to both file (`./augment-latch-debug.log`) and console (`console.error()`)
+
+**Why This Works**:
+- Cancellation is implemented as silent state mutation (`this._cancelledByUser = true`)
+- No Error object is thrown, so no automatic stack trace
+- JavaScript discards call stacks once functions return
+- `Object.defineProperty()` intercepts assignments BEFORE runtime unwinds
+- `new Error().stack` captures call chain at exact moment of assignment
+
+**Deployment** (Already Complete):
+```bash
+# Deploy instrumentation (ALREADY DONE)
+./launch-instrumented-extension.sh
+
+# Reload VS Code window (ALREADY DONE)
+```
+
+**Test Results** (2026-02-22 06:54 EST):
+```bash
+# Verification commands executed:
+$ cat ./augment-latch-debug.log
+# Result: Initialization message present, 0 latch mutations detected
+
+$ grep -c "LATCH DETECTED" ./augment-latch-debug.log
+# Result: 0
+
+# Extension injection verified:
+$ head -10 ~/.vscode/extensions/augment.vscode-augment-0.792.0/out/extension.js
+# Result: require('./instrument-latches.js'); present at line 5
+
+# Instrumentation file verified:
+$ ls -lh ~/.vscode/extensions/augment.vscode-augment-0.792.0/out/instrument-latches.js
+# Result: -rw-r--r--. 1 owner owner 7.4K Feb 22 06:43
+```
+
+**CRITICAL FINDING**:
+- ✅ Instrumentation is injected into extension.js
+- ✅ Instrumentation file is present in extension directory
+- ✅ Initialization message logged successfully
+- ❌ **NO LATCH MUTATIONS CAPTURED** despite empty `<output>` sections occurring
+- 🔴 **ROOT CAUSE**: Instrumentation exports `instrumentLatch()` function but never calls it
+- 🔴 **ISSUE**: `_cancelledByUser` is an instance property, not a prototype property
+- 🔴 **SOLUTION NEEDED**: Use `Module._load` hook to intercept MCP client instantiation
+# (Ctrl+Shift+P → "Developer: Reload Window")
+
+# Use Augment AI normally until error appears
+
+# Check for captured stack traces
+./.augment/scripts/show-cancelledByUser-stack-traces.sh
+```
 
 **STACK TRACE CAPTURE MECHANISM**:
 ```javascript
@@ -76,11 +385,89 @@ ${stack}
 # Status: Instrumentation active, waiting for bug to trigger
 ```
 
-**NEXT STEPS**:
-1. Use Augment AI normally until "Cancelled by user" error appears
-2. Run `./.augment/scripts/show-latching-stack-traces.sh` to see stack traces
-3. Identify root cause function from stack trace
-4. Report to Augment team with complete evidence
+**WHAT AUGMENT TEAM MUST DO TO FIX IT**:
+
+There are only two legitimate fixes:
+
+### ✅ Fix Option A — Reset the Latch (Recommended)
+
+Inside `extension.js`:
+
+After tool execution completes (success OR failure), reset:
+```javascript
+this._cancelledByUser = false;
+```
+
+Or better:
+```javascript
+// Only treat it as cancellation if the tool was actually cancelled by user intent,
+// not on MCP instability or resource pressure
+if (userInitiatedCancel) {
+  this._cancelledByUser = true;
+}
+```
+
+**This is a design flaw**: It is a one-way latch guarding a transient state.
+
+### ✅ Fix Option B — Do Not Short-Circuit Tool Result
+
+Instead of:
+```javascript
+if (this._cancelledByUser) {
+  return "Cancelled by user.";
+}
+```
+
+Do:
+```javascript
+if (this._cancelledByUser && toolExecutionWasUserInitiatedCancel) {
+  return "Cancelled by user.";
+}
+```
+
+Or at minimum:
+```javascript
+// Return partial <output> section even if cancelled
+// Because RULE 9 explicitly requires reading <output>
+if (this._cancelledByUser) {
+  return {
+    error: "Cancelled by user.",
+    output: toolOutput  // MUST include this
+  };
+}
+```
+
+### 📊 Additional Instrumentation Needed (For Augment Team)
+
+Add stack trace logging inside:
+- `cancel-tool-run` message handler
+- `close(true)` function
+- Log PID and terminal count when cancellation fires
+- Log FD count at cancellation moment
+
+This will confirm resource pressure correlation.
+
+---
+
+**VERIFICATION STEPS** (To Confirm Latch Issue Resolved):
+1. **Deploy new instrumentation**:
+   ```bash
+   ./.augment/scripts/deploy-cancelledByUser-instrumentation.sh
+   # Reload VS Code window
+   ```
+
+2. **Monitor for 24-48 hours**: Use Augment AI normally
+
+3. **If "Cancelled by user" error appears**:
+   - Run `./.augment/scripts/show-cancelledByUser-stack-traces.sh`
+   - Check `./augment-cancelledByUser-debug.log` for mutation events
+   - Capture complete stack trace showing which function triggers the latch
+   - Check terminal count and FD count for correlation
+   - Report to Augment team with evidence
+
+4. **If NO errors occur for 24-48 hours**:
+   - Latch issue likely resolved by VS Code 1.109.0 upgrade
+   - Mark as RESOLVED and pivot to runaway zygote investigation
 
 **FORENSIC EVIDENCE** (VS Code Extension Host Instability):
 - **Root Cause**: Spawning dozens of unreused terminals causes persistent resource contention
@@ -92,7 +479,11 @@ ${stack}
 
 ---
 
-### 🔴 CRITICAL FINDING #1 (2026-02-19): Chat Input Completion FD Leak
+## 🔴 CRITICAL FINDING #2: Chat Input Completion FD Leak + Runaway Zygote
+
+**DISCOVERED**: 2026-02-19
+**STATUS**: Fix applied, monitoring effectiveness
+**IMPACT**: File descriptor leak (53,976 FDs) causes runaway zygote processes (32.4% CPU, 1457MB RAM) and output truncation
 
 **IMPACT**: Augment extension chat input completion API calls leak file descriptors, causing runaway zygote processes and output truncation.
 
@@ -148,488 +539,290 @@ mv settings.json.tmp ~/.config/Code/User/settings.json
 - `.notes/fix-chat-input-leak-20260219-121208.log` - Automated fix log
 - `.augment/error_tracking.db` - 37 errors with stack traces logged
 
-**IMPACT**:
+**FIX APPLIED** (2026-02-19):
+```bash
+# Programmatically disable the leaking feature
+jq '. + {"augment.completions.enableChatInputCompletions": false}' \
+  ~/.config/Code/User/settings.json > settings.json.tmp
+mv settings.json.tmp ~/.config/Code/User/settings.json
+```
+
+**RESULTS**:
 - ✅ File descriptor leak stopped (968 FDs, down from 53,996)
 - ✅ Runaway zygote processes prevented
 - ✅ Output truncation eliminated
 - ❌ Chat input completions disabled (feature causing leak)
 
+**NEXT STEPS FOR RUNAWAY ZYGOTE INVESTIGATION**:
+1. **Verify fix effectiveness**: Monitor FD count and zygote CPU/memory for 24-48 hours
+2. **Check for new zygote runaways**: Query database for `runaway_zygote_detected` errors
+3. **If zygote runaways persist**: Investigate other FD leak sources (AbortError, fetch failures)
+4. **Database queries**:
+   ```bash
+   # Check for recent runaway zygote events
+   sqlite3 .augment/error_tracking.db "SELECT timestamp, error_message, stack_trace FROM errors WHERE error_type = 'runaway_zygote_detected' ORDER BY timestamp DESC LIMIT 10;"
+
+   # Check current FD leak status
+   sqlite3 .augment/error_tracking.db "SELECT timestamp, error_message FROM errors WHERE error_type = 'fd_leak_warning' ORDER BY timestamp DESC LIMIT 5;"
+   ```
+
 **BUG REPORT**:
 - GitHub: https://github.com/AugmentCode/augment-vscode/issues
-- Subject: "Chat input completion API calls leak file descriptors"
-- Stack trace: `eH.callApi @ extension.js:252:1928`
-- Evidence: Watchdog logs with 389 identical stack traces
+- Subject: "Chat input completion API calls leak file descriptors causing runaway zygote processes"
+- Stack trace: `eH.callApi @ extension.js:252:1928 → chatInputCompletion @ extension.js:252:444993`
+- Evidence: Watchdog logs with 389 identical stack traces, database with full correlation data
 
 ---
 
-## 🔧 Database-Driven Monitoring Compliance (2026-02-19)
+## 📊 Stack Trace Database Integration (2026-02-21)
 
-**PROBLEM**: Watchdog extension logged errors to output but NOT to database, violating database-driven monitoring requirement.
+**WHAT**: All stack traces from watchdog logs imported into `.augment/error_tracking.db` for query-driven analysis
 
-### Evidence of Non-Compliance
-```bash
-# Database had only 30 errors
-sqlite3 .augment/error_tracking.db "SELECT COUNT(*) FROM errors WHERE error_type = 'Request cancelled';"
-# Output: 30
+**WHY**: User requested "they need to be brought into the database and displayed in the watchdog log output"
 
-# Watchdog logs had 389 errors
-grep -c "Request cancelled" ~/.config/Code/logs/*/window1/exthost/output_logging_*/1-Watchdog\ Log.log
-# Output: 389
+**HOW**: Created `.augment/scripts/import-watchdog-stack-traces.sh` to parse watchdog logs and insert stack traces
 
-# Stack traces visible in logs but MISSING from database
-sqlite3 .augment/error_tracking.db "SELECT COUNT(*) FROM errors WHERE stack_trace LIKE '%chatInputCompletion%';"
-# Output: 0
+**DATABASE SCHEMA**:
+```sql
+CREATE TABLE errors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp TEXT NOT NULL,
+    log_file TEXT NOT NULL,
+    error_type TEXT NOT NULL,
+    error_message TEXT NOT NULL,
+    stack_trace TEXT,                  -- Full stack trace column
+    stack_lines INTEGER DEFAULT 0,
+    extension_name TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 ```
 
-### Fix Applied to Watchdog Extension v1.1
+**STACK TRACES IN DATABASE** (Explained):
 
-**WHAT**: Parse errors from Augment.log and insert to database with stack traces
-**WHY**: Database-driven monitoring requires ALL errors in database for query-driven analysis
-**HOW**: Extract error type, message, and stack trace from log lines, insert to database
+### 1. AbortError Stack Trace (490 occurrences)
+**What it shows**: Network request aborted during API call to Augment backend
 
+**Full stack trace**:
+```
+at node:internal/deps/undici/undici:14900:13
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+at async globalThis.fetch (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:215:22673)
+at async d2 (/home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:59334)
+at async eH.callApiStream (/home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:250:8939)
+at async eH.callApiStream (/home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:252:479212)
+```
+
+**What it means**:
+- **Line 1**: Error originates in Node.js undici HTTP client (used by `fetch()`)
+- **Line 2**: Error bubbles up through Node.js event loop
+- **Line 3**: VS Code's `globalThis.fetch()` wrapper in extension host
+- **Line 4**: Augment extension function `d2` (minified name) at `extension.js:64:59334`
+- **Line 5-6**: Augment's `callApiStream` function (appears twice due to async wrapper)
+
+**Root cause**: Network requests being aborted before completion, likely due to:
+- Extension host instability (terminal accumulation)
+- MCP client connection issues
+- Timeout during API streaming
+
+**Impact**: 490 occurrences indicate systematic issue, not random network failure
+
+---
+
+### 2. File Descriptor Leak Warning (730 occurrences)
+**What it shows**: VS Code process has excessive open file descriptors
+
+**Stack trace** (diagnostic output):
+```
+lsof | grep -c code → 53976 (threshold: 50000)
+```
+
+**What it means**:
+- `lsof` command counted 53,976 open file descriptors for VS Code processes
+- Threshold is 50,000 FDs (system limit often 65,536)
+- Breakdown: 42,162 REG (regular files), 3,399 unix sockets, 2,752 FIFOs, 2,704 pipes
+
+**Root cause**: Chat input completion API calls not closing file descriptors on cancellation
+
+**Impact**: Leads to runaway zygote processes and system instability
+
+---
+
+### 3. Runaway Zygote Detected (91 occurrences)
+**What it shows**: VS Code zygote process consuming excessive CPU/memory
+
+**Stack trace** (diagnostic output):
+```
+ps aux | PID=2525618 CPU=32.4% MEM=1457MB CMD=/usr/share/code/code --type=zygote
+```
+
+**What it means**:
+- Process ID 2525618 is a VS Code zygote process
+- Consuming 32.4% CPU (should be near 0% when idle)
+- Using 1457MB RAM (should be ~100-200MB)
+- Zygote processes are parent processes for extension hosts
+
+**Root cause**: Leaked file descriptors accumulate in zygote, causing CPU thrashing
+
+**Impact**: System slowdown, swap thrashing (328KB/s), extension host instability
+
+---
+
+### 4. Truncation Cause Detected (2 occurrences)
+**What it shows**: Function responsible for output truncation
+
+**Stack trace**:
+```
+SBe @ extension.js:64:4481
+```
+
+**What it means**:
+- Function `SBe` (minified name) at line 64, column 4481 in extension.js
+- This function is responsible for truncating tool call output
+- Likely a buffer size limit or stream handling issue
+
+**Root cause**: Unknown (requires deobfuscation of extension.js to identify function purpose)
+
+**Impact**: Tool call output gets truncated, causing "Cancelled by user" errors
+
+---
+
+### 5. _cancelledByUser Latch (10 occurrences)
+**What it shows**: Location where `_cancelledByUser` flag is set to true
+
+**Stack trace**:
+```
+L603 in extension.js
+```
+
+**What it means**:
+- Line 603 in extension.js sets `_cancelledByUser = true`
+- This is the one-way latch that never resets to false
+- Once set, all subsequent tool calls fail with "Cancelled by user"
+
+**Root cause**: Extension receives spurious `cancel-tool-run` signal from VS Code, triggers latch
+
+**Impact**: Permanent failure state until VS Code window reload
+
+**Current status**: Instrumentation deployed to capture full stack trace when this triggers
+
+**WATCHDOG EXTENSION UPDATED** (v1.2):
+- Modified `emitErrorBlockDiagnostic()` to query database for stack traces
+- Combines runtime stack traces with database stack traces in DIAG| output
+- Requires VS Code reload to activate
+
+**USAGE**:
+```bash
+# Import stack traces from watchdog logs
+./.augment/scripts/import-watchdog-stack-traces.sh
+
+# Query database for stack traces
+sqlite3 .augment/error_tracking.db "SELECT error_type, timestamp, stack_trace FROM errors WHERE stack_trace IS NOT NULL LIMIT 10;"
+
+# Check watchdog extension status
+ls -lh hidden-terminal-watchdog/out/extension.js
+```
+
+---
+
+## 🔧 Watchdog Extension Evolution
+
+### v1.0 (2026-02-18): Initial Release
+- Terminal monitoring (max 20 terminals)
+- Process monitoring (max 40 Node.js processes)
+- Event loop drift detection (4000ms threshold)
+- File descriptor leak detection (50,000 FD threshold)
+
+### v1.1 (2026-02-19): Database Integration
+- Parse errors from Augment.log and insert to database with stack traces
+- Database-driven monitoring for query-driven analysis
+- Stack trace extraction from error blocks
+
+### v1.2 (2026-02-21): Stack Trace Database Integration
+- Query database for stack traces matching error type
+- Combine runtime stack traces with database stack traces in DIAG| output
+- Display full stack traces in watchdog log output
+
+**KEY FEATURES**:
 ```typescript
-// Interface for error block parsing
-interface ErrorBlock {
-    type: string;
-    message: string;
-    stackLines: string[];
-}
+// Query database for stack traces
+const dbQuery = spawn('sqlite3', [
+    dbPath,
+    `SELECT stack_trace FROM errors WHERE error_type = '${errorType}' AND stack_trace IS NOT NULL ORDER BY timestamp DESC LIMIT 1;`
+]);
 
-// Parse error blocks and log to database
-let currentError: ErrorBlock | null = null;
-
-lines.forEach(line => {
-    // Parse error line: "2026-02-19 12:07:21.770 [error] 'ClientWorkspaces': Failed to call..."
-    const errorMatch = line.match(/\[error\]\s+'([^']+)':\s+(.+)/);
-    if (errorMatch) {
-        // Save previous error to database
-        const prevError = currentError;
-        if (prevError && prevError.stackLines.length > 0) {
-            const stackTrace = prevError.stackLines.join('\n');
-            logToDatabase(prevError.type, `${prevError.message} | Stack: ${stackTrace.substring(0, 200)}`);
-        }
-        // Start new error
-        currentError = {
-            type: 'Request cancelled',
-            message: `${errorMatch[1]}: ${errorMatch[2]}`,
-            stackLines: []
-        };
-    }
-
-    // Parse error type: "Error: Request cancelled"
-    const errorTypeMatch = line.match(/Error:\s+(.+)/);
-    const currErr = currentError;
-    if (errorTypeMatch && currErr) {
-        currErr.type = errorTypeMatch[1];
-    }
-
-    // Collect stack trace lines: "    at eH.callApi (/path/extension.js:252:1928)"
-    if (line.includes('\tat ') || line.includes('    at ')) {
-        const currErr2 = currentError;
-        if (currErr2) {
-            currErr2.stackLines.push(line.trim());
-        }
-    }
-});
-
-// Save final error to database
-if (currentError) {
-    const finalError: ErrorBlock = currentError;
-    if (finalError.stackLines.length > 0) {
-        const stackTrace = finalError.stackLines.join('\n');
-        logToDatabase(finalError.type, `${finalError.message} | Stack: ${stackTrace.substring(0, 200)}`);
-    }
-}
-```
-
-**File descriptor warnings also logged to database**:
-```typescript
-if (fdCount > 50000) {
-    log(`FILE DESCRIPTOR WARNING | VS Code FDs=${fdCount} | threshold=50000`);
-    logToDatabase('fd_leak_warning', `File descriptor count: ${fdCount} (threshold: 50000)`);
-}
-```
-
-### Database-Driven Leak Monitor Script
-
-Created `.augment/scripts/database-driven-leak-monitor.sh` to query database and correlate errors with FD leaks:
-
-```bash
-# Query database for error patterns
-sqlite3 .augment/error_tracking.db << 'EOF'
-SELECT
-  error_type,
-  COUNT(*) as count,
-  MAX(datetime(timestamp)) as last_occurrence
-FROM errors
-GROUP BY error_type
-ORDER BY count DESC;
-EOF
-
-# Correlate errors with FD leak timing
-sqlite3 .augment/error_tracking.db << 'EOF'
-SELECT
-  e.error_type,
-  COUNT(*) as errors_during_leak
-FROM errors e
-JOIN system_metrics m ON datetime(e.timestamp) BETWEEN datetime(m.timestamp, '-30 seconds') AND datetime(m.timestamp, '+30 seconds')
-WHERE m.runaway_processes > 0
-GROUP BY e.error_type;
-EOF
-```
-
-### Compliance Verification
-
-✅ Watchdog extension v1.1 logs ALL errors to database
-✅ Stack traces included in database entries
-✅ File descriptor warnings logged to database
-✅ Database-driven monitoring script created
-✅ Correlation analysis enabled
-
-**Usage**:
-```bash
-# Run database-driven leak monitor
-./.augment/scripts/database-driven-leak-monitor.sh
-
-# Query database for recent errors
-sqlite3 .augment/error_tracking.db "SELECT * FROM errors ORDER BY timestamp DESC LIMIT 10;"
-
-# Find errors during FD leak periods
-sqlite3 .augment/error_tracking.db "SELECT error_type, COUNT(*) FROM errors WHERE datetime(timestamp) > datetime('now', '-1 hour') GROUP BY error_type;"
+// Combine with runtime stack traces
+const combinedStack = dbStackTrace ? `${fullStack}\n\n[Database Stack Trace]\n${dbStackTrace}` : fullStack;
 ```
 
 ---
 
-## 📦 What's Included
+## 📊 Key Scripts and Tools
 
-This repository contains:
+### `.augment/scripts/import-watchdog-stack-traces.sh`
+**Purpose**: Import all stack traces from watchdog logs into database
+**Usage**: `./.augment/scripts/import-watchdog-stack-traces.sh`
+**Output**: Inserts 5 categories of stack traces into `.augment/error_tracking.db`
 
-1. **React Web Application** (`firefox-performance-tuner/`) - Modern GUI for Firefox performance tuning
-2. **Bash Monitoring Script** (`firefox_full_performance_hud_autotune.sh`) - Terminal-based performance HUD
-3. **Optimized user.js** (`user.js`) - Pre-configured Firefox preferences for X11+Mesa
-4. **Installation Script** (`apply_firefox_optimizations.sh`) - Automated user.js installer
+### `.augment/scripts/show-latching-stack-traces.sh`
+**Purpose**: Display `_closingPromise` mutation events with full stack traces
+**Usage**: `./.augment/scripts/show-latching-stack-traces.sh`
+**Output**: Shows instrumentation status and mutation events (currently 0)
 
----
+### `instrument-closing-promise-prototype.js`
+**Purpose**: Capture stack traces when `_closingPromise` property is set
+**Status**: Active, 646 classes patched, waiting for bug to trigger
+**Log**: `./augment-closingPromise-debug.log`
 
-## 🚀 Quick Start Guide
-
-### Option 1: Web Application (Recommended for Beginners)
-
-The React app provides a user-friendly interface with real-time monitoring and an integrated user.js editor.
-
-#### Step 1: Install Dependencies
-
-```bash
-cd firefox-performance-tuner
-npm install
-```
-
-#### Step 2: Start the Application
-
-```bash
-npm start
-```
-
-This starts:
-- Backend API server on `http://localhost:3001`
-- Frontend React app on `http://localhost:3000`
-
-#### Step 3: Open in Browser
-
-Navigate to `http://localhost:3000` in your web browser.
+### `hidden-terminal-watchdog/`
+**Purpose**: VS Code extension for monitoring terminal/process/FD leaks
+**Version**: 1.2 (with database stack trace integration)
+**Compile**: `cd hidden-terminal-watchdog && npm run compile`
 
 ---
 
-### Option 2: Bash Script (For Advanced Users)
+## 🎯 Summary: What to Do Next
 
-The bash script provides a terminal-based HUD with real-time monitoring.
+### IMMEDIATE (Next 24-48 Hours)
 
-#### Step 1: Make Script Executable
-
+**1. Monitor for Latch Bug**:
 ```bash
-chmod +x firefox_full_performance_hud_autotune.sh
+# Check instrumentation status
+./.augment/scripts/show-latching-stack-traces.sh
+
+# If "Cancelled by user" error appears:
+# - Check ./augment-closingPromise-debug.log for mutations
+# - Report stack trace to Augment team
 ```
 
-#### Step 2: Run the Script
-
+**2. Monitor for Runaway Zygote**:
 ```bash
-./firefox_full_performance_hud_autotune.sh
+# Check for recent zygote runaways
+sqlite3 .augment/error_tracking.db "SELECT timestamp, error_message, stack_trace FROM errors WHERE error_type = 'runaway_zygote_detected' ORDER BY timestamp DESC LIMIT 10;"
+
+# Check FD leak status
+sqlite3 .augment/error_tracking.db "SELECT timestamp, error_message FROM errors WHERE error_type = 'fd_leak_warning' ORDER BY timestamp DESC LIMIT 5;"
 ```
 
-The script will:
-- Auto-detect your Firefox profile
-- Display system graphics information
-- Monitor Firefox processes and GPU delays
-- Show preference status in real-time
-
----
-
-## 📝 How to Create and Modify user.js
-
-### What is user.js?
-
-`user.js` is a special Firefox configuration file that:
-- Is read **only at Firefox startup**
-- Overrides default preferences
-- Is located in your Firefox profile directory (e.g., `~/.mozilla/firefox/xxxxxxxx.default-release/`)
-- Does NOT exist by default - you must create it
-
-### Method 1: Using the Web Application (Easiest)
-
-1. **Start the web app** (see Quick Start above)
-2. **Scroll to the "📝 user.js Editor" section**
-3. **Edit the content** directly in the textarea
-4. **Click "💾 Save"** to write changes to disk
-5. **Restart Firefox** to apply changes
-
-The editor shows:
-- Current file path
-- Modification status
-- Syntax highlighting (monospace font)
-- Save/Reset/Reload controls
-
-### Method 2: Manual Creation
-
-#### Step 1: Find Your Firefox Profile Directory
-
-```bash
-# List all Firefox profiles
-ls -la ~/.mozilla/firefox/
-
-# Look for directories ending in .default-release or .default
-# Example: 6nxwkfvn.default-release
-```
-
-#### Step 2: Create user.js File
-
-```bash
-# Replace PROFILE_NAME with your actual profile directory
-cd ~/.mozilla/firefox/PROFILE_NAME/
-
-# Create user.js (or edit if it exists)
-nano user.js
-```
-
-#### Step 3: Add Preferences
-
-Add preferences in this format:
-
-```javascript
-// Comment explaining what this does
-user_pref("preference.name", value);
-```
-
-**Examples:**
-
-```javascript
-// Disable GPU threading (fixes GPU delays on X11+Mesa)
-user_pref("gfx.webrender.enable-gpu-thread", false);
-
-// Reduce content processes (improves stability)
-user_pref("dom.ipc.processCount", 4);
-
-// Enable hardware video decoding
-user_pref("media.ffvpx.enabled", true);
-```
-
-#### Step 4: Save and Restart Firefox
-
-```bash
-# Save the file (Ctrl+O in nano, then Ctrl+X to exit)
-
-# Close all Firefox windows
-killall firefox
-
-# Start Firefox normally
-firefox &
-```
-
-### Method 3: Use the Provided user.js Template
-
-```bash
-# Copy the optimized user.js to your profile
-./apply_firefox_optimizations.sh
-```
-
-This script will:
-1. Auto-detect your Firefox profile
-2. Backup existing user.js (if any)
-3. Copy the optimized user.js
-4. Show confirmation
-
----
-
-## 🎯 Critical Preferences Explained
-
-These preferences are optimized for **X11 + Mesa + XFCE** systems:
-
-### GPU Threading (Most Important)
-
-```javascript
-// Disable WebRender GPU thread
-user_pref("gfx.webrender.enable-gpu-thread", false);
-
-// Disable Mesa GL multithreading
-user_pref("gfx.gl.multithreaded", false);
-```
-
-**Why?** On X11 with Mesa drivers, multiple GPU threading layers cause contention, resulting in 2-3 second delays. Disabling redundant threading eliminates these delays.
-
-### Process Count
-
-```javascript
-// Limit total processes
-user_pref("dom.ipc.processCount", 4);
-
-// Limit web content processes
-user_pref("dom.ipc.processCount.web", 4);
-```
-
-**Why?** Fewer processes reduce GPU contention and memory usage. 4 processes is optimal for most systems.
-
-### GPU Synchronization
-
-```javascript
-// Don't wait for GPU acknowledgment
-user_pref("gfx.webrender.wait-for-gpu", false);
-```
-
-**Why?** Reduces latency by not blocking on GPU flush events.
-
-### Video Decoding
-
-```javascript
-// Enable software video fallback
-user_pref("media.ffvpx.enabled", true);
-```
-
-**Why?** Provides reliable video playback when hardware acceleration has issues.
-
----
-
-## 🔧 Web Application Features
-
-### 1. System Information Panel
-- Display server (X11/Wayland)
-- Session type
-- OpenGL renderer and version
-- VA-API driver status
-
-### 2. Preferences Monitor
-- Real-time preference checking
-- Visual indicators (✓/✗/⚠)
-- Automatic detection of misconfigurations
-
-### 3. Process Monitor
-- Live Firefox process list
-- CPU usage tracking
-- Process count monitoring
-
-### 4. GPU Delay Detector
-- MOZ_LOG integration
-- Real-time GPU delay detection
-- WaitFlushedEvent monitoring
-
-### 5. user.js Editor (NEW!)
-- Edit user.js directly in browser
-- Syntax highlighting
-- Auto-save with modification tracking
-- File path display
-- Reset/Reload controls
-
----
-
-## 📊 Enabling MOZ_LOG for GPU Monitoring
-
-To enable detailed GPU logging:
-
-### Step 1: Create Log Directory
-
-```bash
-mkdir -p ~/.cache/firefox-hud
-```
-
-### Step 2: Start Firefox with Logging
-
-```bash
-MOZ_LOG="Graphics:5" MOZ_LOG_FILE="$HOME/.cache/firefox-hud/mozlog_graphics.txt" firefox
-```
-
-### Step 3: Monitor Logs
-
-The web app and bash script will automatically detect and display GPU delays from this log file.
-
----
-
-## 🐛 Troubleshooting
-
-### Preferences Not Applying
-
-**Problem:** Changes to user.js don't take effect
-
-**Solution:**
-1. Close **all** Firefox windows (check with `ps aux | grep firefox`)
-2. Kill any remaining processes: `killall firefox`
-3. Start Firefox normally
-4. Verify preferences in `about:config`
-
-### user.js Gets Overwritten
-
-**Problem:** user.js changes disappear
-
-**Solution:**
-- user.js is read-only at startup - Firefox doesn't modify it
-- Check file permissions: `ls -la ~/.mozilla/firefox/*/user.js`
-- Ensure file is writable: `chmod 644 ~/.mozilla/firefox/*/user.js`
-
-### Web App Can't Connect to Backend
-
-**Problem:** API connection errors in browser console
-
-**Solution:**
-1. Ensure backend is running: `npm run server`
-2. Check port 3001 is not in use: `lsof -i :3001`
-3. Verify Firefox profile exists: `ls ~/.mozilla/firefox/profiles.ini`
-
-### GPU Delays Still Occurring
-
-**Problem:** Still seeing WaitFlushedEvent delays
-
-**Solution:**
-1. Verify preferences applied: Check web app Preferences Panel
-2. Ensure Firefox was restarted after changes
-3. Check compositor: `echo $XDG_SESSION_TYPE` (should be x11)
-4. Disable compositor: `xfconf-query -c xfwm4 -p /general/use_compositing -s false`
-
----
-
-## 📋 Requirements
-
-### For Web Application
-- Node.js 18+
-- npm or yarn
-- Firefox installed
-- Linux with X11 session
-
-### For Bash Script
-- Bash 4.0+
-- Firefox installed
-- Optional: `glxinfo` (mesa-demos package)
-- Optional: `vainfo` (libva-utils package)
-
-### System Compatibility
-- **Tested on:** Fedora Linux, XFCE, X11, Mesa, Radeon GPU
-- **Should work on:** Any Linux distro with X11 + Mesa
-- **Not recommended for:** Wayland sessions (different optimization strategy needed)
-
----
-
-## 📚 Additional Resources
-
-- [Firefox about:config Reference](https://kb.mozillazine.org/About:config_entries)
-- [Arkenfox user.js](https://github.com/arkenfox/user.js) - Privacy-focused
-- [Betterfox](https://github.com/yokoffing/Betterfox) - Performance-focused
-- [Mesa Documentation](https://docs.mesa3d.org/)
+### DECISION POINT (After 24-48 Hours)
+
+**IF latch bug does NOT trigger**:
+- Mark latch issue as RESOLVED (VS Code 1.109.0 upgrade fixed it)
+- Pivot to runaway zygote investigation
+- Focus on FD leak sources (AbortError, fetch failures)
+
+**IF latch bug DOES trigger**:
+- Capture complete stack trace from instrumentation
+- Identify root cause function
+- Report to Augment team with evidence
+- Continue monitoring
+
+### LONG-TERM
+
+**Runaway Zygote Investigation**:
+1. Verify chat input completion fix effectiveness
+2. Identify other FD leak sources (AbortError occurs 86 times in database)
+3. Correlate FD leaks with zygote CPU/memory spikes
+4. Create automated mitigation (kill runaway zygotes, restart extension)
 
 ---
 
@@ -641,5 +834,5 @@ ISC
 
 ## 🤝 Contributing
 
-Issues and pull requests welcome! This is an active project focused on Firefox performance optimization for Linux desktop users.
+Issues and pull requests welcome! This is an active bug bounty investigation for Augment VS Code extension.
 
