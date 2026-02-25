@@ -28,43 +28,63 @@ function log(msg) {
  * 1) FETCH HARDENING — PRIMARY FD LEAK FIX
  ******************************************************************************/
 
+// Track active fetch requests to detect leaks
+const activeFetches = new Map();
+let fetchCounter = 0;
+
 const originalFetch = globalThis.fetch;
 
 if (originalFetch) {
   globalThis.fetch = async function patchedFetch(url, options = {}) {
-    const controller = new AbortController();
-    const timeoutMs = 60000;
+    const fetchId = ++fetchCounter;
+    const startTime = Date.now();
 
-    if (!options.signal) {
+    // Force AbortController if not provided
+    const controller = options.signal ? null : new AbortController();
+    if (controller) {
       options.signal = controller.signal;
     }
 
-    const timer = setTimeout(() => {
-      controller.abort();
-      log("[FETCH_ABORT_TRIGGERED] Timeout enforced");
-    }, timeoutMs);
+    activeFetches.set(fetchId, { url: String(url).substring(0, 100), startTime });
 
     try {
       const res = await originalFetch(url, options);
 
-      // CRITICAL: Force body consumption to prevent socket leak
-      if (res?.body?.getReader) {
-        const reader = res.body.getReader();
-        try {
-          while (!(await reader.read()).done) {}
-        } catch (_) {}
-      } else if (res?.body?.cancel) {
-        try { await res.body.cancel(); } catch (_) {}
+      // Wrap response to track cleanup
+      if (res?.body) {
+        const originalCancel = res.body.cancel?.bind(res.body);
+        res.body.cancel = async function() {
+          activeFetches.delete(fetchId);
+          log(`[FETCH_CLEANUP] ID=${fetchId} duration=${Date.now() - startTime}ms`);
+          if (originalCancel) {
+            return await originalCancel();
+          }
+        };
       }
 
       return res;
     } catch (err) {
-      log("[FETCH_ERROR] " + err.message);
+      activeFetches.delete(fetchId);
+      log(`[FETCH_ERROR] ID=${fetchId} ${err.message}`);
       throw err;
-    } finally {
-      clearTimeout(timer);
     }
   };
+
+  // Monitor for leaked fetches
+  setInterval(() => {
+    const now = Date.now();
+    const leaked = [];
+    for (const [id, info] of activeFetches.entries()) {
+      const age = now - info.startTime;
+      if (age > 120000) { // 2 minutes
+        leaked.push(`ID=${id} age=${Math.floor(age/1000)}s url=${info.url}`);
+      }
+    }
+    if (leaked.length > 0) {
+      log(`[FETCH_LEAK_DETECTED] ${leaked.length} stale fetches: ${leaked.join('; ')}`);
+    }
+    log(`[FETCH_MONITOR] active=${activeFetches.size} total=${fetchCounter}`);
+  }, 30000);
 
   log("[FETCH_PATCH_ACTIVE]");
 }
