@@ -1,0 +1,4 @@
+START: generate-granular-event-data
+
+❌ Database not found: .notes/watchdog-troubleshooting.db
+   Run: bash .augment/scripts/consolidate-troubleshooting-database.sh

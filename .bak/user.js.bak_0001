@@ -1,0 +1,130 @@
+// ============================================================================
+// Firefox Performance & Stability user.js
+// Target: Fedora Linux + Mesa + Firefox 147+
+// Source-aligned with:
+//  - Mozilla official docs
+//  - Fedora Firefox packaging
+//  - arkenfox/user.js
+//  - ghacks-user.js
+// ============================================================================
+//
+// IMPORTANT:
+// - This file is read ONLY at Firefox startup
+// - prefs.js is regenerated automatically
+// - Do NOT edit prefs.js directly
+//
+// ============================================================================
+
+// ---------------------------------------------------------------------------
+// GRAPHICS / RENDERING
+// ---------------------------------------------------------------------------
+
+// Avoid early GL init race conditions on Mesa
+user_pref("gfx.gl.early-init", false);
+
+// Enforce WebRender (already active, this locks it)
+user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.compositor", true);
+
+// Do NOT block on GPU startup
+user_pref("gfx.webrender.wait-for-gpu", false);
+
+// GPU thread disabled for stability on Mesa
+user_pref("gfx.webrender.enable-gpu-thread", false);
+
+// Ensure acceleration path is available
+user_pref("layers.acceleration.force-enabled", true);
+
+// Explicitly disable legacy GL multithreading
+// Mesa warns if overridden incorrectly
+user_pref("gfx.gl.multithreaded", false);
+
+// X11 EGL path (Fedora default-safe)
+user_pref("gfx.x11-egl.force-enabled", true);
+
+// ---------------------------------------------------------------------------
+// MEDIA / VAAPI (HARDWARE VIDEO DECODE)
+// ---------------------------------------------------------------------------
+
+// Fedora-supported VAAPI stack
+user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("media.ffmpeg.vaapi.x11.enabled", true);
+user_pref("media.ffmpeg.vaapi-drm-display.enabled", true);
+
+// Disable software fallback codecs when VAAPI is active
+user_pref("media.ffvpx.enabled", false);
+user_pref("media.rdd-vpx.enabled", false);
+
+// ---------------------------------------------------------------------------
+// PROCESS MODEL / IPC
+// ---------------------------------------------------------------------------
+
+// Conservative but responsive process count
+user_pref("dom.ipc.processCount", 4);
+user_pref("dom.ipc.processCount.web", 4);
+
+// Do not keep idle web processes alive
+user_pref("dom.ipc.keepProcessesAlive.web", 1);
+
+// Disable speculative process prelaunch
+user_pref("dom.ipc.processPrelaunch.enabled", false);
+
+// ---------------------------------------------------------------------------
+// MEMORY / GC / RESPONSIVENESS
+// ---------------------------------------------------------------------------
+
+// Faster background wakeups
+user_pref("dom.min_background_timeout_value", 1000);
+
+// Allow background timers more budget
+user_pref("dom.timeout.background_throttling_max_budget", 5000);
+
+// Delay GC slightly for burst workloads
+user_pref("javascript.options.gc_delay", 2000);
+
+// Memory ceilings (safe on modern systems)
+user_pref("javascript.options.mem.high_water_mark", 2048);
+user_pref("javascript.options.mem.max", 4096);
+
+// ---------------------------------------------------------------------------
+// CACHE
+// ---------------------------------------------------------------------------
+
+user_pref("browser.cache.disk.enable", true);
+
+// 256 MB disk cache
+user_pref("browser.cache.disk.capacity", 262144);
+
+// Disable auto-sizing (predictable performance)
+user_pref("browser.cache.disk.smart_size.enabled", false);
+
+// ---------------------------------------------------------------------------
+// SESSION / IO
+// ---------------------------------------------------------------------------
+
+// Reduce sessionstore write frequency (ms)
+user_pref("browser.sessionstore.interval", 30000);
+
+// ---------------------------------------------------------------------------
+// TELEMETRY / REPORTING (already disabled in your profile)
+// ---------------------------------------------------------------------------
+
+user_pref("toolkit.telemetry.enabled", false);
+user_pref("toolkit.telemetry.unified", false);
+user_pref("toolkit.telemetry.archive.enabled", false);
+
+user_pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("datareporting.usage.uploadEnabled", false);
+
+// ---------------------------------------------------------------------------
+// NETWORK MICRO-OPTIMIZATIONS
+// ---------------------------------------------------------------------------
+
+// Disable speculative prefetch noise
+user_pref("network.prefetch-next", false);
+user_pref("network.dns.disablePrefetch", true);
+user_pref("network.http.speculative-parallel-limit", 0);
+
+// ---------------------------------------------------------------------------
+// END OF FILE
+// ============================================================================

@@ -1,0 +1,272 @@
+You do not patch yet.
+
+You do not reset _cancelledByUser blindly.
+
+You determine why cancelToolRun() is firing at all.
+
+🔍 What We Now Know (Concrete Evidence)
+
+From your extraction:
+
+close(t = !1) {
+    this._cancelledByUser = t;
+    ...
+}
+
+async cancelToolRun(t, r) {
+    return this.isRequestActive(t, r)
+        ? (await this.close(!0), !0)
+        : !1;
+}
+
+So:
+
+_cancelledByUser becomes true
+
+ONLY when cancelToolRun() runs
+
+AND only if isRequestActive() returns true
+
+That means:
+
+The system believes a request is actively running
+AND something is explicitly cancelling it
+
+That is not random.
+
+🚨 Why Is It Being Set to TRUE?
+
+There are only three possibilities:
+
+1️⃣ A real user cancellation event
+
+Example:
+
+UI cancel button
+
+AbortController.abort()
+
+Timeout wired to cancellation
+
+2️⃣ A background stream request being treated as a tool run
+
+Your logs show:
+
+AbortError
+undici
+remote-agents/list-stream
+~ every 60 seconds
+
+That is not a user tool run.
+
+That is a background streaming request.
+
+If that stream shares:
+
+the same request ID
+
+the same host controller
+
+or the same MCP runtime instance
+
+then isRequestActive() may return true.
+
+That is your smoking gun.
+
+🧠 The Critical Question
+
+You must inspect:
+
+isRequestActive(t, r)
+
+You need to see:
+
+What are t and r?
+
+Are background API calls using the same identifiers as tool calls?
+
+Is remote-agents/list-stream registering as an active request?
+
+🔬 What To Extract Next
+
+Have Augment print:
+
+1. When cancelToolRun() is called
+2. The arguments t and r
+3. The stack trace
+4. The active request registry
+
+Add logging around:
+
+async cancelToolRun(t, r) {
+    console.error("CANCEL TOOL RUN CALLED", {
+        t,
+        r,
+        active: this.isRequestActive(t, r),
+        stack: new Error().stack
+    });
+
+You need to see:
+
+Who calls it
+
+From where
+
+With what request ID
+
+🎯 The Likely Real Root Cause
+
+Based on your logs:
+
+remote-agents/list-stream times out
+
+undici throws AbortError
+
+global fetch wrapper triggers cancellation
+
+cancellation handler assumes it was a tool request
+
+calls cancelToolRun
+
+_cancelledByUser latch flips
+
+ALL future calls fail
+
+This means:
+
+Background infrastructure request shares cancellation pathway with user tool execution.
+
+That is a design flaw.
+
+Not a timeout issue.
+
+Not a network issue.
+
+Not a zygote issue.
+
+🧬 Why Zygotes Grow
+
+Because:
+
+MCP host repeatedly throws AbortError
+
+Tool host repeatedly transitions state
+
+Cleanup promises accumulate
+
+File descriptors not released
+
+Extension host destabilizes
+
+VS Code pre-fork zygotes balloon
+
+The zygotes are a downstream symptom.
+
+The cancellation latch is the trigger.
+
+🔧 DO NOT Do This
+
+Do NOT:
+
+this._cancelledByUser = false;
+
+in finally blocks blindly.
+
+That masks the root cause and corrupts state tracking.
+
+✅ What You Actually Need To Verify
+
+Have Augment answer these:
+
+Is remote-agents/list-stream registered as an active tool request?
+
+Does it reuse the same request registry as tool execution?
+
+Is cancelToolRun() called from a fetch abort handler?
+
+Is there a shared AbortController between background stream and tool run?
+
+🧠 The Core Hypothesis
+
+If:
+
+background_stream.abort()
+→ shared_controller.abort()
+→ cancelToolRun()
+→ close(true)
+→ _cancelledByUser = true
+
+Then the architecture incorrectly couples:
+
+Infrastructure transport
+
+Tool lifecycle
+
+That is the design flaw.
+
+🧭 What To Ask Augment Next
+
+Guide it with:
+
+Trace the full call chain that leads to cancelToolRun().
+Log every invocation with stack traces.
+Identify whether the call originated from:
+  - remote-agents/list-stream
+  - user tool invocation
+  - UI cancellation
+  - timeout handler
+Print the active request registry at time of invocation.
+
+Force it to prove:
+
+Who initiated cancellation
+
+Why isRequestActive returned true
+
+What request ID was considered active
+
+🧨 If Confirmed
+
+If background streams are sharing the same request registry:
+
+The correct architectural fix is:
+
+Separate background transport from tool lifecycle
+
+Separate AbortControllers
+
+Never route infrastructure aborts through cancelToolRun()
+
+That can be locally patched.
+
+You do NOT need to wait for the Augment team.
+
+You need clarity first.
+
+🎯 Your Move
+
+Before modifying anything:
+
+Extract:
+
+isRequestActive() implementation
+
+The request registry structure
+
+Where remote-agents/list-stream is created
+
+Where its AbortController is stored
+
+Once we see those, we can surgically decouple the systems.
+
+Not mask.
+
+Not guess.
+
+Not reset flags blindly.
+
+Now tell Augment:
+
+“Instrument cancelToolRun and isRequestActive. Show full stack trace for each invocation. Identify which subsystem triggered it.”
+
+That’s the next correct move.

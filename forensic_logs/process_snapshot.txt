@@ -1,0 +1,488 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1  38720 12484 ?        Ss   Feb18   1:01 /usr/lib/systemd/systemd --switched-root --system --deserialize=58
+root           2  0.0  0.0      0     0 ?        S    Feb18   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    Feb18   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-rcu_gp]
+root           5  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-sync_wq]
+root           6  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-kvfree_rcu_reclaim]
+root           7  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-slub_flushwq]
+root           8  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-netns]
+root          10  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/0:0H-kblockd]
+root          13  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-mm_percpu_wq]
+root          15  0.0  0.0      0     0 ?        S    Feb18   0:38 [ksoftirqd/0]
+root          16  0.0  0.0      0     0 ?        I    Feb18   7:31 [rcu_preempt]
+root          17  0.0  0.0      0     0 ?        S    Feb18   0:00 [rcu_exp_par_gp_kthread_worker/0]
+root          18  0.0  0.0      0     0 ?        S    Feb18   0:01 [rcu_exp_gp_kthread_worker]
+root          19  0.0  0.0      0     0 ?        S    Feb18   0:05 [migration/0]
+root          20  0.0  0.0      0     0 ?        S    Feb18   0:00 [idle_inject/0]
+root          21  0.0  0.0      0     0 ?        S    Feb18   0:00 [cpuhp/0]
+root          22  0.0  0.0      0     0 ?        S    Feb18   0:00 [cpuhp/1]
+root          23  0.0  0.0      0     0 ?        S    Feb18   0:00 [idle_inject/1]
+root          24  0.0  0.0      0     0 ?        S    Feb18   0:05 [migration/1]
+root          25  0.0  0.0      0     0 ?        S    Feb18   0:37 [ksoftirqd/1]
+root          28  0.0  0.0      0     0 ?        S    Feb18   0:00 [kdevtmpfs]
+root          29  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-inet_frag_wq]
+root          30  0.0  0.0      0     0 ?        I    Feb18   0:00 [rcu_tasks_kthread]
+root          31  0.0  0.0      0     0 ?        I    Feb18   0:00 [rcu_tasks_rude_kthread]
+root          32  0.0  0.0      0     0 ?        I    Feb18   0:00 [rcu_tasks_trace_kthread]
+root          33  0.0  0.0      0     0 ?        S    Feb18   0:00 [kauditd]
+root          34  0.0  0.0      0     0 ?        S    Feb18   0:00 [oom_reaper]
+root          36  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-writeback]
+root          37  0.1  0.0      0     0 ?        S    Feb18  14:10 [kcompactd0]
+root          38  0.0  0.0      0     0 ?        SN   Feb18   0:00 [ksmd]
+root          39  0.0  0.0      0     0 ?        SN   Feb18   0:00 [khugepaged]
+root          40  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-kblockd]
+root          41  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-blkcg_punt_bio]
+root          42  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-kintegrityd]
+root          43  0.0  0.0      0     0 ?        S    Feb18   0:00 [irq/9-acpi]
+root          44  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-tpm_dev_wq]
+root          45  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-ata_sff]
+root          46  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-md_bitmap]
+root          47  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-md]
+root          48  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-edac-poller]
+root          49  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-devfreq_wq]
+root          50  0.0  0.0      0     0 ?        S    Feb18   0:00 [watchdogd]
+root          52  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-quota_events_unbound]
+root          53  0.1  0.0      0     0 ?        S    Feb18  13:22 [kswapd0]
+root          54  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-cryptd]
+root          57  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-kthrotld]
+root          58  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-acpi_thermal_pm]
+root          59  0.0  0.0      0     0 ?        S    Feb18   0:00 [scsi_eh_0]
+root          60  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-scsi_tmf_0]
+root          61  0.0  0.0      0     0 ?        S    Feb18   0:00 [scsi_eh_1]
+root          62  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-scsi_tmf_1]
+root          64  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-dm_bufio_cache]
+root          65  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-mld]
+root          66  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-ipv6_addrconf]
+root          68  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-kstrp]
+root          78  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/u9:0]
+root         151  0.0  0.0      0     0 ?        I<   Feb18   0:34 [kworker/0:1H-kblockd]
+root         339  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/1:2H-kblockd]
+root         342  0.0  0.0      0     0 ?        S    Feb18   0:00 [scsi_eh_2]
+root         343  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-scsi_tmf_2]
+root         373  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-worker]
+root         374  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-delalloc]
+root         375  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-flush_delalloc]
+root         376  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-cache]
+root         377  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-fixup]
+root         378  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-endio]
+root         379  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-endio-meta]
+root         380  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-rmw]
+root         381  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-endio-write]
+root         382  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-compressed-write]
+root         383  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-freespace-write]
+root         384  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-delayed-meta]
+root         385  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-btrfs-qgroup-rescan]
+root         386  0.0  0.0      0     0 ?        S    Feb18   0:00 [btrfs-cleaner]
+root         387  0.0  0.0      0     0 ?        S    Feb18   3:45 [btrfs-transaction]
+root         459  0.0  0.0      0     0 ?        S    Feb18   0:00 [psimon]
+root         470  0.0  0.5 248800 42992 ?        Ss   Feb18   1:18 /usr/lib/systemd/systemd-journald
+root         497  0.0  0.0  16608  5908 ?        Ss   Feb18   0:01 /usr/lib/systemd/systemd-userdbd
+root         507  0.0  0.0  39932  6592 ?        Ss   Feb18   0:00 /usr/lib/systemd/systemd-udevd
+root         510  0.0  0.0      0     0 ?        S    Feb18   0:00 [psimon]
+root         566  0.0  0.0      0     0 ?        S    Feb18   0:00 [jbd2/sda2-8]
+root         567  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-ext4-rsv-conversion]
+systemd+     602  0.0  0.0  17344  6580 ?        Ss   Feb18   8:21 /usr/lib/systemd/systemd-oomd
+systemd+     605  0.0  0.0  24776  7956 ?        Ss   Feb18   1:13 /usr/lib/systemd/systemd-resolved
+root         609  0.0  0.0  29292  2436 ?        S<sl Feb18   0:00 /usr/bin/auditd
+root         613  0.0  0.0   6736  3220 ?        S<   Feb18   0:00 /usr/sbin/sedispatch
+dbus         640  0.0  0.0   9568  3732 ?        Ss   Feb18   0:00 /usr/bin/dbus-broker-launch --scope system --audit
+dbus         643  0.0  0.0   7260  4012 ?        S    Feb18   7:28 dbus-broker --log 10 --controller 9 --machine-id 0712a260c06746349976e39912bb86a6 --max-bytes 536870912 --max-fds 4096 --max-matches 131072 --audit
+root         644  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-rpciod]
+root         645  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-xprtiod]
+avahi        649  0.0  0.0   6736  3644 ?        Ss   Feb18   1:53 avahi-daemon: running [fedora.local]
+root         654  0.0  0.0  80892  3484 ?        Ssl  Feb18   0:15 /usr/sbin/irqbalance
+chrony       655  0.0  0.0  86260  3344 ?        Ss   Feb18   0:00 /usr/sbin/chronyd -n -F 2
+root         656  0.0  0.0   2692  1876 ?        Ss   Feb18   0:00 /usr/sbin/mcelog --daemon --foreground
+polkitd      657  0.0  0.0 612092  7920 ?        Ssl  Feb18   5:20 /usr/lib/polkit-1/polkitd --no-debug --log-level=notice
+rtkit        659  0.0  0.0  21728  3240 ?        SNsl Feb18   0:04 /usr/libexec/rtkit-daemon
+root         662  0.0  0.0 534480  7064 ?        Ssl  Feb18   0:05 /usr/libexec/accounts-daemon
+root         663  0.0  0.0 531364  4400 ?        Ssl  Feb18   0:00 /usr/libexec/switcheroo-control
+root         664  0.0  0.0  17280  6688 ?        Ss   Feb18   0:07 /usr/lib/systemd/systemd-homed
+root         665  0.0  0.0  20036  7916 ?        Ss   Feb18   2:42 /usr/lib/systemd/systemd-logind
+root         666  0.0  0.0 543000  6480 ?        Ssl  Feb18   0:00 /usr/libexec/udisks2/udisksd
+root         668  0.0  0.0 541232  6456 ?        Ssl  Feb18   0:00 /usr/libexec/upowerd
+root         671  0.0  0.0  15400  3064 ?        Ssl  Feb18   3:29 /usr/bin/qemu-ga --method=virtio-serial --path=/dev/virtio-ports/org.qemu.guest_agent.0 -F/etc/qemu-ga/fsfreeze-hook
+avahi        679  0.0  0.0   6568  1076 ?        S    Feb18   0:00 avahi-daemon: chroot helper
+root         698  0.0  0.0      0     0 ?        S    Feb18   0:00 [psimon]
+root         701  0.0  0.0 553736  6176 ?        Ssl  Feb18   0:00 /usr/sbin/abrtd -d -s
+root         730  0.0  0.0 391308  5668 ?        Ssl  Feb18   0:00 /usr/bin/ModemManager
+root         731  0.0  0.0 608220  7660 ?        Ssl  Feb18   0:05 /usr/bin/python3 -sP /usr/bin/firewalld --nofork --nopid
+root         746  0.0  0.1 761288  8264 ?        Ss   Feb18   0:03 /usr/bin/abrt-dump-journal-core -D -T -f -e
+root         747  0.0  0.1 760832  8236 ?        Ss   Feb18   0:03 /usr/bin/abrt-dump-journal-oops -fxtD
+root         748  0.0  0.0 760832  8084 ?        Ss   Feb18   0:03 /usr/bin/abrt-dump-journal-xorg -fxtD
+root         791  0.0  0.1 560072  9852 ?        Ssl  Feb18   0:28 /usr/bin/NetworkManager --no-daemon
+root         802  0.0  0.0 251712  5220 ?        Ss   Feb18   0:00 /usr/bin/cupsd -l
+root         803  0.0  0.0 282388  4240 ?        Ssl  Feb18   0:04 /usr/bin/gssproxy -i
+root         808  0.0  0.0 486136  5296 ?        Ss   Feb18   0:18 php-fpm: master process (/etc/php-fpm.conf)
+root         817  0.0  0.0   8932  2608 ?        Ss   Feb18   0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root         823  0.0  0.2 1613604 17732 ?       Ssl  Feb18   4:26 /usr/bin/containerd
+root         901  0.1  0.2 1262436 16808 ?       Ssl  Feb18  17:31 /usr/local/bin/cloudflared --no-autoupdate --config /etc/cloudflared/config.yml tunnel run
+root         906  0.0  0.0 660288  7240 ?        Ssl  Feb18   0:44 /usr/sbin/rsyslogd -n
+root         909  0.0  0.0 232024  2920 ?        Ss   Feb18   1:10 /bin/bash /usr/local/sbin/usbip-autoattach.sh
+root         940  0.0  0.0  21824  4936 ?        Ss   Feb18   0:21 /usr/sbin/httpd -DFOREGROUND
+root         941  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-usbip_event]
+root         951  0.0  0.0   5116  2952 ?        Ss   Feb18   0:00 /usr/sbin/atd -f
+root         953  0.0  0.0 232572  3276 ?        Ss   Feb18   0:02 /usr/sbin/crond -n
+root         959  0.2  0.1 531260  9152 ?        Ssl  Feb18  32:47 /usr/bin/rustdesk --service
+mysql        966  0.0  0.0 1352012 4592 ?        Ssl  Feb18   0:35 /usr/libexec/mariadbd --basedir=/usr
+root        1186  0.0  0.0 1387756 6068 ?        Sl   Feb18   5:22 /opt/teamviewer/tv_bin/teamviewerd -d
+root        1196  0.0  0.4 4216880 34528 ?       Ssl  Feb18   6:21 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+root        1197  0.0  0.0      0     0 ?        I<   Feb18   0:00 [kworker/R-dio/sda3]
+apache      1265  0.0  0.0 486136  1700 ?        S    Feb18   0:00 php-fpm: pool www
+apache      1266  0.0  0.0 486136  1700 ?        S    Feb18   0:00 php-fpm: pool www
+apache      1267  0.0  0.0 486136  1700 ?        S    Feb18   0:00 php-fpm: pool www
+apache      1268  0.0  0.0 486136  1700 ?        S    Feb18   0:00 php-fpm: pool www
+apache      1269  0.0  0.0 486136  1704 ?        S    Feb18   0:00 php-fpm: pool www
+root        2277  0.0  0.0 1233596 4892 ?        Sl   Feb18   1:35 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 9f8a23c64f27cb58c2202367d9ab832926dfc930c1f453bb43c30d1eb746dd61 -address /run/containerd/containerd.sock
+root        2284  0.0  0.0 1233596 4748 ?        Sl   Feb18   1:21 /usr/bin/containerd-shim-runc-v2 -namespace moby -id e4fe48147aa4c38072c9d8787c78ae34f4ff96d6bc1b77476315d3968ebb5414 -address /run/containerd/containerd.sock
+root        2333  0.0  0.0 1233596 6976 ?        Sl   Feb18   2:49 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 781a5d3645bddf4849e3089506b4940f6a26cab100eba73b026963188f715961 -address /run/containerd/containerd.sock
+owner       2356  0.0  0.0    868   124 ?        Ss   Feb18   0:10 tini -- /docker-entrypoint.sh
+root        2363  0.2  0.0 1206428  984 ?        Ssl  Feb18  32:08 asterisk -f -vvv
+root        2370  0.0  0.1 945728 11884 ?        Ssl  Feb18   1:20 python app.py
+root        2438  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5678 -container-ip 172.18.0.2 -container-port 5678 -use-listen-fd
+root        2478  0.0  0.0 1337076 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 5678 -container-ip 172.18.0.2 -container-port 5678 -use-listen-fd
+root        2520  0.0  0.0 1419004 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5038 -container-ip 172.25.0.2 -container-port 5038 -use-listen-fd
+root        2526  0.0  0.0 1419004 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 5038 -container-ip 172.25.0.2 -container-port 5038 -use-listen-fd
+owner       2540  0.0  0.3 32875448 30408 ?      Sl   Feb18   3:01 node /usr/local/bin/n8n
+root        2544  0.0  0.0 1410808 1616 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 5060 -container-ip 172.25.0.2 -container-port 5060 -use-listen-fd
+root        2550  0.0  0.0 1410808 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 5060 -container-ip 172.25.0.2 -container-port 5060 -use-listen-fd
+root        2565  0.0  0.0 1345272 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10000 -container-ip 172.25.0.2 -container-port 10000 -use-listen-fd
+root        2571  0.0  0.0 1337076 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10000 -container-ip 172.25.0.2 -container-port 10000 -use-listen-fd
+root        2585  0.0  0.0 1337076 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10001 -container-ip 172.25.0.2 -container-port 10001 -use-listen-fd
+root        2591  0.0  0.0 1345272 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10001 -container-ip 172.25.0.2 -container-port 10001 -use-listen-fd
+root        2607  0.0  0.0 1419004 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10002 -container-ip 172.25.0.2 -container-port 10002 -use-listen-fd
+root        2616  0.0  0.0 1484540 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10002 -container-ip 172.25.0.2 -container-port 10002 -use-listen-fd
+root        2632  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10003 -container-ip 172.25.0.2 -container-port 10003 -use-listen-fd
+root        2638  0.0  0.0 1337076 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10003 -container-ip 172.25.0.2 -container-port 10003 -use-listen-fd
+root        2654  0.0  0.0 1337076 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10004 -container-ip 172.25.0.2 -container-port 10004 -use-listen-fd
+root        2661  0.0  0.0 1345272 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10004 -container-ip 172.25.0.2 -container-port 10004 -use-listen-fd
+root        2687  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10005 -container-ip 172.25.0.2 -container-port 10005 -use-listen-fd
+root        2697  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10005 -container-ip 172.25.0.2 -container-port 10005 -use-listen-fd
+root        2724  0.0  0.0 1410808 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10006 -container-ip 172.25.0.2 -container-port 10006 -use-listen-fd
+root        2729  0.0  0.0 1419004 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10006 -container-ip 172.25.0.2 -container-port 10006 -use-listen-fd
+root        2781  0.0  0.0 1345272 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10007 -container-ip 172.25.0.2 -container-port 10007 -use-listen-fd
+root        2786  0.0  0.0 1410808 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10007 -container-ip 172.25.0.2 -container-port 10007 -use-listen-fd
+root        2815  0.0  0.0 1337076 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10008 -container-ip 172.25.0.2 -container-port 10008 -use-listen-fd
+root        2822  0.0  0.0 1410808 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10008 -container-ip 172.25.0.2 -container-port 10008 -use-listen-fd
+root        2837  0.0  0.0 1337076 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10009 -container-ip 172.25.0.2 -container-port 10009 -use-listen-fd
+root        2842  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10009 -container-ip 172.25.0.2 -container-port 10009 -use-listen-fd
+root        2864  0.0  0.0 1410808 1616 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10010 -container-ip 172.25.0.2 -container-port 10010 -use-listen-fd
+root        2872  0.0  0.0 1337076 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10010 -container-ip 172.25.0.2 -container-port 10010 -use-listen-fd
+root        2890  0.0  0.0 1419004 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10011 -container-ip 172.25.0.2 -container-port 10011 -use-listen-fd
+root        2896  0.0  0.0 1337076 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10011 -container-ip 172.25.0.2 -container-port 10011 -use-listen-fd
+root        2915  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10012 -container-ip 172.25.0.2 -container-port 10012 -use-listen-fd
+root        2920  0.0  0.0 1410808 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10012 -container-ip 172.25.0.2 -container-port 10012 -use-listen-fd
+root        2938  0.0  0.0 1271540 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10013 -container-ip 172.25.0.2 -container-port 10013 -use-listen-fd
+root        2944  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10013 -container-ip 172.25.0.2 -container-port 10013 -use-listen-fd
+root        2960  0.0  0.0 1337076 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10014 -container-ip 172.25.0.2 -container-port 10014 -use-listen-fd
+root        2965  0.0  0.0 1337076 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10014 -container-ip 172.25.0.2 -container-port 10014 -use-listen-fd
+root        2981  0.0  0.0 1410808 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10015 -container-ip 172.25.0.2 -container-port 10015 -use-listen-fd
+root        2987  0.0  0.0 1345272 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10015 -container-ip 172.25.0.2 -container-port 10015 -use-listen-fd
+root        3015  0.0  0.0 1484540 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10016 -container-ip 172.25.0.2 -container-port 10016 -use-listen-fd
+root        3024  0.0  0.0 1484540 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10016 -container-ip 172.25.0.2 -container-port 10016 -use-listen-fd
+root        3054  0.0  0.0 1410808 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10017 -container-ip 172.25.0.2 -container-port 10017 -use-listen-fd
+root        3062  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10017 -container-ip 172.25.0.2 -container-port 10017 -use-listen-fd
+root        3097  0.0  0.0 1410808 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10018 -container-ip 172.25.0.2 -container-port 10018 -use-listen-fd
+root        3104  0.0  0.0 1419004 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10018 -container-ip 172.25.0.2 -container-port 10018 -use-listen-fd
+root        3134  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10019 -container-ip 172.25.0.2 -container-port 10019 -use-listen-fd
+root        3143  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10019 -container-ip 172.25.0.2 -container-port 10019 -use-listen-fd
+root        3172  0.0  0.0 1337076 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10020 -container-ip 172.25.0.2 -container-port 10020 -use-listen-fd
+root        3177  0.0  0.0 1271540 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10020 -container-ip 172.25.0.2 -container-port 10020 -use-listen-fd
+root        3193  0.0  0.0 1345272 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10021 -container-ip 172.25.0.2 -container-port 10021 -use-listen-fd
+root        3201  0.0  0.0 1410808 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10021 -container-ip 172.25.0.2 -container-port 10021 -use-listen-fd
+root        3216  0.0  0.0 1410808 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10022 -container-ip 172.25.0.2 -container-port 10022 -use-listen-fd
+root        3221  0.0  0.0 1345272 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10022 -container-ip 172.25.0.2 -container-port 10022 -use-listen-fd
+root        3242  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10023 -container-ip 172.25.0.2 -container-port 10023 -use-listen-fd
+root        3248  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10023 -container-ip 172.25.0.2 -container-port 10023 -use-listen-fd
+root        3265  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10024 -container-ip 172.25.0.2 -container-port 10024 -use-listen-fd
+root        3270  0.0  0.0 1271540 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10024 -container-ip 172.25.0.2 -container-port 10024 -use-listen-fd
+root        3290  0.0  0.0 1337076 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10025 -container-ip 172.25.0.2 -container-port 10025 -use-listen-fd
+root        3300  0.0  0.0 1337076 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10025 -container-ip 172.25.0.2 -container-port 10025 -use-listen-fd
+root        3368  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10026 -container-ip 172.25.0.2 -container-port 10026 -use-listen-fd
+root        3374  0.0  0.0 1337076 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10026 -container-ip 172.25.0.2 -container-port 10026 -use-listen-fd
+root        3401  0.0  0.0 1484540 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10027 -container-ip 172.25.0.2 -container-port 10027 -use-listen-fd
+root        3406  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10027 -container-ip 172.25.0.2 -container-port 10027 -use-listen-fd
+root        3437  0.0  0.0 1410808 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10028 -container-ip 172.25.0.2 -container-port 10028 -use-listen-fd
+root        3453  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10028 -container-ip 172.25.0.2 -container-port 10028 -use-listen-fd
+root        3472  0.0  0.0 1337076 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10029 -container-ip 172.25.0.2 -container-port 10029 -use-listen-fd
+root        3477  0.0  0.0 1419004 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10029 -container-ip 172.25.0.2 -container-port 10029 -use-listen-fd
+root        3510  0.0  0.0 1419004 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10030 -container-ip 172.25.0.2 -container-port 10030 -use-listen-fd
+root        3516  0.0  0.0 1337076 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10030 -container-ip 172.25.0.2 -container-port 10030 -use-listen-fd
+root        3535  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10031 -container-ip 172.25.0.2 -container-port 10031 -use-listen-fd
+root        3540  0.0  0.0 1345272 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10031 -container-ip 172.25.0.2 -container-port 10031 -use-listen-fd
+root        3558  0.0  0.0 1419004 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10032 -container-ip 172.25.0.2 -container-port 10032 -use-listen-fd
+root        3564  0.0  0.0 1427200 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10032 -container-ip 172.25.0.2 -container-port 10032 -use-listen-fd
+root        3584  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10033 -container-ip 172.25.0.2 -container-port 10033 -use-listen-fd
+root        3590  0.0  0.0 1337076 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10033 -container-ip 172.25.0.2 -container-port 10033 -use-listen-fd
+root        3615  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10034 -container-ip 172.25.0.2 -container-port 10034 -use-listen-fd
+root        3621  0.0  0.0 1410808 1616 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10034 -container-ip 172.25.0.2 -container-port 10034 -use-listen-fd
+root        3661  0.0  0.0 1345272 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10035 -container-ip 172.25.0.2 -container-port 10035 -use-listen-fd
+root        3667  0.0  0.0 1419004 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10035 -container-ip 172.25.0.2 -container-port 10035 -use-listen-fd
+root        3718  0.0  0.0 1345272 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10036 -container-ip 172.25.0.2 -container-port 10036 -use-listen-fd
+root        3724  0.0  0.0 1410808 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10036 -container-ip 172.25.0.2 -container-port 10036 -use-listen-fd
+root        3762  0.0  0.0 1345272 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10037 -container-ip 172.25.0.2 -container-port 10037 -use-listen-fd
+root        3769  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10037 -container-ip 172.25.0.2 -container-port 10037 -use-listen-fd
+root        3789  0.0  0.0 1410808 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10038 -container-ip 172.25.0.2 -container-port 10038 -use-listen-fd
+root        3795  0.0  0.0 1410808 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10038 -container-ip 172.25.0.2 -container-port 10038 -use-listen-fd
+root        3812  0.0  0.0 1337076 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10039 -container-ip 172.25.0.2 -container-port 10039 -use-listen-fd
+root        3818  0.0  0.0 1345272 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10039 -container-ip 172.25.0.2 -container-port 10039 -use-listen-fd
+root        3834  0.0  0.0 1337076 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10040 -container-ip 172.25.0.2 -container-port 10040 -use-listen-fd
+root        3839  0.0  0.0 1410808 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10040 -container-ip 172.25.0.2 -container-port 10040 -use-listen-fd
+root        3856  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10041 -container-ip 172.25.0.2 -container-port 10041 -use-listen-fd
+root        3861  0.0  0.0 1410808 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10041 -container-ip 172.25.0.2 -container-port 10041 -use-listen-fd
+root        3879  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10042 -container-ip 172.25.0.2 -container-port 10042 -use-listen-fd
+root        3884  0.0  0.0 1345272 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10042 -container-ip 172.25.0.2 -container-port 10042 -use-listen-fd
+root        3902  0.0  0.0 1410808 1616 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10043 -container-ip 172.25.0.2 -container-port 10043 -use-listen-fd
+root        3907  0.0  0.0 1410808 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10043 -container-ip 172.25.0.2 -container-port 10043 -use-listen-fd
+root        3925  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10044 -container-ip 172.25.0.2 -container-port 10044 -use-listen-fd
+root        3932  0.0  0.0 1336820 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10044 -container-ip 172.25.0.2 -container-port 10044 -use-listen-fd
+root        3947  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10045 -container-ip 172.25.0.2 -container-port 10045 -use-listen-fd
+root        3952  0.0  0.0 1419004 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10045 -container-ip 172.25.0.2 -container-port 10045 -use-listen-fd
+root        3982  0.0  0.0 1337076 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10046 -container-ip 172.25.0.2 -container-port 10046 -use-listen-fd
+root        3987  0.0  0.0 1271540 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10046 -container-ip 172.25.0.2 -container-port 10046 -use-listen-fd
+root        4014  0.0  0.0 1410808 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10047 -container-ip 172.25.0.2 -container-port 10047 -use-listen-fd
+root        4019  0.0  0.0 1484540 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10047 -container-ip 172.25.0.2 -container-port 10047 -use-listen-fd
+root        4037  0.0  0.0 1337076 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10048 -container-ip 172.25.0.2 -container-port 10048 -use-listen-fd
+root        4045  0.0  0.0 1410808 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10048 -container-ip 172.25.0.2 -container-port 10048 -use-listen-fd
+root        4071  0.0  0.0 1419004 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10049 -container-ip 172.25.0.2 -container-port 10049 -use-listen-fd
+root        4076  0.0  0.0 1345272 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10049 -container-ip 172.25.0.2 -container-port 10049 -use-listen-fd
+root        4121  0.0  0.0 1345272 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10050 -container-ip 172.25.0.2 -container-port 10050 -use-listen-fd
+root        4126  0.0  0.0 1419004 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10050 -container-ip 172.25.0.2 -container-port 10050 -use-listen-fd
+root        4160  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10051 -container-ip 172.25.0.2 -container-port 10051 -use-listen-fd
+root        4174  0.0  0.0 1427200 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10051 -container-ip 172.25.0.2 -container-port 10051 -use-listen-fd
+root        4192  0.0  0.0 1419004 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10052 -container-ip 172.25.0.2 -container-port 10052 -use-listen-fd
+root        4197  0.0  0.0 1410808 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10052 -container-ip 172.25.0.2 -container-port 10052 -use-listen-fd
+root        4216  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10053 -container-ip 172.25.0.2 -container-port 10053 -use-listen-fd
+root        4221  0.0  0.0 1337076 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10053 -container-ip 172.25.0.2 -container-port 10053 -use-listen-fd
+root        4238  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10054 -container-ip 172.25.0.2 -container-port 10054 -use-listen-fd
+root        4246  0.0  0.0 1419004 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10054 -container-ip 172.25.0.2 -container-port 10054 -use-listen-fd
+root        4262  0.0  0.0 1410808 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10055 -container-ip 172.25.0.2 -container-port 10055 -use-listen-fd
+root        4269  0.0  0.0 1337076 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10055 -container-ip 172.25.0.2 -container-port 10055 -use-listen-fd
+root        4284  0.0  0.0 1410808 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10056 -container-ip 172.25.0.2 -container-port 10056 -use-listen-fd
+root        4289  0.0  0.0 1419004 1616 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10056 -container-ip 172.25.0.2 -container-port 10056 -use-listen-fd
+root        4308  0.0  0.0 1410808 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10057 -container-ip 172.25.0.2 -container-port 10057 -use-listen-fd
+root        4316  0.0  0.0 1410808 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10057 -container-ip 172.25.0.2 -container-port 10057 -use-listen-fd
+root        4331  0.0  0.0 1410808 1616 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10058 -container-ip 172.25.0.2 -container-port 10058 -use-listen-fd
+root        4339  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10058 -container-ip 172.25.0.2 -container-port 10058 -use-listen-fd
+root        4354  0.0  0.0 1337076 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10059 -container-ip 172.25.0.2 -container-port 10059 -use-listen-fd
+root        4360  0.0  0.0 1492736 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10059 -container-ip 172.25.0.2 -container-port 10059 -use-listen-fd
+root        4378  0.0  0.0 1271540 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10060 -container-ip 172.25.0.2 -container-port 10060 -use-listen-fd
+root        4384  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10060 -container-ip 172.25.0.2 -container-port 10060 -use-listen-fd
+root        4422  0.0  0.0 1410808 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10061 -container-ip 172.25.0.2 -container-port 10061 -use-listen-fd
+root        4427  0.0  0.0 1345272 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10061 -container-ip 172.25.0.2 -container-port 10061 -use-listen-fd
+root        4456  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10062 -container-ip 172.25.0.2 -container-port 10062 -use-listen-fd
+root        4464  0.0  0.0 1271540 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10062 -container-ip 172.25.0.2 -container-port 10062 -use-listen-fd
+root        4488  0.0  0.0 1337076 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10063 -container-ip 172.25.0.2 -container-port 10063 -use-listen-fd
+root        4493  0.0  0.0 1271540 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10063 -container-ip 172.25.0.2 -container-port 10063 -use-listen-fd
+root        4512  0.0  0.0 1410808 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10064 -container-ip 172.25.0.2 -container-port 10064 -use-listen-fd
+root        4527  0.0  0.0 1271540 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10064 -container-ip 172.25.0.2 -container-port 10064 -use-listen-fd
+root        4565  0.0  0.0 1271540 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10065 -container-ip 172.25.0.2 -container-port 10065 -use-listen-fd
+root        4571  0.0  0.0 1345272 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10065 -container-ip 172.25.0.2 -container-port 10065 -use-listen-fd
+root        4587  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10066 -container-ip 172.25.0.2 -container-port 10066 -use-listen-fd
+root        4592  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10066 -container-ip 172.25.0.2 -container-port 10066 -use-listen-fd
+root        4610  0.0  0.0 1337076 1616 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10067 -container-ip 172.25.0.2 -container-port 10067 -use-listen-fd
+root        4616  0.0  0.0 1484540 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10067 -container-ip 172.25.0.2 -container-port 10067 -use-listen-fd
+root        4633  0.0  0.0 1271540 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10068 -container-ip 172.25.0.2 -container-port 10068 -use-listen-fd
+root        4639  0.0  0.0 1337076 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10068 -container-ip 172.25.0.2 -container-port 10068 -use-listen-fd
+root        4654  0.0  0.0 1337076 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10069 -container-ip 172.25.0.2 -container-port 10069 -use-listen-fd
+root        4659  0.0  0.0 1336820 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10069 -container-ip 172.25.0.2 -container-port 10069 -use-listen-fd
+root        4675  0.0  0.0 1410808 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10070 -container-ip 172.25.0.2 -container-port 10070 -use-listen-fd
+root        4682  0.0  0.0 1419004 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10070 -container-ip 172.25.0.2 -container-port 10070 -use-listen-fd
+root        4699  0.0  0.0 1337076 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10071 -container-ip 172.25.0.2 -container-port 10071 -use-listen-fd
+root        4705  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10071 -container-ip 172.25.0.2 -container-port 10071 -use-listen-fd
+root        4721  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10072 -container-ip 172.25.0.2 -container-port 10072 -use-listen-fd
+root        4729  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10072 -container-ip 172.25.0.2 -container-port 10072 -use-listen-fd
+root        4744  0.0  0.0 1345272 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10073 -container-ip 172.25.0.2 -container-port 10073 -use-listen-fd
+root        4751  0.0  0.0 1337076 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10073 -container-ip 172.25.0.2 -container-port 10073 -use-listen-fd
+root        4777  0.0  0.0 1337076 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10074 -container-ip 172.25.0.2 -container-port 10074 -use-listen-fd
+root        4782  0.0  0.0 1419004 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10074 -container-ip 172.25.0.2 -container-port 10074 -use-listen-fd
+root        4811  0.0  0.0 1337076 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10075 -container-ip 172.25.0.2 -container-port 10075 -use-listen-fd
+root        4817  0.0  0.0 1419004 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10075 -container-ip 172.25.0.2 -container-port 10075 -use-listen-fd
+root        4844  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10076 -container-ip 172.25.0.2 -container-port 10076 -use-listen-fd
+root        4849  0.0  0.0 1419004 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10076 -container-ip 172.25.0.2 -container-port 10076 -use-listen-fd
+root        4880  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10077 -container-ip 172.25.0.2 -container-port 10077 -use-listen-fd
+root        4885  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10077 -container-ip 172.25.0.2 -container-port 10077 -use-listen-fd
+root        4914  0.0  0.0 1271540 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10078 -container-ip 172.25.0.2 -container-port 10078 -use-listen-fd
+root        4927  0.0  0.0 1410808 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10078 -container-ip 172.25.0.2 -container-port 10078 -use-listen-fd
+root        4958  0.0  0.0 1345272 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10079 -container-ip 172.25.0.2 -container-port 10079 -use-listen-fd
+root        4964  0.0  0.0 1419004 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10079 -container-ip 172.25.0.2 -container-port 10079 -use-listen-fd
+root        4982  0.0  0.0 1345016 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10080 -container-ip 172.25.0.2 -container-port 10080 -use-listen-fd
+root        4989  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10080 -container-ip 172.25.0.2 -container-port 10080 -use-listen-fd
+root        5005  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10081 -container-ip 172.25.0.2 -container-port 10081 -use-listen-fd
+root        5011  0.0  0.0 1353468 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10081 -container-ip 172.25.0.2 -container-port 10081 -use-listen-fd
+root        5029  0.0  0.0 1410808 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10082 -container-ip 172.25.0.2 -container-port 10082 -use-listen-fd
+root        5035  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10082 -container-ip 172.25.0.2 -container-port 10082 -use-listen-fd
+root        5052  0.0  0.0 1271540 1616 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10083 -container-ip 172.25.0.2 -container-port 10083 -use-listen-fd
+root        5057  0.0  0.0 1410808 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10083 -container-ip 172.25.0.2 -container-port 10083 -use-listen-fd
+root        5074  0.0  0.0 1419004 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10084 -container-ip 172.25.0.2 -container-port 10084 -use-listen-fd
+root        5080  0.0  0.0 1345016 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10084 -container-ip 172.25.0.2 -container-port 10084 -use-listen-fd
+root        5098  0.0  0.0 1271540 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10085 -container-ip 172.25.0.2 -container-port 10085 -use-listen-fd
+root        5104  0.0  0.0 1419004 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10085 -container-ip 172.25.0.2 -container-port 10085 -use-listen-fd
+root        5121  0.0  0.0 1410808 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10086 -container-ip 172.25.0.2 -container-port 10086 -use-listen-fd
+root        5127  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10086 -container-ip 172.25.0.2 -container-port 10086 -use-listen-fd
+root        5144  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10087 -container-ip 172.25.0.2 -container-port 10087 -use-listen-fd
+root        5150  0.0  0.0 1345272 1748 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10087 -container-ip 172.25.0.2 -container-port 10087 -use-listen-fd
+root        5167  0.0  0.0 1271540 1672 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10088 -container-ip 172.25.0.2 -container-port 10088 -use-listen-fd
+root        5172  0.0  0.0 1345272 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10088 -container-ip 172.25.0.2 -container-port 10088 -use-listen-fd
+root        5200  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10089 -container-ip 172.25.0.2 -container-port 10089 -use-listen-fd
+root        5207  0.0  0.0 1337076 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10089 -container-ip 172.25.0.2 -container-port 10089 -use-listen-fd
+root        5255  0.0  0.0 1484540 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10090 -container-ip 172.25.0.2 -container-port 10090 -use-listen-fd
+root        5264  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10090 -container-ip 172.25.0.2 -container-port 10090 -use-listen-fd
+root        5290  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10091 -container-ip 172.25.0.2 -container-port 10091 -use-listen-fd
+root        5307  0.0  0.0 1353468 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10091 -container-ip 172.25.0.2 -container-port 10091 -use-listen-fd
+root        5336  0.0  0.0 1345272 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10092 -container-ip 172.25.0.2 -container-port 10092 -use-listen-fd
+root        5341  0.0  0.0 1410808 1728 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10092 -container-ip 172.25.0.2 -container-port 10092 -use-listen-fd
+root        5359  0.0  0.0 1271540 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10093 -container-ip 172.25.0.2 -container-port 10093 -use-listen-fd
+root        5365  0.0  0.0 1410808 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10093 -container-ip 172.25.0.2 -container-port 10093 -use-listen-fd
+root        5381  0.0  0.0 1271540 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10094 -container-ip 172.25.0.2 -container-port 10094 -use-listen-fd
+root        5388  0.0  0.0 1410808 1668 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10094 -container-ip 172.25.0.2 -container-port 10094 -use-listen-fd
+root        5403  0.0  0.0 1337076 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10095 -container-ip 172.25.0.2 -container-port 10095 -use-listen-fd
+root        5409  0.0  0.0 1410808 1768 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10095 -container-ip 172.25.0.2 -container-port 10095 -use-listen-fd
+root        5425  0.0  0.0 1410808 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10096 -container-ip 172.25.0.2 -container-port 10096 -use-listen-fd
+root        5433  0.0  0.0 1410808 1616 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10096 -container-ip 172.25.0.2 -container-port 10096 -use-listen-fd
+root        5447  0.0  0.0 1337076 1784 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10097 -container-ip 172.25.0.2 -container-port 10097 -use-listen-fd
+root        5453  0.0  0.0 1336820 1676 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10097 -container-ip 172.25.0.2 -container-port 10097 -use-listen-fd
+root        5469  0.0  0.0 1271540 1660 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10098 -container-ip 172.25.0.2 -container-port 10098 -use-listen-fd
+root        5476  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10098 -container-ip 172.25.0.2 -container-port 10098 -use-listen-fd
+root        5491  0.0  0.0 1410808 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10099 -container-ip 172.25.0.2 -container-port 10099 -use-listen-fd
+root        5497  0.0  0.0 1410808 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10099 -container-ip 172.25.0.2 -container-port 10099 -use-listen-fd
+root        5514  0.0  0.0 1345272 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 10100 -container-ip 172.25.0.2 -container-port 10100 -use-listen-fd
+root        5520  0.0  0.0 1353468 1744 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 10100 -container-ip 172.25.0.2 -container-port 10100 -use-listen-fd
+root        5875  0.0  0.0 1484540 1736 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8501 -container-ip 172.25.0.3 -container-port 8501 -use-listen-fd
+root        5883  0.0  0.0 1410808 1732 ?        Sl   Feb18   0:00 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8501 -container-ip 172.25.0.3 -container-port 8501 -use-listen-fd
+root        8600  0.0  0.0 379588  5196 ?        SLsl Feb18   0:00 /usr/sbin/lightdm
+owner      10725  0.0  0.1  24364  9688 ?        Ss   Feb18   0:00 /usr/lib/systemd/systemd --user
+owner      10728  0.0  0.0  17152  1060 ?        S    Feb18   0:00 (sd-pam)
+owner      10915  0.0  0.0   8972  3460 ?        Ss   Feb18   0:00 /usr/bin/dbus-broker-launch --scope user
+owner      10916  0.0  0.0   6080  3796 ?        S    Feb18   0:02 dbus-broker --log 11 --controller 10 --machine-id 0712a260c06746349976e39912bb86a6 --max-bytes 100000000000000 --max-fds 25000000000000 --max-matches 5000000000
+owner      10926  0.0  0.0 478916  5012 ?        Ssl  Feb18   0:00 /usr/libexec/imsettings-daemon
+owner      10930  0.0  0.0 539948  5060 ?        Ssl  Feb18   0:00 /usr/libexec/gvfsd
+owner      11417  0.0  0.0 380860  5180 ?        Ssl  Feb18   0:00 /usr/libexec/at-spi-bus-launcher
+owner      11424  0.0  0.0   8972  3272 ?        S    Feb18   0:00 /usr/bin/dbus-broker-launch --config-file=/usr/share/defaults/at-spi2/accessibility.conf --scope user
+owner      11425  0.0  0.0   5208  3040 ?        S    Feb18   0:03 dbus-broker --log 10 --controller 9 --machine-id 0712a260c06746349976e39912bb86a6 --max-bytes 100000000000000 --max-fds 6400000 --max-matches 5000000000
+owner      11554  0.0  0.0 163952  4216 ?        Ssl  Feb18   0:00 /usr/libexec/dconf-service
+owner      11675  0.0  0.0 392784  4996 ?        Ssl  Feb18   0:02 /usr/libexec/gvfsd-metadata
+owner      11735  0.0  0.1 1182464 9236 ?        SNl  Feb18   0:42 /usr/libexec/localsearch-3
+root       11836  0.0  0.0  92672  4956 ?        Ssl  Feb18   0:00 /usr/sbin/spice-vdagentd -x
+owner      11935  0.0  0.0 622140  6072 ?        Ssl  Feb18   0:00 /usr/libexec/gvfs-udisks2-volume-monitor
+owner      11991  0.0  0.0 531432  4256 ?        Ssl  Feb18   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+owner      12188  0.0  0.0 761660  5372 ?        Sl   Feb18   0:00 /usr/libexec/gvfsd-trash --spawner :1.5 /org/gtk/gvfs/exec_spaw/0
+owner      13785  0.0  0.1 986240  9112 ?        Ssl  Feb18   0:00 /usr/libexec/xdg-desktop-portal
+owner      13794  0.0  0.0 530836  4216 ?        Ssl  Feb18   0:00 /usr/libexec/xdg-permission-store
+owner      13801  0.0  0.0 1116480 5440 ?        Ssl  Feb18   0:01 /usr/libexec/xdg-document-portal
+root       13812  0.0  0.0   2588  1864 ?        Ss   Feb18   0:00 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+owner      13837  0.0  0.0 327156  7164 ?        S<sl Feb18   3:14 /usr/bin/pipewire
+owner      13839  0.0  0.1 938744  8740 ?        S<sl Feb18   0:00 /usr/bin/wireplumber
+owner     772500  0.0  0.0 688156  5204 ?        Sl   Feb19   0:00 /usr/libexec/gvfsd-network --spawner :1.5 /org/gtk/gvfs/exec_spaw/1
+owner     772529  0.0  0.0 616560  5396 ?        Sl   Feb19   1:32 /usr/libexec/gvfsd-dnssd --spawner :1.5 /org/gtk/gvfs/exec_spaw/2
+owner     772601  0.0  0.0 267496  5132 ?        S    Feb19   0:00 /usr/bin/python3 /usr/bin/wsdd --no-host --discovery --listen /run/user/1000/gvfsd/wsdd
+root      993428  0.0  0.0 1141840 7640 ?        Ssl  Feb19   0:08 /usr/bin/pcscd --foreground --auto-exit
+owner    1177437  0.0  0.1 334016 10072 ?        SLsl Feb19   3:05 /usr/bin/pipewire-pulse
+root     1180646  0.9  0.9 494740 75824 tty1     Ssl+ Feb19  95:49 /usr/libexec/Xorg -core -noreset :0 -seat seat0 -auth /run/lightdm/root/:0 -nolisten tcp vt1 -novtswitch
+root     1180744  0.0  0.0      0     0 ?        I<   Feb19   0:26 [kworker/1:1H-kblockd]
+root     1181328  0.0  0.0 179756  6512 ?        Sl   Feb19   0:00 lightdm --session-child 12 20
+owner    1182990  0.0  0.0 620276  4972 ?        SLl  Feb19   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+owner    1183011  0.0  0.1 980192 13116 ?        Ssl  Feb19   0:53 xfce4-session
+owner    1183266  0.0  0.0   8688   780 ?        Ss   Feb19   0:01 /usr/bin/ssh-agent /bin/sh -c exec -l /bin/bash -c "startxfce4"
+owner    1183553  0.0  0.0 168444  5180 ?        Ssl  Feb19   0:08 /usr/libexec/at-spi2-registryd --use-gnome-session
+owner    1183580  0.0  0.0 380000  2056 ?        Ss   Feb19   0:07 /usr/bin/gpg-agent --sh --daemon
+owner    1183585  0.5  0.2 1380332 23396 ?       Sl   Feb19  53:26 xfwm4
+owner    1183654  0.0  0.1 576036  9588 ?        Sl   Feb19   0:12 xfsettingsd
+owner    1183660  0.0  0.4 1247656 36224 ?       Sl   Feb19   8:24 xfce4-panel
+owner    1183666  0.0  0.1 1351748 9884 ?        Sl   Feb19   0:06 Thunar --daemon
+owner    1183695  0.0  0.2 1305116 17900 ?       Sl   Feb19   0:43 xfdesktop
+owner    1183809  0.0  0.2 1122464 17948 ?       Sl   Feb19   0:03 /usr/lib64/xfce4/panel/wrapper-2.0 /usr/lib64/xfce4/panel/plugins/libsystray.so 6 16777228 systray Status Tray Plugin Provides status notifier items (application indicators) and legacy systray items
+owner    1183810  0.0  0.1 1318348 11780 ?       Sl   Feb19   4:20 xfce4-power-manager
+owner    1183813  0.0  0.1 1251292 9324 ?        Sl   Feb19   0:01 /usr/libexec/xfce-polkit
+owner    1183834  0.0  0.1 840588 12100 ?        Sl   Feb19   0:41 xfce4-screensaver
+owner    1183837  0.0  0.1 1140132 11716 ?       Sl   Feb19   0:01 nm-applet
+owner    1183838  0.0  0.1 987532 15192 ?        Ssl  Feb19   0:01 /usr/lib64/xfce4/notifyd/xfce4-notifyd
+owner    1183874  0.0  0.0 169384  4000 ?        Ssl  Feb19   0:00 /usr/bin/spice-vdagent
+owner    1184164  0.0  0.1 641980 11768 ?        Sl   Feb19   0:01 /usr/lib64/xfce4/panel/wrapper-2.0 /usr/lib64/xfce4/panel/plugins/libactions.so 10 16777229 actions Action Buttons Log out, lock or other system actions
+owner    1185519  0.0  0.1 1344200 12464 ?       Ssl  Feb19   0:13 /usr/libexec/xdg-desktop-portal-gtk
+owner    1186233  0.1  0.3 1264088 25476 ?       Sl   Feb19  11:27 /usr/bin/xfce4-terminal
+owner    1186257  0.0  0.0 236056  2912 pts/0    Ss   Feb19   0:00 bash
+owner    1187913  0.0  0.0 537792  5008 ?        Ssl  Feb19   0:00 /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets
+owner    1331747  0.0  1.0 3106628 85480 ?       Sl   Feb24   0:36 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:47131 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {77512550-aacb-426a-a4d9-cd2a866c61aa} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 3361 tab
+owner    1332508  0.0  1.0 2970208 85048 ?       Sl   Feb24   1:05 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:47131 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {8afbb018-4408-4bb7-b943-e98d5ff0c56c} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 3362 tab
+owner    2011263  3.5  0.0 237912  8116 pts/0    S+   Feb20 307:47 htop
+owner    2011337  1.3  7.3 4681740 596912 ?      Sl   Feb20 112:07 /usr/lib64/firefox/firefox
+owner    2011357  0.0  0.0 148764  1936 ?        Sl   Feb20   0:00 /usr/lib64/firefox/crashhelper 2011337 9 /tmp/ 11
+owner    2011410  0.0  0.0 429012  6752 ?        S    Feb20   0:05 /usr/lib64/firefox/firefox -contentproc -ipcHandle 0 -signalPipe 1 -initialChannelId {8e26885d-9a7b-4c75-a117-b46d3b109ac2} -parentPid 2011337 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 1 forkserver
+owner    2011427  0.0  0.2 453188 17480 ?        Sl   Feb20   0:52 /usr/lib64/firefox/firefox -contentproc -parentBuildID 20260130105716 -prefsHandle 0:42239 -prefMapHandle 1:282991 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {f14e1dd5-ee2e-4869-993d-de6aee5ce902} -parentPid 2011337 -crashReporter 5 -crashHelper 6 -appDir /usr/lib64/firefox/browser 2 socket
+owner    2011466  0.0  0.7 2871264 62348 ?       Sl   Feb20   0:20 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:42346 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {ec4e2b51-c21a-48ed-8669-01754e885844} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 3 tab
+owner    2011477  0.0  0.2 564028 16696 ?        Sl   Feb20   0:00 /usr/lib64/firefox/firefox -contentproc -parentBuildID 20260130105716 -prefsHandle 0:42346 -prefMapHandle 1:282991 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {306bacc6-7b90-44e3-96c6-b323cbcd5032} -parentPid 2011337 -crashReporter 5 -crashHelper 6 -appDir /usr/lib64/firefox/browser 4 rdd
+owner    2011558  0.0  0.8 2848804 66920 ?       Sl   Feb20   0:12 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:36770 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {c523a45e-59f7-4d58-ab60-c26b9883381c} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 5 tab
+owner    2011586  0.2  1.4 20034896 114332 ?     Sl   Feb20  23:25 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:52037 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {087701d0-a52a-4aa6-a3e9-7347307c95f3} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 6 tab
+owner    2011649  0.0  0.2 556352 19972 ?        Sl   Feb20   0:00 /usr/lib64/firefox/firefox -contentproc -parentBuildID 20260130105716 -sandboxingKind 0 -prefsHandle 0:52127 -prefMapHandle 1:282991 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {7936f689-0f98-4335-8565-6dbed5136470} -parentPid 2011337 -crashReporter 5 -crashHelper 6 -appDir /usr/lib64/firefox/browser 7 utility
+owner    2012386  0.0  0.0 241892  3604 pts/1    Ss   Feb20   0:00 bash
+owner    2020961  0.0  0.0 328620  3736 ?        Sl   Feb20   0:00 /usr/lib64/speech-dispatcher-modules//sd_espeak-ng /etc/speech-dispatcher/modules/espeak-ng.conf
+owner    2020967  0.0  0.0 328680  3784 ?        Sl   Feb20   0:00 /usr/lib64/speech-dispatcher-modules//sd_espeak-ng /etc/speech-dispatcher/modules/
+owner    2020994  0.0  0.0 159100  3536 ?        Sl   Feb20   0:27 /usr/lib64/speech-dispatcher-modules//sd_dummy /etc/speech-dispatcher/modules/
+owner    2020997  0.0  0.0 339968  2040 ?        Ssl  Feb20   0:00 /usr/bin/speech-dispatcher --spawn --communication-method unix_socket --socket-path /run/user/1000/speech-dispatcher/speechd.sock
+owner    2883581  0.0  0.0 230952  2932 pts/1    S+   06:18   0:11 watch -n 1 ps -p 2359723 -o %cpu,%mem
+owner    2990282  1.4  3.6 4519876 296652 ?      Sl   Feb21 108:41 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:47131 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {9925bea5-53c1-444a-b8c8-3b2fb1f0049d} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 259 tab
+owner    3041317  0.0  0.0 236056  4960 pts/3    Ss   Feb21   0:01 bash
+owner    3417418  0.0  2.2 3151936 184340 ?      Sl   Feb21   3:30 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:47131 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {5302a412-944e-41a5-b432-13da09e5eb84} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 839 tab
+owner    3490899  0.6  4.6 3193428 380504 ?      Sl   10:02   1:05 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:47375 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {2186ba0f-5fc7-4a9e-b8ff-bef42affaed3} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 3373 tab
+owner    3492275  0.0  0.7 2792424 61164 ?       Sl   10:04   0:01 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:47375 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {027788dc-01e0-4469-a764-7fb8f8f66955} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 3374 tab
+owner    3492737  0.0  0.7 2792424 61048 ?       Sl   10:05   0:01 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:47375 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {0676c7fe-00d5-4261-95d6-70122f0b2d77} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 3375 tab
+root     3532797  0.0  0.0      0     0 ?        I    11:06   0:01 [kworker/u8:2-events_unbound]
+root     3545582  0.0  0.0      0     0 ?        I    11:27   0:01 [kworker/u8:4-flush-btrfs-1]
+root     3545583  0.0  0.0      0     0 ?        I    11:27   0:00 [kworker/u8:5-btrfs-endio-write]
+root     3548056  0.0  0.0      0     0 ?        I    11:31   0:00 [kworker/u8:8-btrfs-endio]
+owner    3550851  1.4  2.2 1461804344 180792 ?   SLsl 11:35   1:06 /usr/share/code/code .
+owner    3550865  0.0  0.4 34296144 37712 ?      S    11:35   0:00 /usr/share/code/code --type=zygote --no-zygote-sandbox
+owner    3550866  0.0  0.4 34296132 39844 ?      S    11:35   0:00 /usr/share/code/code --type=zygote
+owner    3550868  0.0  0.0 34296160 7672 ?       S    11:35   0:00 /usr/share/code/code --type=zygote
+owner    3550884  0.0  0.0 33576064 3332 ?       Sl   11:35   0:00 /usr/share/code/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/owner/.config/Code/Crashpad --url=appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=41983fc0-ae08-4fd5-bd3b-2a63dee0aaf8&iid=41983fc0-ae08-4fd5-bd3b-2a63dee0aaf8&sid=41983fc0-ae08-4fd5-bd3b-2a63dee0aaf8 --annotation=_companyName=Microsoft --annotation=_productName=VSCode --annotation=_version=1.109.5 --annotation=lsb-release=Fedora Linux 43 (Xfce) --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=39.3.0 --initial-client-fd=48 --shared-client-connection
+owner    3550907  0.0  0.7 34092636 58072 ?      Sl   11:35   0:02 /proc/self/exe --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --crashpad-handler-pid=3550884 --enable-crash-reporter=741f12a7-424b-40ff-8537-932730d3f209,no_channel --user-data-dir=/home/owner/.config/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,13519402196536810416,2401816708396010888,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708989122997041
+owner    3550935  8.0  3.3 1461851112 271324 ?   Sl   11:35   6:04 /usr/share/code/code --type=zygote
+owner    3550985 10.2  1.1 34648720 95276 ?      Sl   11:35   7:44 /usr/share/code/code --type=zygote --no-zygote-sandbox
+owner    3551008  0.0  1.0 1461544628 87076 ?    Sl   11:35   0:02 /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --crashpad-handler-pid=3550884 --enable-crash-reporter=741f12a7-424b-40ff-8537-932730d3f209,no_channel --user-data-dir=/home/owner/.config/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,13519402196536810416,2401816708396010888,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708991934122588
+owner    3551009  0.0  0.9 1461561580 74072 ?    Sl   11:35   0:01 /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --crashpad-handler-pid=3550884 --enable-crash-reporter=741f12a7-424b-40ff-8537-932730d3f209,no_channel --user-data-dir=/home/owner/.config/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,13519402196536810416,2401816708396010888,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708992871164437
+owner    3551010  7.4  7.3 1478380224 600012 ?   Sl   11:35   5:35 /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --crashpad-handler-pid=3550884 --enable-crash-reporter=741f12a7-424b-40ff-8537-932730d3f209,no_channel --user-data-dir=/home/owner/.config/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,13519402196536810416,2401816708396010888,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708993808206286
+owner    3551079  0.2  1.1 1461594556 89996 ?    Sl   11:35   0:09 /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --crashpad-handler-pid=3550884 --enable-crash-reporter=741f12a7-424b-40ff-8537-932730d3f209,no_channel --user-data-dir=/home/owner/.config/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,13519402196536810416,2401816708396010888,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708994745248135
+owner    3551131  0.0  0.0 236108  4348 pts/2    Ss+  11:35   0:00 /usr/bin/bash --init-file /usr/share/code/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+owner    3551136  0.0  0.0 236108  5300 pts/4    Ss+  11:35   0:00 /usr/bin/bash --init-file /usr/share/code/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+owner    3551139  0.0  0.0 236108  4232 pts/5    Ss+  11:35   0:00 /usr/bin/bash --init-file /usr/share/code/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+owner    3551173  0.0  0.0 236108  4284 pts/6    Ss+  11:35   0:00 /usr/bin/bash --init-file /usr/share/code/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+owner    3552611 34.0 16.8 1465255416 1369780 ?  Sl   11:36  25:31 /usr/share/code/code --type=zygote
+owner    3552655  0.0  0.9 1459519176 80864 ?    Sl   11:36   0:00 /usr/share/code/code /usr/share/code/resources/app/extensions/markdown-language-features/dist/serverWorkerMain --node-ipc --clientProcessId=3551010
+owner    3552731  0.0  1.1 1459519176 92884 ?    Sl   11:36   0:00 /usr/share/code/code --max-old-space-size=3072 /usr/share/code/resources/app/extensions/node_modules/typescript/lib/tsserver.js --serverMode partialSemantic --useInferredProjectPerProjectRoot --disableAutomaticTypingAcquisition --cancellationPipeName /tmp/vscode-typescript1000/9d3a7b00758b043af0dc/tscancellation-486f181f3c3a8a40835d.tmp* --locale en --noGetErrOnBackgroundUpdate --validateDefaultNpmLocation --useNodeIpc
+owner    3552732  0.0  1.1 1459519176 92912 ?    Sl   11:36   0:00 /usr/share/code/code --max-old-space-size=3072 /usr/share/code/resources/app/extensions/node_modules/typescript/lib/tsserver.js --useInferredProjectPerProjectRoot --enableTelemetry --cancellationPipeName /tmp/vscode-typescript1000/9d3a7b00758b043af0dc/tscancellation-1ef203c663ce1617fb8a.tmp* --locale en --noGetErrOnBackgroundUpdate --validateDefaultNpmLocation --useNodeIpc
+owner    3552760  0.0  1.1 1476296392 92164 ?    Sl   11:36   0:00 /usr/share/code/code /usr/share/code/resources/app/extensions/node_modules/typescript/lib/typingsInstaller.js --globalTypingsCacheLocation /home/owner/.cache/typescript/5.9 --enableTelemetry --typesMapLocation /usr/share/code/resources/app/extensions/node_modules/typescript/lib/typesMap.json --validateDefaultNpmLocation
+owner    3552771  0.0  0.9 1459519176 78660 ?    Sl   11:36   0:00 /usr/share/code/code /usr/share/code/resources/app/extensions/css-language-features/server/dist/node/cssServerMain --node-ipc --clientProcessId=3551010
+owner    3552772  0.0  1.2 1459519176 102164 ?   Sl   11:36   0:00 /usr/share/code/code /usr/share/code/resources/app/extensions/html-language-features/server/dist/node/htmlServerMain --node-ipc --clientProcessId=3551010
+owner    3552795  0.0  0.9 1476296392 74112 ?    Sl   11:36   0:00 /usr/share/code/code /usr/share/code/resources/app/extensions/json-language-features/server/dist/node/jsonServerMain --node-ipc --clientProcessId=3551010
+owner    3553773  0.0  0.1 236100  8448 pts/7    Ss   11:38   0:00 /usr/bin/bash --init-file /usr/share/code/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+owner    3553958  0.0  0.0 230392  2404 pts/7    S+   11:38   0:00 script -q -f /tmp/augment-script-b070f147494aac8c.log
+owner    3553960  0.0  0.1 236068  8332 pts/8    Ss+  11:38   0:00 bash -i
+root     3559694  0.0  0.0      0     0 ?        I    11:46   0:00 [kworker/0:1-events_power_efficient]
+root     3567923  0.0  0.0      0     0 ?        I    11:59   0:00 [kworker/u8:1-btrfs-endio-write]
+root     3583884  0.0  0.0      0     0 ?        I    12:25   0:00 [kworker/1:2-ata_sff]
+root     3592998  0.0  0.0      0     0 ?        I    12:41   0:00 [kworker/0:0-ata_sff]
+root     3593247  0.0  0.0      0     0 ?        I    12:41   0:00 [kworker/1:0-events]
+owner    3594598  0.0  0.8 2791400 67756 ?       Sl   12:44   0:00 /usr/lib64/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:47375 -prefMapHandle 1:282991 -jsInitHandle 2:223968 -parentBuildID 20260130105716 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {eb5b8b69-7a31-4d61-8d0d-a201fee91a48} -parentPid 2011337 -crashReporter 6 -crashHelper 7 -greomni /usr/lib64/firefox/omni.ja -appomni /usr/lib64/firefox/browser/omni.ja -appDir /usr/lib64/firefox/browser 3376 tab
+root     3595969  0.0  0.0      0     0 ?        I    12:46   0:00 [kworker/0:2-cgroup_release]
+root     3596441  0.0  0.0      0     0 ?        I    12:47   0:00 [kworker/1:1-ata_sff]
+root     3597109  0.0  0.0  17204  7788 ?        S    12:48   0:00 systemd-userwork: waiting...
+root     3597348  0.0  0.1  17372  8168 ?        S    12:49   0:00 systemd-userwork: waiting...
+root     3597575  0.0  0.0  17372  8092 ?        S    12:49   0:00 systemd-userwork: waiting...
+root     3597941  0.0  0.0      0     0 ?        I    12:50   0:00 [kworker/u8:0-btrfs-endio-write]
+root     3597942  0.1  0.0      0     0 ?        I    12:50   0:00 [kworker/u8:3-btrfs-endio]
+root     3597943  0.0  0.0      0     0 ?        I    12:50   0:00 [kworker/u8:6-events_unbound]
+root     3598487  0.0  0.0 230352  2396 ?        S    12:51   0:00 sleep 10
+root     3598591  0.4  0.1 246960  9888 ?        S    12:51   0:00 sudo -E XDG_RUNTIME_DIR=/run/user/1000 -u owner /usr/share/rustdesk/rustdesk --server
+owner    3598593 10.6  0.6 1157968 50712 ?       Sl   12:51   0:00 /usr/share/rustdesk/rustdesk --server
+owner    3598599 15.4  0.7 1006992 60648 ?       Sl   12:51   0:00 /usr/share/rustdesk/rustdesk --tray
+owner    3598668  0.0  0.0   3748  2364 ?        S    12:51   0:00 bwrap --unshare-all --die-with-parent --chdir / --ro-bind /usr /usr --dev /dev --ro-bind-try /etc/ld.so.cache /etc/ld.so.cache --ro-bind-try /nix/store /nix/store --tmpfs /tmp-home --tmpfs /tmp-run --clearenv --setenv HOME /tmp-home --setenv XDG_RUNTIME_DIR /tmp-run --setenv XDG_RUNTIME_DIR /run/user/1000 --symlink /usr/lib /lib --symlink /usr/lib64 /lib64 --seccomp 18 /usr/libexec/glycin-loaders/2+/glycin-image-rs --dbus-fd 17
+owner    3598670  0.0  0.0   3748  1424 ?        S    12:51   0:00 bwrap --unshare-all --die-with-parent --chdir / --ro-bind /usr /usr --dev /dev --ro-bind-try /etc/ld.so.cache /etc/ld.so.cache --ro-bind-try /nix/store /nix/store --tmpfs /tmp-home --tmpfs /tmp-run --clearenv --setenv HOME /tmp-home --setenv XDG_RUNTIME_DIR /tmp-run --setenv XDG_RUNTIME_DIR /run/user/1000 --symlink /usr/lib /lib --symlink /usr/lib64 /lib64 --seccomp 18 /usr/libexec/glycin-loaders/2+/glycin-image-rs --dbus-fd 17
+owner    3598671  0.0  0.0 211676  6396 ?        Sl   12:51   0:00 /usr/libexec/glycin-loaders/2+/glycin-image-rs --dbus-fd 17
+owner    3598684  0.0  0.0 232028  3808 pts/3    S+   12:51   0:00 bash ./.notes/forensic-driver.sh
+owner    3598690  0.0  0.0 234788  5056 pts/3    R+   12:51   0:00 ps aux
+apache   3633141  0.0  0.0  22016  1656 ?        S    Feb22   0:00 /usr/sbin/httpd -DFOREGROUND
+apache   3633142  0.0  0.0 718888  2824 ?        Sl   Feb22   1:05 /usr/sbin/httpd -DFOREGROUND
+apache   3633143  0.0  0.0 522080  2812 ?        Sl   Feb22   0:59 /usr/sbin/httpd -DFOREGROUND
+apache   3633144  0.0  0.0 522080  2812 ?        Sl   Feb22   0:59 /usr/sbin/httpd -DFOREGROUND

@@ -1,0 +1,343 @@
+
+//requests
+informed by official docs, reputable forum posts and popular github repo code, resolve the issues with code and guide the LLM (Augment Code) to request compliance 
+
+prompt with working example code where prose is in verbose code comments, not .md or text to be overlooked by the LLM
+
+
+Good. Now we’re going to fix the real problem:
+
+Augment is still entering an interactive wait state because:
+
+It is spawning shell pipelines directly in the VS Code integrated terminal.
+
+It is not executing via a deterministic streaming layer.
+
+It is relying on terminal command chaining (&&, tee, grep) instead of structured process control.
+
+It is still using shell-driven discovery instead of programmatic inspection.
+
+This causes:
+
+“Waiting for user input”
+
+Shell block on pipeline
+
+Buffered output truncation
+
+Terminal state ambiguity
+
+False cancellation perception
+
+We will eliminate all of that.
+
+Below is the next prompt you give Augment.
+
+It is enforced in code.
+All prose is inside verbose code comments so the LLM cannot ignore it.
+
+🔒 AUGMENT COMPLIANCE ENFORCEMENT PROMPT (CODE-ONLY DIRECTIVE)
+
+Give this exactly to Augment:
+
+You must stop using shell pipelines inside the VS Code integrated terminal.
+
+You must stop relying on:
+
+LOGFILE=...
+grep ...
+tee ...
+wc ...
+
+Those are interactive shell constructs and cause blocking.
+
+You must implement deterministic inspection in TypeScript using Node APIs only.
+
+Create the following files exactly as specified.
+
+// FILE: src/core/ExecBanEnforcer.ts
+//
+// PURPOSE:
+// This file programmatically prevents the extension from ever using exec() again.
+//
+// WHY:
+// exec() buffers output (200KB default in Node.js).
+// When exceeded, output is truncated.
+// When the extension host reloads, exec promises can hang.
+// This is documented in Node.js child_process docs.
+//
+// COMPLIANCE RULE:
+// If exec() appears anywhere in the codebase, the extension must refuse activation.
+//
+// IMPLEMENTATION:
+// We scan our own source files at activation time.
+// If "exec(" is detected, throw a hard error.
+//
+// This prevents regression and enforces compliance automatically.
+
+import * as fs from "fs";
+import * as path from "path";
+
+export class ExecBanEnforcer {
+
+    static enforce(workspaceRoot: string) {
+
+        const srcDir = path.join(workspaceRoot, "src");
+
+        function scan(dir: string) {
+            const entries = fs.readdirSync(dir);
+
+            for (const entry of entries) {
+                const full = path.join(dir, entry);
+                const stat = fs.statSync(full);
+
+                if (stat.isDirectory()) {
+                    scan(full);
+                } else if (full.endsWith(".ts")) {
+
+                    const content = fs.readFileSync(full, "utf8");
+
+                    if (content.includes("exec(")) {
+                        throw new Error(
+                            `COMPLIANCE FAILURE: exec() detected in ${full}`
+                        );
+                    }
+                }
+            }
+        }
+
+        scan(srcDir);
+    }
+}
+
+Now modify extension activation:
+
+// FILE: src/extension.ts
+
+// IMPORTANT:
+// Compliance enforcement runs BEFORE any command execution.
+// If this fails, extension does not activate.
+
+import { ExecBanEnforcer } from "./core/ExecBanEnforcer";
+
+export function activate(context: vscode.ExtensionContext) {
+
+    ExecBanEnforcer.enforce(context.extensionPath);
+
+    // continue activation...
+}
+
+Now eliminate shell pipelines.
+
+Instead of:
+
+grep -n "exec(" file.ts | wc -l
+
+Implement programmatic inspection:
+
+// FILE: src/core/CodeInspector.ts
+//
+// PURPOSE:
+// Replace shell-based grep pipelines with deterministic TypeScript scanning.
+// This avoids interactive terminal blocking and buffering issues.
+
+import * as fs from "fs";
+
+export class CodeInspector {
+
+    static findExecOccurrences(filePath: string): number {
+
+        const content = fs.readFileSync(filePath, "utf8");
+
+        const matches = content.match(/exec\(/g);
+
+        return matches ? matches.length : 0;
+    }
+
+    static reportExecOccurrences(filePath: string) {
+
+        const content = fs.readFileSync(filePath, "utf8");
+
+        const lines = content.split("\n");
+
+        lines.forEach((line, index) => {
+            if (line.includes("exec(")) {
+                console.log(
+                    `exec() found at line ${index + 1}: ${line.trim()}`
+                );
+            }
+        });
+    }
+}
+
+Now enforce deterministic execution of checks.
+
+Replace this shell invocation:
+
+grep -n "exec(" hidden-terminal-watchdog/src/extension.ts
+
+With:
+
+// FILE: src/commands/CheckExecUsage.ts
+//
+// PURPOSE:
+// Deterministically check for exec() usage without spawning terminal processes.
+
+import { CodeInspector } from "../core/CodeInspector";
+
+export async function checkExecUsage(filePath: string) {
+
+    const count = CodeInspector.findExecOccurrences(filePath);
+
+    console.log(`Total exec() occurrences: ${count}`);
+
+    CodeInspector.reportExecOccurrences(filePath);
+
+    if (count > 0) {
+        throw new Error("exec() usage detected. Refactor required.");
+    }
+}
+
+Now eliminate shell-driven logging pipelines.
+
+Replace:
+
+LOGFILE=... && echo ... | tee -a "$LOGFILE"
+
+With structured logging:
+
+// FILE: src/core/StructuredLogger.ts
+//
+// PURPOSE:
+// Deterministic logging without shell tee pipelines.
+// Avoids blocking and terminal buffering.
+//
+// WHY:
+// tee relies on shell and interactive pipelines.
+// That causes blocking in VS Code integrated terminals.
+
+import * as fs from "fs";
+
+export class StructuredLogger {
+
+    private static logFile = `.augment-structured-${Date.now()}.log`;
+
+    static log(message: string) {
+
+        const line = `[${new Date().toISOString()}] ${message}\n`;
+
+        process.stdout.write(line);
+        fs.appendFileSync(this.logFile, line);
+    }
+
+    static getLogFilePath(): string {
+        return this.logFile;
+    }
+}
+
+Now require Augment to prove compliance.
+
+Add this verification command:
+
+// FILE: src/commands/ComplianceReport.ts
+//
+// PURPOSE:
+// Produce deterministic compliance proof.
+// Must be run before declaring success.
+
+import * as fs from "fs";
+import { StructuredLogger } from "../core/StructuredLogger";
+
+export function generateComplianceReport() {
+
+    const logPath = StructuredLogger.getLogFilePath();
+
+    const lastLines = fs
+        .readFileSync(logPath, "utf8")
+        .split("\n")
+        .slice(-20)
+        .join("\n");
+
+    console.log("=== COMPLIANCE REPORT ===");
+    console.log("Log file:", logPath);
+    console.log("Last 20 lines:");
+    console.log(lastLines);
+}
+Why This Fixes Your “Waiting for user input” Loop
+
+Because:
+
+No shell pipelines are spawned.
+
+No interactive subshells exist.
+
+No tee.
+
+No chained &&.
+
+No terminal multiplexing.
+
+No background buffering.
+
+Everything runs in:
+
+Deterministic Node execution
+
+Synchronous file inspection
+
+Controlled spawn (only when required)
+
+Structured logging
+
+Final Directive You Give Augment
+You must:
+1. Remove all shell pipeline invocations.
+2. Remove all exec() usage.
+3. Enforce ExecBanEnforcer at activation.
+4. Replace grep/tee with CodeInspector and StructuredLogger.
+5. Produce a ComplianceReport before claiming completion.
+6. Never enter a waiting state for terminal output.
+
+If it spawns:
+
+grep
+
+tee
+
+wc
+
+chained &&
+
+interactive shell variable expansions
+
+It is non-compliant.
+
+This resolves:
+
+Hidden terminal multiplication
+
+Truncated logs
+
+Stalled execution
+
+Interactive wait states
+
+Cancellation artifact confusion
+
+Shell buffering artifacts
+
+Output ambiguity
+
+If you want, next I can:
+
+Eliminate VS Code Task API entirely
+
+Replace terminal execution with pseudoterminal control
+
+Add process group isolation
+
+Add watchdog heartbeat monitor
+
+Add extension host stall detector
+
+Tell me how deep you want to go.

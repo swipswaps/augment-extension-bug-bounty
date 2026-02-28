@@ -1,0 +1,242 @@
+Good.
+
+You now have partial proof (Promise.race + programmatic cancellation), but what you still do not have is incontrovertible sequencing proof that:
+
+timeout branch resolves
+→ cancellation fires
+→ upstream promise resolves
+→ stdout buffer exists
+→ stdout never attached to result
+
+
+Right now you have grep evidence.
+
+You do NOT yet have execution-order proof.
+
+So we escalate properly.
+
+PHASE 1 — Force Full Timeline Reconstruction (No Escape)
+
+Use this exact prompt inside Augment:
+
+You previously showed:
+
+await Promise.race([
+  toolExecution(),
+  timeoutPromise()
+])
+
+and:
+
+this._programmaticCancellation.fire("Cancelled by user")
+
+Now reconstruct the full execution path for a tool run that ends in:
+
+"Tool call was cancelled due to timeout"
+
+You must:
+
+1. Show the full function containing the Promise.race.
+2. Show the full implementation of timeoutPromise().
+3. Show the full implementation of toolExecution().
+4. Show where stdout is collected.
+5. Show where the final return value is constructed.
+6. Show where the timeout error string is emitted.
+
+Then produce a strict execution timeline:
+
+T0: function entry
+T1: process spawn
+T2: stdout listener attach
+T3: timeout scheduled
+T4: timeout fires
+T5: cancellation token triggered
+T6: Promise.race resolves
+T7: return value constructed
+T8: stdout buffer state at resolution
+
+Each timeline step must reference exact file + line numbers.
+
+No summaries.
+No explanation.
+Full function bodies only.
+
+
+If it does not emit full functions → it is evading.
+
+PHASE 2 — Force Instrumentation (Irrefutable Proof)
+
+You now require live instrumentation.
+
+Use this:
+
+Modify the tool execution function to log with timestamps:
+
+console.log("[TS]", Date.now(), "PROCESS START")
+console.log("[TS]", Date.now(), "STDOUT CHUNK")
+console.log("[TS]", Date.now(), "TIMEOUT FIRED")
+console.log("[TS]", Date.now(), "CANCEL TOKEN FIRED")
+console.log("[TS]", Date.now(), "PROMISE RESOLVED")
+
+Insert these logs directly in:
+
+- process spawn
+- stdout 'data' handler
+- timeout callback
+- cancellation token fire handler
+- immediately before returning result
+
+Show the full modified file.
+
+No partial patch.
+Entire file only.
+
+
+Then run a forced timeout tool.
+
+This gives you timestamp ordering.
+
+No speculation possible after that.
+
+PHASE 3 — Correct Patch (Actual Code Fix)
+
+Once ordering is confirmed, the fix pattern is almost certainly this:
+
+Current flawed pattern
+await Promise.race([
+  runTool(),
+  timeout()
+])
+
+Deterministic safe pattern
+const controller = new AbortController();
+
+const toolPromise = runTool(controller.signal);
+
+const timeoutId = setTimeout(() => {
+  controller.abort();
+}, TIMEOUT_MS);
+
+let result;
+try {
+  result = await toolPromise;
+} catch (err) {
+  if (controller.signal.aborted) {
+    // DO NOT resolve immediately
+    // Wait for stdout flush
+    await flushStdout();
+    result = buildTimeoutResultWithCapturedOutput();
+  } else {
+    throw err;
+  }
+} finally {
+  clearTimeout(timeoutId);
+}
+
+
+Key difference:
+
+You do not allow timeout to win a race.
+You abort cooperatively.
+You await tool completion or flush before resolving.
+
+PHASE 4 — Deterministic Controller Upgrade (Final Form)
+
+Your current upgraded run-tool.sh is close.
+
+But to be forensic-grade, add:
+
+exec 3>"$META_FILE"
+echo "STATE=NEW" >&3
+
+
+and use file descriptor locking:
+
+flock 3
+
+
+to prevent concurrent state writes.
+
+Also add explicit sync "$STDOUT_FILE" after wait.
+
+This guarantees flush ordering.
+
+WHAT YOUR LOG ALREADY PROVES
+
+You have demonstrated:
+
+stdout file exists
+
+cancellation returned instead
+
+Promise.race exists in extension
+
+programmatic cancellation exists
+
+timeout error returned upstream
+
+This is 90% of the proof.
+
+The missing 10% is ordering instrumentation.
+
+IMPORTANT: Why This Is Happening
+
+This is classic Node extension fragility:
+
+VS Code extension host is single-threaded
+
+Large diff computation blocks event loop
+
+Timeout timer scheduled
+
+Event loop resumes
+
+Timer fires immediately
+
+Cancellation token fires
+
+Promise.race resolves
+
+stdout handler may not have flushed to final buffer
+
+Upstream sees timeout
+
+Output exists but ignored
+
+This is textbook event-loop starvation + race condition.
+
+Not sabotage.
+Not intentional.
+Architectural.
+
+What You Should Do Next
+
+Do not write more documentation.
+
+Do not write more EDC wrappers.
+
+Do this:
+
+Run instrumentation prompt.
+
+Capture timestamps.
+
+Confirm ordering.
+
+Apply cooperative abort patch.
+
+Remove Promise.race.
+
+That ends the problem.
+
+If you want next:
+
+I can write the exact patched version of the tool execution block as it should exist inside extension.js
+
+Or I can produce a formal state machine diagram with provable transition ordering
+
+Or I can generate a grep-driven audit script that auto-detects unsafe Promise.race patterns across the extension bundle
+
+Choose.
+
+

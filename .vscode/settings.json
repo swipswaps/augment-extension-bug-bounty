@@ -1,0 +1,16 @@
+{
+  "files.watcherExclude": {
+    "**/.notes/**": true,
+    "**/.notes/*.log": true,
+    "**/.augment/command_history.db": true,
+    "**/node_modules/**": true,
+    "**/.git/**": true
+  },
+  "search.exclude": {
+    "**/.notes/**": true,
+    "**/node_modules/**": true
+  },
+  "files.exclude": {
+    "**/.notes/*.log": false
+  }
+}

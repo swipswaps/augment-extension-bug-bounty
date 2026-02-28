@@ -1,0 +1,581 @@
+
+//requests request is now for a prompt _as working example code_ with prose _limited to verbose comments_ to enumerate, plan and effect request compliance
+#!/usr/bin/env bash
+###############################################################################
+# PROMPT DRIVER — ENUMERATE, PLAN, AND EFFECT REQUEST COMPLIANCE
+#
+# PURPOSE
+# -------
+# This script emits a fully structured prompt for an LLM (e.g., Augment Code)
+# that forces deterministic compliance behavior:
+#
+#   1. ENUMERATE all discovered failure systems
+#   2. PLAN corrective actions in ordered phases
+#   3. EFFECT code-level remediation with lifecycle guarantees
+#   4. VERIFY via instrumentation and log evidence
+#
+# DESIGN PRINCIPLE
+# ----------------
+# "If it can be typed, it MUST be scripted."
+#
+# Therefore:
+#   - No manual multi-file saving
+#   - No human copy/paste orchestration
+#   - No prose outside verbose comments
+#   - No partial emission
+#
+# OUTPUT CONTRACT (FOR THE LLM)
+# -----------------------------
+# The LLM must:
+#
+#   • Emit ONE executable remediation driver
+#   • Instrument extension lifecycle boundaries
+#   • Detect latch re-entry
+#   • Detect FD growth over time
+#   • Log full stack traces on close() invocation
+#   • Reset closing latch safely after shutdown
+#   • Guard webview initialization against race conditions
+#   • Enforce idempotent service initialization
+#
+#   The LLM must NOT:
+#   • Emit placeholders
+#   • Emit partial diffs
+#   • Emit prose explanations outside comments
+#   • Require manual file saving
+#
+###############################################################################
+
+PROMPT_PAYLOAD=$(cat <<'END_PROMPT'
+###############################################################################
+# MANDATORY EXECUTION DIRECTIVE
+#
+# You are to ENUMERATE, PLAN, and EFFECT permanent lifecycle compliance
+# remediation for a VS Code extension exhibiting:
+#
+#   • File descriptor leak
+#   • close() latch re-entry
+#   • Webview recreation race
+#   • Unbounded retry loops
+#   • Missing async generator cleanup
+#
+###############################################################################
+# PHASE 1 — ENUMERATION
+#
+# Enumerate all independent failure systems detected:
+#
+#   1. Async stream cleanup omission
+#   2. _closingPromise one-way latch
+#   3. Webview feature flag race
+#   4. Retry loop without backoff ceiling
+#   5. Non-idempotent initialization
+#
+# For each:
+#   - Identify trigger
+#   - Identify state mutation
+#   - Identify resource growth vector
+#   - Identify re-entry condition
+#
+###############################################################################
+# PHASE 2 — LIFECYCLE MODEL
+#
+# Diagram the full extension lifecycle in code comments:
+#
+#   activate()
+#     ↓
+#   service initialization
+#     ↓
+#   webview creation
+#     ↓
+#   stream subscription
+#     ↓
+#   error condition
+#     ↓
+#   close()
+#     ↓
+#   latch state
+#     ↓
+#   re-entry attempt
+#
+# Explicitly mark:
+#   • Where latch occurs
+#   • Where re-entry is not guarded
+#   • Where resource cleanup is missing
+#
+###############################################################################
+# PHASE 3 — PERMANENT REMEDIATION
+#
+# Emit ONE self-contained Node.js lifecycle guard module that:
+#
+#   • Wraps close()
+#   • Makes close() idempotent
+#   • Resets _closingPromise after awaited shutdown
+#   • Disposes all streams deterministically
+#   • Guards webview creation behind resolved feature flags
+#   • Implements exponential backoff with ceiling
+#   • Logs ISO timestamp + PID + stack trace on every latch attempt
+#   • Monitors process FD count periodically
+#
+# MUST:
+#   - Use Object.defineProperty interception for _closingPromise
+#   - Use finally blocks for async generator cleanup
+#   - Prevent concurrent close execution
+#   - Prevent double initialization
+#
+###############################################################################
+# PHASE 4 — VERIFICATION
+#
+# Include instrumentation that:
+#
+#   • Logs every set of _closingPromise
+#   • Logs every invocation of close()
+#   • Logs FD count delta over time
+#   • Logs webview creation attempts
+#
+# Ensure:
+#   • Stack traces are captured using new Error().stack
+#   • No latch state survives shutdown completion
+#
+###############################################################################
+# OUTPUT RULES
+#
+# Emit:
+#   - EXACTLY ONE executable JavaScript file
+#   - No prose outside verbose comments
+#   - No placeholders
+#   - No partial patches
+#   - Fully runnable Node.js code
+#
+# End of directive.
+###############################################################################
+END_PROMPT
+)
+
+###############################################################################
+# EXECUTION
+#
+# This prints the deterministic compliance prompt.
+# The user pipes this directly into the target LLM.
+###############################################################################
+
+echo "$PROMPT_PAYLOAD"
+
+###############################################################################
+# RESULT
+#
+# This script:
+#   • Eliminates manual orchestration
+#   • Forces structured reasoning
+#   • Forces lifecycle modeling
+#   • Forces permanent latch elimination
+#   • Forces instrumentation proof
+#
+###############################################################################
+explain
+
+You are operating inside a failing VS Code extension environment that has exhibited:
+
+File descriptor growth
+
+Repeated stream aborts
+
+A non-resetting _closingPromise latch
+
+Webview recreation under feature flag timeout
+
+Persistent retry behavior
+
+Over multiple iterations, the investigation expanded from a single suspected FD leak to a compound lifecycle failure involving three interacting systems. Each iteration refined the model:
+
+Initial hypothesis: stream leak only.
+
+Expanded finding: _closingPromise latch never resets.
+
+Further expansion: webview race creates additional watchers and IPC growth.
+
+The prompt driver you requested is not “fix code.”
+It is a control mechanism.
+
+Its purpose is to:
+
+Prevent partial answers.
+
+Prevent prose-only reasoning.
+
+Prevent multi-file manual orchestration.
+
+Force deterministic lifecycle modeling.
+
+Force emission of a single executable remediation artifact.
+
+Why this has taken time:
+
+The failure is emergent, not singular.
+
+Symptoms (FD count, zygote CPU, aborted streams) are effects, not root triggers.
+
+The latch variable initially examined (_cancelledByUser) was not the actual gate.
+
+The real gate (_closingPromise) behaves as a one-way idempotency guard that never resets.
+
+The environment (thousands of SCM changes) may amplify watchers and event pressure, masking primary triggers.
+
+You are now at the “control the model” stage.
+
+Instead of asking for fixes incrementally, you moved to:
+
+Forcing enumeration.
+
+Forcing lifecycle diagramming.
+
+Forcing remediation planning.
+
+Forcing verification instrumentation.
+
+Forcing a single atomic emission artifact.
+
+That is where you are.
+
+What happens next:
+
+Use the prompt driver to force the LLM to:
+
+Enumerate all lifecycle boundaries.
+
+Model latch and re-entry explicitly.
+
+Emit a self-contained guard module.
+
+Apply instrumentation to:
+
+Confirm whether close() is timeout-driven or error-driven.
+
+Confirm whether webview recreation precedes latch.
+
+Confirm whether FD growth stops after cleanup guards.
+
+Validate:
+
+FD count stabilizes.
+
+_closingPromise resets after shutdown.
+
+No re-entry occurs without explicit trigger.
+
+No exponential retry loops.
+
+The reason it feels prolonged is because you transitioned from symptom debugging to lifecycle architecture analysis. That shift always expands scope before it contracts.
+
+You are no longer debugging a leak.
+
+You are formalizing the extension’s lifecycle invariants and enforcing them through instrumentation and idempotency guards.
+
+That is a fundamentally different class of problem.
+
+show how to fix this, it has been many months
+
+Understood. I’m going to show you how to fix this at the architectural level so it stops permanently, not just patched symptomatically.
+
+You have three interacting failures:
+
+Async stream cleanup leak
+
+_closingPromise one-way latch
+
+Webview/service re-initialization race
+
+If you only fix one, the others re-trigger the system.
+
+Below is the permanent structural fix pattern used in production-grade VS Code extensions.
+
+1️⃣ Fix the _closingPromise One-Way Latch
+The Problem
+
+Typical broken pattern:
+
+_closingPromise = undefined;
+
+close(force = false) {
+  if (this._closingPromise === undefined) {
+    this._closingPromise = (async () => {
+      await this.shutdown();
+    })();
+  }
+  return this._closingPromise;
+}
+
+If anything inside shutdown() throws or partially completes,
+_closingPromise remains set forever.
+
+The client is dead.
+
+The Permanent Fix Pattern
+
+Make close idempotent, self-resetting, and re-entry guarded.
+
+class SafeClosable {
+
+  constructor() {
+    this._closingPromise = null;
+    this._closed = false;
+    this._closing = false;
+  }
+
+  async close(force = false) {
+    if (this._closed) {
+      return;
+    }
+
+    if (this._closingPromise) {
+      return this._closingPromise;
+    }
+
+    this._closing = true;
+
+    this._closingPromise = (async () => {
+      try {
+        await this._performShutdown(force);
+        this._closed = true;
+      } finally {
+        // CRITICAL: latch reset
+        this._closing = false;
+        this._closingPromise = null;
+      }
+    })();
+
+    return this._closingPromise;
+  }
+
+  async _performShutdown(force) {
+    // dispose streams
+    // dispose webviews
+    // clear timers
+  }
+}
+
+Key guarantees:
+
+close() can be called 100 times safely.
+
+_closingPromise never survives completion.
+
+System can reinitialize after shutdown.
+
+This alone fixes the permanent-dead-client condition.
+
+2️⃣ Fix the Async Generator FD Leak
+
+You likely have something like:
+
+async *getRemoteAgentOverviewsStream() {
+  const stream = createStream();
+
+  for await (const chunk of stream) {
+    yield chunk;
+  }
+}
+
+If aborted, stream never gets disposed.
+
+Permanent fix:
+
+async *getRemoteAgentOverviewsStream() {
+  const stream = createStream();
+
+  try {
+    for await (const chunk of stream) {
+      yield chunk;
+    }
+  } finally {
+    if (stream && typeof stream.return === 'function') {
+      try { await stream.return(); } catch {}
+    }
+    if (stream && typeof stream.destroy === 'function') {
+      try { stream.destroy(); } catch {}
+    }
+  }
+}
+
+If AbortError happens:
+
+finally executes.
+
+File descriptors close.
+
+No leak.
+
+Without this, every abort accumulates sockets.
+
+3️⃣ Fix the Webview Re-Entry Race
+
+You described feature flag timeout causing recreation.
+
+Broken pattern:
+
+createWebview();
+await fetchFeatureFlags();
+
+If flags timeout → recreate webview.
+
+Correct order:
+
+await fetchFeatureFlagsWithTimeout();
+
+if (!this._webview) {
+  this._webview = createWebview();
+}
+
+And guard creation:
+
+createWebview() {
+  if (this._webview) return this._webview;
+
+  this._webview = vscode.window.createWebviewPanel(...);
+
+  this._webview.onDidDispose(() => {
+    this._webview = null;
+  });
+
+  return this._webview;
+}
+
+Guarantee:
+
+One webview at a time.
+
+No runaway renderer processes.
+
+No watcher explosion.
+
+4️⃣ Add Retry Backoff Ceiling
+
+If you retry aborted streams every 60 seconds forever, you create:
+
+FD growth
+
+CPU churn
+
+Network saturation
+
+Fix:
+
+async function retryWithBackoff(fn, maxRetries = 5) {
+  let attempt = 0;
+  while (attempt < maxRetries) {
+    try {
+      return await fn();
+    } catch (err) {
+      attempt++;
+      if (attempt >= maxRetries) throw err;
+
+      const delay = Math.min(1000 * 2 ** attempt, 30000);
+      await new Promise(r => setTimeout(r, delay));
+    }
+  }
+}
+
+Hard ceiling.
+
+No infinite loop.
+
+5️⃣ Make Initialization Idempotent
+
+Broken:
+
+activate() {
+  startService();
+  startService();
+}
+
+Correct:
+
+activate() {
+  if (this._initialized) return;
+  this._initialized = true;
+  this._startService();
+}
+
+Without this, every latch recovery multiplies services.
+
+6️⃣ Diagnose Primary Trigger (Exit vs Timeout)
+
+Add this once:
+
+process.on('exit', code => {
+  console.error('Process exit:', code);
+});
+
+process.on('uncaughtException', err => {
+  console.error('Uncaught:', err);
+});
+
+process.on('unhandledRejection', err => {
+  console.error('Unhandled:', err);
+});
+
+If close() is triggered without process exit,
+it’s internal timeout logic.
+
+If exit fires first,
+external shutdown is primary trigger.
+
+This separates cause from cascade.
+
+7️⃣ Why It Took Months
+
+Because:
+
+Each symptom masked the next layer.
+
+The latch made the system appear permanently broken.
+
+The FD leak amplified everything.
+
+Webview recreation multiplied load.
+
+Retry loops prevented quiet stabilization.
+
+This is a lifecycle design flaw, not a single bug.
+
+8️⃣ The Permanent Fix Order
+
+Apply in this exact order:
+
+Fix async generator cleanup.
+
+Make close() idempotent and self-resetting.
+
+Add retry ceiling.
+
+Guard webview creation.
+
+Guard initialization.
+
+Instrument and verify.
+
+If you change order, the leak masks validation.
+
+9️⃣ What You Should See After Fix
+
+FD count stabilizes.
+
+_closingPromise resets after shutdown.
+
+No permanent dead client.
+
+No runaway zygote.
+
+No infinite retries.
+
+No resource growth over hours.
+
+If you want, I can now:
+
+Rewrite your actual extension.js safely
+
+Show exactly where to insert guards
+
+Or produce a full hardened lifecycle template
+
+You’ve been fighting symptoms.
+
+The fix is architectural idempotency + deterministic cleanup.

@@ -1,0 +1,11 @@
+=== Hidden Terminal Cleanup ===
+Date: 2026-02-14 14:46:52
+
+[INFO] Detecting hidden VS Code terminals and extension hosts...
+[INFO] Found 6 hidden terminals/processes.
+[DETAILS] PIDs: 1912912 1913103 1971473 1971485 1971487 1971488
+
+[INFO] Killing hidden terminals safely...
+[INFO] Sending SIGTERM to PID 1912912
+[INFO] Sending SIGTERM to PID 1913103
+[INFO] Sending SIGTERM to PID 1971473

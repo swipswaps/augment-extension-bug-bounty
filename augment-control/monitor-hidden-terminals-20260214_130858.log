@@ -1,0 +1,20 @@
+=== Hidden Terminal Monitor ===
+Date: 2026-02-14 13:08:58
+
+[INFO] Detecting VS Code terminals and extension hosts...
+[INFO] Found 9 hidden terminals/processes.
+[DETAILS] PIDs: 11316 13648 1855760 1867468 1867658 1907875 1907887 1907889 1907890
+
+[DETAILS] Command lines:
+  PID 11316: /usr/bin/ssh-agent /bin/sh -c exec -l /bin/bash -c "startxfce4" 
+  PID 13648: bash 
+  PID 1855760: /usr/bin/bash --init-file /usr/share/code/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh 
+  PID 1867468: /usr/bin/bash --init-file /usr/share/code/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh 
+  PID 1867658: bash -i 
+  PID 1907875: bash monitor-hidden-terminals.sh 
+  PID 1907887: [cmdline unavailable]
+  PID 1907889: [cmdline unavailable]
+  PID 1907890: [cmdline unavailable]
+
+=== End of Monitoring ===
+Date: 2026-02-14 13:08:58

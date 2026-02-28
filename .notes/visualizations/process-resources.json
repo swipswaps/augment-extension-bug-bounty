@@ -1,0 +1,52 @@
+[
+  {
+    "pid": 123893,
+    "fd_count": 7968,
+    "process": "code"
+  },
+  {
+    "pid": 196709,
+    "fd_count": 1700,
+    "process": "code"
+  },
+  {
+    "pid": 124045,
+    "fd_count": 1566,
+    "process": "code"
+  },
+  {
+    "pid": 196739,
+    "fd_count": 1050,
+    "process": "code"
+  },
+  {
+    "pid": 124029,
+    "fd_count": 893,
+    "process": "code"
+  },
+  {
+    "pid": 123970,
+    "fd_count": 715,
+    "process": "code"
+  },
+  {
+    "pid": 124008,
+    "fd_count": 658,
+    "process": "code"
+  },
+  {
+    "pid": 196734,
+    "fd_count": 624,
+    "process": "code"
+  },
+  {
+    "pid": 198459,
+    "fd_count": 344,
+    "process": "code"
+  },
+  {
+    "pid": 198420,
+    "fd_count": 328,
+    "process": "code"
+  }
+]

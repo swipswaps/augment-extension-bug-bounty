@@ -1,0 +1,1182 @@
+
+🔍 Granular Error Messages Dashboard
+
+Showing 894 individual error messages with FULL verbatim text
+Filter by source, severity, or search for specific errors
+Source File
+Severity
+Search Message
+894
+Total
+585
+Filtered
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 12:53:15.426 [error] 'AugmentExtensionSidecar': AbortError: This operation was aborted
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 12:56:04.261 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 12:56:04.265 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 12:57:19.384 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 12:57:19.386 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 13:00:09.989 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 13:01:00.652 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 13:01:00.653 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:01:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:01:09 PMTypeScript.logERROR
+2026-02-18 12:35:35.373 [error] TSServer exited. Code: null. Signal: SIGTERM
+2/18/2026, 1:01:09 PMTypeScript.logERROR
+2026-02-18 12:52:50.906 [error] TSServer exited. Code: null. Signal: SIGTERM
+2/18/2026, 1:01:09 PMTypeScript.logERROR
+2026-02-18 13:00:01.125 [error] TSServer exited. Code: null. Signal: SIGTERM
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 12:53:15.426 [error] 'AugmentExtensionSidecar': AbortError: This operation was aborted
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 12:56:04.261 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 12:56:04.265 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 12:57:19.384 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 12:57:19.386 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 13:00:09.989 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 13:01:00.652 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 13:01:00.653 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 13:01:10.463 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:02:09 PMAugment.logERROR
+2026-02-18 13:01:10.464 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 12:53:15.426 [error] 'AugmentExtensionSidecar': AbortError: This operation was aborted
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 12:56:04.261 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 12:56:04.265 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 12:57:19.384 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 12:57:19.386 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 13:00:09.989 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 13:01:00.652 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 13:01:00.653 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 13:01:10.463 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:03:09 PMAugment.logERROR
+2026-02-18 13:01:10.464 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 12:53:15.426 [error] 'AugmentExtensionSidecar': AbortError: This operation was aborted
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 12:56:04.261 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 12:56:04.265 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 12:57:19.384 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 12:57:19.386 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 13:00:09.989 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 13:01:00.652 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 13:01:00.653 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 13:01:10.463 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:04:09 PMAugment.logERROR
+2026-02-18 13:01:10.464 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 12:53:15.426 [error] 'AugmentExtensionSidecar': AbortError: This operation was aborted
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 12:56:04.261 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 12:56:04.265 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 12:57:19.384 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 12:57:19.386 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 13:00:09.989 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 13:01:00.652 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 13:01:00.653 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 13:01:10.463 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:05:09 PMAugment.logERROR
+2026-02-18 13:01:10.464 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 12:53:15.426 [error] 'AugmentExtensionSidecar': AbortError: This operation was aborted
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 12:56:04.261 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 12:56:04.265 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 12:57:19.384 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 12:57:19.386 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 13:00:09.989 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 13:01:00.652 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 13:01:00.653 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 13:01:10.463 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:06:09 PMAugment.logERROR
+2026-02-18 13:01:10.464 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 12:56:04.265 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 12:57:19.384 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 12:57:19.386 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:00:09.989 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:01:00.652 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:01:00.653 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:01:10.463 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:01:10.464 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:06:25.422 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:06:27.693 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+2/18/2026, 1:07:09 PMAugment.logERROR
+2026-02-18 13:06:27.699 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 12:56:04.265 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 12:56:04.573 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 12:57:19.384 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 12:57:19.386 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:00:09.989 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:01:00.652 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:01:00.653 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:01:00.860 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:01:10.463 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:01:10.464 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:06:25.422 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:06:27.693 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+2/18/2026, 1:08:09 PMAugment.logERROR
+2026-02-18 13:06:27.699 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:06:27.699 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:08:13.945 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:08:13.947 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:08:17.379 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:08:17.379 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:09:07.409 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:09:07.410 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:09:07.434 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:09:09 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:10:09 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:10:09 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:11:09 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:11:09 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:12:09 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:12:09 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:13:11 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:13:11 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:14:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:14:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:15:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:15:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:16:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:16:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:17:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:17:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:20:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:20:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:25:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:25:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:30:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:30:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:35:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:35:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:40:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:40:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:45:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:45:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:50:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:50:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:50:11 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:50:11 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 1:55:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 1:55:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 2:00:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:00:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 2:05:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:05:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 2:10:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:10:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 2:15:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:15:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 2:16:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:16:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:07.509 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:07.513 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:07.514 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:09.627 [error] 'AugmentExtensionSidecar': API request 20f67e07-75c2-4945-8ecc-abe059c4caa1 to https://d17.api.augmentcode.com/chat-input-completion failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:09.834 [error] 'ClientWorkspaces': Failed to call chat input completion API fetch failed
+2/18/2026, 2:17:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:17:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 14:17:21.690 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 14:17:21.691 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 14:17:42.467 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:18:10 PMAugment.logERROR
+2026-02-18 14:17:42.469 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 14:17:21.690 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 14:17:21.691 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 14:17:42.467 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:19:10 PMAugment.logERROR
+2026-02-18 14:17:42.469 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 14:17:21.690 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 14:17:21.691 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 14:17:42.467 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:20:10 PMAugment.logERROR
+2026-02-18 14:17:42.469 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 14:17:21.690 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 14:17:21.691 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 14:17:42.467 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:23:10 PMAugment.logERROR
+2026-02-18 14:17:42.469 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 14:17:21.690 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 14:17:21.691 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 14:17:42.467 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:24:10 PMAugment.logERROR
+2026-02-18 14:17:42.469 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 14:17:21.690 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 14:17:21.691 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 14:17:42.467 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:25:10 PMAugment.logERROR
+2026-02-18 14:17:42.469 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 14:17:21.690 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 14:17:21.691 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 14:17:42.467 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:28:10 PMAugment.logERROR
+2026-02-18 14:17:42.469 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 14:17:21.690 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 14:17:21.691 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 14:17:42.467 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:30:10 PMAugment.logERROR
+2026-02-18 14:17:42.469 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+Error: fetch failed
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 13:09:09.836 [error] 'Service[mAe]': API call failed: fetch failed
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 13:09:32.098 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 13:09:32.099 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 13:09:32.223 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 13:09:38.078 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 13:09:38.080 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 14:17:10.738 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 14:17:10.740 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 14:17:21.690 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 14:17:21.691 [error] 'Service[mAe]': API call failed: Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 14:17:42.467 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+2/18/2026, 2:34:10 PMAugment.logERROR
+2026-02-18 14:17:42.469 [error] 'Service[mAe]': API call failed: Request cancelled

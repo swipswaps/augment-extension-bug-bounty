@@ -1,0 +1,266 @@
+Good. Now we stop reacting and switch to structural control.
+
+You just uncovered the real problem:
+
+VS Code update replaced the extension directory
+Your patched 0.754.3 was overwritten
+A second version 0.779.0 also exists
+Your fix was applied to a version that is no longer active
+
+This is why your grep returned nothing.
+
+This is not a logic failure.
+This is a lifecycle / auto-update failure.
+
+🔥 Root Cause of the “Fix Disappeared” Event
+
+When you upgraded VS Code:
+
+sudo dnf upgrade code
+
+
+VS Code:
+
+Revalidated extensions
+
+Reinstalled the marketplace version
+
+Replaced out/extension.js
+
+Possibly switched active version
+
+Your manual patch is not persistent across extension updates.
+
+So your deterministic handshake code never executed.
+
+⚠️ Why You Have Two Versions Installed
+
+You now have:
+
+augment.vscode-augment-0.754.3
+augment.vscode-augment-0.779.0
+
+
+VS Code only activates ONE.
+
+You confirmed:
+
+Augment.vscode-augment  (from logs)
+
+
+But you did not confirm WHICH version.
+
+That matters.
+
+🔎 PROVE Which Version Is Active
+
+Run this:
+
+grep -R "ExtensionService#_doActivateExtension" ~/.config/Code/logs/20260211T194705
+
+
+Then extract the path from:
+
+[info] Activating extension from ...
+
+
+You must see the full path.
+
+That path tells you which directory is active.
+
+Do not guess.
+
+🧠 Architectural Problem Identified
+
+You are modifying compiled JS inside:
+
+~/.vscode/extensions/
+
+
+That is ephemeral.
+
+It will ALWAYS be replaced by:
+
+• Marketplace update
+• VS Code upgrade
+• Extension integrity validation
+• Version switch
+
+So any manual patching there is fundamentally unstable.
+
+🛠 Correct Way to Control This Extension
+
+You have three viable options:
+
+OPTION 1 — Disable Auto-Update (Temporary Containment)
+
+Inside settings.json:
+
+"extensions.autoUpdate": false
+
+
+This prevents silent overwrite.
+
+But still fragile.
+
+OPTION 2 — Fork and Install as Local Dev Extension (Correct)
+
+This is the real solution.
+
+Steps:
+
+Clone extension source
+
+Apply deterministic handshake fix in source
+
+Build it
+
+Install via:
+
+code --install-extension path/to/augment-fixed.vsix --force
+
+
+VS Code will treat it as a local install and NOT auto-replace it.
+
+This gives you deterministic control.
+
+OPTION 3 — Rename Publisher ID (Hard Override)
+
+If you modify package.json:
+
+"publisher": "augment-local"
+
+
+VS Code treats it as a different extension.
+
+Marketplace version will not overwrite it.
+
+🚨 Why This Matters
+
+Right now:
+
+You are fighting the update system.
+
+Every time VS Code updates, your patch dies.
+
+That makes debugging meaningless.
+
+🔬 Immediate Diagnostic Step
+
+Confirm active version path.
+
+Run:
+
+code --list-extensions --show-versions | grep augment
+
+
+Then:
+
+grep -R "activate(context)" ~/.vscode/extensions/augment*/out/extension.js
+
+
+Then:
+
+lsof -p <extension-host-pid> | grep augment
+
+
+That proves which directory is actually loaded.
+
+No assumptions.
+
+🧭 Now About “Guide LLM (Augment Code) to Compliance”
+
+The problem is no longer evasion.
+
+It is architecture:
+
+The cancel handshake must exist:
+
+• In extension host
+• In webview
+• In tool state
+• In result propagation
+• Across updates
+
+Right now you only patched one layer.
+
+And then that layer was overwritten.
+
+So the compliance failure is systemic.
+
+🎯 Strategic Plan Going Forward
+
+We stop patching compiled JS directly.
+
+We:
+
+Extract current active version
+
+Copy it to a new folder
+
+Rename publisher
+
+Disable auto-update
+
+Patch source
+
+Reinstall as dev extension
+
+Verify handshake determinism
+
+Add runtime logging inside cancelToolRun
+
+Only then continue debugging timeout behavior.
+
+💾 Seamless Backup Strategy (Required)
+
+Before modifying anything:
+
+cp -r ~/.vscode/extensions/augment.vscode-augment-0.754.3 ~/augment-backups/0.754.3-$(date +%F-%H%M)
+cp -r ~/.vscode/extensions/augment.vscode-augment-0.779.0 ~/augment-backups/0.779.0-$(date +%F-%H%M)
+
+
+Then version-control your modified copy.
+
+Never edit the live one again.
+
+🧠 Important Insight
+
+The fact that your extension.js shrank from:
+
+13MB → 8.3MB
+
+means you were editing a different build artifact previously.
+
+That alone explains why line numbers no longer match.
+
+You were patching an older build.
+
+The new build likely changed structure.
+
+Which means your string-based patcher must be rewritten.
+
+🚀 Next Action
+
+Do NOT patch anything yet.
+
+Reply with:
+
+Output of code --list-extensions --show-versions | grep augment
+
+The activation path from logs
+
+File size of active extension.js
+
+Then we will:
+
+• Freeze correct version
+• Fork safely
+• Reapply deterministic cancel handshake properly
+• Test again
+
+This time in a stable environment.
+
+We will not chase ghosts anymore.
+
+We stabilize the runtime first.

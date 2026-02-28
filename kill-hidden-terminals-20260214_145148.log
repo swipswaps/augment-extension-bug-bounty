@@ -1,0 +1,19 @@
+=== Hidden Terminal Cleanup ===
+Date: 2026-02-14 14:51:48
+
+[INFO] Detecting hidden VS Code terminals and extension hosts...
+[INFO] Found 1 hidden terminals/processes.
+[DETAILS] PIDs: 1975194
+
+[INFO] Killing hidden terminals safely...
+[INFO] PID 1975194 terminated gracefully
+[INFO] Cleanup complete at 2026-02-14 14:51:49
+
+=== Root Cause Analysis ===
+1. launch-process with wait=false creates persistent terminals
+2. Each tool call spawns a new terminal instead of reusing
+3. MCP client doesn't clean up on timeout
+4. RULE 22 violation: Terminal accumulation causes instability
+
+Evidence: If this script timed out during pgrep, that timeout is PROOF of the race condition.
+=== End of Cleanup ===

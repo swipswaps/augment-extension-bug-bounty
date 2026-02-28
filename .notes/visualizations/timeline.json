@@ -1,0 +1,5 @@
+[{"timestamp":"2026-02-18T18:01:12.706Z","fd_count":60528,"status":"critical","errors_in_last_minute":2},
+{"timestamp":"2026-02-18T18:02:12.694Z","fd_count":52503,"status":"warning","errors_in_last_minute":4},
+{"timestamp":"2026-02-18T18:03:12.483Z","fd_count":52315,"status":"warning","errors_in_last_minute":6},
+{"timestamp":"2026-02-18T18:04:12.636Z","fd_count":52120,"status":"warning","errors_in_last_minute":8},
+{"timestamp":"2026-02-18T18:05:12.748Z","fd_count":51876,"status":"warning","errors_in_last_minute":10}]

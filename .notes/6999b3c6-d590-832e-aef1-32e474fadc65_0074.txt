@@ -1,0 +1,123 @@
+#!/usr/bin/env node
+"use strict";
+
+/*
+RETRY-ENFORCING COMPLIANCE DRIVER
+=================================
+
+Purpose:
+  Force Augment to emit two full files and ensure instrumentation
+  of `_closingPromise` actually executes and produces logs.
+
+Required emitted files (exact headers required):
+
+  // instrument-closing-promise.js
+  # launch-instrumented-augment.sh
+
+Enforcement Strategy:
+  - Validate exactly two fenced code blocks.
+  - Write both files to disk.
+  - chmod launcher.
+  - Execute launcher.
+  - Verify log file existence.
+  - Verify log file non-empty.
+  - Verify log contains:
+        "_closingPromise"
+        "STACK TRACE"
+  - If empty or invalid → retry execution.
+  - Exponential backoff between retries.
+  - Abort only after MAX_RETRIES.
+
+No prose allowed in Augment response.
+Exactly two code blocks.
+No diffs.
+No partial files.
+No truncation.
+*/
+
+const fs = require("fs");
+const { spawnSync } = require("child_process");
+
+const MAX_RETRIES = 5;
+const BACKOFF_MS = 1500;
+const LOG_PATH = "./augment-closingPromise-debug.log";
+
+function fail(msg) {
+  console.error("ENFORCEMENT FAILURE:", msg);
+  process.exit(1);
+}
+
+function sleep(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
+
+function extractBlocks(text) {
+  const matches = [...text.matchAll(/```(?:[a-z]*)?\n([\s\S]*?)```/g)];
+  if (matches.length !== 2)
+    fail("Expected exactly 2 code blocks.");
+  return matches.map(m => m[1]);
+}
+
+function validateHeaders(blocks) {
+  if (!blocks[0].startsWith("// instrument-closing-promise.js"))
+    fail("Missing instrument file header.");
+  if (!blocks[1].startsWith("# launch-instrumented-augment.sh"))
+    fail("Missing launcher file header.");
+}
+
+function writeFiles(blocks) {
+  fs.writeFileSync("instrument-closing-promise.js", blocks[0]);
+  fs.writeFileSync("launch-instrumented-augment.sh", blocks[1]);
+  fs.chmodSync("launch-instrumented-augment.sh", 0o755);
+}
+
+function runLauncher() {
+  return spawnSync("./launch-instrumented-augment.sh", {
+    stdio: "inherit",
+    timeout: 20000
+  });
+}
+
+function verifyLog() {
+  if (!fs.existsSync(LOG_PATH)) return false;
+
+  const content = fs.readFileSync(LOG_PATH, "utf8");
+  if (!content || content.trim() === "") return false;
+  if (!content.includes("_closingPromise")) return false;
+  if (!content.includes("STACK TRACE")) return false;
+
+  return true;
+}
+
+async function executeWithRetries() {
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    console.log(`Attempt ${attempt}/${MAX_RETRIES}`);
+
+    if (fs.existsSync(LOG_PATH)) fs.unlinkSync(LOG_PATH);
+
+    runLauncher();
+
+    if (verifyLog()) {
+      console.log("INSTRUMENTATION VERIFIED.");
+      return;
+    }
+
+    console.warn("Empty or invalid output detected. Retrying...");
+    await sleep(BACKOFF_MS * attempt);
+  }
+
+  fail("Exceeded maximum retries without valid instrumentation.");
+}
+
+if (require.main === module) {
+  const input = fs.readFileSync(0, "utf8");
+
+  if (!input || input.trim() === "")
+    fail("Empty <output> block detected at transport layer.");
+
+  const blocks = extractBlocks(input);
+  validateHeaders(blocks);
+  writeFiles(blocks);
+
+  executeWithRetries();
+}

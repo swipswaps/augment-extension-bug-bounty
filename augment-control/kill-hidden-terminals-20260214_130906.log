@@ -1,0 +1,7 @@
+=== Hidden Terminal Cleanup ===
+Date: 2026-02-14 13:09:06
+
+[INFO] Detecting hidden VS Code terminals and extension hosts...
+[INFO] Found 9 hidden terminals/processes.
+[DETAILS] PIDs: 11316 13648 1855760 1867468 1867658 1908090 1908102 1908104 1908105
+

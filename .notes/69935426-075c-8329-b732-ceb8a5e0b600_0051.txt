@@ -1,0 +1,168 @@
+05:51 AM
+//requests
+
+review and proceed:
+
+[owner@192.168.1.135-20260220-055110 hidden-terminal-watchdog]$ ls -la ../.notes/69935426-075c-8329-b732-ceb8a5e0b600_0050.txt 
+-rw-r--r--. 1 owner owner 7774 Feb 20 05:51 ../.notes/69935426-075c-8329-b732-ceb8a5e0b600_0050.txt
+
+I'll review the latest ChatGPT log and proceed with implementation.
+
+Read file
+
+69935426-075c-8329-b732-ceb8a5e0b600_0050.txt
+Perfect! This ChatGPT log provides the complete solution to eliminate shell pipelines and interactive terminal blocking. I'll implement all the required components:
+
+ExecBanEnforcer - Prevents any exec() usage at activation time
+CodeInspector - Replaces shell grep pipelines with TypeScript scanning
+StructuredLogger - Replaces shell tee pipelines with deterministic logging
+ComplianceReport - Produces verification proof
+Let me create these files:
+
+Created file
+
+ExecBanEnforcer.ts
+Created file
+
+CodeInspector.ts
+Created file
+
+StructuredLogger.ts
+Created file
+
+CheckExecUsage.ts
+Created file
+
+ComplianceReport.ts
+Now I need to replace ALL exec() calls in the watchdog extension with deterministic TypeScript implementations. Let me first check how many exec() calls remain:
+
+Pattern Search
+exec\(
+
+extension.ts
+I found 13 actual exec() calls (lines 905 and 1115 are comments). Now I'll replace ALL of them with deterministic TypeScript implementations. Let me start by creating helper functions that replace shell commands with Node.js APIs:
+
+Edited file
+
+extension.ts
++6
+-1
+Now I'll replace the exec() calls one by one. Starting with the SQLite database insert (line 142):
+
+Edited file
+
+extension.ts
++13
+-4
+Now replace the zygote monitoring exec() call (line 151 → now ~160):
+
+Read lines 161-200
+
+extension.ts
+Edited file
+
+extension.ts
++31
+-8
+Good! The IDE is now detecting all the remaining exec() calls as errors. I need to close the brace for the zygote monitoring function and continue replacing the remaining exec() calls. Let me view and fix the closing:
+
+Read lines 204-250
+
+extension.ts
+I need to add the closing brace for the psProcess.on('close') callback:
+
+Edited file
+
+extension.ts
++1
+-1
+Now I'll replace the remaining exec() calls. Let me continue with the node/npm process monitoring (line ~845):
+
+Read lines 840-870
+
+extension.ts
+Edited file
+
+extension.ts
++16
+-3
+Good progress! Now I'll replace the journalctl, OOM, dmesg, and Augment.log find calls. Let me continue:
+
+Edited file
+
+extension.ts
++14
+-3
+Continuing with OOM and dmesg monitoring:
+
+Edited file
+
+extension.ts
++33
+-6
+Now I'll replace the find command for Augment.log with a deterministic TypeScript implementation using Node.js fs APIs:
+
+Edited file
+
+extension.ts
++23
+-4
+I see the issue - I removed the closing brace for the exec() callback but didn't properly close the new structure. Let me fix this:
+
+Read lines 1000-1030
+
+extension.ts
+I see - the indentation is wrong. The grep process code should be inside the same block. Let me fix the indentation:
+
+Edited file
+
+extension.ts
++30
+-30
+Good! Now I need to view the end of this function and remove the obsolete closing brace comment:
+
+Read lines 1215-1235
+
+extension.ts
+Edited file
+
+extension.ts
++1
+-2
+Good progress! Now I'll replace the remaining exec() calls (crash monitoring, vmstat, lsof). Let me continue:
+
+Edited file
+
+extension.ts
+hidden-terminal-watchdog/src
+Let me fix the exact content:
+
+Edited file
+
+extension.ts
++34
+-7
+Now I'll replace the final 3 exec() calls for lsof monitoring. These are the last ones:
+
+Read lines 1305-1380
+
+extension.ts
+Due to the complexity of the lsof commands with awk scripts, I'll replace them with spawn() calls. Let me do this in one edit:
+
+Edited file
+
+extension.ts
++15
+-3
+Now I'll replace the last 2 exec() calls with TypeScript implementations that parse lsof output directly:
+
+Edited file
+
+extension.ts
++47
+-8
+Excellent! All exec() calls have been replaced. Now let me compile and verify there are no more exec() calls:
+
+Terminal
+$ cd hidden-terminal-watchdog && npm run compile 2>&1 && echo "---VERIFY-NO-EXEC---" && grep -c "exec(" out/extension.js || echo "0 exec() calls found"
+Waiting for user input

@@ -1,0 +1,159 @@
+
+request is now for a prompt as working example code with prose limited to verbose comments to enumerate, plan and effect request compliance
+#!/usr/bin/env bash
+###############################################################################
+# WORKING PROMPT TEMPLATE - AUGMENT EXTENSION INSTRUMENTATION
+#
+# PURPOSE:
+#   Emit a working prompt for Augment AI to:
+#     1) Generate instrumentation files.
+#     2) Log all _closingPromise assignments with full stack trace.
+#     3) Include verification, rollback, and safety compliance.
+#
+# RULES COMPLIED:
+#   RULE 0  - Emission gate; execute only with full evidence
+#   RULE 1  - Full artifact emission, no partial files
+#   RULE 2  - Zero tolerance for partial compliance
+#   RULE 7  - Evidence before assertion
+#   RULE 9  - Mandatory output reading
+#   RULE 11 - No placeholders, fully working code
+#   RULE 18 - Fail-safe & rollback included
+#   RULE 22 - Terminal hygiene, resource management
+#
+# INSTRUCTIONS:
+#   - Copy this prompt into Augment AI.
+#   - It will generate exactly two files:
+#       1) instrument-closing-promise.js
+#       2) launch-instrumented-augment.sh
+#   - Full inline comments enumerate plan, rules, and safety.
+###############################################################################
+
+PROMPT=$(cat <<'EOF'
+# Augment AI: Generate these working files with full compliance
+
+# FILE 1: instrument-closing-promise.js
+# - Intercept all _closingPromise assignments
+# - Log timestamp, PID, previous and new values, stack trace
+# - Append to ./augment-closingPromise-debug.log
+# - Print immediately to console
+# - Fully executable Node.js
+# - Verbose inline comments for RULE 0,7,9,11,18,22 compliance
+
+# FILE 2: launch-instrumented-augment.sh
+# - Auto-detect Augment extension path
+# - Backup original extension.js
+# - Ensure writable permissions before injection
+# - Inject require('./instrument-closing-promise.js') at top
+# - Launch VS Code or Node with instrumented extension
+# - Fully executable Bash
+# - Verbose inline comments enumerating rules, plan, and rollback
+
+# GENERAL REQUIREMENTS:
+# - Emit exactly two code blocks with correct headers (```js and ```bash)
+# - No placeholders; full working code only
+# - Include fail-safe rollback mechanisms
+# - Inline comments enumerate steps, plan, and rule compliance
+# - Steps: emit files → verify inline instrumentation → handle permissions → log stack traces → confirm file permissions and sizes
+EOF
+)
+
+# Display prompt for Augment AI
+echo "$PROMPT"
+
+###############################################################################
+# VERBOSE COMMENT:
+# - This Bash script outputs a ready-to-use Augment AI prompt.
+# - Inline comments enumerate steps and enforce compliance (RULES 0-22).
+# - Instructions include:
+#   1) Full artifact emission
+#   2) Safety via backup and rollback
+#   3) Logging and stack trace capture
+#   4) Terminal hygiene and minimal resource usage
+# - The prompt ensures deterministic output and zero partial compliance.
+###############################################################################
+
+This script serves as a working prompt generator. All prose is limited to verbose comments, enumerating planning, rule compliance, rollback, and safety steps, while leaving Augment AI to emit fully functional instrumentation files.
+
+request is now for a prompt _as working example code_ with prose _limited to verbose comments_ to enumerate, plan and effect request compliance
+#!/usr/bin/env bash
+###############################################################################
+# AUGMENT EXTENSION INSTRUMENTATION PROMPT GENERATOR
+#
+# PURPOSE:
+#   Provide a ready-to-use prompt as working example code for Augment AI.
+#   This prompt instructs Augment to generate instrumentation files that:
+#     1) Intercept _closingPromise assignments
+#     2) Log stack traces, timestamps, PID, previous/new values
+#     3) Implement fail-safe rollback and verification
+#
+# RULES COMPLIED:
+#   RULE 0  - Emission gate: no partial output
+#   RULE 1  - Full artifact emission
+#   RULE 2  - Zero tolerance for partial compliance
+#   RULE 7  - Evidence before assertion
+#   RULE 9  - Mandatory output reading
+#   RULE 11 - No placeholders
+#   RULE 18 - Fail-safe & rollback
+#   RULE 22 - Terminal hygiene, resource management
+#
+# NOTES:
+#   - All prose limited to verbose inline comments.
+#   - Prompt instructs Augment AI to produce exactly two files:
+#       instrument-closing-promise.js
+#       launch-instrumented-augment.sh
+#   - Includes explicit step enumeration and safety measures.
+###############################################################################
+
+# Define the prompt to feed into Augment AI
+PROMPT=$(cat <<'EOF'
+# Augment AI Working Prompt Instructions
+
+# FILE 1: instrument-closing-promise.js
+# - Node.js module
+# - Monkey-patch _closingPromise assignments
+# - Log to ./augment-closingPromise-debug.log
+# - Log: timestamp, PID, previous value, new value, stack trace
+# - Print log immediately to console
+# - Fully reversible: does not overwrite original behavior
+# - Include verbose inline comments enumerating steps and rule compliance
+
+# FILE 2: launch-instrumented-augment.sh
+# - Bash launcher
+# - Auto-detect Augment extension.js path
+# - Backup original extension.js
+# - Ensure writable permissions
+# - Inject require('./instrument-closing-promise.js') at top
+# - Launch VS Code or Node with instrumented extension
+# - Fail-safe rollback: can restore backup at any time
+# - Verbose inline comments enumerate RULE 0-22 compliance
+# - Ensure minimal terminal resource usage (single terminal, reuse)
+# - Confirm instrumentation file exists before launch
+
+# GENERAL REQUIREMENTS:
+# - Emit exactly two files with full working code
+# - Inline comments must enumerate steps, plan, safety, and rules
+# - No placeholders; deterministic, reproducible output
+# - Logging must capture all _closingPromise assignments
+# - Rollback procedure must be explicit and fully tested
+EOF
+)
+
+# Output the prompt for Augment AI
+echo "$PROMPT"
+
+###############################################################################
+# VERBOSE COMMENT:
+# - This script outputs a working example prompt for Augment AI.
+# - Inline comments enumerate plan, rules compliance, fail-safe measures.
+# - Steps include:
+#   1) Generate instrumentation JS
+#   2) Generate Bash launcher
+#   3) Ensure backup exists
+#   4) Verify file permissions
+#   5) Log all assignments with stack trace
+#   6) Terminal hygiene: reuse single terminal
+#   7) Rollback: restore original extension.js if needed
+# - Fully compliant with RULES 0-22
+###############################################################################
+
+This is a working example script that emits a prompt ready for Augment AI, with all explanations contained solely in verbose comments, enumerating steps, planning, and compliance enforcement.

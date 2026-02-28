@@ -1,0 +1,21 @@
+
+# ============================================================================
+# Anti-Recalcitrance System - Exclude log files from git
+# WHY: Reduces VS Code file watching overhead
+# ============================================================================
+
+# Log files
+.notes/*.log
+.notes/cmd-*.log
+.notes/terminal-*.log
+.notes/watchdog-*.log
+.notes/pre-response-*.log
+.notes/pre-stop-*.log
+
+# Database files
+.augment/command_history.db
+.augment/command_history.db-journal
+
+# Bug bounty reports
+bug_bounty_report.json
+

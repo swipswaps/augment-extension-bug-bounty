@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Error Stack Traces</title>
+<style>
+body { background: #1e1e1e; color: #d4d4d4; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; }
+h1 { color: #ffa500; margin-bottom: 20px; }
+.stats { background: #252526; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+.event-item { background: #252526; border: 1px solid #3e3e42; padding: 15px; margin: 10px 0; cursor: pointer; border-radius: 4px; }
+.event-item:hover { background: #2d2d30; }
+.event-item.expanded { background: #2d2d30; border-color: #ffa500; }
+.event-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.event-timestamp { color: #858585; font-size: 12px; }
+.event-badge { padding: 4px 8px; border-radius: 3px; font-size: 11px; font-weight: bold; margin-left: 8px; }
+.badge-error { background: #5a1d1d; color: #f48771; }
+.badge-has-stack { background: #5a3d1d; color: #ffa500; margin-left: auto; }
+.event-message { color: #d4d4d4; font-size: 13px; line-height: 1.5; word-wrap: break-word; }
+.stack-trace { display: none; margin-top: 10px; padding: 10px; background: #1e1e1e; border-left: 3px solid #ffa500; border-radius: 4px; }
+.stack-trace.visible { display: block; }
+.stack-trace-header { color: #ffa500; font-weight: bold; margin-bottom: 8px; font-size: 12px; }
+.stack-trace-line { color: #9cdcfe; font-size: 11px; padding: 3px 0; padding-left: 15px; position: relative; }
+.stack-trace-line::before { content: '▶'; position: absolute; left: 0; color: #858585; }
+.function { color: #dcdcaa; font-weight: bold; }
+.file { color: #4ec9b0; }
+.location { color: #858585; }
+.async { color: #ffa500; font-size: 10px; margin-left: 5px; }
+</style>
+</head><body>
+<h1>📊 Error Stack Traces Dashboard</h1>
+<div class="stats">
+    <strong>Total ERROR entries with stack traces: <span id="total-count">0</span></strong>
+</div>
+<div id="container"></div>
+<script>
+// Load data from external JSON file
+fetch('application-logs-errors-only.json')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('total-count').textContent = data.length;
+        renderEvents(data);
+    })
+    .catch(error => {
+        console.error('Error loading data:', error);
+        document.getElementById('container').innerHTML = '<p style="color: #f48771;">Error loading data. Check console for details.</p>';
+    });
+
+function renderEvents(events) {
+    const container = document.getElementById('container');
+    container.innerHTML = '';
+    
+    events.forEach(event => {
+        const item = document.createElement('div');
+        item.className = 'event-item';
+        
+        const header = document.createElement('div');
+        header.className = 'event-header';
+        
+        const left = document.createElement('div');
+        const timestamp = document.createElement('span');
+        timestamp.className = 'event-timestamp';
+        timestamp.textContent = new Date(event.timestamp).toLocaleString();
+        left.appendChild(timestamp);
+        
+        const severity = document.createElement('span');
+        severity.className = 'event-badge badge-error';
+        severity.textContent = event.severity;
+        left.appendChild(severity);
+        
+        header.appendChild(left);
+        
+        // Add stack trace badge
+        if (event.stack_trace && event.stack_trace.length > 0) {
+            const stackBadge = document.createElement('span');
+            stackBadge.className = 'event-badge badge-has-stack';
+            stackBadge.textContent = `${event.stack_trace.length} STACK LINES`;
+            header.appendChild(stackBadge);
+        }
+        
+        item.appendChild(header);
+        
+        const message = document.createElement('div');
+        message.className = 'event-message';
+        message.textContent = event.message;
+        item.appendChild(message);
+        
+        // Add stack trace section
+        if (event.stack_trace && event.stack_trace.length > 0) {
+            const stackTrace = document.createElement('div');
+            stackTrace.className = 'stack-trace';
+            
+            const stackHeader = document.createElement('div');
+            stackHeader.className = 'stack-trace-header';
+            stackHeader.textContent = '📍 STACK TRACE (Click to toggle)';
+            stackTrace.appendChild(stackHeader);
+            
+            event.stack_trace.forEach(line => {
+                const stackLine = document.createElement('div');
+                stackLine.className = 'stack-trace-line';
+                
+                // Parse watchdog format: "STACK: funcName @ file.js:line:col"
+                const watchdogMatch = line.match(/STACK:\s+([^\s@]+)\s+@\s+([^:]+):(\d+):(\d+)/);
+                if (watchdogMatch) {
+                    const funcName = watchdogMatch[1];
+                    const filePath = watchdogMatch[2];
+                    const lineNum = watchdogMatch[3];
+                    const colNum = watchdogMatch[4];
+                    const fileName = filePath.split('/').pop();
+                    
+                    stackLine.innerHTML = `<span class="function">${funcName}</span> @ <span class="file">${fileName}</span>:<span class="location">${lineNum}:${colNum}</span>`;
+                } else {
+                    // Parse raw format: "at async eH.callApi (/path/extension.js:252:478050)"
+                    const rawMatch = line.match(/at\s+(async\s+)?([^\s(]+)\s+\(([^)]+):(\d+):(\d+)\)/);
+                    if (rawMatch) {
+                        const isAsync = rawMatch[1] ? true : false;
+                        const funcName = rawMatch[2];
+                        const filePath = rawMatch[3];
+                        const lineNum = rawMatch[4];
+                        const colNum = rawMatch[5];
+                        const fileName = filePath.split('/').pop();
+                        
+                        stackLine.innerHTML = `<span class="function">${funcName}</span> @ <span class="file">${fileName}</span>:<span class="location">${lineNum}:${colNum}</span>${isAsync ? '<span class="async">(async)</span>' : ''}`;
+                    } else {
+                        // Fallback
+                        stackLine.textContent = line;
+                    }
+                }
+                
+                stackTrace.appendChild(stackLine);
+            });
+            
+            item.appendChild(stackTrace);
+            
+            // Click handler
+            item.addEventListener('click', () => {
+                item.classList.toggle('expanded');
+                stackTrace.classList.toggle('visible');
+            });
+        }
+        
+        container.appendChild(item);
+    });
+}
+</script>
+</body></html>
+

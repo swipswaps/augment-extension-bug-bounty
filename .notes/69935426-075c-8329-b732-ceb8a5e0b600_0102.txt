@@ -1,0 +1,174 @@
+
+//requests request is now for a prompt _as working example code_ with prose _limited to verbose comments_ to enumerate, plan and effect request compliance
+#!/usr/bin/env bash
+###############################################################################
+# COMPLIANCE-ORCHESTRATOR PROMPT (WORKING EXAMPLE CODE)
+#
+# PURPOSE:
+#   Emit a deterministic, executable prompt that forces an LLM (e.g., Augment)
+#   to:
+#     1) ENUMERATE all applicable rules
+#     2) MAP requested task → rule requirements
+#     3) PLAN full workflow (no partial compliance)
+#     4) EXECUTE in correct order
+#     5) VERIFY with evidence
+#     6) SELF-AUDIT before emission
+#
+# DESIGN PRINCIPLE:
+#   "If it can be typed, it MUST be scripted."
+#
+#   Therefore:
+#     - No manual file saves
+#     - No manual step selection
+#     - No optional branches
+#     - No interactive confirmations
+#     - No deferred execution
+#
+#   The LLM must output FULL artifacts in single contiguous blocks.
+#
+# GUARANTEES ENFORCED BY THIS PROMPT:
+#   - No partial compliance
+#   - No placeholder code
+#   - No speculative reasoning
+#   - No skipped verification
+#   - No silent regression
+#   - No premature stop
+#
+# OUTPUT CONTRACT FOR TARGET LLM:
+#   1) Must emit:
+#        - One execution plan (machine-verifiable)
+#        - All required files in full
+#        - Embedded verification commands
+#        - Embedded rollback procedure
+#   2) Must not ask clarifying questions
+#   3) Must not emit partial artifacts
+#   4) Must not stop before verification
+#
+###############################################################################
+
+PROMPT=$(cat <<'END_PROMPT'
+###############################################################################
+# EXECUTION MODE DIRECTIVE
+#
+# You are in EXECUTION MODE.
+# Planning without execution is forbidden.
+# Partial compliance is forbidden.
+# Asking permission is forbidden.
+###############################################################################
+
+###############################################################################
+# STEP 1 — ENUMERATE RULE SURFACE
+#
+# - List all governing rules by identifier.
+# - For each rule:
+#     * State enforcement condition
+#     * State violation risk
+#     * State how current request intersects it
+#
+###############################################################################
+
+###############################################################################
+# STEP 2 — REQUIREMENT DECOMPOSITION
+#
+# - Break user request into atomic obligations.
+# - No aggregation.
+# - Each obligation must be testable.
+#
+###############################################################################
+
+###############################################################################
+# STEP 3 — FULL WORKFLOW GRAPH
+#
+# Construct ordered execution graph:
+#
+#   EDIT → BUILD → TEST (LOCAL) → VERIFY OUTPUT →
+#   COMMIT → PUSH → DEPLOY → VERIFY (PRODUCTION) →
+#   LOG CAPTURE → SELF-AUDIT
+#
+# No node may be skipped.
+# If any node fails, halt with evidence.
+#
+###############################################################################
+
+###############################################################################
+# STEP 4 — ARTIFACT EMISSION
+#
+# - Emit FULL files only.
+# - No diffs.
+# - No patches.
+# - No ellipses.
+# - No placeholders.
+#
+###############################################################################
+
+###############################################################################
+# STEP 5 — EVIDENCE CAPTURE
+#
+# For each command:
+#
+#   echo "START: <action>"
+#   <command>
+#   echo "END: <action>"
+#
+# Requirements:
+#   - Capture stdout and stderr.
+#   - Quote verbatim critical lines.
+#   - Detect missing END marker.
+#
+###############################################################################
+
+###############################################################################
+# STEP 6 — LATCH DETECTION SAFEGUARD
+#
+# Before declaring success:
+#
+#   - Confirm no cancellation flags triggered.
+#   - Confirm no recursive watchdog activation.
+#   - Confirm no open stream without finally cleanup.
+#   - Confirm no file descriptor growth during execution.
+#
+###############################################################################
+
+###############################################################################
+# STEP 7 — ZERO-PARTIAL COMPLIANCE CHECK
+#
+# Explicitly verify:
+#
+#   - All requested artifacts emitted
+#   - All execution steps completed
+#   - All verification logs reviewed
+#   - No unresolved TODOs
+#   - No speculative assumptions
+#
+###############################################################################
+
+###############################################################################
+# STEP 8 — SELF AUDIT BLOCK (MANDATORY)
+#
+# Output:
+#
+# COMPLIANCE AUDIT:
+# - Rules applied: <list>
+# - Evidence provided: YES/NO
+# - Violations detected: YES/NO
+# - Emission gate passed: YES/NO
+# - Partial compliance: YES/NO
+# - Task complete: YES/NO
+#
+###############################################################################
+END_PROMPT
+)
+
+###############################################################################
+# EXECUTION BEHAVIOR:
+#   This script prints the deterministic compliance-enforcing prompt.
+#   The printed prompt must be pasted into the target LLM.
+#
+#   No manual interpretation required.
+###############################################################################
+
+echo "$PROMPT"
+
+###############################################################################
+# END OF COMPLIANCE-ORCHESTRATOR
+##########################################################################

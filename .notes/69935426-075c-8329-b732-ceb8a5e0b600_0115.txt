@@ -1,0 +1,366 @@
+#!/usr/bin/env node
+/***************************************************************************************************
+TITLE:
+Definitive Leak Confirmation & Remediation Planning Prompt (Executable Template)
+
+PURPOSE:
+This file is BOTH:
+1) A structured diagnostic checklist
+2) An executable orchestration scaffold
+3) A compliance-enforcing planning template
+
+It exists to:
+
+    • Enumerate every possible leak vector
+    • Confirm or eliminate getRemoteAgentOverviewsStream as primary cause
+    • Distinguish undici pooling vs raw socket leak
+    • Enforce step-by-step verification discipline
+    • Prevent assumption-based debugging
+    • Permanently eliminate latch re-entry conditions
+
+This file does NOT modify the extension.
+It enforces controlled observation and verification.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+SECTION 1 — GLOBAL OBJECTIVES
+
+We MUST conclusively determine:
+
+    A) Is getRemoteAgentOverviewsStream the primary leak source?
+    B) Is the leak caused by:
+            - Unreturned undici pooled sockets?
+            - Aborted streams not cancelled?
+            - Retry storm reconnect loops?
+            - Webview reload churn?
+            - Renderer fork death loop?
+            - Raw TCP sockets outside undici?
+    C) Which exact lifecycle step fails cleanup?
+    D) What exact patch eliminates it permanently?
+
+No step may be skipped.
+No inference without measurement.
+No conclusion without before/after comparison.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+SECTION 2 — REQUIRED EVIDENCE MATRIX
+
+Every test MUST log the following metrics simultaneously:
+
+    1) Extension Host FD count
+    2) Active TCP sockets (ESTABLISHED / TIME_WAIT / CLOSE_WAIT)
+    3) Undici dispatcher stats (in-process)
+    4) Stream lifecycle events:
+            - request start
+            - timeout trigger
+            - abort invoked
+            - response.body.cancel()
+            - iterator.return()
+            - retry attempt
+    5) Webview reload count
+    6) Renderer process PID churn
+
+If any metric is missing, the result is invalid.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+SECTION 3 — CONTROLLED EXPERIMENT PLAN
+
+We execute experiments in isolation.
+
+----------------------------------------------------------------------------------------------------
+EXPERIMENT 1 — Baseline Idle
+----------------------------------------------------------------------------------------------------
+Goal:
+    Establish FD + TCP steady state with NO streaming calls.
+
+Procedure:
+    Disable getRemoteAgentOverviewsStream invocation.
+    Observe 10 minutes.
+
+Expected:
+    FD stable.
+    TCP stable.
+
+If NOT stable:
+    Stream is NOT primary cause.
+    Investigate other lifecycle leaks first.
+
+----------------------------------------------------------------------------------------------------
+EXPERIMENT 2 — Single Stream, No Timeout
+----------------------------------------------------------------------------------------------------
+Goal:
+    Confirm proper cleanup on normal completion.
+
+Procedure:
+    Allow ONE stream to complete successfully.
+    No artificial timeout.
+    No retries.
+
+Expected:
+    FD returns to baseline.
+    TCP returns to baseline.
+    Undici stats show 0 pending.
+    No CLOSE_WAIT accumulation.
+
+Failure here = fundamental cleanup bug.
+
+----------------------------------------------------------------------------------------------------
+EXPERIMENT 3 — Forced Timeout, No Retry
+----------------------------------------------------------------------------------------------------
+Goal:
+    Confirm abort path cleanup.
+
+Procedure:
+    Trigger timeout once.
+    DO NOT allow retry.
+    Log:
+
+        abortController.abort()
+        response.body.cancel()
+        iterator.return()
+
+Expected:
+    FD returns to baseline.
+    TCP ESTABLISHED does NOT grow.
+    No CLOSE_WAIT accumulation.
+
+If FD grows here:
+    Timeout path leak confirmed.
+
+----------------------------------------------------------------------------------------------------
+EXPERIMENT 4 — Retry Enabled
+----------------------------------------------------------------------------------------------------
+Goal:
+    Detect latch re-entry condition.
+
+Procedure:
+    Allow timeout + automatic retry loop.
+    Observe 5–10 cycles.
+
+Expected:
+    Only ONE active stream at any time.
+    No monotonic TCP growth.
+    No exponential FD growth.
+
+If TCP grows linearly with retries:
+    Stream retry storm confirmed.
+
+If renderer forks increase:
+    Webview reload loop confirmed.
+
+----------------------------------------------------------------------------------------------------
+EXPERIMENT 5 — Webview Disabled
+----------------------------------------------------------------------------------------------------
+Goal:
+    Confirm whether renderer churn drives leak.
+
+Procedure:
+    Disable webview initialization entirely.
+    Run streaming.
+
+If leak disappears:
+    Webview reload cycle is primary driver.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+SECTION 4 — STREAM LIFECYCLE COMPLIANCE REQUIREMENTS
+
+A streaming request MUST obey:
+
+    let response;
+    try {
+        response = await fetch(...);
+        for await (const chunk of response.body) {
+            // consume
+        }
+    } finally {
+        if (response?.body) {
+            await response.body.cancel();
+        }
+    }
+
+AND on timeout:
+
+    abortController.abort();
+
+AND retry MUST NOT execute unless:
+
+    previousStreamState === "fully_cleaned"
+
+Mandatory invariant:
+
+    activeStreamCount <= 1
+
+If violated → latch re-entry condition exists.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+SECTION 5 — PERMANENT FIX REQUIREMENTS
+
+To eliminate latch re-entry permanently:
+
+1) Introduce global single-flight guard:
+
+        if (streamInFlight) return;
+        streamInFlight = true;
+
+2) Enforce structured cleanup:
+
+        try { ... }
+        finally {
+            streamInFlight = false;
+        }
+
+3) Disallow recursive retry:
+        Replace immediate retry with backoff scheduler.
+
+4) Prevent webview reload until:
+        streamInFlight === false
+
+5) Ensure abort path explicitly:
+        - abortController.abort()
+        - response.body.cancel()
+        - iterator.return()
+
+6) Add hard assertion:
+
+        if (activeStreams > 1) {
+            throw new Error("STREAM RE-ENTRY DETECTED");
+        }
+
+If these are not implemented together,
+re-entry can still occur.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+SECTION 6 — DEFINITIVE PRIMARY CAUSE TEST
+
+To prove getRemoteAgentOverviewsStream is primary:
+
+STEP 1:
+    Comment out its invocation entirely.
+
+STEP 2:
+    Restart VS Code.
+
+STEP 3:
+    Observe for 15+ minutes.
+
+IF:
+    FD growth stops completely
+    TCP accumulation stops
+    Renderer churn stops
+
+THEN:
+    It is primary driver.
+
+ELSE:
+    It is secondary amplifier,
+    not root cause.
+
+No guesswork allowed.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+SECTION 7 — RAW SOCKET VS POOL CONFIRMATION
+
+Interpretation logic:
+
+IF:
+    TCP ESTABLISHED grows with FD growth
+THEN:
+    Raw socket leak or pooled socket not returned.
+
+IF:
+    Undici stats show growing "busy" or "pending"
+THEN:
+    Pool leak.
+
+IF:
+    TCP mostly TIME_WAIT
+THEN:
+    Retry storm.
+
+IF:
+    TCP small but FD huge
+THEN:
+    IPC or pipe leak (webview churn).
+
+Conclusion must match metrics.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+SECTION 8 — ENFORCED EXECUTION ORDER
+
+1) Capture baseline.
+2) Disable stream → verify stability.
+3) Single stream success path.
+4) Single timeout no retry.
+5) Timeout + retry.
+6) Webview disabled test.
+7) Apply single-flight + structured cleanup.
+8) Repeat experiments.
+9) Confirm zero monotonic growth.
+10) Only then declare fix complete.
+
+Skipping steps invalidates result.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+SECTION 9 — TERMINATION CRITERIA
+
+Issue is considered permanently resolved only when:
+
+    • FD count returns to baseline after every test
+    • TCP ESTABLISHED does not grow monotonically
+    • No CLOSE_WAIT accumulation
+    • Undici pending remains stable
+    • No renderer fork storm
+    • No automatic stream re-entry
+    • No exponential retry
+
+Anything less = incomplete fix.
+
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+END OF COMPLIANCE TEMPLATE
+
+This file enforces disciplined, evidence-based debugging.
+No assumptions.
+No partial patches.
+No minimal fixes.
+Only complete lifecycle correctness.
+
+***************************************************************************************************/

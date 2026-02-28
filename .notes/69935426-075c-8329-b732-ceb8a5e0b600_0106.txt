@@ -1,0 +1,154 @@
+DIAG| Code: Mongoose Error Code: ${t.code}`:""}`})}function xYe
+DIAG| Context: SentryService.getInstance() called before createInstance at L289. Race condition in extension startup.
+[2026-02-23T14:57:24.699Z]   → L603:1
+DIAG| [Request cancelled] Error: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-23T14:57:24.699Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.937 [error] 'Service[mAe]': API call failed: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.164Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-23T14:57:24.699Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.936 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-23T14:57:24.699Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-23T14:57:24.699Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.902 [info] 'ApiRetry': Operation failed with error Error: fetch failed, retrying in 1000 ms; retries = 0
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-23T14:57:24.699Z]   → L252:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.814 [error] 'AugmentExtensionSidecar': API request ec70527a-3b00-42e9-97f6-d4b34e89912a to https://d17.api.augmentcode.com/client-metrics failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `),G=I.substring(0,V);I=I.substring(V+1);try{let M=
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-23T14:57:24.699Z]   → L64:4481
+DIAG| [truncation_cause_detected] Augment chat input completion API calls causing file descriptor leak and output truncation
+DIAG| Timestamp: 2026-02-19T11:56:37-05:00
+DIAG| Stack: [2026-02-19T16:38:41.191Z]     STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481
+DIAG| Code: thod},ice(t,e)),n),{message:s,header:a,trailer:c}=await o(Object.assign({stream:!1,message:r,method:e
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-23T14:57:24.699Z]   → L956:1
+DIAG| [Unknown] 2026-02-18 20:44:08.407 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Timestamp: 2026-02-19T01:45:03.092Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `,A=A.slice(1))),{selectedCode:d,prefix:m,suffix:A,
+DIAG| Context: Invalid line range in OpenFile handler at L956. Extension tried to open a line range outside document bounds.
+[2026-02-23T14:57:24.700Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 1002522: 33.3% CPU, 1650 MB RAM, runtime 1:18
+DIAG| Timestamp: 2026-02-19T11:43:36-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-23T14:57:24.700Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 932054: 59.5 11.7 956184      00:25 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-23T14:57:24.700Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 929308: 33.3  7.5 616704      00:44 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-23T14:57:24.700Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 923566: 37.8 15.8 1285712     03:18 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:42:47-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-23T14:57:24.700Z]   → L1113:1
+DIAG| [fd_leak_warning] FD leak: 730 warnings, range 50360–57492, current 53976
+DIAG| Occurrences: 730
+DIAG| Timestamp: 2026-02-20T08:51:44.222Z
+DIAG| Stack: lsof | grep -c code → 53976 (threshold: 50000). Generated by monitorApplicationEvents() at L1113 in extension.ts
+DIAG| Code:                     logToDatabase('fd_leak_warning'
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-23T14:57:24.700Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 3042403: 26.6% CPU, 1178 MB RAM, cmd: /usr/share/code/code --type=zygote
+DIAG| Occurrences: 2404
+DIAG| Timestamp: 2026-02-23T14:57:17.191Z
+DIAG| Stack: ps aux | PID=3042403 CPU=26.6% MEM=1178MB CMD=/usr/share/code/code --type=zygote
+DIAG| Code: logToDatabase('runaway_zygote_detected', `PID ${pid}: ${cpu.toFixed(1)}% CPU, ${memMB} MB RAM`)
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-23T14:57:24.700Z]   → L1087:1
+DIAG| [fd_leak_warning] File descriptor count: 54938 (threshold: 50000)
+DIAG| Occurrences: 1165
+DIAG| Timestamp: 2026-02-23T14:56:38.249Z
+DIAG| Stack: lsof 2>/dev/null | grep -c code → 54938
+DIAG| Code: logToDatabase('fd_leak_warning', `File descriptor count: ${fdCount} (threshold: 50000)`)
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-23T14:57:24.700Z]   → L1:1
+DIAG| [root_cause_identified] Feature: chat input completion  //  Error rate: 101%  //  Function: Y.resolveAsyncMsg
+DIAG| Timestamp: 2026-02-19 17:40:31
+DIAG| Stack: Automated analysis from watchdog logs
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-23T14:57:24.700Z]   → L1:1
+DIAG| [leak_analysis] Chat input completions stopped (0 calls after 12:12:08) but FD leak persists (55,355 FDs). Other sources: API request aborts, Extension-WebView errors, CWD tracking timeouts, hook integration calls.
+DIAG| Timestamp: 2026-02-19 17:26:11
+DIAG| Stack: Evidence: 708 total chat calls, 0 after settings change, 24 new Request cancelled errors, FD trend 53,536->55,355
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-23T14:57:24.700Z]   → L1:1
+DIAG| [DIAGNOSTICS_ACTIVE] Diagnostics operational — 1511 total errors, 30 cancelled, 4 with stacks
+DIAG| Timestamp: 2026-02-20T03:52:15-05:00
+DIAG| Stack: N/A
+DIAG| Code: N/A
+DIAG| Context: System status. Stale entries excluded: fix_applied, fix_suggested (already resolved by hand).
+[2026-02-23T14:57:24.700Z]   → L1:1
+DIAG| [feature_flags_timeout] MainPanelWebviewProvider: Timeout waiting for feature flags after 1000ms, proceeding with default flags
+DIAG| Occurrences: 1166
+DIAG| Timestamp: 2026-02-23T14:57:22.516Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: feature_flags_timeout | 0 frame(s)
+[2026-02-23T14:57:24.700Z]   → L1:1
+DIAG| [sentry_init_race] SentryService: SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+DIAG| Occurrences: 1166
+DIAG| Timestamp: 2026-02-23T14:57:22.532Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: sentry_init_race | 0 frame(s)
+[2026-02-23T14:57:24.700Z]   → L1:1
+DIAG| [Unknown] getSelectedCodeDetails: Unable to resolve path name for document | Unable to resolve path name for document
+DIAG| Occurrences: 2332
+DIAG| Timestamp: 2026-02-23T14:57:22.559Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: Unknown | 0 frame(s)
+[2026-02-23T14:57:24.700Z]   → L1:1
+DIAG| [invalid_line_range] OpenFile: Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Occurrences: 2332
+DIAG| Timestamp: 2026-02-23T14:57:22.623Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: invalid_line_range | 0 frame(s)
+[2026-02-23T14:57:24.700Z]   → L1:1
+DIAG| [sentry_sourcemap_warning] SentryService: No Debug ID found - sourcemaps may not work. Bundle may not be processed with @sentry/cli.
+DIAG| Occurrences: 1166
+DIAG| Timestamp: 2026-02-23T14:57:22.606Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: sentry_sourcemap_warning | 0 frame(s)

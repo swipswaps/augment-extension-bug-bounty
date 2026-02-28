@@ -1,0 +1,29 @@
+
+================================================================================
+[INSTRUMENTATION INITIALIZED - INSTANCE-LEVEL v2.0]
+Timestamp: 2026-02-22T19:30:08.123Z
+PID: 4162636
+Log file: /home/owner/Documents/6984bd27-4494-8330-9803-7b6895a48aa5/augment-latch-debug.log
+Strategy: Module._load hook + constructor wrapping
+Target properties: _closingPromise, _cancelledByUser (INSTANCE-LEVEL)
+
+WHAT THIS CAPTURES:
+- Stack trace when _closingPromise is set (MCP client closing)
+- Stack trace when _cancelledByUser set to true (latch engaged)
+- Stack trace when _cancelledByUser set to false (latch reset)
+- Process PID and timestamp for each mutation
+
+WHY THIS VERSION WORKS:
+- Hooks Module._load to intercept class loading
+- Wraps constructor to instrument instances at creation time
+- Applies Object.defineProperty() to each instance individually
+- Previous version failed because it never executed instrumentation
+
+EXPECTED BEHAVIOR:
+- Initialization: _cancelledByUser = false (once per instance)
+- Latch trigger: _cancelledByUser = true (under resource pressure)
+- NEVER: _cancelledByUser = false (after initialization)
+
+If you see _cancelledByUser set to true, that is the moment all tool calls start failing.
+The stack trace will show the exact function that triggered the latch.
+================================================================================

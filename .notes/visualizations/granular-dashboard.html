@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granular Event & Error Message Dashboard</title>
+    <!-- 
+        USER REQUEST: "visualization with granularity of error, event, system and application relevant messages was expected"
+        PURPOSE: Show INDIVIDUAL error messages, events, and logs with FULL verbatim text (not aggregated counts)
+        VISUALIZATION: Interactive timeline showing each error/event with full message, filterable by type/severity
+        TROUBLESHOOTING VALUE: See exact error "Augment.log: 2026-02-18 13:09:07.435 [error] 'Service[mAe]': API call failed: Request cancelled"
+                               instead of just "20 errors occurred"
+    -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4ec9b0;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #858585;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        /* FILTER CONTROLS */
+        .controls {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .control-group label {
+            font-size: 12px;
+            color: #858585;
+            text-transform: uppercase;
+        }
+        
+        .control-group select, .control-group input {
+            background: #1e1e1e;
+            border: 1px solid #3e3e42;
+            color: #d4d4d4;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-left: auto;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4ec9b0;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: #858585;
+            text-transform: uppercase;
+        }
+        
+        /* EVENT LIST */
+        .event-list {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            border-radius: 8px;
+            max-height: 800px;
+            overflow-y: auto;
+        }
+        
+        .event-item {
+            border-bottom: 1px solid #3e3e42;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .event-item:hover {
+            background: #2d2d30;
+        }
+        
+        .event-item.selected {
+            background: #094771;
+            border-left: 3px solid #4ec9b0;
+        }
+        
+        .event-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .event-timestamp {
+            color: #858585;
+            font-size: 11px;
+            font-family: 'Consolas', monospace;
+        }
+        
+        .event-type {
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .event-type.error { background: #5a1d1d; color: #f48771; }
+        .event-type.system { background: #1d3a5a; color: #569cd6; }
+        .event-type.application { background: #1d5a3a; color: #4ec9b0; }
+        
+        .event-severity {
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        .event-severity.ERROR { background: #5a1d1d; color: #f48771; }
+        .event-severity.WARNING { background: #5a4d1d; color: #dcdcaa; }
+        .event-severity.INFO { background: #1d2d5a; color: #9cdcfe; }
+        
+        .event-message {
+            color: #d4d4d4;
+            font-size: 13px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+        
+        .event-source {
+            color: #4ec9b0;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .event-metric {
+            color: #dcdcaa;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        /* DETAIL PANEL */
+        .detail-panel {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .detail-panel.visible {
+            display: block;
+        }
+        
+        .detail-title {
+            color: #4ec9b0;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #3e3e42;
+            padding-bottom: 10px;
+        }
+        
+        .detail-field {
+            margin-bottom: 10px;
+        }
+        
+        .detail-label {
+            color: #858585;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        
+        .detail-value {
+            color: #d4d4d4;
+            font-size: 13px;
+            padding: 8px;
+            background: #1e1e1e;
+            border-radius: 4px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Granular Event & Error Message Dashboard</h1>
+    <p class=\"subtitle\">
+        Showing individual error messages, events, and system logs with full verbatim text<br>
+        Click on any event to see full details
+    </p>
+    
+    <!-- FILTER CONTROLS -->
+    <div class=\"controls\">
+        <div class=\"control-group\">
+            <label>Source File</label>
+            <select id=\"filter-type\">
+                <option value=\"all\">All Sources</option>
+                <option value=\"Augment.log\">Augment.log</option>
+                <option value=\"watchdog\">Watchdog</option>
+            </select>
+        </div>
+        
+        <div class=\"control-group\">
+            <label>Severity</label>
+            <select id=\"filter-severity\">
+                <option value=\"all\">All Severities</option>
+                <option value=\"ERROR\">Errors</option>
+                <option value=\"WARNING\">Warnings</option>
+                <option value=\"INFO\">Info</option>
+            </select>
+        </div>
+        
+        <div class=\"control-group\">
+            <label>Search Message</label>
+            <input type=\"text\" id=\"filter-search\" placeholder=\"Search in messages...\">
+        </div>
+        
+        <div class=\"stats\">
+            <div class=\"stat\">
+                <div class=\"stat-value\" id=\"stat-total\">0</div>
+                <div class=\"stat-label\">Total Events</div>
+            </div>
+            <div class=\"stat\">
+                <div class=\"stat-value\" id=\"stat-filtered\">0</div>
+                <div class=\"stat-label\">Filtered</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- EVENT LIST -->
+    <div class=\"event-list\" id=\"event-list\"></div>
+    
+    <!-- DETAIL PANEL -->
+    <div class=\"detail-panel\" id=\"detail-panel\">
+        <div class=\"detail-title\">Event Details</div>
+        <div id=\"detail-content\"></div>
+    </div>
+    
+    <script>
+        // LOAD DATA: Application logs with FULL verbatim error messages
+        // USER REQUEST: "visualization with granularity of error, event, system and application relevant messages was expected"
+        // FIX: Load application-logs.json which has FULL error text, not aggregated counts
+        // DEBUG: Add error handling to diagnose load failures
+        console.log('Starting to load application-logs.json...');
+
+        d3.json('application-logs.json')
+            .then(data => {
+                console.log(`✅ Loaded ${data.length} application log entries with FULL error messages`);
+                initializeDashboard(data);
+            })
+            .catch(error => {
+                console.error('❌ Failed to load application-logs.json:', error);
+                document.getElementById('event-list').innerHTML = `
+                    <div style="padding: 20px; color: #f48771;">
+                        <h3>Error Loading Data</h3>
+                        <p>Failed to load application-logs.json: ${error.message}</p>
+                        <p>Check browser console for details.</p>
+                    </div>
+                `;
+            });
+
+        function initializeDashboard(data) {
+            // GLOBAL STATE
+            let allEvents = data;
+            let filteredEvents = data;
+            let selectedEvent = null;
+            
+            // UPDATE STATS
+            function updateStats() {
+                document.getElementById('stat-total').textContent = allEvents.length.toLocaleString();
+                document.getElementById('stat-filtered').textContent = filteredEvents.length.toLocaleString();
+            }
+            
+            // FILTER EVENTS
+            function filterEvents() {
+                const sourceFilter = document.getElementById('filter-type').value;
+                const severityFilter = document.getElementById('filter-severity').value;
+                const searchFilter = document.getElementById('filter-search').value.toLowerCase();
+
+                filteredEvents = allEvents.filter(event => {
+                    // Source filter (Augment.log vs watchdog)
+                    if (sourceFilter !== 'all' && event.source !== sourceFilter) return false;
+
+                    // Severity filter
+                    if (severityFilter !== 'all' && event.severity !== severityFilter) return false;
+
+                    // Search filter
+                    if (searchFilter && !event.message.toLowerCase().includes(searchFilter)) return false;
+
+                    return true;
+                });
+
+                renderEvents();
+                updateStats();
+            }
+            
+            // RENDER EVENT LIST
+            function renderEvents() {
+                const container = d3.select('#event-list');
+                container.selectAll('*').remove();
+                
+                // RENDER: Each event as a list item with full message
+                filteredEvents.forEach((event, index) => {
+                    const item = container.append('div')
+                        .attr('class', 'event-item')
+                        .on('click', () => showDetail(event, index));
+                    
+                    const header = item.append('div').attr('class', 'event-header');
+
+                    // Timestamp
+                    header.append('span')
+                        .attr('class', 'event-timestamp')
+                        .text(new Date(event.timestamp).toLocaleString());
+
+                    // Source badge (Augment.log, watchdog, etc)
+                    if (event.source) {
+                        header.append('span')
+                            .attr('class', 'event-type application')
+                            .text(event.source);
+                    }
+
+                    // Severity badge
+                    if (event.severity) {
+                        header.append('span')
+                            .attr('class', `event-severity ${event.severity}`)
+                            .text(event.severity);
+                    }
+
+                    // Message (FULL VERBATIM TEXT - no source prefix since it's in badge)
+                    const messageDiv = item.append('div').attr('class', 'event-message');
+                    messageDiv.append('span').text(event.message);
+                });
+            }
+            
+            // SHOW DETAIL PANEL
+            function showDetail(event, index) {
+                selectedEvent = event;
+                
+                // Highlight selected item
+                d3.selectAll('.event-item').classed('selected', false);
+                d3.selectAll('.event-item').filter((d, i) => i === index).classed('selected', true);
+                
+                // Show detail panel
+                const panel = document.getElementById('detail-panel');
+                const content = document.getElementById('detail-content');
+                
+                content.innerHTML = '';
+                
+                // Timestamp
+                const timestampField = document.createElement('div');
+                timestampField.className = 'detail-field';
+                timestampField.innerHTML = `
+                    <div class=\"detail-label\">Timestamp</div>
+                    <div class=\"detail-value\">${new Date(event.timestamp).toLocaleString()}</div>
+                `;
+                content.appendChild(timestampField);
+
+                // Source
+                if (event.source) {
+                    const sourceField = document.createElement('div');
+                    sourceField.className = 'detail-field';
+                    sourceField.innerHTML = `
+                        <div class=\"detail-label\">Source File</div>
+                        <div class=\"detail-value\">${event.source}</div>
+                    `;
+                    content.appendChild(sourceField);
+                }
+
+                // Severity
+                if (event.severity) {
+                    const severityField = document.createElement('div');
+                    severityField.className = 'detail-field';
+                    severityField.innerHTML = `
+                        <div class=\"detail-label\">Severity</div>
+                        <div class=\"detail-value\">${event.severity}</div>
+                    `;
+                    content.appendChild(severityField);
+                }
+
+                // Metric Value
+                if (event.metric_value) {
+                    const metricField = document.createElement('div');
+                    metricField.className = 'detail-field';
+                    metricField.innerHTML = `
+                        <div class=\"detail-label\">FD Count</div>
+                        <div class=\"detail-value\">${event.metric_value.toLocaleString()}</div>
+                    `;
+                    content.appendChild(metricField);
+                }
+                
+                // Message (FULL VERBATIM)
+                const messageField = document.createElement('div');
+                messageField.className = 'detail-field';
+                messageField.innerHTML = `
+                    <div class=\"detail-label\">Full Message</div>
+                    <div class=\"detail-value\">${event.message}</div>
+                `;
+                content.appendChild(messageField);
+                
+                panel.classList.add('visible');
+                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            
+            // EVENT LISTENERS
+            document.getElementById('filter-type').addEventListener('change', filterEvents);
+            document.getElementById('filter-severity').addEventListener('change', filterEvents);
+            document.getElementById('filter-search').addEventListener('input', filterEvents);
+
+            // INITIAL RENDER
+            renderEvents();
+            updateStats();
+        }
+    </script>
+</body>
+</html>
+

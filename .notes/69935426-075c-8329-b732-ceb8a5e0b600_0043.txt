@@ -1,0 +1,302 @@
+
+Skip to content
+
+    swipswaps
+    hidden-terminal-watchdog
+
+Repository navigation
+
+    Code
+    Issues
+    Pull requests1 (1)
+    Actions
+    Projects
+    Wiki
+    Security
+    Insights
+    Settings
+
+Please configure another 2FA method to reduce your risk of permanent account lockout. If you use SMS for 2FA, we strongly recommend against SMS as it is prone to fraud and delivery may be unreliable depending on your region.
+Owner avatar
+hidden-terminal-watchdog
+Public
+
+swipswaps/hidden-terminal-watchdog
+Your main branch isn't protected
+Protect this branch from force pushing or deletion, or require status checks before merging. View documentation.
+t
+Name	Last commit message
+	Last commit date
+swipswaps
+swipswaps
+feat: Add stall detection for 'Waiting for user input' and pkill comm…
+a773e33
+ · 
+3 days ago
+.vscode
+	
+Add VS Code launch and tasks configuration
+	
+last week
+src
+	
+feat: Add stall detection for 'Waiting for user input' and pkill comm…
+	
+3 days ago
+.eslintrc.json
+	
+Initial commit: Hidden Terminal Watchdog VS Code extension
+	
+last week
+.gitignore
+	
+Initial commit: Hidden Terminal Watchdog VS Code extension
+	
+last week
+.vscodeignore
+	
+Complete working extension with installation script and comprehensive…
+	
+5 days ago
+COMMANDS.txt
+	
+Complete working extension with installation script and comprehensive…
+	
+5 days ago
+INSTALL.md
+	
+Add installation guide
+	
+last week
+README.md
+	
+Enhanced heartbeat with event tracking and human-readable messages
+	
+4 days ago
+auto-test.py
+	
+Complete working extension with installation script and comprehensive…
+	
+5 days ago
+force-package.sh
+	
+Complete working extension with installation script and comprehensive…
+	
+5 days ago
+install.sh
+	
+Fix package.json main entry point and add install script
+	
+last week
+package-lock.json
+	
+Fix package.json main entry point and add install script
+	
+last week
+package.json
+	
+feat: Add TTY path tracking and terminal output capture
+	
+4 days ago
+test-extension.sh
+	
+Complete working extension with installation script and comprehensive…
+	
+5 days ago
+test-tee.js
+	
+Implement production-grade watchdog with tee streaming
+	
+4 days ago
+tsconfig.json
+	
+Initial commit: Hidden Terminal Watchdog VS Code extension
+	
+last week
+Repository files navigation
+
+    README
+
+Hidden Terminal Watchdog
+
+A VS Code extension that monitors and cleans hidden terminals and extension hosts to prevent RULE 22 violations and MCP instability.
+Features
+
+    Automatic Monitoring: Continuously monitors for hidden VS Code terminal processes and extension hosts
+    Real-time Alerts: Warns when hidden terminal count exceeds configurable threshold
+    Manual Cleanup: Command palette action to force cleanup of hidden terminals
+    Status Monitoring: View current status of tracked and hidden terminals
+    Configurable: Customize monitoring interval, thresholds, and auto-cleanup behavior
+
+Commands
+
+    Hidden Terminal Watchdog: Force Cleanup - Immediately cleanup all hidden terminals
+    Hidden Terminal Watchdog: Show Status - Display current terminal status
+
+Configuration
+
+    watchdog.monitorInterval - Interval in milliseconds to check for hidden terminals (default: 5000ms)
+    watchdog.maxTerminals - Maximum number of hidden terminals before warning (default: 20)
+    watchdog.autoCleanup - Automatically cleanup hidden terminals when threshold is exceeded (default: false)
+
+Root Cause
+
+This extension addresses RULE 22 violations where spawning dozens of unreused terminals causes persistent resource contention in the VS Code extension host. Under heavy terminal load (100+ accumulated sessions), the MCP client connection becomes unstable, triggering spurious cancel-tool-run signals.
+How It Works
+
+    Monitors VS Code extension hosts and terminal processes using pgrep
+    Tracks all integrated terminals via VS Code API
+    Detects hidden terminals (processes without controlling TTY)
+    Sends SIGTERM for graceful shutdown, then SIGKILL if needed
+    Logs all activity to Output channel for forensic analysis
+
+Installation
+Quick Install (Recommended)
+
+cd hidden-terminal-watchdog
+./force-package.sh
+
+This script will:
+
+    Clean build the extension
+    Create a VSIX package
+    Install it automatically
+    Verify installation
+
+After installation, reload VS Code (Ctrl+Shift+P → "Reload Window")
+Manual Installation
+
+# Build the extension
+npm install
+npm run compile
+
+# Package and install
+./force-package.sh
+
+# Or install manually
+code --install-extension hidden-terminal-watchdog-1.0.0.vsix --force
+
+Usage
+Commands
+
+Open Command Palette (Ctrl+Shift+P):
+
+    Hidden Terminal Watchdog: Show Status - Display current terminal count and hidden processes
+    Hidden Terminal Watchdog: Force Cleanup - Manually kill all hidden terminals
+
+Log File Location
+
+Logs are written to VS Code's global storage:
+
+~/.config/Code/User/globalStorage/prf-compliance.hidden-terminal-watchdog/watchdog.log
+
+Example Output
+
+[2026-02-14T23:33:54.228Z] === Hidden Terminal Watchdog Activated ===
+[2026-02-14T23:34:02.723Z] [INFO] Terminal opened: augment-bash-test (tracked: 1)
+[2026-02-14T23:34:03.775Z] [INFO] Terminal closed: augment-bash-test (tracked: 0)
+[2026-02-14T23:34:54.231Z] [HEARTBEAT] Watchdog active. Tracked: 0, Last hidden: 0
+[2026-02-14T23:35:54.231Z] [HEARTBEAT] Watchdog active. Tracked: 2, Last hidden: 0 | Events (60s): 2 opened, 1 closed, 1 monitor | Recent: [45s ago] [INFO] Terminal opened: bash (tracked: 1); [30s ago] [INFO] Terminal opened: zsh (tracked: 2); [15s ago] [MONITOR] Detected 0 hidden terminals/processes
+
+Heartbeat Features:
+
+    Shows current tracked terminals and last hidden count
+    Summarizes events in the last 60 seconds by type (opened, closed, monitor, cleanup, warnings, system)
+    Displays the last 3 event messages with timestamps
+    Helps diagnose terminal accumulation patterns and MCP instability
+
+Troubleshooting
+Extension Not Activating
+
+    Check Output panel: View → Output → "Hidden Terminal Watchdog"
+    Verify installation: code --list-extensions | grep hidden-terminal-watchdog
+    Reload window: Ctrl+Shift+P → "Reload Window"
+
+Commands Not Appearing
+
+    Ensure extension is installed: code --list-extensions
+    Check for activation errors in Output panel
+    Reinstall: ./force-package.sh
+
+Development
+Build from Source
+
+git clone https://github.com/swipswaps/hidden-terminal-watchdog.git
+cd hidden-terminal-watchdog
+npm install
+npm run compile
+
+Project Structure
+
+hidden-terminal-watchdog/
+├── src/
+│   └── extension.ts          # Main extension code
+├── out/
+│   └── extension.js          # Compiled output
+├── package.json              # Extension manifest
+├── tsconfig.json             # TypeScript config
+├── force-package.sh          # Build and install script
+└── README.md                 # This file
+
+License
+
+MIT
+Credits
+
+Created to solve RULE 22 violations in the Augment VSCode extension forensic investigation.
+Links
+
+    GitHub: https://github.com/swipswaps/hidden-terminal-watchdog
+    Issues: https://github.com/swipswaps/hidden-terminal-watchdog/issues
+
+About
+
+VS Code extension that monitors and cleans hidden terminals to prevent RULE 22 violations and MCP instability
+Resources
+Readme
+Activity
+Stars
+0 stars
+Watchers
+0 watching
+Forks
+0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Languages
+
+    TypeScript 51.0%
+    Shell 31.2%
+    Python 15.1%
+    JavaScript 2.7% 
+
+Suggested workflows
+Based on your tech stack
+
+    SLSA Generic generator logo
+    SLSA Generic generator
+    Generate SLSA3 provenance for your existing release workflows
+    Publish Python Package logo
+    Publish Python Package
+    Publish a Python Package to PyPI on release.
+    Webpack logo
+    Webpack
+    Build a NodeJS project with npm and webpack.
+
+More workflows
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
+    Security
+    Status
+    Community
+    Docs
+    Contact
+

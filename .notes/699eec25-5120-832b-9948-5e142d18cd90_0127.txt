@@ -1,0 +1,226 @@
+[owner@192.168.1.135-20260226-131432 6984bd27-4494-8330-9803-7b6895a48aa5]$ ./.notes/forensic-zygote-trace.sh
+========================================
+FORENSIC TRACE: Zygote Shared Memory Leak
+Date: Thu Feb 26 01:14:33 PM EST 2026
+========================================
+
+=== STEP 1: Verify zygote process exists ===
+    PID                  STARTED     ELAPSED %CPU   RSS NLWP CMD
+3552611 Thu Feb 26 11:36:06 2026    01:38:26 29.6 1522120 15 /usr/share/code/code --type=zygote
+✅ Zygote process exists
+
+=== STEP 2: Count leaked shared memory segments ===
+Current leaked segments: 117
+
+=== STEP 3: Sample of leaked segments (first 10) ===
+code    3552611 owner  DEL       REG               0,25              869526 /dev/shm/.org.chromium.Chromium.Wx1YeD
+code    3552611 owner  DEL       REG               0,25              869257 /dev/shm/.org.chromium.Chromium.UeXGc1
+code    3552611 owner  DEL       REG               0,25              869459 /dev/shm/.org.chromium.Chromium.GBNgHH
+code    3552611 owner  DEL       REG               0,25              869458 /dev/shm/.org.chromium.Chromium.c3mVfe
+code    3552611 owner  DEL       REG               0,25              869456 /dev/shm/.org.chromium.Chromium.4XUMlT
+code    3552611 owner  DEL       REG               0,25              869450 /dev/shm/.org.chromium.Chromium.48dPJd
+code    3552611 owner  DEL       REG               0,25              869449 /dev/shm/.org.chromium.Chromium.kdO09O
+code    3552611 owner  DEL       REG               0,25              869525 /dev/shm/.org.chromium.Chromium.FlUBSn
+code    3552611 owner  DEL       REG               0,25              869522 /dev/shm/.org.chromium.Chromium.JP6yWa
+code    3552611 owner  DEL       REG               0,25              869250 /dev/shm/.org.chromium.Chromium.s3KrOX
+
+=== STEP 4: Check for AbortErrors since restart ===
+AbortError count: 0
+0
+Log file: /home/owner/.config/Code/logs/20260226T091655/window1/exthost/Augment.vscode-augment/Augment.log
+
+=== STEP 5: Tracing syscalls for 15 seconds ===
+Looking for: memfd_create, openat(/dev/shm), unlink, mmap
+This will capture the EXACT syscalls creating shared memory...
+
+Strace output will be saved to: .notes/strace-zygote-20260226-131434.log
+strace: Process 3552611 attached with 15 threads
+strace: Process 3613096 detached
+strace: Process 3611847 detached
+strace: Process 3610815 detached
+strace: Process 3605741 detached
+strace: Process 3591358 detached
+strace: Process 3552757 detached
+strace: Process 3552630 detached
+strace: Process 3552620 detached
+strace: Process 3552619 detached
+strace: Process 3552617 detached
+strace: Process 3552615 detached
+strace: Process 3552614 detached
+strace: Process 3552613 detached
+strace: Process 3552612 detached
+strace: Process 3552611 detached
+
+Strace completed (or timed out)
+
+=== STEP 6: Analyze strace output ===
+Strace captured 23 lines
+
+--- Searching for /dev/shm operations ---
+No /dev/shm operations found
+
+--- Searching for memfd_create ---
+No memfd_create calls found
+
+--- Searching for mmap ---
+3552611 mmap(NULL, 2975292, PROT_READ|PROT_WRITE, MAP_SHARED, 41, 0) = 0x7faea5f9d000
+3552611 mmap(0x123412a00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412a00000, 2097152, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412c00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412c00000
+3552611 mmap(0x123416400000, 6291456, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123416400000
+3552611 mmap(0x123416a00000, 10485760, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123416a00000
+3552611 mmap(0x12341ac00000, 18874368, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x12341ac00000
+3552611 mmap(0x123412a00000, 2097152, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412c00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412c00000
+3552611 mmap(NULL, 6684961, PROT_READ|PROT_WRITE, MAP_SHARED, 41, 0) = 0x7faea5c13000
+
+=== STEP 7: Count leaked segments AFTER trace ===
+Leaked segments after trace: 106
+Change: -11
+
+=== STEP 8: Check RemoteAgentsMessenger activity ===
+Recent RemoteAgentsMessenger events:
+2026-02-26 10:48:19.446 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:19.446 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+2026-02-26 10:48:21.898 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:21.898 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+2026-02-26 10:48:22.676 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:22.678 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+2026-02-26 10:48:26.206 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:26.206 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+2026-02-26 10:48:31.109 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:31.109 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+
+========================================
+FORENSIC TRACE COMPLETE
+Main log: .notes/forensic-trace-20260226-131433.log
+Strace log: .notes/strace-zygote-20260226-131434.log
+========================================
+
+To view the full log:
+  cat .notes/forensic-trace-20260226-131433.log
+
+To view the strace output:
+  cat .notes/strace-zygote-20260226-131434.log
+[owner@192.168.1.135-20260226-131449 6984bd27-4494-8330-9803-7b6895a48aa5]$ cat .notes/forensic-trace-20260226-131433.log && cat .notes/strace-zygote-20260226-131434.log
+========================================
+FORENSIC TRACE: Zygote Shared Memory Leak
+Date: Thu Feb 26 01:14:33 PM EST 2026
+========================================
+
+=== STEP 1: Verify zygote process exists ===
+    PID                  STARTED     ELAPSED %CPU   RSS NLWP CMD
+3552611 Thu Feb 26 11:36:06 2026    01:38:26 29.6 1522120 15 /usr/share/code/code --type=zygote
+✅ Zygote process exists
+
+=== STEP 2: Count leaked shared memory segments ===
+Current leaked segments: 117
+
+=== STEP 3: Sample of leaked segments (first 10) ===
+code    3552611 owner  DEL       REG               0,25              869526 /dev/shm/.org.chromium.Chromium.Wx1YeD
+code    3552611 owner  DEL       REG               0,25              869257 /dev/shm/.org.chromium.Chromium.UeXGc1
+code    3552611 owner  DEL       REG               0,25              869459 /dev/shm/.org.chromium.Chromium.GBNgHH
+code    3552611 owner  DEL       REG               0,25              869458 /dev/shm/.org.chromium.Chromium.c3mVfe
+code    3552611 owner  DEL       REG               0,25              869456 /dev/shm/.org.chromium.Chromium.4XUMlT
+code    3552611 owner  DEL       REG               0,25              869450 /dev/shm/.org.chromium.Chromium.48dPJd
+code    3552611 owner  DEL       REG               0,25              869449 /dev/shm/.org.chromium.Chromium.kdO09O
+code    3552611 owner  DEL       REG               0,25              869525 /dev/shm/.org.chromium.Chromium.FlUBSn
+code    3552611 owner  DEL       REG               0,25              869522 /dev/shm/.org.chromium.Chromium.JP6yWa
+code    3552611 owner  DEL       REG               0,25              869250 /dev/shm/.org.chromium.Chromium.s3KrOX
+
+=== STEP 4: Check for AbortErrors since restart ===
+AbortError count: 0
+0
+Log file: /home/owner/.config/Code/logs/20260226T091655/window1/exthost/Augment.vscode-augment/Augment.log
+
+=== STEP 5: Tracing syscalls for 15 seconds ===
+Looking for: memfd_create, openat(/dev/shm), unlink, mmap
+This will capture the EXACT syscalls creating shared memory...
+
+Strace output will be saved to: .notes/strace-zygote-20260226-131434.log
+strace: Process 3552611 attached with 15 threads
+strace: Process 3613096 detached
+strace: Process 3611847 detached
+strace: Process 3610815 detached
+strace: Process 3605741 detached
+strace: Process 3591358 detached
+strace: Process 3552757 detached
+strace: Process 3552630 detached
+strace: Process 3552620 detached
+strace: Process 3552619 detached
+strace: Process 3552617 detached
+strace: Process 3552615 detached
+strace: Process 3552614 detached
+strace: Process 3552613 detached
+strace: Process 3552612 detached
+strace: Process 3552611 detached
+
+Strace completed (or timed out)
+
+=== STEP 6: Analyze strace output ===
+Strace captured 23 lines
+
+--- Searching for /dev/shm operations ---
+No /dev/shm operations found
+
+--- Searching for memfd_create ---
+No memfd_create calls found
+
+--- Searching for mmap ---
+3552611 mmap(NULL, 2975292, PROT_READ|PROT_WRITE, MAP_SHARED, 41, 0) = 0x7faea5f9d000
+3552611 mmap(0x123412a00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412a00000, 2097152, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412c00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412c00000
+3552611 mmap(0x123416400000, 6291456, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123416400000
+3552611 mmap(0x123416a00000, 10485760, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123416a00000
+3552611 mmap(0x12341ac00000, 18874368, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x12341ac00000
+3552611 mmap(0x123412a00000, 2097152, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412c00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412c00000
+3552611 mmap(NULL, 6684961, PROT_READ|PROT_WRITE, MAP_SHARED, 41, 0) = 0x7faea5c13000
+
+=== STEP 7: Count leaked segments AFTER trace ===
+Leaked segments after trace: 106
+Change: -11
+
+=== STEP 8: Check RemoteAgentsMessenger activity ===
+Recent RemoteAgentsMessenger events:
+2026-02-26 10:48:19.446 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:19.446 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+2026-02-26 10:48:21.898 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:21.898 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+2026-02-26 10:48:22.676 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:22.678 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+2026-02-26 10:48:26.206 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:26.206 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+2026-02-26 10:48:31.109 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+2026-02-26 10:48:31.109 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+
+========================================
+FORENSIC TRACE COMPLETE
+Main log: .notes/forensic-trace-20260226-131433.log
+Strace log: .notes/strace-zygote-20260226-131434.log
+========================================
+3552611 mmap(NULL, 2975292, PROT_READ|PROT_WRITE, MAP_SHARED, 41, 0) = 0x7faea5f9d000
+3552611 mmap(0x123412a00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412a00000, 2097152, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412c00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412c00000
+3552611 mmap(0x123416400000, 6291456, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123416400000
+3552611 mmap(0x123416a00000, 10485760, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123416a00000
+3552611 mmap(0x12341ac00000, 18874368, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x12341ac00000
+3552611 mmap(0x123412a00000, 2097152, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412c00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412c00000
+3552611 mmap(NULL, 6684961, PROT_READ|PROT_WRITE, MAP_SHARED, 41, 0) = 0x7faea5c13000
+3552611 mmap(0x123416400000, 8388608, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123416400000
+3552611 mmap(0x123412a00000, 2097152, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412c00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412c00000
+3552611 mmap(NULL, 2975290, PROT_READ|PROT_WRITE, MAP_SHARED, 41, 0) = 0x7faea5f9d000
+3552611 mmap(0x123412a00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412a00000, 2097152, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552611 mmap(0x123412c00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412c00000
+3552611 mmap(NULL, 2975290, PROT_READ|PROT_WRITE, MAP_SHARED, 41, 0) = 0x7faea5f9d000
+3552611 mmap(0x123412a00000, 4194304, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x123412a00000
+3552615 mmap(NULL, 2097152, PROT_READ|PROT_WRITE, MAP_SHARED, 41, 0) = 0x7faeffee0000
+3552615 mmap(NULL, 2097152, PROT_READ|PROT_WRITE, MAP_SHARED, 42, 0) = 0x7faea6074000
+3552615 mmap(NULL, 2097152, PROT_READ|PROT_WRITE, MAP_SHARED, 43, 0) = 0x7faea5e74000
+3552615 mmap(NULL, 2097152, PROT_READ|PROT_WRITE, MAP_SHARED, 44, 0) = 0x7faea5c74000
+[owner@192.168.1.135-20260226-131511 6984bd27-4494-8330-9803-7b6895a48aa5]$ 

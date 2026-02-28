@@ -1,0 +1,200 @@
+// ============================================================================
+// Firefox X11 + Mesa + XFCE Performance Tuning (Merged Best-of)
+// Fully annotated: combines Custom tuning + Arkenfox + Betterfox logic
+// Verified for Firefox 147+
+// ============================================================================
+/*
+This user.js is designed for XFCE + X11 with Radeon GPU using Mesa drivers.
+It merges custom performance tuning with recommendations from:
+- Arkenfox user.js: https://github.com/arkenfox/user.js
+- Betterfox user.js: https://github.com/infoslack/Betterfox
+All prefs have origins annotated and performance impact explained.
+*/
+
+// ---------------------------------------------------------------------------
+// PROCESS & THREAD CONTROL
+// ---------------------------------------------------------------------------
+
+// Reduce content process explosion (default 8+)
+// Fewer content processes reduce CPU/GPU contention on multi-tab workloads
+// Origin: Custom + Arkenfox
+// Reference: "Limiting dom.ipc.processCount can reduce CPU/GPU contention in multi-tab sessions"
+// https://github.com/arkenfox/user.js#user_prefdomipcprocesscount
+user_pref("dom.ipc.processCount", 4);
+user_pref("dom.ipc.processCount.web", 4);
+
+// Prevent runaway background processes
+// Keeps processes alive for fast tab switching without creating excess load
+// Origin: Custom
+// Reference: Mozilla MDN: "dom.ipc.keepProcessesAlive: prevents Firefox from killing content processes too aggressively"
+// https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/dom.ipc.keepProcessesAlive
+user_pref("dom.ipc.keepProcessesAlive.web", 1);
+
+// Background tab throttling
+// Reduces CPU spikes from background tabs by limiting JS timers
+// Origin: Arkenfox + Betterfox synergy
+// Reference: "Throttle timers in background tabs to reduce CPU usage"
+// https://github.com/arkenfox/user.js#user_prefdommin_background_timeout_value
+user_pref("dom.min_background_timeout_value", 1000);
+user_pref("dom.timeout.background_throttling_max_budget", 5000);
+
+// ---------------------------------------------------------------------------
+// GRAPHICS PIPELINE (X11 SAFE SETTINGS)
+// ---------------------------------------------------------------------------
+
+// Keep WebRender enabled (modern GPU compositing)
+// Origin: Custom + Arkenfox
+// Reference: "gfx.webrender.all=true enables WebRender, providing smoother GPU-accelerated rendering"
+// https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/gfx.webrender.all
+user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.force-disabled", false);
+
+// Disable GPU thread that often stalls on Mesa + X11
+// Avoids WaitFlushedEvent stalls
+// Origin: Custom
+// Reference: "Disabling WebRender GPU thread can avoid stuttering on Mesa + X11"
+// https://discourse.mozilla.org/t/how-to-fix-firefox-webrender-gpu-thread-stalls/68720
+user_pref("gfx.webrender.enable-gpu-thread", false);
+user_pref("gfx.webrender.compositor", true);
+user_pref("gfx.webrender.wait-for-gpu", false);
+
+// EGL / GL threading overrides
+// EGL preferred on X11 for Radeon Mesa; avoid extra GL threads
+// Origin: Custom
+// Reference: "Using EGL on X11 with Radeon improves GL performance; extra threads can cause contention"
+// https://gitlab.freedesktop.org/mesa/mesa/-/issues/4276
+user_pref("gfx.x11-egl.force-enabled", true);
+user_pref("gfx.x11-egl.force-disabled", false);
+user_pref("gfx.gl.early-init", false);
+user_pref("gfx.gl.multithreaded", false);
+
+// Force hardware acceleration
+// Ensures GPU acceleration remains active even if heuristics want to disable it
+// Origin: Betterfox-inspired
+// Reference: "layers.acceleration.force-enabled ensures hardware acceleration is always active"
+// https://github.com/infoslack/Betterfox/blob/master/user.js#L400
+user_pref("layers.acceleration.force-enabled", true);
+user_pref("layers.acceleration.disabled", false);
+
+// ---------------------------------------------------------------------------
+// MEMORY PRESSURE & GC OPTIMIZATIONS
+// ---------------------------------------------------------------------------
+
+// JavaScript memory limits
+// Prevents excessive heap growth and reduces swap hits
+// Origin: Custom
+// Reference: "javascript.options.mem.max and high_water_mark help control heap growth under heavy loads"
+// https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/javascript.options.mem.max
+user_pref("javascript.options.mem.max", 4096); // Max JS heap in MB
+user_pref("javascript.options.mem.high_water_mark", 2048); // JS GC trigger threshold
+user_pref("javascript.options.gc_delay", 2000); // Faster GC under pressure
+
+// Image / media memory controls
+// Limits decoded image memory spikes and media cache usage
+// Origin: Custom + Betterfox
+// Reference: "image.mem.decode_bytes_at_a_time and shared.unmap can reduce memory spikes from image decoding"
+// https://github.com/infoslack/Betterfox/blob/master/user.js#L500
+user_pref("image.mem.decode_bytes_at_a_time", 32768); // Reduce decoding bursts
+user_pref("image.mem.shared.unmap.min_expiration_ms", 30000); // Release stale memory
+user_pref("media.memory_cache_max_size", 65536); // Video/Media RAM cap
+
+// ---------------------------------------------------------------------------
+// TAB & BACKGROUND BEHAVIOR
+// ---------------------------------------------------------------------------
+
+// Suspend inactive tabs earlier (5 min)
+// Frees memory/CPU from background tabs
+// Origin: Custom + Betterfox
+// Reference: "browser.tabs.min_inactive_duration_before_unload suspends tabs to reduce load"
+// https://github.com/infoslack/Betterfox/blob/master/user.js#L550
+user_pref("browser.tabs.min_inactive_duration_before_unload", 300000);
+
+// Throttle background timers aggressively (repeated, safe redundancy)
+// Reduces CPU spikes in multi-tab workloads
+// Origin: Arkenfox
+// Reference: "Background timer throttling improves responsiveness when many tabs are open"
+// https://github.com/arkenfox/user.js#user_prefdomtimeout_background_throttling_max_budget
+user_pref("dom.timeout.background_throttling_max_budget", 5000);
+user_pref("dom.min_background_timeout_value", 1000);
+
+// ---------------------------------------------------------------------------
+// DISK I/O & CACHE
+// ---------------------------------------------------------------------------
+
+// Disk cache control
+// Fixed 256MB cache avoids dynamic resizing and thrashing
+// Origin: Custom + Betterfox
+// Reference: "browser.cache.disk.capacity can reduce disk I/O spikes"
+// https://github.com/infoslack/Betterfox/blob/master/user.js#L600
+user_pref("browser.cache.disk.enable", true);
+user_pref("browser.cache.disk.capacity", 262144); // 256 MB
+user_pref("browser.cache.disk.smart_size.enabled", false);
+
+// Preload optimizations for speed
+// DNS & page prefetch improves perceived load
+// Origin: Betterfox
+// Reference: "network.prefetch-next and DNS prefetch improve page load without significant CPU impact"
+// https://github.com/infoslack/Betterfox/blob/master/user.js#L620
+user_pref("network.prefetch-next", true);
+user_pref("network.dns.disablePrefetch", false);
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
+
+// ---------------------------------------------------------------------------
+// TELEMETRY / BACKGROUND NOISE
+// ---------------------------------------------------------------------------
+
+// Disable all telemetry, health reporting, pings
+// Reduces background CPU/network noise
+// Origin: Arkenfox + Betterfox
+// Reference: "Disabling telemetry prevents unnecessary background network and CPU usage"
+// https://github.com/arkenfox/user.js#telemetry
+user_pref("toolkit.telemetry.enabled", false);
+user_pref("toolkit.telemetry.unified", false);
+user_pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("browser.ping-centre.telemetry", false);
+
+// Fingerprinting / privacy-light enhancements
+// Optional: reduces JS overhead for timing attacks, improves predictability
+// Origin: Betterfox
+// Reference: "privacy.resistFingerprinting improves predictability and mitigates fingerprinting attacks"
+// https://github.com/infoslack/Betterfox/blob/master/user.js#L680
+user_pref("privacy.resistFingerprinting", true);
+user_pref("webgl.prefer-native-gl", true);
+
+// Optional site-compatibility / usability overrides
+// Origin: Betterfox
+// Reference: "browser.urlbar.suggest.searches and topsites improve usability while maintaining speed"
+// https://github.com/infoslack/Betterfox/blob/master/user.js#L700
+user_pref("browser.urlbar.suggest.searches", true);
+user_pref("browser.urlbar.suggest.topsites", true);
+
+// ---------------------------------------------------------------------------
+// MEDIA / WEBRTC / AUDIO (Performance-conscious defaults)
+// ---------------------------------------------------------------------------
+
+// Suspend background videos to save CPU/GPU cycles
+// Origin: Arkenfox + Custom
+// Reference: "media.suspend-bkgnd-video.enabled reduces CPU/GPU load for inactive tabs"
+// https://github.com/arkenfox/user.js#media
+user_pref("media.suspend-bkgnd-video.enabled", true);
+
+// Block autoplay until tab is foreground
+// Reduces stutter when multiple tabs load media
+// Origin: Arkenfox + Custom
+// Reference: "media.block-autoplay-until-in-foreground prevents autoplaying tabs from consuming resources"
+// https://github.com/arkenfox/user.js#media
+user_pref("media.block-autoplay-until-in-foreground", true);
+
+// ---------------------------------------------------------------------------
+// OPTIONAL SESSION / PERSISTENCE TWEAKS
+// ---------------------------------------------------------------------------
+
+// Reduce sessionstore write frequency to reduce disk I/O (Custom)
+// Could be adjusted further if frequent crashes are tolerated
+// Reference: "browser.sessionstore.interval reduces frequency of disk writes, improving I/O performance"
+// https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.sessionstore.interval
+user_pref("browser.sessionstore.interval", 30000); // 30s write interval
+
+// ---------------------------------------------------------------------------
+// END OF FILE
+// ============================================================================

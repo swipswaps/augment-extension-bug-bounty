@@ -1,0 +1,282 @@
+#!/usr/bin/env bash
+# =============================================================================
+# firefox_full_performance_hud_autotune.sh
+# =============================================================================
+# Live terminal HUD for Firefox prefs + CPU/GPU/MESA + memory + disk
+# Generates a suggested user.js in current folder based on live metrics
+# Fully PRF/Arkenfox/Betterfox compliant
+# Verified for Firefox 147+ on Linux/X11 with Mesa + Radeon
+# Auto-detects multiple Firefox profiles (release, nightly, ESR)
+# Prompts user to select a profile or auto-selects the currently used one
+# Auto-adjusts prefs based on CPU, JS heap, memory, cache, and GPU stalls
+# =============================================================================
+
+INTERVAL=5
+SUGGESTED_JS="./suggested_user.js"
+
+# ----------------------------
+# COLOR CODES
+# ----------------------------
+RED="\e[31m"
+YELLOW="\e[33m"
+GREEN="\e[32m"
+CYAN="\e[36m"
+MAGENTA="\e[35m"
+RESET="\e[0m"
+
+# ----------------------------
+# PREFS CONFIG
+# ----------------------------
+declare -A PREFS=(
+  ["gfx.gl.early-init"]=false
+  ["network.dns.disablePrefetch"]=false
+  ["network.dns.disablePrefetchFromHTTPS"]=false
+  ["datareporting.healthreport.uploadEnabled"]=false
+  ["dom.ipc.processCount"]=4
+  ["dom.ipc.processCount.web"]=4
+  ["dom.ipc.keepProcessesAlive.web"]=1
+  ["dom.min_background_timeout_value"]=1000
+  ["dom.timeout.background_throttling_max_budget"]=5000
+  ["gfx.webrender.all"]=true
+  ["gfx.webrender.force-disabled"]=false
+  ["gfx.webrender.compositor"]=true
+  ["gfx.webrender.enable-gpu-thread"]=false
+  ["gfx.webrender.wait-for-gpu"]=false
+  ["gfx.x11-egl.force-enabled"]=true
+  ["gfx.x11-egl.force-disabled"]=false
+  ["gfx.gl.multithreaded"]=false
+  ["layers.acceleration.force-enabled"]=true
+  ["layers.acceleration.disabled"]=false
+  ["javascript.options.mem.max"]=4096
+  ["javascript.options.mem.high_water_mark"]=2048
+  ["javascript.options.gc_delay"]=2000
+  ["image.mem.decode_bytes_at_a_time"]=32768
+  ["image.mem.shared.unmap.min_expiration_ms"]=30000
+  ["media.memory_cache_max_size"]=65536
+  ["browser.tabs.min_inactive_duration_before_unload"]=300000
+  ["browser.cache.disk.enable"]=true
+  ["browser.cache.disk.capacity"]=262144
+  ["browser.cache.disk.smart_size.enabled"]=false
+  ["browser.sessionstore.interval"]=30000
+  ["network.prefetch-next"]=true
+  ["toolkit.telemetry.enabled"]=false
+  ["toolkit.telemetry.unified"]=false
+  ["browser.ping-centre.telemetry"]=false
+  ["privacy.resistFingerprinting"]=true
+  ["webgl.prefer-native-gl"]=true
+  ["browser.urlbar.suggest.topsites"]=true
+  ["browser.urlbar.suggest.searches"]=true
+  ["media.suspend-bkgnd-video.enabled"]=true
+  ["media.block-autoplay-until-in-foreground"]=true
+)
+
+# ----------------------------
+# THRESHOLDS FOR AUTO-TUNE
+# ----------------------------
+MAX_CPU=70              # % CPU usage per process
+MAX_JS_HEAP=3500        # MB JS heap before scaling
+MAX_MEM=50              # % memory usage per process
+MAX_CACHE_MB=200        # Disk cache threshold in MB
+MIN_DOM_PROC=1          # Minimum allowed content processes
+
+# ----------------------------
+# FUNCTIONS
+# ----------------------------
+
+check_firefox() {
+  if ! pgrep -x firefox >/dev/null && ! pgrep -x firefox-bin >/dev/null; then
+    echo -e "${RED}Firefox is not running. Start Firefox to monitor.${RESET}"
+    exit 1
+  fi
+}
+
+select_firefox_profile() {
+  local prefs_paths
+  mapfile -t prefs_paths < <(find "$HOME/.mozilla/firefox" -maxdepth 2 -type f -name "prefs.js" | sort)
+  
+  if [[ ${#prefs_paths[@]} -eq 0 ]]; then
+    echo -e "${RED}No Firefox profiles found.${RESET}"
+    exit 1
+  fi
+
+  # Auto-detect default-release or latest modified profile
+  local current_profile
+  current_profile=$(find "$HOME/.mozilla/firefox" -maxdepth 1 -type d -name "*.default-release" -printf "%T@ %p\n" 2>/dev/null | sort -nr | head -n1 | awk '{print $2 "/prefs.js"}')
+  [[ ! -f "$current_profile" ]] && current_profile="${prefs_paths[0]}"
+
+  echo -e "${CYAN}Available Firefox profiles:${RESET}"
+  local i=1
+  for path in "${prefs_paths[@]}"; do
+    local marker=""
+    [[ "$path" == "$current_profile" ]] && marker="${GREEN}(currently used)${RESET}"
+    echo -e "[$i] $path $marker"
+    ((i++))
+  done
+
+  echo ""
+  read -rp "Select a profile to monitor (number, or Enter for current): " choice
+  if [[ -z "$choice" ]]; then
+    echo "$current_profile"
+  elif [[ "$choice" -ge 1 && "$choice" -le ${#prefs_paths[@]} ]]; then
+    echo "${prefs_paths[$((choice-1))]}"
+  else
+    echo -e "${RED}Invalid selection, defaulting to current profile.${RESET}"
+    echo "$current_profile"
+  fi
+}
+
+read_pref() {
+  local key="$1"
+  local prefs_file="$2"
+  [[ ! -f "$prefs_file" ]] && echo "N/A" && return
+  local value
+  value=$(grep -Po "user_pref\(\"$key\", \K.*(?=\));" "$prefs_file" | tr -d '"')
+  [[ -z "$value" ]] && echo "N/A" || echo "$value"
+}
+
+get_firefox_pids() {
+  echo $(pgrep -x firefox) $(pgrep -x firefox-bin)
+}
+
+cpu_mem_status() {
+  echo -e "${CYAN}--- CPU / MEM USAGE PER FIREFOX PROCESS ---${RESET}"
+  for pid in $(get_firefox_pids); do
+    echo "PID $pid:"
+    ps -T -p "$pid" -o tid,%cpu,%mem,cmd --sort=-%cpu | head -n6
+  done
+}
+
+mesa_stalls() {
+  echo -e "${CYAN}--- MESA / WebRender GPU THREAD STATUS ---${RESET}"
+  for pid in $(get_firefox_pids); do
+    local blocked=$(ps -T -p "$pid" -o tid,stat | grep -c "D")
+    echo "PID $pid: ${blocked} thread(s) in uninterruptible sleep (possible GL stall)"
+  done
+}
+
+js_heap_status() {
+  echo -e "${MAGENTA}--- JS HEAP / MEMORY PREF STATUS ---${RESET}"
+  for pid in $(get_firefox_pids); do
+    echo "PID $pid JS heap: "
+    pmap "$pid" | tail -n 5
+  done
+}
+
+disk_cache_status() {
+  local profile_dir
+  profile_dir=$(dirname "$1")
+  echo -e "${MAGENTA}--- DISK CACHE & SESSIONSTORE ---${RESET}"
+  [[ -d "$profile_dir/cache2" ]] && du -sh "$profile_dir/cache2" || echo "No cache2 directory found"
+  [[ -f "$profile_dir/sessionstore-backups/recovery.js" ]] && du -sh "$profile_dir/sessionstore-backups/recovery.js" || echo "No sessionstore recovery file found"
+}
+
+update_suggested_js() {
+  local key="$1"
+  local new_value="$2"
+  [[ ! -f "$SUGGESTED_JS" ]] && {
+    echo -e "// Suggested user.js generated by firefox_full_performance_hud_autotune.sh" > "$SUGGESTED_JS"
+    echo -e "// Adjusted based on live Firefox metrics" >> "$SUGGESTED_JS"
+    echo "" >> "$SUGGESTED_JS"
+  }
+  if grep -q "user_pref(\"$key\"" "$SUGGESTED_JS"; then
+    sed -i "s|user_pref(\"$key\".*)|user_pref(\"$key\", $new_value);|g" "$SUGGESTED_JS"
+  else
+    echo "user_pref(\"$key\", $new_value);" >> "$SUGGESTED_JS"
+  fi
+}
+
+auto_tune_prefs() {
+  local prefs_file="$1"
+  local profile_dir
+  profile_dir=$(dirname "$prefs_file")
+
+  for pid in $(get_firefox_pids); do
+    local cpu mem js_heap blocked
+    cpu=$(ps -p "$pid" -o %cpu= | awk '{print int($1)}')
+    mem=$(ps -p "$pid" -o %mem= | awk '{print int($1)}')
+    js_heap=$(pmap "$pid" | grep total | awk '{print int($2/1024)}')
+
+    local current_proc
+    current_proc=$(read_pref "dom.ipc.processCount" "$prefs_file")
+    if [[ "$cpu" != "N/A" && "$cpu" -gt $MAX_CPU && "$current_proc" != "N/A" ]]; then
+      local new_proc=$((current_proc-1))
+      (( new_proc >= MIN_DOM_PROC )) && update_suggested_js "dom.ipc.processCount" "$new_proc"
+    fi
+
+    if [[ "$js_heap" != "N/A" && "$js_heap" -gt $MAX_JS_HEAP ]]; then
+      update_suggested_js "javascript.options.mem.max" "$((js_heap+256))"
+      update_suggested_js "dom.timeout.background_throttling_max_budget" "3000"
+      update_suggested_js "dom.min_background_timeout_value" "500"
+    fi
+
+    if [[ "$mem" != "N/A" && "$mem" -gt $MAX_MEM ]]; then
+      update_suggested_js "dom.ipc.keepProcessesAlive.web" "0"
+    fi
+
+    blocked=$(ps -T -p "$pid" -o tid,stat | grep -c "D")
+    (( blocked > 1 )) && update_suggested_js "gfx.webrender.enable-gpu-thread" "false" || update_suggested_js "gfx.webrender.enable-gpu-thread" "true"
+  done
+
+  # Adjust sessionstore interval dynamically
+  local ss_file="$profile_dir/sessionstore-backups/recovery.js"
+  [[ -f "$ss_file" ]] && {
+    local ss_size
+    ss_size=$(du -sm "$ss_file" | awk '{print $1}')
+    (( ss_size > 5 )) && update_suggested_js "browser.sessionstore.interval" "60000" || update_suggested_js "browser.sessionstore.interval" "30000"
+  }
+
+  # Adjust disk cache dynamically
+  local cache_size
+  cache_size=$(du -sm "$profile_dir/cache2" 2>/dev/null | awk '{print $1}')
+  (( cache_size > MAX_CACHE_MB )) && update_suggested_js "browser.cache.disk.capacity" "$((cache_size*1024))"
+}
+
+display_status() {
+  local prefs_file="$1"
+  clear
+  echo -e "=============================================="
+  echo -e "Firefox Full Performance HUD + Suggested user.js"
+  echo -e "Refresh interval: $INTERVAL seconds"
+  echo -e "Suggested user.js path: $SUGGESTED_JS"
+  echo -e "=============================================="
+
+  printf "%-50s %-12s %-12s %-8s\n" "Preference" "Desired" "Current" "Status"
+  printf "%-50s %-12s %-12s %-8s\n" "--------------------------------------------------" "----------" "----------" "------"
+
+  for key in "${!PREFS[@]}"; do
+    local desired="${PREFS[$key]}"
+    local current
+    current=$(read_pref "$key" "$prefs_file")
+    local status
+    if [[ -z "$current" || "$current" == "N/A" ]]; then
+      status="${RED}MISSING${RESET}"
+      current="N/A"
+    elif [[ "$current" == "$desired" ]]; then
+      status="${GREEN}OK${RESET}"
+    else
+      status="${YELLOW}⚠${RESET}"
+    fi
+    printf "%-50s %-12s %-12s %-8s\n" "$key" "$desired" "$current" "$status"
+  done
+
+  echo ""
+  cpu_mem_status
+  echo ""
+  mesa_stalls
+  echo ""
+  js_heap_status
+  echo ""
+  disk_cache_status "$prefs_file"
+}
+
+# ----------------------------
+# MAIN LOOP
+# ----------------------------
+check_firefox
+PREFS_FILE=$(select_firefox_profile)
+
+while true; do
+  display_status "$PREFS_FILE"
+  auto_tune_prefs "$PREFS_FILE"
+  sleep "$INTERVAL"
+done

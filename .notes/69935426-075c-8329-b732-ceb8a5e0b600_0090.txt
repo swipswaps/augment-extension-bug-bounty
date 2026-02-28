@@ -1,0 +1,259 @@
+You have already identified the real failure mode correctly:
+
+The problem is not that the <output> section is empty.
+The problem is that the extension never surfaces it, because _cancelledByUser is latched to true and short-circuits tool execution.
+
+Now we connect all pieces.
+
+1️⃣ What Is Actually Causing “The <output> Section Is Empty”?
+
+It is not:
+
+A missing <output> tag
+
+A failed shell command
+
+A logging failure
+
+A watchdog bug
+
+It is this path inside the Augment extension (v0.754.3):
+
+🔥 The One-Way Latch
+
+From your forensic notes:
+
+close(true) → sets _cancelledByUser = true
+
+callTool() catch block → if _cancelledByUser === true → returns "Cancelled by user."
+
+_cancelledByUser = !1 exists only during initialization
+
+There is no reset path
+
+That means:
+
+if (this._cancelledByUser) {
+  return "Cancelled by user.";
+}
+
+executes before the tool result is processed.
+
+So even if the tool produced <output>, the extension returns early and never passes it upward.
+
+That is why you saw:
+
+"The <output> section is empty."
+
+But the log file proved the command succeeded.
+
+2️⃣ Why Stack Traces Matter Here
+
+From README:
+
+AbortError stack trace
+
+File descriptor leak traces
+
+Runaway zygote traces
+
+Latching stack traces
+
+_cancelledByUser latch explanation
+
+Instrumentation to capture _closingPromise stack traces
+
+You already built instrumentation to capture:
+
+const stack = new Error().stack;
+
+when _closingPromise is set.
+
+But the empty <output> issue is triggered by the other latch:
+
+_cancelledByUser
+
+And that latch is being triggered by:
+
+cancel-tool-run message handler
+
+Which your forensic notes show lives near:
+
+Line ~270918 in extension.js
+
+3️⃣ The Actual Root Cause Chain
+
+Here is the real causal chain:
+
+Excess terminals spawn
+
+MCP connection destabilizes
+
+Spurious cancel-tool-run message fires
+
+close(true) executes
+
+_cancelledByUser = true
+
+_cancelledByUser never resets
+
+All future tool calls return "Cancelled by user."
+
+Tool <output> is never surfaced
+
+You see empty or truncated output
+
+That is fully consistent with:
+
+RULE 22 forensic findings
+
+Your 389 identical stack traces
+
+The database entries
+
+The watchdog evidence
+
+4️⃣ What Augment Code Must Do to Fix It
+
+There are only two legitimate fixes.
+
+✅ Fix Option A — Reset the Latch
+
+Inside extension.js:
+
+After tool execution completes (success OR failure), reset:
+
+this._cancelledByUser = false;
+
+Or better:
+
+Only treat it as cancellation if the tool was actually cancelled by user intent, not on MCP instability.
+
+This is a design flaw:
+It is a one-way latch guarding a transient state.
+
+✅ Fix Option B — Do Not Short-Circuit Tool Result
+
+Instead of:
+
+if (this._cancelledByUser) {
+  return "Cancelled by user.";
+}
+
+Do:
+
+if (this._cancelledByUser && toolExecutionWasUserInitiatedCancel) {
+  return "Cancelled by user.";
+}
+
+Or at minimum:
+
+Return partial <output> section even if cancelled.
+
+Because RULE 9 explicitly requires reading <output>.
+
+5️⃣ Why Your Watchdog Did Not Fix It
+
+Your watchdog enforces:
+
+Read <output>
+
+Read log file
+
+Quote verbatim
+
+Verify START/END markers
+
+But if the extension host never returns the <output> to the tool layer, the watchdog cannot see it.
+
+It is being cut off upstream.
+
+6️⃣ What To Tell Augment Team (Precise Technical Direction)
+
+You should instruct them:
+
+_cancelledByUser must not be a permanent latch.
+
+It must be scoped per tool call.
+
+It must reset after tool call lifecycle ends.
+
+It must not override a valid <output> section.
+
+Tool results must always propagate <output> before cancellation short-circuiting.
+
+Additionally:
+
+Add stack trace logging inside cancel-tool-run handler.
+
+Add stack trace logging inside close(true).
+
+Log PID and terminal count when cancellation fires.
+
+Log FD count at cancellation moment.
+
+This will confirm resource pressure correlation.
+
+7️⃣ Why This Explains Everything
+
+It explains:
+
+“The <output> section is empty”
+
+"Cancelled by user." when user did nothing
+
+Watchdog proving command succeeded
+
+Database full of identical stack traces
+
+Zygote runaway correlation
+
+FD leak accumulation
+
+Terminal explosion causing MCP instability
+
+Everything lines up with RULE 22 forensic finding.
+
+8️⃣ Final Diagnosis
+
+There is no bug in:
+
+Your watchdog
+
+launch-process
+
+Logging
+
+<output> capture
+
+README stack trace documentation
+
+The bug is:
+
+A one-way _cancelledByUser latch triggered by spurious cancel-tool-run under terminal resource pressure.
+
+Until that latch resets, <output> will appear empty because the extension refuses to return it.
+
+9️⃣ Next Step
+
+You already have _closingPromise instrumentation.
+
+You now need identical instrumentation for:
+
+_cancelledByUser
+
+Capture:
+
+Stack trace when set to true
+
+Stack trace when set to false
+
+Call site
+
+PID
+
+Terminal count
+
+FD count
+
+That will produce definitive proof for Augment team.

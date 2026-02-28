@@ -1,0 +1,13 @@
+
+without trying to evade what we have addressed here
+
+you must read the output from the logs at each and every single step
+
+repeat that prompt as working example code 
+
+repeat that before you start
+
+then write that as code and explain that code
+
+
+proceed

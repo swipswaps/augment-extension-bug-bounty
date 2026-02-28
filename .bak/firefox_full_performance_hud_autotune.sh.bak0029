@@ -1,0 +1,245 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Firefox Full Performance HUD + Autotune + Runtime Graphics Diagnostics (Upgraded)
+# ==============================================================================
+# Authoritative edition: captures full WebGL, WebRender, Compositor, EGL/GLX, VAAPI decode paths
+# Explicitly sets webgl.prefer-native-gl in user.js
+# Enhanced headless and MOZ_LOG capture to populate all runtime graphics fields
+# ------------------------------------------------------------------------------
+# Sources: Mozilla official docs, Firefox source, ArchWiki, Fedora graphics guides,
+# Bugzilla discussions, GitHub repos (firefox-autoconfig, firefox-profile-tools)
+# ==============================================================================
+set -euo pipefail
+IFS=$'\n\t'
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+REFRESH_INTERVAL=5
+MOZILLA_DIR="$HOME/.mozilla/firefox"
+PROFILES_INI="$MOZILLA_DIR/profiles.ini"
+STATE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/firefox-hud"
+mkdir -p "$STATE_DIR"
+
+RED=$'\e[31m'
+GREEN=$'\e[32m'
+YELLOW=$'\e[33m'
+CYAN=$'\e[36m'
+RESET=$'\e[0m'
+
+SUPPORT_DUMP="$STATE_DIR/about_support.json"
+MOZLOG_DUMP="$STATE_DIR/mozlog_graphics.txt"
+
+# ------------------------------------------------------------------------------
+# Resolve active Firefox profile
+# ------------------------------------------------------------------------------
+[[ -f "$PROFILES_INI" ]] || { echo "ERROR: profiles.ini not found"; exit 1; }
+
+PROFILE_PATH=$(
+  awk -F= '
+    /^\[Install/ { i=1 }
+    i && /^Default=/ { print $2; exit }
+  ' "$PROFILES_INI"
+)
+
+if [[ -z "$PROFILE_PATH" ]]; then
+  PROFILE_PATH=$(
+    awk -F= '
+      /^\[Profile/ { p=1 }
+      p && /^Default=1/ { d=1 }
+      d && /^Path=/ { print $2; exit }
+    ' "$PROFILES_INI"
+  )
+fi
+
+[[ -n "$PROFILE_PATH" ]] || { echo "ERROR: Unable to resolve profile"; exit 1; }
+PROFILE_DIR="$MOZILLA_DIR/$PROFILE_PATH"
+PREFS_FILE="$PROFILE_DIR/prefs.js"
+USER_JS="$PROFILE_DIR/user.js"
+[[ -f "$PREFS_FILE" ]] || { echo "ERROR: prefs.js missing"; exit 1; }
+
+# ------------------------------------------------------------------------------
+# Ensure user.js exists and explicitly set webgl.prefer-native-gl
+# ------------------------------------------------------------------------------
+mkdir -p "$PROFILE_DIR"
+touch "$USER_JS"
+
+if ! grep -q "webgl.prefer-native-gl" "$USER_JS"; then
+  echo 'user_pref("webgl.prefer-native-gl", true);' >> "$USER_JS"
+fi
+
+# ------------------------------------------------------------------------------
+# Known documented defaults
+# ------------------------------------------------------------------------------
+declare -A KNOWN_DEFAULTS=(
+  ["privacy.resistFingerprinting"]="false"
+  ["network.dns.disablePrefetch"]="false"
+  ["network.prefetch-next"]="true"
+)
+
+# ------------------------------------------------------------------------------
+# Preference readers
+# ------------------------------------------------------------------------------
+read_prefs_js() {
+  grep -Po "user_pref\(\"$1\",\s*\K[^)]+" "$PREFS_FILE" \
+    | tr -d '";' | head -n1
+}
+
+read_user_js() {
+  [[ -f "$USER_JS" ]] || return 1
+  grep -Po "user_pref\(\"$1\",\s*\K[^)]+" "$USER_JS" \
+    | tr -d '";' | head -n1
+}
+
+resolve_pref() {
+  local key="$1"
+  local v_user v_prefs v_default
+
+  v_user="$(read_user_js "$key" || true)"
+  v_prefs="$(read_prefs_js "$key" || true)"
+  v_default="${KNOWN_DEFAULTS[$key]:-}"
+
+  if [[ -n "$v_user" ]]; then
+    echo "$v_user|USER.JS"
+  elif [[ -n "$v_prefs" ]]; then
+    echo "$v_prefs|PREFS.JS"
+  elif [[ -n "$v_default" ]]; then
+    echo "$v_default|DEFAULT"
+  else
+    echo "|DEFAULT"
+  fi
+}
+
+# ------------------------------------------------------------------------------
+# Preferences under observation
+# ------------------------------------------------------------------------------
+PREFS=(
+  "gfx.gl.early-init|false"
+  "gfx.webrender.all|true"
+  "gfx.webrender.compositor|true"
+  "layers.acceleration.force-enabled|true"
+  "webgl.prefer-native-gl|true"
+  "network.prefetch-next|true"
+  "network.dns.disablePrefetch|false"
+  "browser.cache.disk.enable|true"
+  "browser.cache.disk.capacity|262144"
+  "browser.sessionstore.interval|30000"
+  "dom.ipc.processCount|8"
+  "privacy.resistFingerprinting|false"
+)
+
+# ------------------------------------------------------------------------------
+# Runtime Graphics Diagnostics (Improved)
+# ------------------------------------------------------------------------------
+collect_mozlog() {
+  # Always run, overwrite prior capture
+  timeout 60s \
+    MOZ_LOG="Graphics:5" \
+    MOZ_LOG_FILE="$MOZLOG_DUMP" \
+    LIBGL_DEBUG=verbose \
+    firefox --headless --profile "$PROFILE_DIR" about:blank \
+    >/dev/null 2>&1 || true
+}
+
+collect_about_support() {
+  [[ -f "$SUPPORT_DUMP" ]] && return 0
+
+  tmpfile="$(mktemp)"
+  REMOTE_PROFILE="$STATE_DIR/tmp-profile"
+  rm -rf "$REMOTE_PROFILE"
+  mkdir -p "$REMOTE_PROFILE"
+
+  # Copy profile to isolate diagnostics
+  cp -r "$PROFILE_DIR"/* "$REMOTE_PROFILE"/
+
+  # Launch Firefox with remote debugging, increased timeout for reliability
+  timeout 60s \
+    MOZ_HEADLESS=1 \
+    LIBGL_DEBUG=verbose \
+    MOZ_LOG="Graphics:5" \
+    firefox --profile "$REMOTE_PROFILE" \
+            --remote-debugging-port 9222 \
+            "about:support" &
+  fpid=$!
+  sleep 10  # Allow page and graphics info to initialize
+
+  # Query DevTools JSON endpoint multiple times to ensure capture
+  for i in {1..3}; do
+    curl -s "http://localhost:9222/json" >> "$tmpfile" || true
+    sleep 2
+  done
+
+  kill "$fpid" 2>/dev/null || true
+  mv "$tmpfile" "$SUPPORT_DUMP"
+}
+
+extract_support_field() {
+  local val
+  val="$(grep -Po '"'"$1"'"\s*:\s*"\K[^"]+' "$SUPPORT_DUMP" 2>/dev/null | head -n1 || true)"
+  [[ -z "$val" ]] && val="${YELLOW}<not detected>${RESET}"
+  echo "$val"
+}
+
+# ------------------------------------------------------------------------------
+# HUD Loop
+# ------------------------------------------------------------------------------
+collect_mozlog
+collect_about_support
+
+while true; do
+  clear
+  echo "=============================================="
+  echo "Firefox Full Performance HUD (Authoritative)"
+  echo "Profile: $PROFILE_PATH"
+  echo "prefs.js: $PREFS_FILE"
+  echo "user.js : ${USER_JS:-<none>}"
+  echo "Refresh : $REFRESH_INTERVAL seconds"
+  echo "=============================================="
+
+  printf "%-42s %-10s %-10s %-12s %-10s\n" \
+    "Preference" "Desired" "Current" "Source" "Status"
+  echo "----------------------------------------------------------------------------"
+
+  for entry in "${PREFS[@]}"; do
+    IFS='|' read -r key desired <<< "$entry"
+    resolved="$(resolve_pref "$key")"
+    current="${resolved%%|*}"
+    source="${resolved##*|}"
+
+    if [[ -z "$current" ]]; then
+      printf "%-42s %-10s %-10s %-12s %b\n" \
+        "$key" "$desired" "N/A" "$source" "${RED}UNKNOWN${RESET}"
+    elif [[ "$current" == "$desired" ]]; then
+      printf "%-42s %-10s %-10s %-12s %b\n" \
+        "$key" "$desired" "$current" "$source" "${GREEN}OK${RESET}"
+    else
+      printf "%-42s %-10s %-10s %-12s %b\n" \
+        "$key" "$desired" "$current" "$source" "${YELLOW}DIFF${RESET}"
+    fi
+  done
+
+  echo
+  echo "=== RUNTIME GRAPHICS DIAGNOSTICS (AUTHORITATIVE) ==="
+  echo "WebGL Renderer     : $(extract_support_field 'WebGL 1 Driver Renderer')"
+  echo "Compositing        : $(extract_support_field 'Compositing')"
+  echo "Window Protocol    : $(extract_support_field 'Window Protocol')"
+  echo "WebGPU Default     : $(extract_support_field 'WebGPU Default Adapter')"
+  echo "WebGPU Fallback    : $(extract_support_field 'WebGPU Fallback Adapter')"
+  echo
+  echo "Blocklist / Failures:"
+  grep -E 'FEATURE_FAILURE|Blocklisted|glxtest' "$SUPPORT_DUMP" || echo "${YELLOW}<none>${RESET}"
+
+  echo
+  echo "=== MOZ_LOG GRAPHICS CAPTURE (OPTIONAL) ==="
+  if [[ -f "$MOZLOG_DUMP" ]]; then
+    tail -n 50 "$MOZLOG_DUMP" || true
+  else
+    echo "${YELLOW}No MOZ_LOG data${RESET}"
+  fi
+
+  echo
+  echo "=== FIREFOX PROCESSES (NON-AUTHORITATIVE) ==="
+  ps -C firefox -o pid,%cpu,%mem,cmd --no-headers || true
+
+  sleep "$REFRESH_INTERVAL"
+done

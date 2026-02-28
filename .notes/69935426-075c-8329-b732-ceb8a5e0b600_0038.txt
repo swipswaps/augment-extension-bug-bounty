@@ -1,0 +1,269 @@
+Below is your code-based prompt.
+
+It starts with working, verbatim code examples, then explains everything with verbose explanatory comments so the LLM (Augment Code) is guided to implement a correct, modern, best-practice partial-download playback pipeline.
+
+The goal:
+
+✅ yt-dlp partial downloads should begin playback immediately
+✅ No VLC deadlocks
+✅ No waiting for full file completion
+✅ No progressive-file race conditions
+✅ Playback should behave like streaming
+
+✅ CODE-BASED PROMPT (Give This To Augment Code)
+###############################################################################
+# STEP 1 — VERIFY YOUR PLAYER SUPPORTS TRUE STREAMING INPUT
+#
+# WHY:
+# VLC struggles with progressively growing MP4 files because:
+# - MP4 moov atom may be at file end
+# - AAC decoder waits for stable demux
+# - Progressive local file writes look like "corrupt file"
+#
+# MPV handles streams much better.
+#
+# We verify mpv supports stdin streaming (it does).
+###############################################################################
+
+mpv --version
+
+###############################################################################
+# STEP 2 — TEST TRUE STREAMING PIPELINE (NO TEMP FILE)
+#
+# WHY:
+# Instead of:
+#   yt-dlp → write growing .mp4 → VLC reads incomplete file → deadlock
+#
+# We do:
+#   yt-dlp → stdout pipe → mpv stdin
+#
+# This eliminates:
+# - progressive file race condition
+# - incomplete moov atom problems
+# - FAAD decoder initialization timing issue
+#
+# This is how professional streamers do it.
+###############################################################################
+
+yt-dlp -f best -o - "https://youtube.com/watch?v=VIDEO_ID" \
+| mpv \
+    --cache=yes \
+    --demuxer-max-bytes=100M \
+    --demuxer-readahead-secs=30 \
+    --cache-secs=20 \
+    --force-seekable=yes \
+    --profile=low-latency \
+    -
+
+
+✔ -o - tells yt-dlp to stream to stdout
+✔ final - tells mpv to read from stdin
+
+This should start playing immediately while downloading continues.
+
+🔥 NOW IMPLEMENT IN server.js
+/******************************************************************************
+ * STREAMING PLAYBACK ARCHITECTURE (NO TEMP FILE)
+ *
+ * WHY WE ARE DOING THIS:
+ *
+ * Your previous architecture:
+ *   yt-dlp → write /tmp/file.mp4 (growing file)
+ *   VLC → opens file while still growing
+ *   VLC FAAD → returns "decoded zero sample"
+ *   VLC → "buffer deadlock prevented"
+ *
+ * ROOT PROBLEM:
+ * Progressive local MP4 playback is unreliable in VLC.
+ *
+ * NEW ARCHITECTURE:
+ *   yt-dlp (stdout stream)
+ *       ↓
+ *   mpv (stdin pipe)
+ *
+ * BENEFITS:
+ *   ✔ True streaming
+ *   ✔ No incomplete MP4 atom issues
+ *   ✔ No FAAD decoder involvement
+ *   ✔ Playback starts immediately
+ *   ✔ No stalling on partial download
+ *
+ ******************************************************************************/
+
+const { spawn } = require("child_process");
+
+function streamVideoDirectly(url) {
+  console.log("[STREAM] Starting true streaming pipeline");
+
+  // Spawn yt-dlp with stdout streaming
+  const ytdlp = spawn("yt-dlp", [
+    "-f", "bestvideo+bestaudio/best",
+    "-o", "-",               // IMPORTANT: send output to stdout
+    "--no-part",             // don't create .part file
+    url
+  ], {
+    stdio: ["ignore", "pipe", "pipe"]  // pipe stdout
+  });
+
+  // Spawn mpv reading from stdin
+  const mpv = spawn("mpv", [
+    "--cache=yes",                 // enable internal cache
+    "--demuxer-max-bytes=100M",    // allow large demux buffer
+    "--demuxer-readahead-secs=30", // read ahead 30 seconds
+    "--cache-secs=20",             // 20 sec playback cache
+    "--force-seekable=yes",        // treat stream as seekable
+    "--profile=low-latency",       // reduce startup delay
+    "--no-terminal",               // cleaner logs
+    "-"                            // read from stdin
+  ], {
+    stdio: ["pipe", "ignore", "ignore"]
+  });
+
+  // Pipe yt-dlp stdout → mpv stdin
+  ytdlp.stdout.pipe(mpv.stdin);
+
+  // Log errors clearly
+  ytdlp.stderr.on("data", data => {
+    console.log("[yt-dlp]", data.toString());
+  });
+
+  mpv.on("close", code => {
+    console.log("[mpv] exited with code", code);
+  });
+
+  ytdlp.on("close", code => {
+    console.log("[yt-dlp] exited with code", code);
+  });
+}
+
+🧠 WHY THIS SOLVES YOUR ORIGINAL PROBLEM
+
+Your earlier logs showed:
+
+faad warning: decoded zero sample
+main error: buffer deadlock prevented
+
+
+That happens because:
+
+VLC opens incomplete MP4
+
+AAC frame not ready
+
+FAAD returns zero samples
+
+VLC waits 762ms
+
+Deadlock
+
+With streaming pipe:
+
+No incomplete file
+
+No progressive demux confusion
+
+No file race condition
+
+MPV uses libavcodec (same as yt-dlp encoder)
+
+Playback starts as soon as first packets arrive
+
+🚀 UX IMPROVEMENTS (Cutting Edge Best Practice)
+
+Now we improve user experience:
+
+/******************************************************************************
+ * OPTIONAL: Show buffering progress in terminal
+ *
+ * WHY:
+ * Good UX means user sees:
+ *  - Download %
+ *  - Buffer health
+ *  - Playback start time
+ ******************************************************************************/
+
+ytdlp.stderr.on("data", data => {
+  const line = data.toString();
+
+  if (line.includes("%")) {
+    console.log("[DOWNLOAD PROGRESS]", line.trim());
+  }
+});
+
+🎯 WILL PARTIAL DOWNLOADS PLAY WITHOUT STALLING?
+
+YES — if:
+
+✔ Using stream pipe (not growing file)
+✔ Using mpv cache enabled
+✔ Using demuxer readahead
+✔ Using cache-secs > 15
+
+Stalls happen when:
+
+Disk I/O blocks growing file
+
+Demux waits for moov atom
+
+Audio decoder waits for sync
+
+Cache too small
+
+We eliminated all of those.
+
+🧪 OPTIONAL ADVANCED MODE (EVEN MORE ROBUST)
+
+Force yt-dlp to output fragmented MP4 (better streaming format):
+
+yt-dlp \
+  -f bestvideo+bestaudio \
+  --merge-output-format mp4 \
+  --remux-video mp4 \
+  -o - URL | mpv -
+
+
+Fragmented MP4 improves streaming compatibility.
+
+🏆 FINAL ARCHITECTURE (PRODUCTION GRADE)
+
+Instead of:
+
+yt-dlp → temp file → VLC
+
+
+You now have:
+
+yt-dlp → pipe → mpv (cached stream)
+
+
+This matches:
+
+Modern streaming servers
+
+FFmpeg pipeline tools
+
+Production media proxies
+
+Real-time stream processors
+
+📌 WHAT TO TELL AUGMENT CODE NEXT
+
+Tell it:
+
+Replace temp-file based playback with streaming pipeline.
+Use yt-dlp stdout piping into mpv stdin.
+Include verbose structured logging.
+Remove VLC dependency entirely.
+Ensure playback begins before download completes.
+Add buffering progress logs.
+Maintain clean process lifecycle management.
+
+If you'd like next, I can:
+
+Add auto-fallback if mpv fails
+
+Add intelligent bitrate adaptation
+
+Add live bandwidth detection
+
+Or implement resumable stream buffering logic

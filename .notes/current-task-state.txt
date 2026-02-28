@@ -1,0 +1,9 @@
+STEP:1:Check servers running
+STEP:2:Test backend endpoint
+STEP:3:Test frontend endpoint
+STEP:4:Open browser and verify
+STEP:5:Take screenshot
+STEP:6:Commit changes
+STEP:7:Push to GitHub
+STEP:8:Deploy to production
+STEP:9:Verify production

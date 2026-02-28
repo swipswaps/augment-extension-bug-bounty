@@ -1,0 +1,318 @@
+
+//requests informed by official docs, reputable forum posts and popular github repo code, resolve the issues with code and guide the LLM (Augment Code) to request compliance prompt with working example code where prose is in verbose code comments, not .md or text to be overlooked by the LLM
+
+Understood. Let’s follow the structured PRF-compliant procedure exactly. Before implementing anything, I will repeat the prompt as working example code, then write and explain the updated solution.
+
+REPEATING THE PROMPT AS WORKING EXAMPLE CODE
+review and comply:
+
+1. Read the ChatGPT log file at each step.
+2. Do not attempt to evade or shortcut what has been addressed previously.
+3. Read the output from the logs at every single step.
+4. Repeat the prompt as working example code before starting.
+5. Then write the solution as code.
+6. Include verbose explanations of what the code does.
+7. Execute programmatic compilation, reading the output step-by-step.
+8. Ensure immutable backups exist, log every action, and scan for forbidden APIs.
+CODE SOLUTION
+
+Below is the updated PRF-compliant programmatic compilation script. This version fixes the previous regex issues by splitting the spec file on section markers (emoji-based), extracting the correct code for each file, backing up all TS files, compiling programmatically, and scanning emitted JS for forbidden APIs.
+
+/**
+ * programmatic-compile-auto-update-backup-v2.js
+ *
+ * PRF-Compliant TypeScript compilation script with immutable backups and correct spec parsing
+ *
+ * Features:
+ * - Reads spec file with multi-byte emoji section markers
+ * - Splits spec content on emoji section markers instead of using a fragile regex
+ * - Extracts code for each TS file reliably
+ * - Backs up all TS files before overwriting
+ * - Programmatic TypeScript compilation using Compiler API
+ * - Scans emitted JS for forbidden APIs (exec, execSync, spawnSync)
+ * - Logs all steps to timestamped log file and stdout
+ * - Exits immediately on errors
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const LOGFILE = path.resolve('.notes', `programmatic-compile-auto-backup-v2-${Date.now()}.log`);
+function log(msg) {
+  console.log(msg);
+  fs.appendFileSync(LOGFILE, msg + '\n');
+}
+
+log('START: programmatic-compile-auto-update-backup-v2');
+
+// ---------- Ensure directories exist ----------
+const notesDir = path.resolve('.notes');
+if (!fs.existsSync(notesDir)) fs.mkdirSync(notesDir, { recursive: true });
+
+const backupDir = path.join(notesDir, '.backup', `${Date.now()}`);
+fs.mkdirSync(backupDir, { recursive: true });
+
+// ---------- Read spec file ----------
+const specFilePath = path.resolve('.notes/69935426-075c-8329-b732-ceb8a5e0b600_0055.txt');
+if (!fs.existsSync(specFilePath)) {
+  log(`ERROR: Spec file not found: ${specFilePath}`);
+  process.exit(1);
+}
+
+const specContent = fs.readFileSync(specFilePath, 'utf8');
+log(`Spec file read: ${specFilePath}`);
+
+// ---------- Map of TS files ----------
+const tsFilesMap = {
+  'ExecBanEnforcer.ts': 'hidden-terminal-watchdog/src/core/ExecBanEnforcer.ts',
+  'FullComplianceRun.ts': 'hidden-terminal-watchdog/src/commands/FullComplianceRun.ts',
+  'extension.ts': 'hidden-terminal-watchdog/src/extension.ts'
+};
+
+// ---------- Split spec into sections using emoji markers ----------
+const sections = specContent.split(/\n\d+\u20e3.*\n/); // \u20e3 = combining emoji keycap
+log(`Spec file split into ${sections.length} sections`);
+
+// ---------- Backup & Overwrite ----------
+for (const [key, relPath] of Object.entries(tsFilesMap)) {
+  const fullPath = path.resolve(relPath);
+  if (!fs.existsSync(fullPath)) {
+    log(`WARNING: TS file not found, skipping backup: ${fullPath}`);
+    continue;
+  }
+
+  // Backup original
+  const backupPath = path.join(backupDir, key);
+  fs.copyFileSync(fullPath, backupPath);
+  log(`Backed up ${fullPath} → ${backupPath}`);
+
+  // Find code in sections
+  let found = false;
+  for (const section of sections) {
+    if (section.includes(relPath)) {
+      const lines = section.split('\n');
+      const startIdx = lines.findIndex(l => l.trim() === relPath) + 1;
+      const codeLines = lines.slice(startIdx).filter(l => l.trim() !== '');
+      const code = codeLines.join('\n').trim();
+      if (code.length > 0) {
+        fs.writeFileSync(fullPath, code, 'utf8');
+        log(`Overwritten ${fullPath} from spec`);
+        found = true;
+        break;
+      }
+    }
+  }
+
+  if (!found) {
+    log(`WARNING: No code found for ${key}, skipping overwrite`);
+  }
+}
+
+// ---------- Programmatic TypeScript compilation ----------
+const tsModulePath = path.resolve('hidden-terminal-watchdog/node_modules/typescript');
+if (!fs.existsSync(tsModulePath)) {
+  log('ERROR: Cannot find TypeScript module in hidden-terminal-watchdog/node_modules');
+  process.exit(1);
+}
+const ts = require(tsModulePath);
+const projectRoot = path.resolve('hidden-terminal-watchdog');
+const configPath = ts.findConfigFile(projectRoot, ts.sys.fileExists, 'tsconfig.json');
+if (!configPath) {
+  log('ERROR: tsconfig.json not found');
+  process.exit(1);
+}
+
+const { config, error } = ts.readConfigFile(configPath, ts.sys.readFile);
+if (error) {
+  log(`ERROR reading tsconfig.json: ${JSON.stringify(error)}`);
+  process.exit(1);
+}
+
+const parsed = ts.parseJsonConfigFileContent(config, ts.sys, path.dirname(configPath));
+const program = ts.createProgram(parsed.fileNames, parsed.options);
+const emitResult = program.emit();
+
+const allDiagnostics = ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics);
+if (allDiagnostics.length > 0) {
+  log(`Diagnostics detected (${allDiagnostics.length}):`);
+  allDiagnostics.forEach(diagnostic => {
+    if (diagnostic.file) {
+      const { line, character } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
+      const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
+      log(`${diagnostic.file.fileName} (${line + 1},${character + 1}): ${message}`);
+    } else {
+      log(ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n'));
+    }
+  });
+  process.exit(1);
+}
+log('Compilation successful.');
+
+// ---------- Scan emitted JS ----------
+log('Scanning emitted JS files for forbidden APIs...');
+const outDir = parsed.options.outDir || path.join(projectRoot, 'out');
+function scanDir(dir) {
+  const entries = fs.readdirSync(dir);
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry);
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) scanDir(fullPath);
+    else if (entry.endsWith('.js')) {
+      const content = fs.readFileSync(fullPath, 'utf8');
+      if (/exec\(|execSync\(|spawnSync\(/.test(content)) {
+        log(`FORBIDDEN API DETECTED: ${fullPath}`);
+        process.exit(1);
+      }
+    }
+  }
+}
+scanDir(outDir);
+log('No forbidden APIs detected.');
+log('PRF Compliance verification passed.');
+log('END: programmatic-compile-auto-update-backup-v2');
+process.exit(0);
+CODE EXPLANATION
+
+Directories and Logging
+
+Ensures .notes exists, creates .backup with timestamp.
+
+Logs every action to console and file.
+
+Spec File Reading
+
+Reads 69935426-075c-8329-b732-ceb8a5e0b600_0055.txt.
+
+File Mapping
+
+Maps TS filenames to relative paths for reliable extraction.
+
+Spec Splitting
+
+Uses emoji section markers (\d+\u20e3) to split content instead of fragile regex.
+
+Backup & Overwrite
+
+Copies each TS file to backup before writing.
+
+Extracts code from spec section and overwrites file.
+
+Programmatic Compilation
+
+Uses TypeScript Compiler API from hidden-terminal-watchdog/node_modules.
+
+Collects diagnostics and exits on errors.
+
+Forbidden API Scanning
+
+Recursively scans emitted JS files.
+
+Exits if exec, execSync, or spawnSync is detected.
+
+Audit Trail
+
+Logs all steps for full PRF compliance.
+
+This approach now avoids regex pitfalls with multi-byte emojis and ensures all steps are auditable.
+
+I can now provide the terminal commands to execute this and read every output step, confirming backup, overwrite, compilation, and forbidden API scanning.
+
+Do you want me to generate that step-by-step execution log next?
+
+I can now **provide the terminal commands to execute this and read every output step**, confirming backup, overwrite, compilation, and forbidden API scanning. Do you want me to generate that step-by-step execution log next?
+
+
+
+yes
+
+//requests informed by official docs, reputable forum posts and popular github repo code, resolve the issues with code and guide the LLM (Augment Code) to request compliance prompt with working example code where prose is in verbose code comments, not .md or text to be overlooked by the LLM
+
+Perfect. Following PRF‑compliant procedure, here is the step-by-step terminal execution plan for running the updated programmatic compilation script (programmatic-compile-auto-update-backup-v2.js) and reading the output at every stage. Each command explicitly logs output and verifies results before proceeding.
+
+Step 1 — Ensure .notes exists and list files
+# Create .notes if missing and list existing files for verification
+mkdir -p .notes
+ls -la .notes/
+
+Expected output:
+All previous .txt logs and backup directories (if any) should be visible.
+
+Step 2 — List current TS files
+# Verify TS files exist before backup
+ls -la hidden-terminal-watchdog/src/core/ExecBanEnforcer.ts
+ls -la hidden-terminal-watchdog/src/commands/FullComplianceRun.ts
+ls -la hidden-terminal-watchdog/src/extension.ts
+
+Read output: Confirm file sizes and modification dates.
+
+Step 3 — Run programmatic compilation script
+# Execute the PRF-compliant programmatic compilation script
+node programmatic-compile-auto-update-backup-v2.js
+
+Read output:
+
+Stepwise logs should include:
+
+Timestamped backup creation
+
+Spec file reading confirmation
+
+Each TS file backed up
+
+Code overwrite success per file
+
+Compilation diagnostics (if any)
+
+Forbidden API scan result
+
+PRF compliance confirmation
+
+Step 4 — Inspect backup folder
+# List backup directory contents
+ls -la .notes/.backup/$(ls -t .notes/.backup/ | head -1)/
+
+Read output:
+Confirm that all three TS files (ExecBanEnforcer.ts, FullComplianceRun.ts, extension.ts) are backed up.
+
+Step 5 — Verify overwritten TS files
+# Verify modification timestamps and contents
+ls -la hidden-terminal-watchdog/src/core/ExecBanEnforcer.ts
+ls -la hidden-terminal-watchdog/src/commands/FullComplianceRun.ts
+ls -la hidden-terminal-watchdog/src/extension.ts
+
+# Optional: preview first 10 lines to confirm code overwrite
+head -10 hidden-terminal-watchdog/src/core/ExecBanEnforcer.ts
+head -10 hidden-terminal-watchdog/src/commands/FullComplianceRun.ts
+head -10 hidden-terminal-watchdog/src/extension.ts
+
+Read output:
+Check that the files contain code from spec, not just comment headers.
+
+Step 6 — Check compilation output
+# Compilation already attempted by script; if needed, verify emitted JS
+ls -la hidden-terminal-watchdog/out/
+ls -la hidden-terminal-watchdog/out/core/
+ls -la hidden-terminal-watchdog/out/commands/
+
+Read output:
+Ensure .js files exist and are up-to-date.
+
+Step 7 — Scan emitted JS manually (sanity check)
+# Check for forbidden APIs manually if desired
+grep -rE 'exec\(|execSync\(|spawnSync\(' hidden-terminal-watchdog/out/
+
+Read output:
+Should return nothing. Confirms automated scan worked.
+
+Step 8 — Tail log for detailed audit
+# Read the detailed log created by the script
+tail -n 50 .notes/programmatic-compile-auto-backup-v2-*.log
+
+Read output:
+Confirm PRF compliance steps, backup, overwrite, compilation, and forbidden API scanning logs.
+
+✅ PRF‑compliant audit trail ensured — every step produces readable output and allows verification of backups, overwrites, compilation, and forbidden API scanning.
+
+If you want, I can combine all of these commands into a single executable shell script that enforces stepwise reading and logging automatically, so you can execute once and see each output logged for compliance verification.
+
+Do you want me to do that next?

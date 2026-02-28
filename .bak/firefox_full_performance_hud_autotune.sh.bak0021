@@ -1,0 +1,153 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Firefox Full Performance HUD + Autotune (Authoritative Edition)
+# ==============================================================================
+# Sources:
+# - Mozilla official docs (prefs.js semantics, user.js precedence)
+# - Firefox source (Preferences.cpp)
+# - Arch Wiki / Fedora Wiki
+# - Popular Firefox performance tuning repositories
+#
+# Goals:
+# - Zero silent failures
+# - Correct preference resolution
+# - user.js + prefs.js awareness
+# - Safe, read-only HUD by default
+# ==============================================================================
+
+set -euo pipefail
+IFS=$'\n\t'
+
+REFRESH_INTERVAL=5
+MOZILLA_DIR="$HOME/.mozilla/firefox"
+PROFILES_INI="$MOZILLA_DIR/profiles.ini"
+
+RED=$'\e[31m'
+GREEN=$'\e[32m'
+YELLOW=$'\e[33m'
+CYAN=$'\e[36m'
+RESET=$'\e[0m'
+
+# ------------------------------------------------------------------------------
+# Resolve active Firefox profile (authoritative)
+# ------------------------------------------------------------------------------
+[[ -f "$PROFILES_INI" ]] || { echo "ERROR: profiles.ini not found"; exit 1; }
+
+PROFILE_PATH=$(
+  awk -F= '
+    /^\[Install/ { i=1 }
+    i && /^Default=/ { print $2; exit }
+  ' "$PROFILES_INI"
+)
+
+if [[ -z "$PROFILE_PATH" ]]; then
+  PROFILE_PATH=$(
+    awk -F= '
+      /^\[Profile/ { p=1 }
+      p && /^Default=1/ { d=1 }
+      d && /^Path=/ { print $2; exit }
+    ' "$PROFILES_INI"
+  )
+fi
+
+[[ -n "$PROFILE_PATH" ]] || { echo "ERROR: Unable to resolve profile"; exit 1; }
+
+PROFILE_DIR="$MOZILLA_DIR/$PROFILE_PATH"
+PREFS_FILE="$PROFILE_DIR/prefs.js"
+USER_JS="$PROFILE_DIR/user.js"
+
+[[ -f "$PREFS_FILE" ]] || { echo "ERROR: prefs.js missing"; exit 1; }
+
+# ------------------------------------------------------------------------------
+# Preference readers (NO mutation)
+# ------------------------------------------------------------------------------
+read_prefs_js() {
+  local key="$1"
+  grep -Po "user_pref\(\"$key\",\s*\K[^)]+" "$PREFS_FILE" \
+    | tr -d '";' \
+    | head -n1
+}
+
+read_user_js() {
+  local key="$1"
+  [[ -f "$USER_JS" ]] || return 1
+  grep -Po "user_pref\(\"$key\",\s*\K[^)]+" "$USER_JS" \
+    | tr -d '";' \
+    | head -n1
+}
+
+resolve_pref() {
+  local key="$1"
+  local v_user v_prefs
+
+  v_user="$(read_user_js "$key" || true)"
+  v_prefs="$(read_prefs_js "$key" || true)"
+
+  if [[ -n "$v_user" ]]; then
+    echo "$v_user|USER.JS"
+  elif [[ -n "$v_prefs" ]]; then
+    echo "$v_prefs|PREFS.JS"
+  else
+    echo "|DEFAULT"
+  fi
+}
+
+# ------------------------------------------------------------------------------
+# Preference table (key | desired)
+# ------------------------------------------------------------------------------
+PREFS=(
+  "gfx.gl.early-init|false"
+  "gfx.webrender.all|true"
+  "gfx.webrender.compositor|true"
+  "layers.acceleration.force-enabled|true"
+  "webgl.prefer-native-gl|true"
+  "network.prefetch-next|true"
+  "network.dns.disablePrefetch|false"
+  "browser.cache.disk.enable|true"
+  "browser.cache.disk.capacity|262144"
+  "browser.sessionstore.interval|30000"
+  "dom.ipc.processCount|8"
+  "privacy.resistFingerprinting|false"
+)
+
+# ------------------------------------------------------------------------------
+# HUD loop
+# ------------------------------------------------------------------------------
+while true; do
+  clear
+  echo "=============================================="
+  echo "Firefox Full Performance HUD"
+  echo "Profile: $PROFILE_PATH"
+  echo "prefs.js: $PREFS_FILE"
+  echo "user.js : ${USER_JS:-<none>}"
+  echo "Refresh : $REFRESH_INTERVAL seconds"
+  echo "=============================================="
+
+  printf "%-42s %-10s %-10s %-12s %-10s\n" \
+    "Preference" "Desired" "Current" "Source" "Status"
+  echo "----------------------------------------------------------------------------"
+
+  for entry in "${PREFS[@]}"; do
+    IFS='|' read -r key desired <<< "$entry"
+    resolved="$(resolve_pref "$key")"
+    current="${resolved%%|*}"
+    source="${resolved##*|}"
+
+    if [[ -z "$current" ]]; then
+      printf "%-42s %-10s %-10s %-12s %b\n" \
+        "$key" "$desired" "N/A" "$source" "${RED}MISSING${RESET}"
+    elif [[ "$current" == "$desired" ]]; then
+      printf "%-42s %-10s %-10s %-12s %b\n" \
+        "$key" "$desired" "$current" "$source" "${GREEN}OK${RESET}"
+    else
+      printf "%-42s %-10s %-10s %-12s %b\n" \
+        "$key" "$desired" "$current" "$source" "${YELLOW}DIFF${RESET}"
+    fi
+  done
+
+  echo
+  echo "--- FIREFOX PROCESSES ---"
+  ps -C firefox -o pid,%cpu,%mem,cmd --no-headers || true
+
+  sleep "$REFRESH_INTERVAL"
+done

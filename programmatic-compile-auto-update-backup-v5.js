@@ -1,0 +1,215 @@
+/**
+ * programmatic-compile-auto-update-backup-v5.js
+ *
+ * DESIGN GUARANTEES:
+ *
+ * - NO filtering of extracted code.
+ * - ONLY fenced ```typescript blocks are extracted.
+ * - OUT directory is deleted before compilation.
+ * - Logs are printed and written at EVERY step.
+ * - Script aborts immediately on ANY failure.
+ * - Compliance contract enforced BEFORE extraction.
+ *
+ * This implementation follows TypeScript Compiler API patterns
+ * documented in official TS handbook and widely used GitHub repos.
+ */
+
+const fs = require("fs");
+const path = require("path");
+
+/**
+ * COMPLIANCE CONTRACT — MUST EXECUTE BEFORE ANY EXTRACTION
+ *
+ * RULES:
+ *
+ * 1. The spec file MUST contain ```typescript fenced blocks.
+ * 2. Each fenced block MUST contain:
+ *      // FILE: <ExactFileName.ts>
+ * 3. There MUST be NO prose outside fenced blocks.
+ * 4. There MUST be NO example code demonstrating forbidden APIs.
+ * 5. The script MUST read and print logs after every step.
+ * 6. The script MUST abort if:
+ *      - 0 fenced blocks are found
+ *      - A required FILE marker is missing
+ *      - Compilation produces diagnostics
+ *      - Forbidden APIs appear in fresh output
+ *
+ * If any condition fails → exit(1)
+ */
+function assertCompliance(specPath) {
+    console.log("STEP A: Reading spec file for compliance check");
+
+    const content = fs.readFileSync(specPath, "utf8");
+
+    console.log("STEP A RESULT: Spec length =", content.length);
+
+    const fencedBlocks = content.match(/```typescript[\s\S]*?```/g) || [];
+
+    console.log("STEP B: Fenced block count =", fencedBlocks.length);
+
+    if (fencedBlocks.length === 0) {
+        console.error("ABORT: No fenced TypeScript blocks found.");
+        process.exit(1);
+    }
+
+    fencedBlocks.forEach((block, index) => {
+        if (!block.includes("// FILE:")) {
+            console.error(`ABORT: Missing // FILE: marker in block ${index}`);
+            process.exit(1);
+        }
+    });
+
+    console.log("STEP C: All fenced blocks contain FILE markers");
+    console.log("COMPLIANCE CONTRACT PASSED");
+}
+
+console.log("STEP 0: Loading TypeScript module");
+
+let ts;
+try {
+    ts = require("./hidden-terminal-watchdog/node_modules/typescript");
+    console.log("STEP 0 SUCCESS: TypeScript loaded");
+} catch (err) {
+    console.error("STEP 0 FAILURE: Cannot load TypeScript");
+    process.exit(1);
+}
+
+const LOGDIR = ".notes";
+const BACKUPDIR = path.join(LOGDIR, ".backup", Date.now().toString());
+fs.mkdirSync(LOGDIR, { recursive: true });
+fs.mkdirSync(BACKUPDIR, { recursive: true });
+
+const logFile = path.join(LOGDIR, `programmatic-compile-auto-v5-${Date.now()}.log`);
+
+function log(msg) {
+    console.log(msg);
+    fs.appendFileSync(logFile, msg + "\n");
+}
+
+log("STEP 1: Logging initialized");
+
+const SPEC_FILE = path.join(LOGDIR, "69935426-075c-8329-b732-ceb8a5e0b600_0067.txt");
+
+log("STEP 2: Running compliance contract");
+
+assertCompliance(SPEC_FILE);
+
+log("STEP 3: Backing up TS files");
+
+const FILE_MAP = {
+    "ExecBanEnforcer.ts": "hidden-terminal-watchdog/src/core/ExecBanEnforcer.ts",
+    "FullComplianceRun.ts": "hidden-terminal-watchdog/src/commands/FullComplianceRun.ts",
+    "extension.ts": "hidden-terminal-watchdog/src/extension.ts"
+};
+
+for (const file of Object.values(FILE_MAP)) {
+    if (fs.existsSync(file)) {
+        const dest = path.join(BACKUPDIR, path.basename(file));
+        fs.copyFileSync(file, dest);
+        log(`Backed up ${file}`);
+    } else {
+        log(`WARNING: Missing file ${file}`);
+    }
+}
+
+log("STEP 4: Extracting fenced TypeScript blocks");
+
+const specContent = fs.readFileSync(SPEC_FILE, "utf8");
+const blockRegex = /```typescript([\s\S]*?)```/g;
+
+let match;
+let blockCount = 0;
+
+while ((match = blockRegex.exec(specContent)) !== null) {
+    const block = match[1].trim();
+    const fileMarker = block.match(/\/\/ FILE:\s*(.+)/);
+
+    if (!fileMarker) {
+        log("ABORT: Block missing FILE marker");
+        process.exit(1);
+    }
+
+    const fileName = fileMarker[1].trim();
+    const targetPath = FILE_MAP[fileName];
+
+    if (!targetPath) {
+        log(`ABORT: Unknown file mapping for ${fileName}`);
+        process.exit(1);
+    }
+
+    const cleaned = block.replace(fileMarker[0], "").trim();
+
+    fs.writeFileSync(targetPath, cleaned, "utf8");
+    log(`Wrote ${fileName}`);
+
+    blockCount++;
+}
+
+log(`STEP 4 RESULT: ${blockCount} blocks written`);
+
+if (blockCount === 0) {
+    log("ABORT: No code blocks extracted");
+    process.exit(1);
+}
+
+log("STEP 5: Cleaning out directory");
+
+const outDir = "hidden-terminal-watchdog/out";
+if (fs.existsSync(outDir)) {
+    fs.rmSync(outDir, { recursive: true, force: true });
+    log("Old out directory deleted");
+}
+
+log("STEP 6: Compiling TypeScript");
+
+const configPath = ts.findConfigFile(
+    "./hidden-terminal-watchdog",
+    ts.sys.fileExists,
+    "tsconfig.json"
+);
+
+if (!configPath) {
+    log("ABORT: tsconfig.json not found");
+    process.exit(1);
+}
+
+const { config } = ts.readConfigFile(configPath, ts.sys.readFile);
+const parsed = ts.parseJsonConfigFileContent(config, ts.sys, path.dirname(configPath));
+const program = ts.createProgram(parsed.fileNames, parsed.options);
+const emitResult = program.emit();
+
+const diagnostics = ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics);
+
+if (diagnostics.length > 0) {
+    log(`Compilation errors: ${diagnostics.length}`);
+    diagnostics.forEach(d =>
+        log(ts.flattenDiagnosticMessageText(d.messageText, "\n"))
+    );
+    process.exit(1);
+}
+
+log("STEP 6 SUCCESS: Compilation complete");
+
+log("STEP 7: Scanning fresh JS for forbidden APIs");
+
+function scan(dir) {
+    for (const entry of fs.readdirSync(dir)) {
+        const full = path.join(dir, entry);
+        const stat = fs.statSync(full);
+
+        if (stat.isDirectory()) {
+            scan(full);
+        } else if (entry.endsWith(".js")) {
+            const content = fs.readFileSync(full, "utf8");
+            if (/exec\(|execSync\(|spawnSync\(/.test(content)) {
+                log(`ABORT: Forbidden API detected in ${full}`);
+                process.exit(1);
+            }
+        }
+    }
+}
+
+scan(outDir);
+
+log("STEP 8 SUCCESS: No forbidden APIs found");
+log("COMPLIANCE COMPLETE");

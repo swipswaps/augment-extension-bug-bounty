@@ -1,0 +1,195 @@
+
+//requests
+
+request is now for a prompt _as working example code_ with prose _limited to verbose comments_ to enumerate, plan and effect request compliance
+#!/usr/bin/env bash
+###############################################################################
+# AUGMENT AI PROMPT GENERATOR — INSTANCE-LEVEL LATCH INSTRUMENTATION (FIXED)
+#
+# PURPOSE:
+#   Emit a deterministic prompt instructing Augment AI to generate a
+#   SELF-EXECUTING instrumentation module that:
+#
+#     1) Hooks Node's Module._load
+#     2) Detects MCP client class/module load
+#     3) Wraps its constructor
+#     4) Instruments INSTANCE properties:
+#           - _closingPromise
+#           - _cancelledByUser
+#     5) Captures full stack trace at assignment time
+#     6) Logs to ./augment-latch-debug.log
+#     7) Prints immediately to console
+#     8) Preserves original runtime behavior
+#
+# PROBLEM BEING SOLVED:
+#   Previous instrumentation failed because:
+#     - It exported a function but never executed it.
+#     - It attempted to patch properties without intercepting instance creation.
+#     - _cancelledByUser is an INSTANCE property, not prototype-level.
+#
+# THIS SCRIPT:
+#   - Outputs a fully enumerated prompt.
+#   - Eliminates manual multi-file reasoning errors.
+#   - Enforces: “If it can be typed, it MUST be scripted.”
+#
+# ENVIRONMENT:
+#   - Node.js 18+
+#   - VS Code extension host
+#   - Linux/macOS shell
+#
+# SAFETY:
+#   - No placeholders allowed
+#   - Deterministic logging format
+#   - Rollback included
+###############################################################################
+
+PROMPT=$(cat <<'EOF'
+# AUGMENT AI — FULL INSTANCE-LEVEL LATCH INSTRUMENTATION REQUIRED
+#
+# OBJECTIVE:
+# Fix failed instrumentation by:
+#   - Hooking Module._load
+#   - Wrapping MCP client constructor
+#   - Instrumenting instance properties at creation time
+#
+# ============================================================
+# FILE 1: instrument-latches.js
+# ============================================================
+#
+# REQUIREMENTS:
+#
+# 1) SELF-EXECUTING MODULE
+#    - Must execute immediately upon require()
+#    - Must NOT rely on exported functions being called externally
+#
+# 2) Hook Module._load:
+#
+#       const Module = require('module');
+#       const originalLoad = Module._load;
+#
+#       Module._load = function(request, parent, isMain) {
+#           const exported = originalLoad.apply(this, arguments);
+#
+#           // If this module exports MCP client class,
+#           // wrap constructor here.
+#
+#           return exported;
+#       };
+#
+# 3) When MCP client class detected:
+#       - Wrap its constructor
+#       - After super() executes
+#       - Apply Object.defineProperty to:
+#             this._closingPromise
+#             this._cancelledByUser
+#
+# 4) Each setter MUST:
+#       - Capture new Error().stack
+#       - Capture ISO timestamp
+#       - Capture process.pid
+#       - Capture previous and new values
+#       - Append to ./augment-latch-debug.log
+#       - console.error() immediately
+#
+# 5) Deterministic log format:
+#
+#       ========================================================================
+#       [LATCH DETECTED]
+#       Property: _cancelledByUser
+#       Timestamp: 2026-02-22T11:43:54.041Z
+#       PID: 12345
+#       Previous: false
+#       New: true
+#       STACK TRACE:
+#       at ...
+#       ========================================================================
+#
+# 6) MUST preserve runtime behavior:
+#       - Return original constructor result
+#       - Preserve prototype chain
+#       - No mutation of business logic
+#
+# 7) MUST include verbose comments explaining:
+#       - Why prototype patch failed
+#       - Why instance patch is required
+#       - Why stack disappears without interception
+#
+# ============================================================
+# FILE 2: launch-instrumented-extension.sh
+# ============================================================
+#
+# REQUIREMENTS:
+#
+# 1) Auto-detect latest Augment extension directory
+# 2) Backup extension.js (timestamped)
+# 3) Inject require('./instrument-latches.js'); at top
+# 4) Copy instrument-latches.js into extension out/ directory
+# 5) Ensure correct permissions
+# 6) Provide rollback command:
+#
+#       mv extension.js.backup-* extension.js
+#
+# 7) Single execution launch (RULE 22 hygiene)
+#
+# ============================================================
+# GENERAL REQUIREMENTS
+# ============================================================
+#
+# - Emit EXACTLY TWO complete files
+# - No placeholders
+# - No partial code
+# - Fully executable
+# - Deterministic logging
+# - Rollback included
+# - Version header with timestamp
+#
+# ============================================================
+# COMPLIANCE ENUMERATION REQUIRED IN COMMENTS
+# ============================================================
+#
+# RULE 0  - Emission gate
+# RULE 2  - No partial compliance
+# RULE 6  - Known working Node patterns
+# RULE 7  - Evidence before assertion
+# RULE 9  - Output visibility verification
+# RULE 11 - No placeholders
+# RULE 18 - Rollback present
+# RULE 22 - Terminal hygiene
+#
+# FINAL GUARANTEE:
+#   When _cancelledByUser flips to true,
+#   the EXACT call chain triggering it
+#   MUST be visible in both:
+#       - console
+#       - augment-latch-debug.log
+#
+# Emit now.
+EOF
+)
+
+echo "$PROMPT"
+
+###############################################################################
+# EXECUTION NOTES (COMMENT ONLY):
+#
+# This prompt corrects the architectural flaw:
+#
+#   Old attempt: export function but never execute.
+#   New approach: self-executing Module._load hook.
+#
+# Why this works:
+#   - Constructor wrapping ensures instance-level interception.
+#   - Setters capture stack BEFORE runtime unwinds.
+#   - No reliance on prototype patch timing.
+#
+# After emission:
+#   1) Paste prompt into Augment AI.
+#   2) Save two emitted files.
+#   3) Run launcher.
+#   4) Trigger cancellation scenario.
+#   5) Inspect augment-latch-debug.log.
+#
+# If latch flips, stack trace MUST appear.
+#
+# This eliminates silent latch mutation.
+###############################################################################

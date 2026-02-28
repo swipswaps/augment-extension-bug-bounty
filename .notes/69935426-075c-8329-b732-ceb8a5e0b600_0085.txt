@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+###############################################################################
+# WORKING PROMPT TO EMIT INSTRUMENTATION FILES FROM AUGMENT AI
+#
+# PURPOSE:
+#   Request Augment AI to emit two fully working instrumentation files.
+#   Minimal prose; verbose comments only. Output must be executable code.
+###############################################################################
+
+# File paths for local writing
+INSTRUMENT_FILE=".augment/scripts/instrument-closing-promise.js"
+LAUNCH_FILE=".augment/scripts/launch-instrumented-augment.sh"
+
+# Compose prompt to Augment AI
+PROMPT=$(cat <<'EOF'
+#!/usr/bin/env bash
+###############################################################################
+# Augment AI Instruction Prompt - Minimal Prose, Executable Code Only
+###############################################################################
+
+# INSTRUCTION:
+# Emit exactly two files in code blocks:
+# 1. instrument-closing-promise.js
+#    - Monkey patch _closingPromise
+#    - Log timestamp, PID, stack trace, previous/new value
+#    - Write logs to ./augment-closingPromise-debug.log
+#    - Must be complete and executable
+#
+# 2. launch-instrumented-augment.sh
+#    - Auto-detect VS Code extension path
+#    - Backup original extension.js
+#    - Inject instrument-closing-promise.js
+#    - Launch VS Code
+#    - Must be complete and executable
+#
+# RULES:
+# - No placeholders (TODO/FIXME)
+# - No partial emission
+# - Provide valid headers and executable code blocks
+EOF
+)
+
+# Send the prompt to Augment (replace with actual API or CLI invocation)
+# Example: augment-cli --prompt "$PROMPT"
+echo "$PROMPT" > ./.augment/scripts/augment-emission-prompt.sh
+chmod +x ./.augment/scripts/augment-emission-prompt.sh

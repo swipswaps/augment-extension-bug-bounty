@@ -1,0 +1,14 @@
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+tsconfig.json
+.eslintrc.json
+out/**/*.map
+src/**/*.ts
+INSTALL_AND_ACTIVATE.sh
+PROMPT.md
+package-lock.json
+

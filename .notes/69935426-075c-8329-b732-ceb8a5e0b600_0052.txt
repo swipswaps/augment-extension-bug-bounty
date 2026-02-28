@@ -1,0 +1,337 @@
+
+//requests informed by official docs, reputable forum posts and popular github repo code, resolve the issues with code and guide the LLM (Augment Code) to request compliance prompt with working example code where prose is in verbose code comments, not .md or text to be overlooked by the LLM
+
+Good. Now we fix the last structural flaw:
+
+Augment is still invoking:
+
+cd hidden-terminal-watchdog && npm run compile ...
+
+inside the integrated terminal.
+
+That reintroduces:
+
+interactive shell chaining (&&)
+
+redirection (2>&1)
+
+pipeline (||)
+
+terminal blocking
+
+hidden buffering
+
+cancellation artifacts
+
+Even though exec() was removed from extension code, Augment is still using shell execution externally.
+
+That is non-deterministic.
+
+We now eliminate terminal-driven compilation entirely.
+
+Below is the next compliance enforcement prompt.
+
+All guidance is inside verbose code comments so it cannot be ignored.
+
+Feed this directly to Augment.
+
+🔒 TERMINAL ELIMINATION + PROGRAMMATIC BUILD ENFORCEMENT
+
+You must stop running:
+
+npm run compile
+grep -c
+cd ...
+&&
+2>&1
+
+in the integrated terminal.
+
+Compilation and verification must be performed via Node APIs only.
+
+STEP 1 — Replace Terminal Compilation With Programmatic Build
+
+Create:
+
+// FILE: src/core/ProgrammaticCompiler.ts
+//
+// PURPOSE:
+// Eliminate shell-based compilation (`npm run compile`).
+// Use Node child_process.spawn directly.
+// No shell chaining.
+// No &&
+// No 2>&1
+// No redirection.
+// No grep.
+// Deterministic streaming only.
+//
+// WHY:
+// Shell pipelines inside VS Code integrated terminal cause:
+// - interactive blocking
+// - cancellation artifacts
+// - hidden terminal buffering
+// - "Waiting for user input"
+// - truncated output
+//
+// This implementation:
+// - streams stdout/stderr live
+// - logs deterministically
+// - fails explicitly on non-zero exit
+//
+
+import { spawn } from "child_process";
+import * as path from "path";
+import * as fs from "fs";
+
+export class ProgrammaticCompiler {
+
+    static compile(workspaceRoot: string): Promise<void> {
+
+        const logFile = path.join(
+            workspaceRoot,
+            `.compile-log-${Date.now()}.log`
+        );
+
+        fs.writeFileSync(logFile, "=== PROGRAMMATIC COMPILE START ===\n");
+
+        return new Promise((resolve, reject) => {
+
+            const npm = spawn(
+                process.platform === "win32" ? "npm.cmd" : "npm",
+                ["run", "compile"],
+                {
+                    cwd: workspaceRoot,
+                    stdio: ["ignore", "pipe", "pipe"]
+                }
+            );
+
+            npm.stdout.on("data", (chunk) => {
+                const text = chunk.toString();
+                process.stdout.write(text);
+                fs.appendFileSync(logFile, text);
+            });
+
+            npm.stderr.on("data", (chunk) => {
+                const text = chunk.toString();
+                process.stderr.write(text);
+                fs.appendFileSync(logFile, text);
+            });
+
+            npm.on("close", (code) => {
+                fs.appendFileSync(
+                    logFile,
+                    `\n=== COMPILE EXIT CODE: ${code} ===\n`
+                );
+
+                if (code === 0) {
+                    resolve();
+                } else {
+                    reject(new Error(`Compile failed: ${code}`));
+                }
+            });
+
+            npm.on("error", reject);
+        });
+    }
+}
+STEP 2 — Replace grep Verification With AST-Free Deterministic Scan
+
+Never run:
+
+grep -c "exec("
+
+Instead implement:
+
+// FILE: src/core/CompiledArtifactInspector.ts
+//
+// PURPOSE:
+// Verify compiled JS output does not contain exec().
+// This replaces shell grep entirely.
+//
+// WHY:
+// Shell grep introduces pipelines and blocking.
+// We must inspect file content directly.
+//
+
+import * as fs from "fs";
+import * as path from "path";
+
+export class CompiledArtifactInspector {
+
+    static verifyNoExec(workspaceRoot: string): void {
+
+        const outDir = path.join(workspaceRoot, "out");
+
+        function scan(dir: string) {
+
+            const entries = fs.readdirSync(dir);
+
+            for (const entry of entries) {
+
+                const full = path.join(dir, entry);
+                const stat = fs.statSync(full);
+
+                if (stat.isDirectory()) {
+                    scan(full);
+                } else if (full.endsWith(".js")) {
+
+                    const content = fs.readFileSync(full, "utf8");
+
+                    if (content.includes("exec(")) {
+                        throw new Error(
+                            `COMPILED OUTPUT CONTAINS exec(): ${full}`
+                        );
+                    }
+                }
+            }
+        }
+
+        scan(outDir);
+
+        console.log("Compiled artifact verification passed.");
+    }
+}
+STEP 3 — Deterministic Compliance Runner
+
+Create:
+
+// FILE: src/commands/FullComplianceRun.ts
+//
+// PURPOSE:
+// This replaces all terminal-based manual verification.
+// It must:
+//  1. Compile programmatically
+//  2. Verify no exec()
+//  3. Produce structured compliance proof
+//  4. Never spawn interactive terminal
+//
+// If any step fails, throw.
+// Never enter waiting state.
+//
+
+import { ProgrammaticCompiler } from "../core/ProgrammaticCompiler";
+import { CompiledArtifactInspector } from "../core/CompiledArtifactInspector";
+import { StructuredLogger } from "../core/StructuredLogger";
+
+export async function runFullCompliance(workspaceRoot: string) {
+
+    StructuredLogger.log("=== COMPLIANCE RUN START ===");
+
+    await ProgrammaticCompiler.compile(workspaceRoot);
+
+    StructuredLogger.log("Compile complete.");
+
+    CompiledArtifactInspector.verifyNoExec(workspaceRoot);
+
+    StructuredLogger.log("exec() absence verified.");
+
+    StructuredLogger.log("=== COMPLIANCE RUN SUCCESS ===");
+}
+STEP 4 — Forbid Terminal Usage in Verification
+
+Add this enforcement:
+
+// FILE: src/core/TerminalUsageBan.ts
+//
+// PURPOSE:
+// Detect if extension tries to run verification commands
+// via vscode.window.createTerminal or terminal.sendText.
+//
+// If verification phase attempts to use terminal,
+// throw compliance failure.
+//
+
+import * as vscode from "vscode";
+
+export class TerminalUsageBan {
+
+    static enforceVerificationPhase() {
+
+        const originalCreate = vscode.window.createTerminal;
+
+        vscode.window.createTerminal = function() {
+            throw new Error(
+                "Terminal usage forbidden during compliance verification."
+            );
+        };
+
+        return () => {
+            vscode.window.createTerminal = originalCreate;
+        };
+    }
+}
+Required Execution Order
+
+Inside activation:
+
+import { runFullCompliance } from "./commands/FullComplianceRun";
+
+await runFullCompliance(context.extensionPath);
+What This Solves
+
+This eliminates:
+
+Interactive shell pipelines
+
+Hidden integrated terminals
+
+grep/wc buffering
+
+npm && chaining
+
+2>&1 redirection
+
+cancellation artifacts
+
+“Waiting for user input”
+
+terminal multiplexing
+
+unpredictable blocking
+
+All execution becomes:
+
+deterministic
+
+programmatic
+
+streaming
+
+logged
+
+verifiable
+
+non-interactive
+
+Final Directive To Give Augment
+You must remove all terminal-based compile and grep usage.
+You must implement ProgrammaticCompiler.
+You must implement CompiledArtifactInspector.
+You must implement FullComplianceRun.
+You must not call npm or grep in the integrated terminal.
+You must provide log proof via StructuredLogger.
+You must not enter a waiting state.
+
+If it still runs:
+
+npm run compile
+grep
+wc
+&&
+2>&1
+
+it is non-compliant.
+
+If you want next level hardening:
+
+replace npm with direct TypeScript API invocation
+
+isolate child processes in detached groups
+
+implement heartbeat watchdog
+
+enforce max terminal count < 5
+
+implement automatic extension reload on state drift
+
+Tell me how deep you want this enforced.

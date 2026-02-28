@@ -1,0 +1,201 @@
+
+//requests request is now for a prompt _as working example code_ with prose _limited to verbose comments_ to enumerate, plan and effect request compliance
+#!/usr/bin/env bash
+###############################################################################
+# AUGMENT AI COMPLIANCE PROMPT GENERATOR — BUNDLED CLASS PATCH STRATEGY
+#
+# PURPOSE:
+#   Generate a deterministic, self-verifying prompt for Augment Code that:
+#
+#     1) Targets bundled extension.js (NOT Module._load)
+#     2) Locates bundled class "RM" (minified MCP client)
+#     3) Injects prototype-level setter interception for:
+#            - _cancelledByUser
+#            - _closingPromise
+#     4) Captures stack trace EXACTLY at mutation time
+#     5) Fails hard if patch cannot be applied
+#     6) Verifies execution at runtime
+#
+# CONTEXT DISCOVERED:
+#   - Augment extension is bundled
+#   - Class defined as: var RM = class e { ... }
+#   - _cancelledByUser initialized inside class body
+#   - No separate module to intercept
+#   - Therefore Module._load strategy is invalid
+#
+# PRINCIPLE ENFORCED:
+#   “If it can be typed, it MUST be scripted.”
+#
+# THIS SCRIPT:
+#   Emits a prompt that forces Augment to:
+#       - Enumerate the patch plan
+#       - Apply deterministic injection
+#       - Insert runtime verification
+#       - Abort on failure
+#
+# NO MANUAL MULTI-FILE HANDLING
+# NO HEURISTICS
+# NO SILENT FAILURE
+###############################################################################
+
+PROMPT=$(cat <<'EOF'
+# AUGMENT CODE — BUNDLED RM CLASS INSTRUMENTATION REQUIRED
+#
+# ================================================================
+# VERIFIED FACTS
+# ================================================================
+#
+# Extension path:
+#   ~/.vscode/extensions/augment.vscode-augment-0.792.0/out/extension.js
+#
+# MCP client class:
+#   var RM = class e { ... }
+#
+# Target properties:
+#   this._cancelledByUser
+#   this._closingPromise
+#
+# Strategy:
+#   Must patch RM.prototype AFTER class definition
+#   Must execute BEFORE first instantiation
+#
+# ================================================================
+# OBJECTIVE
+# ================================================================
+#
+# Inject deterministic stack-trace instrumentation into bundled file.
+#
+# ================================================================
+# REQUIRED OUTPUT
+# ================================================================
+#
+# Emit EXACTLY ONE bash script:
+#
+#     patch-augment-rm-latch.sh
+#
+# Script MUST:
+#
+# 1) Auto-detect latest augment.vscode-augment-* directory
+# 2) Resolve out/extension.js
+# 3) Backup extension.js (timestamped)
+# 4) Locate "var RM=class" declaration
+# 5) Append instrumentation block immediately AFTER class definition
+# 6) Abort if RM class not found
+# 7) Abort if injection already exists (idempotent)
+#
+# ================================================================
+# INSTRUMENTATION BLOCK REQUIREMENTS
+# ================================================================
+#
+# Must insert:
+#
+#     ;(function(){
+#         const fs = require('fs');
+#         const path = require('path');
+#         const LOG_FILE = path.resolve(process.cwd(), 'augment-latch-debug.log');
+#
+#         if (typeof RM !== 'function') {
+#             console.error('[LATCH PATCH FAILURE] RM not defined');
+#             throw new Error('RM class not found for instrumentation');
+#         }
+#
+#         function patchProperty(prop) {
+#             const privateKey = '__instrumented_' + prop;
+#
+#             Object.defineProperty(RM.prototype, prop, {
+#                 configurable: true,
+#                 enumerable: true,
+#                 get: function() {
+#                     return this[privateKey];
+#                 },
+#                 set: function(value) {
+#                     const prev = this[privateKey];
+#                     this[privateKey] = value;
+#
+#                     const stack = new Error().stack;
+#                     const entry = [
+#                         '================================================================',
+#                         '[LATCH DETECTED]',
+#                         'Property: ' + prop,
+#                         'Timestamp: ' + new Date().toISOString(),
+#                         'PID: ' + process.pid,
+#                         'Previous: ' + prev,
+#                         'New: ' + value,
+#                         'STACK TRACE:',
+#                         stack,
+#                         '================================================================',
+#                         ''
+#                     ].join('\\n');
+#
+#                     try {
+#                         fs.appendFileSync(LOG_FILE, entry);
+#                     } catch (e) {}
+#
+#                     console.error(entry);
+#                 }
+#             });
+#         }
+#
+#         patchProperty('_cancelledByUser');
+#         patchProperty('_closingPromise');
+#
+#         console.error('[LATCH INSTRUMENTATION ACTIVE]');
+#     })();
+#
+# ================================================================
+# COMPLIANCE ENFORCEMENT
+# ================================================================
+#
+# Script MUST:
+#
+# - Exit non-zero if:
+#       * RM class not found
+#       * Backup fails
+#       * Injection fails
+# - Print confirmation:
+#       [PATCH APPLIED SUCCESSFULLY]
+#
+# ================================================================
+# VERIFICATION STEP
+# ================================================================
+#
+# After patch:
+#   - Restart VS Code
+#   - Trigger cancellation
+#   - Confirm:
+#         [LATCH DETECTED]
+#         STACK TRACE:
+#
+# If stack trace does not appear:
+#   Injection failed.
+#
+# ================================================================
+# GUARANTEE REQUIRED
+# ================================================================
+#
+# When _cancelledByUser flips from false to true,
+# the EXACT call chain must appear in:
+#   - Console
+#   - augment-latch-debug.log
+#
+# Emit patch-augment-rm-latch.sh now.
+EOF
+)
+
+echo "$PROMPT"
+
+###############################################################################
+# EXECUTION NOTES
+#
+# This prompt:
+#   - Eliminates Module._load strategy
+#   - Targets bundled RM class directly
+#   - Forces deterministic patch location
+#   - Enforces hard failure on misalignment
+#   - Prevents silent instrumentation failure
+#
+# Outcome:
+#   First mutation of _cancelledByUser
+#   MUST produce full stack trace
+#
+###############################################################################

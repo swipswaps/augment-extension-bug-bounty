@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Stack Trace Test</title>
+<style>
+body { background: #1e1e1e; color: #d4d4d4; font-family: monospace; padding: 20px; }
+.event-item { background: #252526; border: 1px solid #3e3e42; padding: 15px; margin: 10px 0; cursor: pointer; }
+.event-item:hover { background: #2d2d30; }
+.event-item.expanded { background: #2d2d30; border-color: #ffa500; }
+.event-header { display: flex; justify-content: space-between; align-items: center; }
+.event-message { margin-top: 10px; color: #d4d4d4; }
+.badge-has-stack { background: #5a3d1d; color: #ffa500; padding: 4px 8px; border-radius: 3px; font-size: 11px; }
+.stack-trace { display: none; margin-top: 10px; padding: 10px; background: #1e1e1e; border-left: 3px solid #ffa500; }
+.stack-trace.visible { display: block; }
+.stack-trace-header { color: #ffa500; font-weight: bold; margin-bottom: 8px; }
+.stack-trace-line { color: #9cdcfe; padding: 3px 0; padding-left: 15px; }
+.function { color: #dcdcaa; font-weight: bold; }
+.file { color: #4ec9b0; }
+.location { color: #858585; }
+</style>
+</head><body>
+<h1>Stack Trace Dashboard Test</h1>
+<div id="container"></div>
+<script>
+const testData = [
+  {
+    timestamp: "2026-02-19T01:37:03.075Z",
+    source: "Augment.log",
+    severity: "ERROR",
+    message: "Error: Request cancelled",
+    stack_trace: [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902"
+    ]
+  },
+  {
+    timestamp: "2026-02-19T01:35:03.128Z",
+    source: "Augment.log",
+    severity: "WARNING",
+    message: "Attempted to generate supervisor prompt with empty conversation ID",
+    stack_trace: []
+  }
+];
+
+const container = document.getElementById('container');
+
+testData.forEach(event => {
+  const item = document.createElement('div');
+  item.className = 'event-item';
+  
+  const header = document.createElement('div');
+  header.className = 'event-header';
+  header.innerHTML = `<span>${event.severity}</span>`;
+  
+  if (event.stack_trace && event.stack_trace.length > 0) {
+    const badge = document.createElement('span');
+    badge.className = 'badge-has-stack';
+    badge.textContent = `${event.stack_trace.length} STACK LINES`;
+    header.appendChild(badge);
+  }
+  
+  item.appendChild(header);
+  
+  const message = document.createElement('div');
+  message.className = 'event-message';
+  message.textContent = event.message;
+  item.appendChild(message);
+  
+  if (event.stack_trace && event.stack_trace.length > 0) {
+    const stackTrace = document.createElement('div');
+    stackTrace.className = 'stack-trace';
+    
+    const stackHeader = document.createElement('div');
+    stackHeader.className = 'stack-trace-header';
+    stackHeader.textContent = '📍 STACK TRACE (Click to toggle)';
+    stackTrace.appendChild(stackHeader);
+    
+    event.stack_trace.forEach(line => {
+      const stackLine = document.createElement('div');
+      stackLine.className = 'stack-trace-line';
+      
+      const match = line.match(/STACK:\s+([^\s@]+)\s+@\s+([^:]+):(\d+):(\d+)/);
+      if (match) {
+        const funcName = match[1];
+        const filePath = match[2];
+        const lineNum = match[3];
+        const colNum = match[4];
+        const fileName = filePath.split('/').pop();
+        
+        stackLine.innerHTML = `<span class="function">${funcName}</span> @ <span class="file">${fileName}</span>:<span class="location">${lineNum}:${colNum}</span>`;
+      } else {
+        stackLine.textContent = line;
+      }
+      
+      stackTrace.appendChild(stackLine);
+    });
+    
+    item.appendChild(stackTrace);
+    
+    item.addEventListener('click', () => {
+      item.classList.toggle('expanded');
+      stackTrace.classList.toggle('visible');
+      console.log('Clicked! Stack trace visible:', stackTrace.classList.contains('visible'));
+    });
+  }
+  
+  container.appendChild(item);
+});
+
+console.log('Test dashboard loaded. Events:', testData.length);
+console.log('Events with stack traces:', testData.filter(e => e.stack_trace.length > 0).length);
+</script>
+</body></html>

@@ -1,0 +1,1 @@
+when wrapCommand() does _terminalSessions.get(terminal) for the /dev/pts/4 terminal, it returns undefined.

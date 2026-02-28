@@ -1,0 +1,95 @@
+// =============================================================================
+// retry-enforcing-compliance-driver.js
+// ----------------------------------------------------------------------------
+// Node.js script to repeatedly execute Augment instrumentation tool while
+// enforcing RULE 0–22 compliance. Checks logs for _closingPromise and STACK TRACE.
+// Includes exponential backoff and verbose logging for debug mode.
+// =============================================================================
+
+const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+const LOG_DIR = path.join(process.env.HOME, '.notes');
+const TMP_LOG = path.join(LOG_DIR, 'tmp_augment.log');
+const DEBUG_LOG = path.join(LOG_DIR, 'augment-closingPromise-debug.log');
+const TOOL_PATH = '/usr/local/bin/augment-tool';
+
+const MAX_RETRIES = 5;
+const BACKOFF_BASE = 2000; // milliseconds
+
+// ----------------------------
+// Helper: clean previous logs
+// ----------------------------
+function cleanPreviousLogs() {
+    console.log('[INFO] Cleaning previous logs...');
+    [TMP_LOG, DEBUG_LOG].forEach(file => {
+        if (fs.existsSync(file)) fs.unlinkSync(file);
+    });
+}
+
+// ----------------------------
+// Helper: execute tool
+// ----------------------------
+function executeTool() {
+    console.log('[INFO] Executing instrumentation tool...');
+    const startMarker = `START: ${new Date().toISOString()}\n`;
+    const endMarker = `END: ${new Date().toISOString()}\n`;
+    fs.appendFileSync(TMP_LOG, startMarker);
+    try {
+        const output = execSync(TOOL_PATH, { encoding: 'utf8' });
+        fs.appendFileSync(TMP_LOG, output);
+    } catch (err) {
+        fs.appendFileSync(TMP_LOG, `[ERROR] ${err.message}\n`);
+    }
+    fs.appendFileSync(TMP_LOG, endMarker);
+}
+
+// ----------------------------
+// Helper: verify output for compliance
+// ----------------------------
+function verifyOutput() {
+    const logContent = fs.readFileSync(TMP_LOG, 'utf8');
+    const hasClosingPromise = logContent.includes('_closingPromise');
+    const hasStackTrace = logContent.includes('STACK TRACE');
+
+    if (hasClosingPromise && hasStackTrace) {
+        console.log('[INFO] Required markers found. Output valid.');
+        fs.copyFileSync(TMP_LOG, DEBUG_LOG);
+        return true;
+    } else {
+        console.warn('[WARN] Output incomplete or missing required markers.');
+        return false;
+    }
+}
+
+// ----------------------------
+// Helper: exponential backoff
+// ----------------------------
+function backoff(attempt) {
+    const waitTime = BACKOFF_BASE * Math.pow(2, attempt - 1);
+    console.log(`[INFO] Backing off for ${waitTime}ms before retry...`);
+    return new Promise(resolve => setTimeout(resolve, waitTime));
+}
+
+// ----------------------------
+// Main execution loop
+// ----------------------------
+(async function main() {
+    cleanPreviousLogs();
+
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        console.log(`[INFO] Attempt ${attempt} of ${MAX_RETRIES}...`);
+        executeTool();
+
+        if (verifyOutput()) {
+            console.log(`[INFO] Instrumentation succeeded on attempt ${attempt}.`);
+            process.exit(0);
+        } else if (attempt < MAX_RETRIES) {
+            await backoff(attempt);
+        } else {
+            console.error('[ERROR] Maximum retries reached; output remains incomplete.');
+            process.exit(1);
+        }
+    }
+})();

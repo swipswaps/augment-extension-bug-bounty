@@ -1,0 +1,8 @@
+[12:51:11] STEP 1: Identifying extension host and Chromium zygote
+[12:51:11] Waiting 6 seconds before validating output...
+[12:51:17] PASS: Process snapshot
+[12:51:17] Extension Host PID: NOT FOUND
+[12:51:17] Zygote PID: 3550865
+[12:51:17] STEP 2: Counting Chromium shared memory segments
+[12:51:17] Waiting 6 seconds before validating output...
+[12:51:23] FAIL: Shared memory snapshot (file empty)

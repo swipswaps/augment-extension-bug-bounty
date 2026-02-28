@@ -1,0 +1,110 @@
+{
+  "name": "vscode-resource-guardian",
+  "displayName": "VS Code Resource Guardian",
+  "description": "Monitors and mitigates VS Code zygote process runaway CPU/memory issues, extension host memory leaks, and Electron resource contention",
+  "version": "1.2.0",
+  "publisher": "resource-guardian",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/resource-guardian/vscode-resource-guardian"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "resourceGuardian.showStatus",
+        "title": "Resource Guardian: Show Resource Status"
+      },
+      {
+        "command": "resourceGuardian.killRunawayProcesses",
+        "title": "Resource Guardian: Kill Runaway Processes"
+      },
+      {
+        "command": "resourceGuardian.restartExtensionHost",
+        "title": "Resource Guardian: Restart Extension Host"
+      },
+      {
+        "command": "resourceGuardian.forceGarbageCollection",
+        "title": "Resource Guardian: Force Garbage Collection"
+      },
+      {
+        "command": "resourceGuardian.generateReport",
+        "title": "Resource Guardian: Generate Resource Report"
+      },
+      {
+        "command": "resourceGuardian.emergencyCleanup",
+        "title": "Resource Guardian: EMERGENCY Cleanup (Kill All Runaway Processes)"
+      }
+    ],
+    "configuration": {
+      "title": "VS Code Resource Guardian",
+      "properties": {
+        "resourceGuardian.monitorInterval": {
+          "type": "number",
+          "default": 30000,
+          "description": "Interval in milliseconds to check resource usage (default: 30000ms = 30s, was 5s - too aggressive)"
+        },
+        "resourceGuardian.cpuThreshold": {
+          "type": "number",
+          "default": 25.0,
+          "description": "CPU usage threshold (%) for zygote/utility processes before warning (default: 25%, was 10% - caught normal processes)"
+        },
+        "resourceGuardian.memoryThreshold": {
+          "type": "number",
+          "default": 800,
+          "description": "Memory threshold (MB) for zygote/utility processes before warning (default: 800MB, was 400MB - too low)"
+        },
+        "resourceGuardian.extensionHostMemoryThreshold": {
+          "type": "number",
+          "default": 600,
+          "description": "Memory threshold (MB) for extension host before warning (default: 600MB, was 400MB - too low)"
+        },
+        "resourceGuardian.autoKillRunaway": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically kill runaway zygote processes (DANGEROUS: may cause instability)"
+        },
+        "resourceGuardian.autoGarbageCollection": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically trigger garbage collection when memory threshold exceeded"
+        },
+        "resourceGuardian.logToFile": {
+          "type": "boolean",
+          "default": true,
+          "description": "Log resource metrics to file for analysis"
+        },
+        "resourceGuardian.alertOnSwap": {
+          "type": "boolean",
+          "default": true,
+          "description": "Alert when system is using swap memory (indicates memory pressure)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.6",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "typescript": "^5.2.2"
+  }
+}
+

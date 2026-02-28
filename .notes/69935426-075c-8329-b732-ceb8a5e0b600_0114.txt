@@ -1,0 +1,976 @@
+
+DIAG| [invalid_line_range] OpenFile: Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Occurrences: 1026
+DIAG| Timestamp: 2026-02-24T07:51:32.531Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: invalid_line_range | 0 frame(s)
+[2026-02-24T07:51:56.156Z] DIAGNOSTICS | 25 entries | Files: extension.js, extension.ts, llm-compliance-guide.sh
+[2026-02-24T07:51:56.169Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async globalThis.fetch (file:///usr/share/code/resources/app/out/vs/workb
+DIAG| Occurrences: 490
+DIAG| Timestamp: 2026-02-20T08:23:37.278Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:51:56.170Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13
+DIAG| Occurrences: 163
+DIAG| Timestamp: 2026-02-20T00:33:36.497Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:51:56.171Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at runNextTicks (node:internal/process/task_queues:65:5) at process.processTimers (node:internal/timers:520:9) at async globalThis.fetch (file:///usr/share
+DIAG| Occurrences: 66
+DIAG| Timestamp: 2026-02-19T23:19:07.911Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:51:56.172Z]   → L289:1
+DIAG| [Unknown] 2026-02-18 20:34:03.707 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+DIAG| Occurrences: 12
+DIAG| Timestamp: 2026-02-19T01:46:03.158Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: Mongoose Error Code: ${t.code}`:""}`})}function xYe
+DIAG| Context: SentryService.getInstance() called before createInstance at L289. Race condition in extension startup.
+[2026-02-24T07:51:56.173Z]   → L603:1
+DIAG| [Request cancelled] Error: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:51:56.173Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.937 [error] 'Service[mAe]': API call failed: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.164Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:51:56.180Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.936 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:51:56.180Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:51:56.180Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.902 [info] 'ApiRetry': Operation failed with error Error: fetch failed, retrying in 1000 ms; retries = 0
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:51:56.180Z]   → L252:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.814 [error] 'AugmentExtensionSidecar': API request ec70527a-3b00-42e9-97f6-d4b34e89912a to https://d17.api.augmentcode.com/client-metrics failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `),G=I.substring(0,V);I=I.substring(V+1);try{let M=
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:51:56.180Z]   → L64:4481
+DIAG| [truncation_cause_detected] Augment chat input completion API calls causing file descriptor leak and output truncation
+DIAG| Timestamp: 2026-02-19T11:56:37-05:00
+DIAG| Stack: [2026-02-19T16:38:41.191Z]     STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481
+DIAG| Code: thod},ice(t,e)),n),{message:s,header:a,trailer:c}=await o(Object.assign({stream:!1,message:r,method:e
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:51:56.181Z]   → L956:1
+DIAG| [Unknown] 2026-02-18 20:44:08.407 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Timestamp: 2026-02-19T01:45:03.092Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `,A=A.slice(1))),{selectedCode:d,prefix:m,suffix:A,
+DIAG| Context: Invalid line range in OpenFile handler at L956. Extension tried to open a line range outside document bounds.
+[2026-02-24T07:51:56.181Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 1002522: 33.3% CPU, 1650 MB RAM, runtime 1:18
+DIAG| Timestamp: 2026-02-19T11:43:36-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:51:56.181Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 932054: 59.5 11.7 956184      00:25 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:51:56.181Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 929308: 33.3  7.5 616704      00:44 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:51:56.181Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 923566: 37.8 15.8 1285712     03:18 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:42:47-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:51:56.181Z]   → L1113:1
+DIAG| [fd_leak_warning] FD leak: 730 warnings, range 50360–57492, current 53976
+DIAG| Occurrences: 730
+DIAG| Timestamp: 2026-02-20T08:51:44.222Z
+DIAG| Stack: lsof | grep -c code → 53976 (threshold: 50000). Generated by monitorApplicationEvents() at L1113 in extension.ts
+DIAG| Code:                     logToDatabase('fd_leak_warning'
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:51:56.181Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 968120: 2.6% CPU, 922 MB RAM, cmd: /usr/share/code/code --type=zygote
+DIAG| Occurrences: 35
+DIAG| Timestamp: 2026-02-24T00:22:32.822Z
+DIAG| Stack: ps aux | PID=968120 CPU=2.6% MEM=922MB CMD=/usr/share/code/code --type=zygote
+DIAG| Code: logToDatabase('runaway_zygote_detected', `PID ${pid}: ${cpu.toFixed(1)}% CPU, ${memMB} MB RAM`)
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:51:56.181Z]   → L1087:1
+DIAG| [fd_leak_warning] File descriptor count: 54685 (threshold: 50000)
+DIAG| Occurrences: 510
+DIAG| Timestamp: 2026-02-24T07:51:35.702Z
+DIAG| Stack: lsof 2>/dev/null | grep -c code → 54685
+DIAG| Code: logToDatabase('fd_leak_warning', `File descriptor count: ${fdCount} (threshold: 50000)`)
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:51:56.181Z]   → L1:1
+DIAG| [root_cause_identified] Feature: chat input completion  //  Error rate: 101%  //  Function: Y.resolveAsyncMsg
+DIAG| Timestamp: 2026-02-19 17:40:31
+DIAG| Stack: Automated analysis from watchdog logs
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:51:56.181Z]   → L1:1
+DIAG| [leak_analysis] Chat input completions stopped (0 calls after 12:12:08) but FD leak persists (55,355 FDs). Other sources: API request aborts, Extension-WebView errors, CWD tracking timeouts, hook integration calls.
+DIAG| Timestamp: 2026-02-19 17:26:11
+DIAG| Stack: Evidence: 708 total chat calls, 0 after settings change, 24 new Request cancelled errors, FD trend 53,536->55,355
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:51:56.181Z]   → L1:1
+DIAG| [DIAGNOSTICS_ACTIVE] Diagnostics operational — 1511 total errors, 30 cancelled, 4 with stacks
+DIAG| Timestamp: 2026-02-20T03:52:15-05:00
+DIAG| Stack: N/A
+DIAG| Code: N/A
+DIAG| Context: System status. Stale entries excluded: fix_applied, fix_suggested (already resolved by hand).
+[2026-02-24T07:51:56.181Z]   → L1:1
+DIAG| [Unknown] Service[uEe]: Generating supervisor prompt with empty conversation ID — caching will be suboptimal
+DIAG| Occurrences: 1539
+DIAG| Timestamp: 2026-02-24T07:51:32.519Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: Unknown | 0 frame(s)
+[2026-02-24T07:51:56.181Z]   → L1:1
+DIAG| [feature_flags_timeout] MainPanelWebviewProvider: Timeout waiting for feature flags after 1000ms, proceeding with default flags
+DIAG| Occurrences: 513
+DIAG| Timestamp: 2026-02-24T07:51:32.499Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: feature_flags_timeout | 0 frame(s)
+[2026-02-24T07:51:56.181Z]   → L1:1
+DIAG| [invalid_line_range] OpenFile: Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Occurrences: 1026
+DIAG| Timestamp: 2026-02-24T07:51:32.531Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: invalid_line_range | 0 frame(s)
+[2026-02-24T07:52:03.222Z] ⚠️  RUNAWAY ZYGOTE DETECTED | PID 968120 | 1.0% CPU | 989 MB RAM
+[2026-02-24T07:52:03.230Z] MONITOR DEDUP | runaway_zygote_detected @ extension.ts:163:1 | count=36
+[2026-02-24T07:52:04.029Z] SWAP THRASHING | swap-in=156KB/s swap-out=4KB/s | vmstat: 0  0 2877636 420396    296 2757724  156    4   904  2864 3150 5892 43 22 34  1  0  0
+[2026-02-24T07:52:06.177Z] DIAGNOSTICS | 25 entries | Files: extension.js, extension.ts, llm-compliance-guide.sh
+[2026-02-24T07:52:06.178Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async globalThis.fetch (file:///usr/share/code/resources/app/out/vs/workb
+DIAG| Occurrences: 490
+DIAG| Timestamp: 2026-02-20T08:23:37.278Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:06.179Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13
+DIAG| Occurrences: 163
+DIAG| Timestamp: 2026-02-20T00:33:36.497Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:06.180Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at runNextTicks (node:internal/process/task_queues:65:5) at process.processTimers (node:internal/timers:520:9) at async globalThis.fetch (file:///usr/share
+DIAG| Occurrences: 66
+DIAG| Timestamp: 2026-02-19T23:19:07.911Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:06.192Z]   → L289:1
+DIAG| [Unknown] 2026-02-18 20:34:03.707 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+DIAG| Occurrences: 12
+DIAG| Timestamp: 2026-02-19T01:46:03.158Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: Mongoose Error Code: ${t.code}`:""}`})}function xYe
+DIAG| Context: SentryService.getInstance() called before createInstance at L289. Race condition in extension startup.
+[2026-02-24T07:52:06.193Z]   → L603:1
+DIAG| [Request cancelled] Error: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:06.193Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.937 [error] 'Service[mAe]': API call failed: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.164Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:06.194Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.936 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:06.194Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:06.195Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.902 [info] 'ApiRetry': Operation failed with error Error: fetch failed, retrying in 1000 ms; retries = 0
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:06.198Z]   → L252:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.814 [error] 'AugmentExtensionSidecar': API request ec70527a-3b00-42e9-97f6-d4b34e89912a to https://d17.api.augmentcode.com/client-metrics failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `),G=I.substring(0,V);I=I.substring(V+1);try{let M=
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:06.199Z]   → L64:4481
+DIAG| [truncation_cause_detected] Augment chat input completion API calls causing file descriptor leak and output truncation
+DIAG| Timestamp: 2026-02-19T11:56:37-05:00
+DIAG| Stack: [2026-02-19T16:38:41.191Z]     STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481
+DIAG| Code: thod},ice(t,e)),n),{message:s,header:a,trailer:c}=await o(Object.assign({stream:!1,message:r,method:e
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:06.200Z]   → L956:1
+DIAG| [Unknown] 2026-02-18 20:44:08.407 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Timestamp: 2026-02-19T01:45:03.092Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `,A=A.slice(1))),{selectedCode:d,prefix:m,suffix:A,
+DIAG| Context: Invalid line range in OpenFile handler at L956. Extension tried to open a line range outside document bounds.
+[2026-02-24T07:52:06.201Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 1002522: 33.3% CPU, 1650 MB RAM, runtime 1:18
+DIAG| Timestamp: 2026-02-19T11:43:36-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:06.201Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 932054: 59.5 11.7 956184      00:25 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:06.202Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 929308: 33.3  7.5 616704      00:44 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:06.202Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 923566: 37.8 15.8 1285712     03:18 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:42:47-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:06.203Z]   → L1113:1
+DIAG| [fd_leak_warning] FD leak: 730 warnings, range 50360–57492, current 53976
+DIAG| Occurrences: 730
+DIAG| Timestamp: 2026-02-20T08:51:44.222Z
+DIAG| Stack: lsof | grep -c code → 53976 (threshold: 50000). Generated by monitorApplicationEvents() at L1113 in extension.ts
+DIAG| Code:                     logToDatabase('fd_leak_warning'
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:52:06.203Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 968120: 1.0% CPU, 989 MB RAM, cmd: /usr/share/code/code --type=zygote
+DIAG| Occurrences: 36
+DIAG| Timestamp: 2026-02-24T07:52:03.230Z
+DIAG| Stack: ps aux | PID=968120 CPU=1.0% MEM=989MB CMD=/usr/share/code/code --type=zygote
+DIAG| Code: logToDatabase('runaway_zygote_detected', `PID ${pid}: ${cpu.toFixed(1)}% CPU, ${memMB} MB RAM`)
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:06.203Z]   → L1087:1
+DIAG| [fd_leak_warning] File descriptor count: 54685 (threshold: 50000)
+DIAG| Occurrences: 510
+DIAG| Timestamp: 2026-02-24T07:51:35.702Z
+DIAG| Stack: lsof 2>/dev/null | grep -c code → 54685
+DIAG| Code: logToDatabase('fd_leak_warning', `File descriptor count: ${fdCount} (threshold: 50000)`)
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:52:06.204Z]   → L1:1
+DIAG| [root_cause_identified] Feature: chat input completion  //  Error rate: 101%  //  Function: Y.resolveAsyncMsg
+DIAG| Timestamp: 2026-02-19 17:40:31
+DIAG| Stack: Automated analysis from watchdog logs
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:06.204Z]   → L1:1
+DIAG| [leak_analysis] Chat input completions stopped (0 calls after 12:12:08) but FD leak persists (55,355 FDs). Other sources: API request aborts, Extension-WebView errors, CWD tracking timeouts, hook integration calls.
+DIAG| Timestamp: 2026-02-19 17:26:11
+DIAG| Stack: Evidence: 708 total chat calls, 0 after settings change, 24 new Request cancelled errors, FD trend 53,536->55,355
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:06.205Z]   → L1:1
+DIAG| [DIAGNOSTICS_ACTIVE] Diagnostics operational — 1511 total errors, 30 cancelled, 4 with stacks
+DIAG| Timestamp: 2026-02-20T03:52:15-05:00
+DIAG| Stack: N/A
+DIAG| Code: N/A
+DIAG| Context: System status. Stale entries excluded: fix_applied, fix_suggested (already resolved by hand).
+[2026-02-24T07:52:06.205Z]   → L1:1
+DIAG| [Unknown] Service[uEe]: Generating supervisor prompt with empty conversation ID — caching will be suboptimal
+DIAG| Occurrences: 1539
+DIAG| Timestamp: 2026-02-24T07:51:32.519Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: Unknown | 0 frame(s)
+[2026-02-24T07:52:06.206Z]   → L1:1
+DIAG| [feature_flags_timeout] MainPanelWebviewProvider: Timeout waiting for feature flags after 1000ms, proceeding with default flags
+DIAG| Occurrences: 513
+DIAG| Timestamp: 2026-02-24T07:51:32.499Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: feature_flags_timeout | 0 frame(s)
+[2026-02-24T07:52:06.206Z]   → L1:1
+DIAG| [invalid_line_range] OpenFile: Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Occurrences: 1026
+DIAG| Timestamp: 2026-02-24T07:51:32.531Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: invalid_line_range | 0 frame(s)
+[2026-02-24T07:52:16.168Z] DIAGNOSTICS | 25 entries | Files: extension.js, extension.ts, llm-compliance-guide.sh
+[2026-02-24T07:52:16.168Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async globalThis.fetch (file:///usr/share/code/resources/app/out/vs/workb
+DIAG| Occurrences: 490
+DIAG| Timestamp: 2026-02-20T08:23:37.278Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:16.168Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13
+DIAG| Occurrences: 163
+DIAG| Timestamp: 2026-02-20T00:33:36.497Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:16.168Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at runNextTicks (node:internal/process/task_queues:65:5) at process.processTimers (node:internal/timers:520:9) at async globalThis.fetch (file:///usr/share
+DIAG| Occurrences: 66
+DIAG| Timestamp: 2026-02-19T23:19:07.911Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:16.168Z]   → L289:1
+DIAG| [Unknown] 2026-02-18 20:34:03.707 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+DIAG| Occurrences: 12
+DIAG| Timestamp: 2026-02-19T01:46:03.158Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: Mongoose Error Code: ${t.code}`:""}`})}function xYe
+DIAG| Context: SentryService.getInstance() called before createInstance at L289. Race condition in extension startup.
+[2026-02-24T07:52:16.169Z]   → L603:1
+DIAG| [Request cancelled] Error: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:16.169Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.937 [error] 'Service[mAe]': API call failed: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.164Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:16.169Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.936 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:16.169Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:16.169Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.902 [info] 'ApiRetry': Operation failed with error Error: fetch failed, retrying in 1000 ms; retries = 0
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:16.169Z]   → L252:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.814 [error] 'AugmentExtensionSidecar': API request ec70527a-3b00-42e9-97f6-d4b34e89912a to https://d17.api.augmentcode.com/client-metrics failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `),G=I.substring(0,V);I=I.substring(V+1);try{let M=
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:16.169Z]   → L64:4481
+DIAG| [truncation_cause_detected] Augment chat input completion API calls causing file descriptor leak and output truncation
+DIAG| Timestamp: 2026-02-19T11:56:37-05:00
+DIAG| Stack: [2026-02-19T16:38:41.191Z]     STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481
+DIAG| Code: thod},ice(t,e)),n),{message:s,header:a,trailer:c}=await o(Object.assign({stream:!1,message:r,method:e
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:16.169Z]   → L956:1
+DIAG| [Unknown] 2026-02-18 20:44:08.407 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Timestamp: 2026-02-19T01:45:03.092Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `,A=A.slice(1))),{selectedCode:d,prefix:m,suffix:A,
+DIAG| Context: Invalid line range in OpenFile handler at L956. Extension tried to open a line range outside document bounds.
+[2026-02-24T07:52:16.169Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 1002522: 33.3% CPU, 1650 MB RAM, runtime 1:18
+DIAG| Timestamp: 2026-02-19T11:43:36-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:16.169Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 932054: 59.5 11.7 956184      00:25 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:16.170Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 929308: 33.3  7.5 616704      00:44 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:16.170Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 923566: 37.8 15.8 1285712     03:18 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:42:47-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:16.170Z]   → L1113:1
+DIAG| [fd_leak_warning] FD leak: 730 warnings, range 50360–57492, current 53976
+DIAG| Occurrences: 730
+DIAG| Timestamp: 2026-02-20T08:51:44.222Z
+DIAG| Stack: lsof | grep -c code → 53976 (threshold: 50000). Generated by monitorApplicationEvents() at L1113 in extension.ts
+DIAG| Code:                     logToDatabase('fd_leak_warning'
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:52:16.170Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 968120: 1.0% CPU, 989 MB RAM, cmd: /usr/share/code/code --type=zygote
+DIAG| Occurrences: 36
+DIAG| Timestamp: 2026-02-24T07:52:03.230Z
+DIAG| Stack: ps aux | PID=968120 CPU=1.0% MEM=989MB CMD=/usr/share/code/code --type=zygote
+DIAG| Code: logToDatabase('runaway_zygote_detected', `PID ${pid}: ${cpu.toFixed(1)}% CPU, ${memMB} MB RAM`)
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:16.170Z]   → L1087:1
+DIAG| [fd_leak_warning] File descriptor count: 54685 (threshold: 50000)
+DIAG| Occurrences: 510
+DIAG| Timestamp: 2026-02-24T07:51:35.702Z
+DIAG| Stack: lsof 2>/dev/null | grep -c code → 54685
+DIAG| Code: logToDatabase('fd_leak_warning', `File descriptor count: ${fdCount} (threshold: 50000)`)
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:52:16.170Z]   → L1:1
+DIAG| [root_cause_identified] Feature: chat input completion  //  Error rate: 101%  //  Function: Y.resolveAsyncMsg
+DIAG| Timestamp: 2026-02-19 17:40:31
+DIAG| Stack: Automated analysis from watchdog logs
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:16.170Z]   → L1:1
+DIAG| [leak_analysis] Chat input completions stopped (0 calls after 12:12:08) but FD leak persists (55,355 FDs). Other sources: API request aborts, Extension-WebView errors, CWD tracking timeouts, hook integration calls.
+DIAG| Timestamp: 2026-02-19 17:26:11
+DIAG| Stack: Evidence: 708 total chat calls, 0 after settings change, 24 new Request cancelled errors, FD trend 53,536->55,355
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:16.170Z]   → L1:1
+DIAG| [DIAGNOSTICS_ACTIVE] Diagnostics operational — 1511 total errors, 30 cancelled, 4 with stacks
+DIAG| Timestamp: 2026-02-20T03:52:15-05:00
+DIAG| Stack: N/A
+DIAG| Code: N/A
+DIAG| Context: System status. Stale entries excluded: fix_applied, fix_suggested (already resolved by hand).
+[2026-02-24T07:52:16.170Z]   → L1:1
+DIAG| [Unknown] Service[uEe]: Generating supervisor prompt with empty conversation ID — caching will be suboptimal
+DIAG| Occurrences: 1539
+DIAG| Timestamp: 2026-02-24T07:51:32.519Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: Unknown | 0 frame(s)
+[2026-02-24T07:52:16.170Z]   → L1:1
+DIAG| [feature_flags_timeout] MainPanelWebviewProvider: Timeout waiting for feature flags after 1000ms, proceeding with default flags
+DIAG| Occurrences: 513
+DIAG| Timestamp: 2026-02-24T07:51:32.499Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: feature_flags_timeout | 0 frame(s)
+[2026-02-24T07:52:16.171Z]   → L1:1
+DIAG| [invalid_line_range] OpenFile: Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Occurrences: 1026
+DIAG| Timestamp: 2026-02-24T07:51:32.531Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: invalid_line_range | 0 frame(s)
+[2026-02-24T07:52:26.168Z] DIAGNOSTICS | 25 entries | Files: extension.js, extension.ts, llm-compliance-guide.sh
+[2026-02-24T07:52:26.168Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async globalThis.fetch (file:///usr/share/code/resources/app/out/vs/workb
+DIAG| Occurrences: 490
+DIAG| Timestamp: 2026-02-20T08:23:37.278Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:26.168Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13
+DIAG| Occurrences: 163
+DIAG| Timestamp: 2026-02-20T00:33:36.497Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:26.168Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at runNextTicks (node:internal/process/task_queues:65:5) at process.processTimers (node:internal/timers:520:9) at async globalThis.fetch (file:///usr/share
+DIAG| Occurrences: 66
+DIAG| Timestamp: 2026-02-19T23:19:07.911Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:26.168Z]   → L289:1
+DIAG| [Unknown] 2026-02-18 20:34:03.707 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+DIAG| Occurrences: 12
+DIAG| Timestamp: 2026-02-19T01:46:03.158Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: Mongoose Error Code: ${t.code}`:""}`})}function xYe
+DIAG| Context: SentryService.getInstance() called before createInstance at L289. Race condition in extension startup.
+[2026-02-24T07:52:26.168Z]   → L603:1
+DIAG| [Request cancelled] Error: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:26.168Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.937 [error] 'Service[mAe]': API call failed: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.164Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:26.168Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.936 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:26.168Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:26.168Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.902 [info] 'ApiRetry': Operation failed with error Error: fetch failed, retrying in 1000 ms; retries = 0
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:26.169Z]   → L252:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.814 [error] 'AugmentExtensionSidecar': API request ec70527a-3b00-42e9-97f6-d4b34e89912a to https://d17.api.augmentcode.com/client-metrics failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `),G=I.substring(0,V);I=I.substring(V+1);try{let M=
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:26.169Z]   → L64:4481
+DIAG| [truncation_cause_detected] Augment chat input completion API calls causing file descriptor leak and output truncation
+DIAG| Timestamp: 2026-02-19T11:56:37-05:00
+DIAG| Stack: [2026-02-19T16:38:41.191Z]     STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481
+DIAG| Code: thod},ice(t,e)),n),{message:s,header:a,trailer:c}=await o(Object.assign({stream:!1,message:r,method:e
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:26.169Z]   → L956:1
+DIAG| [Unknown] 2026-02-18 20:44:08.407 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Timestamp: 2026-02-19T01:45:03.092Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `,A=A.slice(1))),{selectedCode:d,prefix:m,suffix:A,
+DIAG| Context: Invalid line range in OpenFile handler at L956. Extension tried to open a line range outside document bounds.
+[2026-02-24T07:52:26.169Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 1002522: 33.3% CPU, 1650 MB RAM, runtime 1:18
+DIAG| Timestamp: 2026-02-19T11:43:36-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:26.169Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 932054: 59.5 11.7 956184      00:25 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:26.169Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 929308: 33.3  7.5 616704      00:44 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:26.169Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 923566: 37.8 15.8 1285712     03:18 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:42:47-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:26.169Z]   → L1113:1
+DIAG| [fd_leak_warning] FD leak: 730 warnings, range 50360–57492, current 53976
+DIAG| Occurrences: 730
+DIAG| Timestamp: 2026-02-20T08:51:44.222Z
+DIAG| Stack: lsof | grep -c code → 53976 (threshold: 50000). Generated by monitorApplicationEvents() at L1113 in extension.ts
+DIAG| Code:                     logToDatabase('fd_leak_warning'
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:52:26.169Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 968120: 1.0% CPU, 989 MB RAM, cmd: /usr/share/code/code --type=zygote
+DIAG| Occurrences: 36
+DIAG| Timestamp: 2026-02-24T07:52:03.230Z
+DIAG| Stack: ps aux | PID=968120 CPU=1.0% MEM=989MB CMD=/usr/share/code/code --type=zygote
+DIAG| Code: logToDatabase('runaway_zygote_detected', `PID ${pid}: ${cpu.toFixed(1)}% CPU, ${memMB} MB RAM`)
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:26.169Z]   → L1087:1
+DIAG| [fd_leak_warning] File descriptor count: 54685 (threshold: 50000)
+DIAG| Occurrences: 510
+DIAG| Timestamp: 2026-02-24T07:51:35.702Z
+DIAG| Stack: lsof 2>/dev/null | grep -c code → 54685
+DIAG| Code: logToDatabase('fd_leak_warning', `File descriptor count: ${fdCount} (threshold: 50000)`)
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:52:26.169Z]   → L1:1
+DIAG| [root_cause_identified] Feature: chat input completion  //  Error rate: 101%  //  Function: Y.resolveAsyncMsg
+DIAG| Timestamp: 2026-02-19 17:40:31
+DIAG| Stack: Automated analysis from watchdog logs
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:26.169Z]   → L1:1
+DIAG| [leak_analysis] Chat input completions stopped (0 calls after 12:12:08) but FD leak persists (55,355 FDs). Other sources: API request aborts, Extension-WebView errors, CWD tracking timeouts, hook integration calls.
+DIAG| Timestamp: 2026-02-19 17:26:11
+DIAG| Stack: Evidence: 708 total chat calls, 0 after settings change, 24 new Request cancelled errors, FD trend 53,536->55,355
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:26.169Z]   → L1:1
+DIAG| [DIAGNOSTICS_ACTIVE] Diagnostics operational — 1511 total errors, 30 cancelled, 4 with stacks
+DIAG| Timestamp: 2026-02-20T03:52:15-05:00
+DIAG| Stack: N/A
+DIAG| Code: N/A
+DIAG| Context: System status. Stale entries excluded: fix_applied, fix_suggested (already resolved by hand).
+[2026-02-24T07:52:26.169Z]   → L1:1
+DIAG| [Unknown] Service[uEe]: Generating supervisor prompt with empty conversation ID — caching will be suboptimal
+DIAG| Occurrences: 1539
+DIAG| Timestamp: 2026-02-24T07:51:32.519Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: Unknown | 0 frame(s)
+[2026-02-24T07:52:26.169Z]   → L1:1
+DIAG| [feature_flags_timeout] MainPanelWebviewProvider: Timeout waiting for feature flags after 1000ms, proceeding with default flags
+DIAG| Occurrences: 513
+DIAG| Timestamp: 2026-02-24T07:51:32.499Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: feature_flags_timeout | 0 frame(s)
+[2026-02-24T07:52:26.169Z]   → L1:1
+DIAG| [invalid_line_range] OpenFile: Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Occurrences: 1026
+DIAG| Timestamp: 2026-02-24T07:51:32.531Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: invalid_line_range | 0 frame(s)
+[2026-02-24T07:52:32.270Z] SYSTEM ERROR | journalctl -p err | count=1
+[2026-02-24T07:52:32.270Z]   -- No entries --
+[2026-02-24T07:52:32.456Z] EXTENSION ERROR WITH STACK TRACES | Augment.log (last 500 lines) | count=47
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:14.800 [warning] 'TerminalProcessTools': Checking if script command is available. Current shell: bash, platform: linux
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:14.804 [info] 'ExpressGrpcServerSingleton': gRPC server listening
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:14.804 [info] 'ExpressGrpcServerSingleton': gRPC server listening on http://127.0.0.1:46855/rpc
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:14.904 [info] 'NotificationWatcher': Starting notification polling with interval 60000ms
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:14.904 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:14.904 [info] 'HotKeyHints': HotKeyHints initialized
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:14.910 [info] 'AugmentExtension': Extension startup completed in 2460ms
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:15.731 [info] 'WorkspaceManager[6984bd27-4494-8330-9803-7b6895a48aa5]': Start tracking
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:15.821 [info] 'ToolsModel': Creating SidecarToolHost with memory settings: undefined, isMemoryEnabled: false
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:15.821 [info] 'SidecarToolHost': Memory enabled: false, adding RememberTool: false
+[2026-02-24T07:52:32.458Z]   2026-02-20 19:53:15.821 [info] 'ToolsModel': Tools Mode: AGENT (3 hosts)
+[2026-02-24T07:52:32.459Z]   --
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:46.718 [warning] 'TerminalProcessTools': Checking if script command is available. Current shell: bash, platform: linux
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:46.720 [info] 'ExpressGrpcServerSingleton': gRPC server listening
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:46.720 [info] 'ExpressGrpcServerSingleton': gRPC server listening on http://127.0.0.1:46143/rpc
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:46.770 [info] 'NotificationWatcher': Starting notification polling with interval 60000ms
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:46.770 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:46.770 [info] 'HotKeyHints': HotKeyHints initialized
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:46.775 [info] 'AugmentExtension': Extension startup completed in 2572ms
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:47.099 [info] 'WorkspaceManager[6984bd27-4494-8330-9803-7b6895a48aa5]': Start tracking
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:47.240 [info] 'ToolsModel': Creating SidecarToolHost with memory settings: undefined, isMemoryEnabled: false
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:47.240 [info] 'SidecarToolHost': Memory enabled: false, adding RememberTool: false
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:47.240 [info] 'ToolsModel': Tools Mode: AGENT (3 hosts)
+[2026-02-24T07:52:32.459Z]   --
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:52.926 [warning] 'MainPanelWebviewProvider': Timeout waiting for feature flags after 1000ms, proceeding with default flags
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:58.866 [info] 'InitializationGrpcSetup': [Initialization Result] Returning gRPC config and auth token (1 transports)
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:58.866 [info] 'InitializationGrpcSetup': [Initialization Result] Returning gRPC config and auth token (1 transports)
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:58.867 [info] 'InitializationGrpcSetup': [Initialization Result] Updated grpcInitializationRequest handler with 1 transports
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:59.281 [info] 'UpdateVersionNotificationWatcher': Starting update polling with interval 3600000ms for extension Augment.vscode-augment
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:59.281 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:59.281 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:59.281 [info] 'notifyWebviewOfAgentEditListHasUpdates': Notifying webview of agent edit list updates
+[2026-02-24T07:52:32.459Z]   2026-02-20 19:53:59.281 [info] 'ChatApp': hasRemoteExtensionHost=false, ourExtensionRunsRemotely=false
+[2026-02-24T07:52:32.460Z]   2026-02-20 19:53:59.354 [info] 'DynamicLevelKvStore': Ensuring LevelDB is initialized
+[2026-02-24T07:52:32.460Z]   2026-02-20 19:54:01.075 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+[2026-02-24T07:52:32.460Z]   --
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:09:02.108 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:09:48.464 [info] 'notifyWebviewOfAgentEditListHasUpdates': Notifying webview of agent edit list updates
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:09:49.558 [info] 'notifyWebviewOfAgentEditListHasUpdates': Notifying webview of agent edit list updates
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:09:49.682 [warning] 'Service[uEe]': Generating supervisor prompt with empty conversation ID — caching will be suboptimal
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:10:17.366 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:10:20.789 [info] 'notifyWebviewOfAgentEditListHasUpdates': Notifying webview of agent edit list updates
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:10:41.274 [info] 'hook-integration': Hook execution completed for Stop
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:12:55.691 [info] 'PathMap': Closed source folder /home/owner/Documents/6984bd27-4494-8330-9803-7b6895a48aa5 with id 100
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:12:55.692 [info] 'OpenFileManager': Closed source folder 100
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:12:55.694 [info] 'SentryGlobalExceptionHandler': Sentry global exception handler uninstalled successfully
+[2026-02-24T07:52:32.460Z]   2026-02-20 20:12:55.694 [info] 'SentryService': Sentry shutdown successfully
+[2026-02-24T07:52:32.460Z]   Augment.log: 2026-02-20 19:53:14.800 [warning] 'TerminalProcessTools': Checking if script command is available. Current shell: bash, platform: linux
+[2026-02-24T07:52:32.460Z]     2026-02-20 19:53:14.804 [info] 'ExpressGrpcServerSingleton': gRPC server listening
+[2026-02-24T07:52:32.460Z]     2026-02-20 19:53:14.804 [info] 'ExpressGrpcServerSingleton': gRPC server listening on http://127.0.0.1:46855/rpc
+[2026-02-24T07:52:32.460Z]     2026-02-20 19:53:14.904 [info] 'NotificationWatcher': Starting notification polling with interval 60000ms
+[2026-02-24T07:52:32.460Z]     2026-02-20 19:53:14.904 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+[2026-02-24T07:52:32.460Z]     2026-02-20 19:53:14.904 [info] 'HotKeyHints': HotKeyHints initialized
+[2026-02-24T07:52:32.461Z]     2026-02-20 19:53:14.910 [info] 'AugmentExtension': Extension startup completed in 2460ms
+[2026-02-24T07:52:32.461Z]     2026-02-20 19:53:15.731 [info] 'WorkspaceManager[6984bd27-4494-8330-9803-7b6895a48aa5]': Start tracking
+[2026-02-24T07:52:32.461Z]     2026-02-20 19:53:15.821 [info] 'ToolsModel': Creating SidecarToolHost with memory settings: undefined, isMemoryEnabled: false
+[2026-02-24T07:52:32.461Z]     2026-02-20 19:53:15.821 [info] 'SidecarToolHost': Memory enabled: false, adding RememberTool: false
+[2026-02-24T07:52:32.461Z]     2026-02-20 19:53:15.821 [info] 'ToolsModel': Tools Mode: AGENT (3 hosts)
+[2026-02-24T07:52:32.468Z] MONITOR DEDUP | Unknown @ llm-compliance-guide.sh:1:1 | count=1540
+[2026-02-24T07:52:32.468Z]   Augment.log: 2026-02-20 19:53:46.718 [warning] 'TerminalProcessTools': Checking if script command is available. Current shell: bash, platform: linux
+[2026-02-24T07:52:32.468Z]     2026-02-20 19:53:46.720 [info] 'ExpressGrpcServerSingleton': gRPC server listening
+[2026-02-24T07:52:32.468Z]     2026-02-20 19:53:46.720 [info] 'ExpressGrpcServerSingleton': gRPC server listening on http://127.0.0.1:46143/rpc
+[2026-02-24T07:52:32.468Z]     2026-02-20 19:53:46.770 [info] 'NotificationWatcher': Starting notification polling with interval 60000ms
+[2026-02-24T07:52:32.469Z]     2026-02-20 19:53:46.770 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+[2026-02-24T07:52:32.469Z]     2026-02-20 19:53:46.770 [info] 'HotKeyHints': HotKeyHints initialized
+[2026-02-24T07:52:32.469Z]     2026-02-20 19:53:46.775 [info] 'AugmentExtension': Extension startup completed in 2572ms
+[2026-02-24T07:52:32.469Z]     2026-02-20 19:53:47.099 [info] 'WorkspaceManager[6984bd27-4494-8330-9803-7b6895a48aa5]': Start tracking
+[2026-02-24T07:52:32.469Z]     2026-02-20 19:53:47.240 [info] 'ToolsModel': Creating SidecarToolHost with memory settings: undefined, isMemoryEnabled: false
+[2026-02-24T07:52:32.469Z]     2026-02-20 19:53:47.240 [info] 'SidecarToolHost': Memory enabled: false, adding RememberTool: false
+[2026-02-24T07:52:32.469Z]     2026-02-20 19:53:47.240 [info] 'ToolsModel': Tools Mode: AGENT (3 hosts)
+[2026-02-24T07:52:32.481Z] MONITOR DEDUP | Unknown @ llm-compliance-guide.sh:1:1 | count=1541
+[2026-02-24T07:52:32.482Z]   Augment.log: 2026-02-20 19:53:52.926 [warning] 'MainPanelWebviewProvider': Timeout waiting for feature flags after 1000ms, proceeding with default flags
+[2026-02-24T07:52:32.482Z]     2026-02-20 19:53:58.866 [info] 'InitializationGrpcSetup': [Initialization Result] Returning gRPC config and auth token (1 transports)
+[2026-02-24T07:52:32.483Z]     2026-02-20 19:53:58.866 [info] 'InitializationGrpcSetup': [Initialization Result] Returning gRPC config and auth token (1 transports)
+[2026-02-24T07:52:32.483Z]     2026-02-20 19:53:58.867 [info] 'InitializationGrpcSetup': [Initialization Result] Updated grpcInitializationRequest handler with 1 transports
+[2026-02-24T07:52:32.484Z]     2026-02-20 19:53:59.281 [info] 'UpdateVersionNotificationWatcher': Starting update polling with interval 3600000ms for extension Augment.vscode-augment
+[2026-02-24T07:52:32.484Z]     2026-02-20 19:53:59.281 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+[2026-02-24T07:52:32.484Z]     2026-02-20 19:53:59.281 [info] 'RemoteAgentsMessenger': Registering RemoteAgentsMessenger with AsyncMsgHandler
+[2026-02-24T07:52:32.484Z]     2026-02-20 19:53:59.281 [info] 'notifyWebviewOfAgentEditListHasUpdates': Notifying webview of agent edit list updates
+[2026-02-24T07:52:32.484Z]     2026-02-20 19:53:59.281 [info] 'ChatApp': hasRemoteExtensionHost=false, ourExtensionRunsRemotely=false
+[2026-02-24T07:52:32.484Z]     2026-02-20 19:53:59.354 [info] 'DynamicLevelKvStore': Ensuring LevelDB is initialized
+[2026-02-24T07:52:32.484Z]     2026-02-20 19:54:01.075 [info] 'RemoteAgentsMessenger': RemoteAgentsMessenger initialized, setting up onDidChangeTextDocument listener
+[2026-02-24T07:52:32.494Z] MONITOR DEDUP | feature_flags_timeout @ llm-compliance-guide.sh:1:1 | count=514
+[2026-02-24T07:52:32.495Z]   Augment.log: 2026-02-20 20:09:02.108 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+[2026-02-24T07:52:32.495Z]     2026-02-20 20:09:48.464 [info] 'notifyWebviewOfAgentEditListHasUpdates': Notifying webview of agent edit list updates
+[2026-02-24T07:52:32.495Z]     2026-02-20 20:09:49.558 [info] 'notifyWebviewOfAgentEditListHasUpdates': Notifying webview of agent edit list updates
+[2026-02-24T07:52:32.511Z] MONITOR DEDUP | invalid_line_range @ llm-compliance-guide.sh:1:1 | count=1027
+[2026-02-24T07:52:32.511Z]   Augment.log: 2026-02-20 20:09:49.682 [warning] 'Service[uEe]': Generating supervisor prompt with empty conversation ID — caching will be suboptimal
+[2026-02-24T07:52:32.522Z] MONITOR DEDUP | Unknown @ llm-compliance-guide.sh:1:1 | count=1542
+[2026-02-24T07:52:32.522Z]   Augment.log: 2026-02-20 20:10:17.366 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+[2026-02-24T07:52:32.523Z]     2026-02-20 20:10:20.789 [info] 'notifyWebviewOfAgentEditListHasUpdates': Notifying webview of agent edit list updates
+[2026-02-24T07:52:32.523Z]     2026-02-20 20:10:41.274 [info] 'hook-integration': Hook execution completed for Stop
+[2026-02-24T07:52:32.523Z]     2026-02-20 20:12:55.691 [info] 'PathMap': Closed source folder /home/owner/Documents/6984bd27-4494-8330-9803-7b6895a48aa5 with id 100
+[2026-02-24T07:52:32.523Z]     2026-02-20 20:12:55.692 [info] 'OpenFileManager': Closed source folder 100
+[2026-02-24T07:52:32.523Z]     2026-02-20 20:12:55.694 [info] 'SentryGlobalExceptionHandler': Sentry global exception handler uninstalled successfully
+[2026-02-24T07:52:32.523Z]     2026-02-20 20:12:55.694 [info] 'SentryService': Sentry shutdown successfully
+[2026-02-24T07:52:32.535Z] MONITOR DEDUP | invalid_line_range @ llm-compliance-guide.sh:1:1 | count=1028
+[2026-02-24T07:52:32.551Z] ERROR | SQLite stderr: Error: in prepare, database is locked (5)
+
+[2026-02-24T07:52:32.552Z] ERROR | SQLite stderr: Error: stepping, database is locked (5)
+
+[2026-02-24T07:52:32.552Z] ERROR | SQLite stderr: Error: in prepare, database is locked (5)
+
+[2026-02-24T07:52:32.987Z] HEARTBEAT | terminals=7 | cancellations=0
+[2026-02-24T07:52:34.121Z] SWAP THRASHING | swap-in=44KB/s swap-out=18360KB/s | vmstat: 7  0 2894384 1037328    296 2405808   44 18360    84 21520 5208 5341 55 44  0  0  0  0
+[2026-02-24T07:52:36.188Z] DIAGNOSTICS | 25 entries | Files: extension.js, extension.ts, llm-compliance-guide.sh
+[2026-02-24T07:52:36.188Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async globalThis.fetch (file:///usr/share/code/resources/app/out/vs/workb
+DIAG| Occurrences: 490
+DIAG| Timestamp: 2026-02-20T08:23:37.278Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:36.188Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13
+DIAG| Occurrences: 163
+DIAG| Timestamp: 2026-02-20T00:33:36.497Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:36.188Z]   → L64:59334
+DIAG| [This operation was aborted] AugmentExtensionSidecar: AbortError: This operation was aborted  //  Stack: at node:internal/deps/undici/undici:14900:13 at runNextTicks (node:internal/process/task_queues:65:5) at process.processTimers (node:internal/timers:520:9) at async globalThis.fetch (file:///usr/share
+DIAG| Occurrences: 66
+DIAG| Timestamp: 2026-02-19T23:19:07.911Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: (n,r.abortSignal)}}}async function d2(e,t){return await new Promise((r,n)=>{let i=setTimeout(()=>n(ne
+DIAG| Context: AbortError from gRPC/undici transport. Repeats every ~60s on getRemoteAgentOverviewsStream. Call chain: d2@64:59334 → callApiStream@250:8939 → callApiStream@252:479212 → getRemoteAgentOverviewsStream@252:493 → handleRemoteAgentOverviewsStreamRequest@5287:22044
+[2026-02-24T07:52:36.188Z]   → L289:1
+DIAG| [Unknown] 2026-02-18 20:34:03.707 [error] 'SentryService': SentryService.getInstance() called before createInstance(). Creating fallback instance with default flags.
+DIAG| Occurrences: 12
+DIAG| Timestamp: 2026-02-19T01:46:03.158Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: Mongoose Error Code: ${t.code}`:""}`})}function xYe
+DIAG| Context: SentryService.getInstance() called before createInstance at L289. Race condition in extension startup.
+[2026-02-24T07:52:36.188Z]   → L603:1
+DIAG| [Request cancelled] Error: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:36.188Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.937 [error] 'Service[mAe]': API call failed: Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.164Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:36.188Z]   → L603:1
+DIAG| [Request cancelled] 2026-02-18 20:36:18.936 [error] 'ClientWorkspaces': Failed to call chat input completion API Request cancelled
+DIAG| Occurrences: 10
+DIAG| Timestamp: 2026-02-19T01:46:03.162Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `&&n++}}return[t,r]}var Cde=class extends Transform
+DIAG| Context: _cancelledByUser one-way latch at L603 in extension.js. Once set to true, NEVER reset to false. All tool calls fail until VS Code reloads. Fix: reload window or fix the latch.
+[2026-02-24T07:52:36.189Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:36.189Z]   → L422:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.902 [info] 'ApiRetry': Operation failed with error Error: fetch failed, retrying in 1000 ms; retries = 0
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `);return zi.from(r)};OU.decodePax=function(t){let 
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:36.189Z]   → L252:1
+DIAG| [fetch failed] 2026-02-18 20:43:28.814 [error] 'AugmentExtensionSidecar': API request ec70527a-3b00-42e9-97f6-d4b34e89912a to https://d17.api.augmentcode.com/client-metrics failed: fetch failed (due to {"name":"ConnectTimeoutError","code":"UND_ERR_CONNECT_TIMEOUT"})
+DIAG| Occurrences: 3
+DIAG| Timestamp: 2026-02-19T01:46:03.165Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `),G=I.substring(0,V);I=I.substring(V+1);try{let M=
+DIAG| Context: Network fetch to augmentcode.com API failed at ConnectTimeoutError@L422. May indicate connectivity issue or API endpoint down.
+[2026-02-24T07:52:36.189Z]   → L64:4481
+DIAG| [truncation_cause_detected] Augment chat input completion API calls causing file descriptor leak and output truncation
+DIAG| Timestamp: 2026-02-19T11:56:37-05:00
+DIAG| Stack: [2026-02-19T16:38:41.191Z]     STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481
+DIAG| Code: thod},ice(t,e)),n),{message:s,header:a,trailer:c}=await o(Object.assign({stream:!1,message:r,method:e
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:36.189Z]   → L956:1
+DIAG| [Unknown] 2026-02-18 20:44:08.407 [error] 'OpenFile': Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Timestamp: 2026-02-19T01:45:03.092Z
+DIAG| Stack: no stack trace captured
+DIAG| Code: `,A=A.slice(1))),{selectedCode:d,prefix:m,suffix:A,
+DIAG| Context: Invalid line range in OpenFile handler at L956. Extension tried to open a line range outside document bounds.
+[2026-02-24T07:52:36.189Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 1002522: 33.3% CPU, 1650 MB RAM, runtime 1:18
+DIAG| Timestamp: 2026-02-19T11:43:36-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:36.189Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 932054: 59.5 11.7 956184      00:25 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:36.189Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 929308: 33.3  7.5 616704      00:44 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:46:49-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:36.189Z]   → L163:1
+DIAG| [zygote_killed] Auto-killed runaway zygote PID 923566: 37.8 15.8 1285712     03:18 /usr/share/code/code --type=zygote
+DIAG| Timestamp: 2026-02-19T09:42:47-05:00
+DIAG| Stack: no stack trace captured
+DIAG| Code:             logToDatabase('runaway_zygote_detected'
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:36.189Z]   → L1113:1
+DIAG| [fd_leak_warning] FD leak: 730 warnings, range 50360–57492, current 53976
+DIAG| Occurrences: 730
+DIAG| Timestamp: 2026-02-20T08:51:44.222Z
+DIAG| Stack: lsof | grep -c code → 53976 (threshold: 50000). Generated by monitorApplicationEvents() at L1113 in extension.ts
+DIAG| Code:                     logToDatabase('fd_leak_warning'
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:52:36.189Z]   → L163:1
+DIAG| [runaway_zygote_detected] Runaway zygote PID 968120: 1.0% CPU, 989 MB RAM, cmd: /usr/share/code/code --type=zygote
+DIAG| Occurrences: 36
+DIAG| Timestamp: 2026-02-24T07:52:03.230Z
+DIAG| Stack: ps aux | PID=968120 CPU=1.0% MEM=989MB CMD=/usr/share/code/code --type=zygote
+DIAG| Code: logToDatabase('runaway_zygote_detected', `PID ${pid}: ${cpu.toFixed(1)}% CPU, ${memMB} MB RAM`)
+DIAG| Context: VS Code zygote subprocess consuming excessive CPU/RAM. Detected by monitorZygoteProcesses() at L163 in our extension.ts.
+[2026-02-24T07:52:36.189Z]   → L1087:1
+DIAG| [fd_leak_warning] File descriptor count: 54685 (threshold: 50000)
+DIAG| Occurrences: 510
+DIAG| Timestamp: 2026-02-24T07:51:35.702Z
+DIAG| Stack: lsof 2>/dev/null | grep -c code → 54685
+DIAG| Code: logToDatabase('fd_leak_warning', `File descriptor count: ${fdCount} (threshold: 50000)`)
+DIAG| Context: VS Code file descriptors exceed 50K. REG=file watcher leak, unix=IPC socket leak, pipe=subprocess leak. Fix applied: disabled augment.completions.enableChatInputCompletions. Source: monitorApplicationEvents() in our extension.ts.
+[2026-02-24T07:52:36.189Z]   → L1:1
+DIAG| [root_cause_identified] Feature: chat input completion  //  Error rate: 101%  //  Function: Y.resolveAsyncMsg
+DIAG| Timestamp: 2026-02-19 17:40:31
+DIAG| Stack: Automated analysis from watchdog logs
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:36.189Z]   → L1:1
+DIAG| [leak_analysis] Chat input completions stopped (0 calls after 12:12:08) but FD leak persists (55,355 FDs). Other sources: API request aborts, Extension-WebView errors, CWD tracking timeouts, hook integration calls.
+DIAG| Timestamp: 2026-02-19 17:26:11
+DIAG| Stack: Evidence: 708 total chat calls, 0 after settings change, 24 new Request cancelled errors, FD trend 53,536->55,355
+DIAG| Code: N/A
+DIAG| Context: See .augment/error_tracking.db for full history.
+[2026-02-24T07:52:36.189Z]   → L1:1
+DIAG| [DIAGNOSTICS_ACTIVE] Diagnostics operational — 1511 total errors, 30 cancelled, 4 with stacks
+DIAG| Timestamp: 2026-02-20T03:52:15-05:00
+DIAG| Stack: N/A
+DIAG| Code: N/A
+DIAG| Context: System status. Stale entries excluded: fix_applied, fix_suggested (already resolved by hand).
+[2026-02-24T07:52:36.189Z]   → L1:1
+DIAG| [Unknown] Service[uEe]: Generating supervisor prompt with empty conversation ID — caching will be suboptimal
+DIAG| Occurrences: 1542
+DIAG| Timestamp: 2026-02-24T07:52:32.522Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: Unknown | 0 frame(s)
+[2026-02-24T07:52:36.189Z]   → L1:1
+DIAG| [feature_flags_timeout] MainPanelWebviewProvider: Timeout waiting for feature flags after 1000ms, proceeding with default flags
+DIAG| Occurrences: 514
+DIAG| Timestamp: 2026-02-24T07:52:32.494Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: feature_flags_timeout | 0 frame(s)
+[2026-02-24T07:52:36.189Z]   → L1:1
+DIAG| [invalid_line_range] OpenFile: Invalid line range - it should not be negative: startLine=-1, stopLine=-1
+DIAG| Occurrences: 1028
+DIAG| Timestamp: 2026-02-24T07:52:32.535Z
+DIAG| Stack: no stack frames captured
+DIAG| Code: no location parsed
+DIAG| Context: invalid_line_range | 0 frame(s)
+[2026-02-24T07:52:38.968Z] FILE DESCRIPTOR WARNING | VS Code FDs=56891 | threshold=50000
+[2026-02-24T07:52:38.980Z] MONITOR DEDUP | fd_leak_warning @ extension.ts:1087:1 | count=511
+[2026-02-24T07:52:39.062Z]   FD breakdown by type:
+[2026-02-24T07:52:39.062Z]     44257 REG
+[2026-02-24T07:52:39.063Z]     4453 a_inode
+[2026-02-24T07:52:39.063Z]     3332 unix
+[2026-02-24T07:52:39.063Z]     2832 FIFO
+[2026-02-24T07:52:39.063Z]     867 CHR
+[2026-02-24T07:52:39.063Z]     503 DIR
+[2026-02-24T07:52:39.063Z]     356 sock
+[2026-02-24T07:52:39.063Z]     239 netlink
+[2026-02-24T07:52:39.063Z]     50 IPv4
+[2026-02-24T07:52:39.139Z]   Top FD consumers (count, process, PID, FD#, type):
+[2026-02-24T07:52:39.139Z]     48 code 968029 0r CHR
+[2026-02-24T07:52:39.139Z]     48 code 968029 1u CHR
+[2026-02-24T07:52:39.139Z]     48 code 968029 2u CHR
+[2026-02-24T07:52:39.139Z]     48 code 968029 3r REG
+[2026-02-24T07:52:39.139Z]     48 code 968029 4r REG
+[2026-02-24T07:52:39.139Z]     48 code 968029 5u unix
+[2026-02-24T07:52:39.139Z]     48 code 968029 6u unix
+[2026-02-24T07:52:39.139Z]     48 code 968029 7r pipe
+[2026-02-24T07:52:39.139Z]     48 code 968029 8w pipe
+[2026-02-24T07:52:39.139Z]     48 code 968029 9u unix

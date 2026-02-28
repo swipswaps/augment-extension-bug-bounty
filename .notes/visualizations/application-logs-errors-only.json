@@ -1,0 +1,3057 @@
+[
+  {
+    "timestamp": "2026-02-19T01:37:03.075Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:38:03.081Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:39:03.117Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:40:03.131Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:41:03.119Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:42:03.061Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:43:03.057Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:44:03.090Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:44:03.092Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:45:03.082Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:45:03.091Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:46:03.162Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:46:03.165Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:47:03.096Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:47:03.106Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:48:03.112Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:48:03.121Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:49:03.161Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:49:03.163Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:50:03.098Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:50:03.103Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:50:03.124Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:51:03.117Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:51:03.120Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:51:03.124Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:52:03.102Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:52:03.121Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:52:03.132Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:53:03.097Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:53:03.102Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:53:03.108Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:54:03.099Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:54:03.103Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:54:03.108Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:55:03.122Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:55:03.128Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:55:03.136Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:56:03.197Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:56:03.215Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:56:03.238Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:57:04.785Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:57:04.888Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:58:03.284Z",
+    "source": "Augment.log",
+    "severity": "ERROR",
+    "message": "2026-02-18 20:43:28.904 [error] 'ClientMetricsReporter': Error uploading metrics: Error: fetch failed Error: fetch failed",
+    "stack_trace": [
+      "STACK: e.transientIssue @ augment.vscode-augment-0.779.0/extension.js:64:56527",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1778",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: apiRetry.retryWithRetryAfter.initialMS @ augment.vscode-augment-0.779.0/extension.js:252:469093",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836",
+      "STACK: Bfe.retryWithRetryAfter @ augment.vscode-augment-0.779.0/extension.js:250:1785",
+      "STACK: eH.clientMetrics @ augment.vscode-augment-0.779.0/extension.js:252:469027",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:553:10781",
+      "STACK: $Be @ augment.vscode-augment-0.779.0/extension.js:64:58836"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 56527,
+        "function": "e.transientIssue"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1778,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469093,
+        "function": "apiRetry.retryWithRetryAfter.initialMS"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 250,
+        "column": 1785,
+        "function": "Bfe.retryWithRetryAfter"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 469027,
+        "function": "eH.clientMetrics"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 58836,
+        "function": "$Be"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:58:03.298Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T01:59:03.254Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T02:00:03.260Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T02:01:03.304Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T02:02:03.332Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T02:03:03.305Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T02:04:03.281Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T02:05:03.377Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-19T02:06:03.282Z",
+    "source": "watchdog",
+    "severity": "ERROR",
+    "message": "Error: Request cancelled",
+    "stack_trace": [
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:1928",
+      "STACK: process.processTicksAndRejections @ node:internal/process/task_queues:105:5",
+      "STACK: eH.callApi @ augment.vscode-augment-0.779.0/extension.js:252:478050",
+      "STACK: eH.chatInputCompletion @ augment.vscode-augment-0.779.0/extension.js:252:444993",
+      "STACK: oEe.callChatInputCompletionAPI @ augment.vscode-augment-0.779.0/extension.js:5263:14902",
+      "STACK: mAe.fetchCompletion @ augment.vscode-augment-0.779.0/extension.js:371:5",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:4376",
+      "STACK: SBe @ augment.vscode-augment-0.779.0/extension.js:64:4481",
+      "at async /home/owner/.vscode/extensions/augment.vscode-augment-0.779.0/out/extension.js:64:22690"
+    ],
+    "files": [
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 1928,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 478050,
+        "function": "eH.callApi"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 252,
+        "column": 444993,
+        "function": "eH.chatInputCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 5263,
+        "column": 14902,
+        "function": "oEe.callChatInputCompletionAPI"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 371,
+        "column": 5,
+        "function": "mAe.fetchCompletion"
+      },
+      {
+        "path": "augment.vscode-augment-0.779.0/extension.js",
+        "line": 64,
+        "column": 4481,
+        "function": "SBe"
+      }
+    ]
+  }
+]

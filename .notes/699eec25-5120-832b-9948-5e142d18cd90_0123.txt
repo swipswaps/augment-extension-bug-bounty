@@ -1,0 +1,2557 @@
+[owner@192.168.1.135-20260226-062918 ~]$ pstree -ap | grep -A5 -B5 code
+  |   |-{cloudflared},1189
+  |   |-{cloudflared},1190
+  |   |-{cloudflared},1252
+  |   |-{cloudflared},1293
+  |   `-{cloudflared},749317
+  |-code,2359523 .
+  |   |-code,2359536 --type=zygote --no-zygote-sandbox
+  |   |   `-code,2359662 --type=zygote --no-zygote-sandbox
+  |   |       |-{code},2359665
+  |   |       |-{code},2359666
+  |   |       |-{code},2359667
+  |   |       |-{code},2359668
+  |   |       |-{code},2359670
+  |   |       |-{code},2359671
+  |   |       |-{code},2359672
+  |   |       |-{code},2359673
+  |   |       |-{code},2359674
+  |   |       |-{code},2359675
+  |   |       |-{code},2359781
+  |   |       `-{code},2361945
+  |   |-code,2359537 --type=zygote
+  |   |   `-code,2359539 --type=zygote
+  |   |       |-code,2359620 --type=zygote
+  |   |       |   |-{code},2359621
+  |   |       |   |-{code},2359622
+  |   |       |   |-{code},2359623
+  |   |       |   |-{code},2359624
+  |   |       |   |-{code},2359625
+  |   |       |   |-{code},2359626
+  |   |       |   |-{code},2359627
+  |   |       |   |-{code},2359650
+  |   |       |   |-{code},2360909
+  |   |       |   `-{code},2360955
+  |   |       `-code,2361937 --type=zygote
+  |   |           |-{code},2361938
+  |   |           |-{code},2361939
+  |   |           |-{code},2361940
+  |   |           |-{code},2361941
+  |   |           |-{code},2361942
+  |   |           |-{code},2361943
+  |   |           |-{code},2361944
+  |   |           |-{code},2361958
+  |   |           |-{code},2362010
+  |   |           |-{code},2362011
+  |   |           `-{code},2544322
+  |   |-code,2359580 --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none...
+  |   |   |-{code},2359583
+  |   |   |-{code},2359584
+  |   |   |-{code},2359585
+  |   |   |-{code},2359586
+  |   |   |-{code},2359587
+  |   |   |-{code},2359588
+  |   |   `-{code},2359589
+  |   |-code,2359683 --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none...
+  |   |   |-bash,2359782 --init-file ...
+  |   |   |-bash,2359791 --init-file ...
+  |   |   |-bash,2359795 --init-file ...
+  |   |   |-bash,2359800 --init-file ...
+  |   |   |-bash,2359808 --init-file ...
+  |   |   |-bash,2359814 --init-file ...
+  |   |   |-bash,2360953 --init-file ...
+  |   |   |-bash,2402100 --init-file ...
+  |   |   |   `-script,2402112 -q -f /tmp/augment-script-9a2006a40d849dcb.log
+  |   |   |       `-bash,2402114 -i
+  |   |   |-{code},2359684
+  |   |   |-{code},2359685
+  |   |   |-{code},2359686
+  |   |   |-{code},2359687
+  |   |   |-{code},2359688
+  |   |   |-{code},2359689
+  |   |   |-{code},2359690
+  |   |   |-{code},2359691
+  |   |   |-{code},2359692
+  |   |   |-{code},2359693
+  |   |   |-{code},2359694
+  |   |   |-{code},2359695
+  |   |   |-{code},2359698
+  |   |   |-{code},2359741
+  |   |   |-{code},2359742
+  |   |   |-{code},2359743
+  |   |   |-{code},2359744
+  |   |   |-{code},2359745
+  |   |   |-{code},2359783
+  |   |   |-{code},2359792
+  |   |   |-{code},2359796
+  |   |   |-{code},2359804
+  |   |   |-{code},2359811
+  |   |   |-{code},2359817
+  |   |   |-{code},2360954
+  |   |   `-{code},2402101
+  |   |-code,2359696 --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none...
+  |   |   |-{code},2359699
+  |   |   |-{code},2359700
+  |   |   |-{code},2359701
+  |   |   |-{code},2359702
+  |   |   |-{code},2359703
+  |   |   |-{code},2359704
+  |   |   |-{code},2359705
+  |   |   |-{code},2359706
+  |   |   |-{code},2359707
+  |   |   |-{code},2359708
+  |   |   |-{code},2359713
+  |   |   |-{code},2359714
+  |   |   |-{code},2359728
+  |   |   |-{code},2359750
+  |   |   |-{code},2359751
+  |   |   |-{code},2359752
+  |   |   |-{code},2359753
+  |   |   `-{code},2359754
+  |   |-code,2359697 --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none...
+  |   |   |-{code},2359709
+  |   |   |-{code},2359710
+  |   |   |-{code},2359711
+  |   |   |-{code},2359712
+  |   |   |-{code},2359715
+  |   |   |-{code},2359716
+  |   |   |-{code},2359717
+  |   |   |-{code},2359718
+  |   |   |-{code},2359719
+  |   |   |-{code},2359720
+  |   |   |-{code},2359721
+  |   |   |-{code},2359722
+  |   |   |-{code},2359759
+  |   |   |-{code},2359768
+  |   |   |-{code},2359769
+  |   |   |-{code},2359770
+  |   |   |-{code},2359771
+  |   |   |-{code},2359772
+  |   |   |-{code},2359773
+  |   |   `-{code},2359774
+  |   |-code,2359723 --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none...
+  |   |   |-code,2360891 --max-old-space-size=3072 ...
+  |   |   |   |-{code},2360893
+  |   |   |   |-{code},2360894
+  |   |   |   |-{code},2360895
+  |   |   |   |-{code},2360896
+  |   |   |   |-{code},2360897
+  |   |   |   |-{code},2360898
+  |   |   |   `-{code},2360899
+  |   |   |-code,2360892 --max-old-space-size=3072 ...
+  |   |   |   |-code,2360973 /usr/share/code/resources/app/extensions/node_modules/typescript/lib/typingsInstaller.js...
+  |   |   |   |   |-{code},2361008
+  |   |   |   |   |-{code},2361009
+  |   |   |   |   |-{code},2361010
+  |   |   |   |   |-{code},2361011
+  |   |   |   |   |-{code},2361012
+  |   |   |   |   |-{code},2361013
+  |   |   |   |   `-{code},2361016
+  |   |   |   |-{code},2360910
+  |   |   |   |-{code},2360912
+  |   |   |   |-{code},2360913
+  |   |   |   |-{code},2360914
+  |   |   |   |-{code},2360915
+  |   |   |   |-{code},2360916
+  |   |   |   |-{code},2360923
+  |   |   |   |-{code},2361222
+  |   |   |   |-{code},2361223
+  |   |   |   |-{code},2361224
+  |   |   |   `-{code},2361225
+  |   |   |-code,2361977 /usr/share/code/resources/app/extensions/markdown-language-features/dist/serverWorkerMain --node-ipc...
+  |   |   |   |-{code},2361980
+  |   |   |   |-{code},2361981
+  |   |   |   |-{code},2361982
+  |   |   |   |-{code},2361983
+  |   |   |   |-{code},2361984
+  |   |   |   |-{code},2361985
+  |   |   |   `-{code},2361987
+  |   |   |-code,2362030 /usr/share/code/resources/app/extensions/css-language-features/server/dist/node/cssServerMain ...
+  |   |   |   |-{code},2362032
+  |   |   |   |-{code},2362033
+  |   |   |   |-{code},2362034
+  |   |   |   |-{code},2362035
+  |   |   |   |-{code},2362036
+  |   |   |   |-{code},2362037
+  |   |   |   `-{code},2362038
+  |   |   |-code,2362031 /usr/share/code/resources/app/extensions/html-language-features/server/dist/node/htmlServerMain ...
+  |   |   |   |-{code},2362039
+  |   |   |   |-{code},2362040
+  |   |   |   |-{code},2362041
+  |   |   |   |-{code},2362042
+  |   |   |   |-{code},2362043
+  |   |   |   |-{code},2362044
+  |   |   |   `-{code},2362051
+  |   |   |-code,2362052 /usr/share/code/resources/app/extensions/json-language-features/server/dist/node/jsonServerMain ...
+  |   |   |   |-{code},2362053
+  |   |   |   |-{code},2362054
+  |   |   |   |-{code},2362055
+  |   |   |   |-{code},2362056
+  |   |   |   |-{code},2362057
+  |   |   |   |-{code},2362058
+  |   |   |   `-{code},2362059
+  |   |   |-{code},2359729
+  |   |   |-{code},2359730
+  |   |   |-{code},2359731
+  |   |   |-{code},2359732
+  |   |   |-{code},2359733
+  |   |   |-{code},2359734
+  |   |   |-{code},2359735
+  |   |   |-{code},2359736
+  |   |   |-{code},2359737
+  |   |   |-{code},2359738
+  |   |   |-{code},2359739
+  |   |   |-{code},2359740
+  |   |   |-{code},2359758
+  |   |   |-{code},2359760
+  |   |   |-{code},2359761
+  |   |   |-{code},2359762
+  |   |   |-{code},2359763
+  |   |   |-{code},2359764
+  |   |   |-{code},2361246
+  |   |   `-{code},2361988
+  |   |-{code},2359534
+  |   |-{code},2359540
+  |   |-{code},2359541
+  |   |-{code},2359542
+  |   |-{code},2359543
+  |   |-{code},2359544
+  |   |-{code},2359545
+  |   |-{code},2359546
+  |   |-{code},2359547
+  |   |-{code},2359548
+  |   |-{code},2359549
+  |   |-{code},2359550
+  |   |-{code},2359551
+  |   |-{code},2359553
+  |   |-{code},2359558
+  |   |-{code},2359559
+  |   |-{code},2359560
+  |   |-{code},2359561
+  |   |-{code},2359564
+  |   |-{code},2359565
+  |   |-{code},2359566
+  |   |-{code},2359567
+  |   |-{code},2359568
+  |   |-{code},2359569
+  |   |-{code},2359570
+  |   |-{code},2359571
+  |   |-{code},2359572
+  |   |-{code},2359574
+  |   |-{code},2359575
+  |   |-{code},2359576
+  |   |-{code},2359577
+  |   |-{code},2359578
+  |   |-{code},2359590
+  |   |-{code},2359591
+  |   |-{code},2359592
+  |   |-{code},2359593
+  |   |-{code},2359619
+  |   |-{code},2359628
+  |   |-{code},2361962
+  |   |-{code},2361963
+  |   |-{code},2362665
+  |   |-{code},2362666
+  |   |-{code},2362667
+  |   |-{code},2362668
+  |   `-{code},2394261
+  |-containerd,823
+  |   |-{containerd},1163
+  |   |-{containerd},1164
+  |   |-{containerd},1165
+  |   |-{containerd},1166
+--
+      |-bash,1186257
+      |   `-htop,2011263
+      |-bash,2012386
+      |   `-watch,2883581 -n 1 ps -p 2359723 -o %cpu,%mem
+      |-bash,2893352
+      |   |-grep,2913743 --color=auto -A5 -B5 code
+      |   `-pstree,2913742 -ap
+      |-bash,3041317
+      |   `-watch,2883068 -n 1 lsof -p 2359723 | grep TCP | wc -l
+      |-{xfce4-terminal},1186234
+      |-{xfce4-terminal},1186235
+[owner@192.168.1.135-20260226-062919 ~]$ 
+
+[owner@192.168.1.135-20260226-062935 ~]$ pgrep -fa extensionHost
+[owner@192.168.1.135-20260226-062943 ~]$ sudo strace -ff -e trace=process -p 12345
+[sudo] password for owner: 
+sudo: strace: command not found
+[owner@192.168.1.135-20260226-063008 ~]$ strace firefox
+bash: strace: command not found
+[owner@192.168.1.135-20260226-063015 ~]$ sudo dnf -y install strace
+Updating and loading repositories:
+Repositories loaded.
+Package                  Arch    Version                  Repository        Size
+Installing:
+ strace                  x86_64  6.19-1.fc43              updates        2.7 MiB
+
+Transaction Summary:
+ Installing:         1 package
+
+Total size of inbound packages is 2 MiB. Need to download 2 MiB.
+After this operation, 3 MiB extra will be used (install 3 MiB, remove 0 B).
+[1/1] strace-0:6.19-1.fc43.x86_64       100% |   1.5 MiB/s |   1.5 MiB |  00m01s
+--------------------------------------------------------------------------------
+[1/1] Total                             100% |   1.1 MiB/s |   1.5 MiB |  00m01s
+Running transaction
+[1/3] Verify package files              100% | 100.0   B/s |   1.0   B |  00m00s
+[2/3] Prepare transaction               100% |   1.0   B/s |   1.0   B |  00m01s
+[3/3] Installing strace-0:6.19-1.fc43.x 100% |   2.1 MiB/s |   2.8 MiB |  00m01s
+Complete!
+[owner@192.168.1.135-20260226-063035 ~]$ 
+
+[pid 2924628] execve("/home/owner/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924628] execve("/home/owner/.local/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924628] execve("/home/owner/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924628] execve("/usr/local/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924628] execve("/usr/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c07d19780 /* 77 vars */) = 0
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7efcd77b95d0) = 2924661
+strace: Process 2924661 attached
+[pid 2924661] execve("/home/owner/.opencode/bin/ps", ["ps", "aux"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924661] execve("/home/owner/bin/ps", ["ps", "aux"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924661] execve("/home/owner/.opencode/bin/ps", ["ps", "aux"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924661] execve("/home/owner/.config/nvm/versions/node/v22.18.0/bin/ps", ["ps", "aux"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924661] execve("/home/owner/bin/ps", ["ps", "aux"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924661] execve("/home/owner/.local/bin/ps", ["ps", "aux"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924661] execve("/home/owner/bin/ps", ["ps", "aux"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924661] execve("/usr/local/bin/ps", ["ps", "aux"], 0x3a3c07d19780 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2924661] execve("/usr/bin/ps", ["ps", "aux"], 0x3a3c07d19780 /* 77 vars */) = 0
+[pid 2924661] exit_group(0)             = ?
+[pid 2924661] +++ exited with 0 +++
+[pid 2359723] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2924661, si_uid=1000, si_status=0, si_utime=1 /* 0.01 s */, si_stime=5 /* 0.05 s */} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924628, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924661, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2924661
+[pid 2924628] exit_group(0)             = ?
+[pid 2924628] +++ exited with 0 +++
+[pid 2359723] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2924628, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924628, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2924628
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2925084 attached
+, child_tidptr=0x7efcd77b95d0) = 2925084
+[pid 2925084] execve("/bin/sh", ["/bin/sh", "-c", "git symbolic-ref HEAD"], 0x3a3c0517ee00 /* 77 vars */) = 0
+[pid 2925084] execve("/usr/bin/git", ["git", "symbolic-ref", "HEAD"], 0x55e54a43dff0 /* 77 vars */) = 0
+[pid 2925084] exit_group(0)             = ?
+[pid 2925084] +++ exited with 0 +++
+[pid 2359764] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2925084, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2925084, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2925084
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2925085 attached
+, child_tidptr=0x7efcd77b95d0) = 2925085
+[pid 2925085] execve("/bin/sh", ["/bin/sh", "-c", "git config --get user.name"], 0x3a3c0517e680 /* 77 vars */) = 0
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2925086 attached
+, child_tidptr=0x7efcd77b95d0) = 2925086
+[pid 2925086] execve("/bin/sh", ["/bin/sh", "-c", "git config --get user.email"], 0x3a3c0517f580 /* 77 vars */) = 0
+[pid 2925085] execve("/usr/bin/git", ["git", "config", "--get", "user.name"], 0x556cc8506000 /* 77 vars */) = 0
+[pid 2925086] execve("/usr/bin/git", ["git", "config", "--get", "user.email"], 0x55cd5285c000 /* 77 vars */) = 0
+[pid 2925085] exit_group(0)             = ?
+[pid 2925085] +++ exited with 0 +++
+[pid 2359723] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2925085, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2925085, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2925085
+[pid 2359723] wait4(2925086, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2925086] exit_group(0)             = ?
+[pid 2925086] +++ exited with 0 +++
+[pid 2359764] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2925086, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2925086, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2925086
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2925087 attached
+, child_tidptr=0x7efcd77b95d0) = 2925087
+[pid 2925087] execve("/bin/sh", ["/bin/sh", "-c", "git symbolic-ref HEAD"], 0x3a3c0517f580 /* 77 vars */) = 0
+[pid 2925087] execve("/usr/bin/git", ["git", "symbolic-ref", "HEAD"], 0x55bd48200ff0 /* 77 vars */) = 0
+[pid 2925087] exit_group(0)             = ?
+[pid 2925087] +++ exited with 0 +++
+[pid 2359764] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2925087, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2925087, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2925087
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2925088 attached
+, child_tidptr=0x7efcd77b95d0) = 2925088
+[pid 2925088] execve("/bin/sh", ["/bin/sh", "-c", "git symbolic-ref refs/remotes/or"...], 0x3a3c0517f580 /* 77 vars */) = 0
+[pid 2925088] execve("/usr/bin/git", ["git", "symbolic-ref", "refs/remotes/origin/HEAD"], 0x5633665e9010 /* 77 vars */) = 0
+[pid 2925088] exit_group(0)             = ?
+[pid 2925088] +++ exited with 0 +++
+[pid 2359764] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2925088, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2925088, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2925088
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2925089 attached
+, child_tidptr=0x7efcd77b95d0) = 2925089
+[pid 2925089] execve("/bin/sh", ["/bin/sh", "-c", "git log -n10 --skip=1 refs/heads"...], 0x3a3c0517f800 /* 77 vars */) = 0
+[pid 2925089] execve("/usr/bin/git", ["git", "log", "-n10", "--skip=1", "refs/heads/closingPromise-instru"..., "--no-merges", "--format=---COMMIT---%n%H%n%an%n"..., "--name-status"], 0x560548e74070 /* 77 vars */) = 0
+[pid 2925089] exit_group(0)             = ?
+[pid 2925089] +++ exited with 0 +++
+[pid 2359764] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2925089, si_uid=1000, si_status=0, si_utime=0, si_stime=1 /* 0.01 s */} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2925089, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2925089
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2925092 attached
+, child_tidptr=0x7efcd77b95d0) = 2925092
+[pid 2925092] execve("/bin/sh", ["/bin/sh", "-c", "git show -p \"c14a5af84deb1b539c2"...], 0x3a3c0517f800 /* 77 vars */) = 0
+[pid 2925092] execve("/usr/bin/git", ["git", "show", "-p", "c14a5af84deb1b539c2f3b792fa54f12"...], 0x55d6a7ee0010 /* 77 vars */) = 0
+[pid 2925092] exit_group(0)             = ?
+[pid 2925092] +++ exited with 0 +++
+[pid 2359723] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2925092, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2925092, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2925092
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2925322 attached
+, child_tidptr=0x7efcd77b95d0) = 2925322
+[pid 2925322] execve("/home/owner/.opencode/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b5100 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2925322] execve("/home/owner/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b5100 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2925322] execve("/home/owner/.opencode/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b5100 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2925322] execve("/home/owner/.config/nvm/versions/node/v22.18.0/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b5100 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2925322] execve("/home/owner/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b5100 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2925322] execve("/home/owner/.local/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b5100 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2925322] execve("/home/owner/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b5100 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2925322] execve("/usr/local/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b5100 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2925322] execve("/usr/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b5100 /* 77 vars */) = 0
+[pid 2925322] exit_group(0)             = ?
+[pid 2925322] +++ exited with 0 +++
+[pid 2359723] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2925322, si_uid=1000, si_status=0, si_utime=1 /* 0.01 s */, si_stime=5 /* 0.05 s */} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2924615, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2925322, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2925322
+^Cstrace: Process 2924615 detached
+strace: Process 2361988 detached
+strace: Process 2924616 detached
+strace: Process 2361246 detached
+strace: Process 2359764 detached
+strace: Process 2359763 detached
+strace: Process 2359762 detached
+strace: Process 2359761 detached
+strace: Process 2359760 detached
+strace: Process 2359758 detached
+strace: Process 2359740 detached
+strace: Process 2359739 detached
+strace: Process 2359738 detached
+strace: Process 2359737 detached
+strace: Process 2359736 detached
+strace: Process 2359735 detached
+strace: Process 2359734 detached
+strace: Process 2359733 detached
+strace: Process 2359732 detached
+strace: Process 2359731 detached
+strace: Process 2359730 detached
+strace: Process 2359729 detached
+strace: Process 2359723 detached
+
+[owner@192.168.1.135-20260226-063321 ~]$ sudo strace -ff -e trace=process -p 2359723
+strace: Process 2359723 attached with 21 threads
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2926735 attached
+, child_tidptr=0x7efcd77b95d0) = 2926735
+[pid 2926735] execve("/home/owner/.opencode/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c02005e00 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2926735] execve("/home/owner/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c02005e00 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2926735] execve("/home/owner/.opencode/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c02005e00 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2926735] execve("/home/owner/.config/nvm/versions/node/v22.18.0/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c02005e00 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2926735] execve("/home/owner/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c02005e00 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2926735] execve("/home/owner/.local/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c02005e00 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2926735] execve("/home/owner/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c02005e00 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2926735] execve("/usr/local/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c02005e00 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2926735] execve("/usr/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c02005e00 /* 77 vars */) = 0
+[pid 2926735] exit_group(0)             = ?
+[pid 2926735] +++ exited with 0 +++
+[pid 2359723] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2926735, si_uid=1000, si_status=0, si_utime=1 /* 0.01 s */, si_stime=6 /* 0.06 s */} ---
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2926735, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2926735
+^Cstrace: Process 2359764 detached
+strace: Process 2359763 detached
+strace: Process 2361246 detached
+strace: Process 2361988 detached
+strace: Process 2359762 detached
+strace: Process 2359761 detached
+strace: Process 2359760 detached
+strace: Process 2359758 detached
+strace: Process 2359740 detached
+strace: Process 2359739 detached
+strace: Process 2359738 detached
+strace: Process 2359737 detached
+strace: Process 2359736 detached
+strace: Process 2359735 detached
+strace: Process 2359734 detached
+strace: Process 2359733 detached
+strace: Process 2359732 detached
+strace: Process 2359731 detached
+strace: Process 2359730 detached
+strace: Process 2359729 detached
+strace: Process 2359723 detached
+
+[owner@192.168.1.135-20260226-063348 ~]$ sudo strace -ff -tt -T -p 2359723 -o trace.log #2359723
+strace: Process 2359723 attached with 21 threads
+strace: Process 2928221 attached
+strace: Process 2928950 attached
+strace: Process 2928971 attached
+strace: Process 2928997 attached
+^Cstrace: Process 2361988 detached
+strace: Process 2361246 detached
+strace: Process 2359764 detached
+strace: Process 2359763 detached
+strace: Process 2359762 detached
+strace: Process 2359761 detached
+strace: Process 2359760 detached
+strace: Process 2359758 detached
+strace: Process 2359740 detached
+strace: Process 2359739 detached
+strace: Process 2359738 detached
+strace: Process 2359737 detached
+strace: Process 2359736 detached
+strace: Process 2359735 detached
+strace: Process 2359734 detached
+strace: Process 2359733 detached
+strace: Process 2359732 detached
+strace: Process 2359731 detached
+strace: Process 2359730 detached
+strace: Process 2359729 detached
+strace: Process 2359723 detached
+
+[owner@192.168.1.135-20260226-063438 ~]$ grep -E "kill|exit|abort" trace.log*
+trace.log.2928221:06:34:15.879762 exit_group(0)           = ?
+trace.log.2928221:06:34:15.880821 +++ exited with 0 +++
+trace.log.2928950:06:34:30.818310 exit_group(0)           = ?
+trace.log.2928950:06:34:30.818595 +++ exited with 0 +++
+trace.log.2928971:06:34:32.149670 exit_group(0)           = ?
+trace.log.2928971:06:34:32.150409 +++ exited with 0 +++
+trace.log.2928997:06:34:31.916024 exit_group(0)           = ?
+trace.log.2928997:06:34:31.916330 +++ exited with 0 +++
+[owner@192.168.1.135-20260226-063440 ~]$ sudo dnf -y install bpftrace
+Updating and loading repositories:
+Repositories loaded.
+Package                      Arch   Version                 Repository      Size
+Installing:
+ bpftrace                    x86_64 0.24.2-1.fc43           updates     12.7 MiB
+Installing dependencies:
+ bcc                         x86_64 0.35.0-2.fc43           fedora       2.4 MiB
+ bison                       x86_64 3.8.2-11.fc43           fedora       3.5 MiB
+ clang20-libs                x86_64 20.1.8-2.fc43           fedora     118.6 MiB
+ clang20-resource-filesystem x86_64 20.1.8-2.fc43           fedora      14.8 KiB
+ elfutils-libelf-devel       x86_64 0.194-1.fc43            updates     75.0 KiB
+ flex                        x86_64 2.6.4-20.fc43           fedora     805.2 KiB
+ libzstd-devel               x86_64 1.5.7-2.fc43            fedora     208.0 KiB
+ llvm20-filesystem           x86_64 20.1.8-2.fc43           fedora       0.0   B
+ llvm20-libs                 x86_64 20.1.8-2.fc43           fedora     139.7 MiB
+ m4                          x86_64 1.4.21-1.fc43           updates    877.2 KiB
+ python3-bcc                 noarch 0.35.0-2.fc43           fedora     535.5 KiB
+ python3-netaddr             noarch 1.3.0-10.fc43           fedora      11.6 MiB
+Installing weak dependencies:
+ bcc-tools                   x86_64 0.35.0-2.fc43           fedora       2.1 MiB
+ compiler-rt20               x86_64 20.1.8-2.fc43           fedora      37.9 MiB
+ kernel-devel                x86_64 6.18.13-200.fc43        updates     84.4 MiB
+ libomp20                    x86_64 20.1.8-2.fc43           fedora       2.2 MiB
+ libomp20-devel              x86_64 20.1.8-2.fc43           fedora       1.5 MiB
+
+Transaction Summary:
+ Installing:        18 packages
+
+Total size of inbound packages is 99 MiB. Need to download 99 MiB.
+After this operation, 419 MiB extra will be used (install 419 MiB, remove 0 B).
+[ 1/18] bpftrace-0:0.24.2-1.fc43.x86_64 100% |   1.6 MiB/s |   2.5 MiB |  00m02s
+[ 2/18] bcc-0:0.35.0-2.fc43.x86_64      100% | 205.5 KiB/s | 688.8 KiB |  00m03s
+[ 3/18] clang20-resource-filesystem-0:2 100% | 118.7 KiB/s |  20.1 KiB |  00m00s
+[ 4/18] llvm20-filesystem-0:20.1.8-2.fc 100% |  86.5 KiB/s |  14.5 KiB |  00m00s
+[ 5/18] kernel-devel-0:6.18.13-200.fc43 100% | 792.4 KiB/s |  23.2 MiB |  00m30s
+[ 6/18] elfutils-libelf-devel-0:0.194-1 100% | 243.1 KiB/s |  82.7 KiB |  00m00s
+[ 7/18] bison-0:3.8.2-11.fc43.x86_64    100% | 395.8 KiB/s |   1.0 MiB |  00m03s
+[ 8/18] flex-0:2.6.4-20.fc43.x86_64     100% | 429.6 KiB/s | 299.0 KiB |  00m01s
+[ 9/18] llvm20-libs-0:20.1.8-2.fc43.x86 100% | 946.7 KiB/s |  34.3 MiB |  00m37s
+[10/18] bcc-tools-0:0.35.0-2.fc43.x86_6 100% | 402.7 KiB/s | 574.2 KiB |  00m01s
+[11/18] python3-bcc-0:0.35.0-2.fc43.noa 100% | 353.4 KiB/s | 133.6 KiB |  00m00s
+[12/18] libomp20-0:20.1.8-2.fc43.x86_64 100% | 509.3 KiB/s | 727.3 KiB |  00m01s
+[13/18] python3-netaddr-0:1.3.0-10.fc43 100% | 435.6 KiB/s |   1.8 MiB |  00m04s
+[14/18] libomp20-devel-0:20.1.8-2.fc43. 100% | 407.9 KiB/s | 281.8 KiB |  00m01s
+[15/18] m4-0:1.4.21-1.fc43.x86_64       100% | 420.9 KiB/s | 343.9 KiB |  00m01s
+[16/18] libzstd-devel-0:1.5.7-2.fc43.x8 100% | 139.5 KiB/s |  52.9 KiB |  00m00s
+[17/18] compiler-rt20-0:20.1.8-2.fc43.x 100% | 593.2 KiB/s |   2.7 MiB |  00m05s
+[18/18] clang20-libs-0:20.1.8-2.fc43.x8 100% | 569.1 KiB/s |  30.5 MiB |  00m55s
+--------------------------------------------------------------------------------
+[18/18] Total                           100% |   1.8 MiB/s |  99.1 MiB |  00m56s
+Running transaction
+[ 1/20] Verify package files            100% |  50.0   B/s |  18.0   B |  00m00s
+[ 2/20] Prepare transaction             100% |  21.0   B/s |  18.0   B |  00m01s
+[ 3/20] Installing clang20-resource-fil 100% | 900.6 KiB/s |  16.2 KiB |  00m00s
+[ 4/20] Installing m4-0:1.4.21-1.fc43.x 100% |  15.7 MiB/s | 883.7 KiB |  00m00s
+[ 5/20] Installing bison-0:3.8.2-11.fc4 100% |  51.7 MiB/s |   3.5 MiB |  00m00s
+[ 6/20] Installing flex-0:2.6.4-20.fc43 100% |  15.5 MiB/s | 811.3 KiB |  00m00s
+[ 7/20] Installing libzstd-devel-0:1.5. 100% |  17.0 MiB/s | 208.8 KiB |  00m00s
+[ 8/20] Installing elfutils-libelf-deve 100% |   4.4 MiB/s |  85.7 KiB |  00m00s
+[ 9/20] Installing python3-netaddr-0:1. 100% | 111.3 MiB/s |  11.7 MiB |  00m00s
+[10/20] Installing llvm20-filesystem-0: 100% |  96.6 KiB/s |   1.1 KiB |  00m00s
+[11/20] Installing llvm20-libs-0:20.1.8 100% | 204.5 MiB/s | 139.7 MiB |  00m01s
+[12/20] Installing clang20-libs-0:20.1. 100% | 262.6 MiB/s | 118.7 MiB |  00m00s
+[13/20] Installing bcc-0:0.35.0-2.fc43. 100% | 134.5 MiB/s |   2.4 MiB |  00m00s
+[14/20] Installing python3-bcc-0:0.35.0 100% |  48.2 MiB/s | 542.6 KiB |  00m00s
+[15/20] Installing libomp20-0:20.1.8-2. 100% |  88.0 MiB/s |   2.2 MiB |  00m00s
+[16/20] Installing libomp20-devel-0:20. 100% | 118.8 MiB/s |   1.5 MiB |  00m00s
+[17/20] Installing bcc-tools-0:0.35.0-2 100% |  10.5 MiB/s |   2.1 MiB |  00m00s
+[18/20] Installing bpftrace-0:0.24.2-1. 100% |  12.9 MiB/s |  12.7 MiB |  00m01s
+[19/20] Installing kernel-devel-0:6.18. 100% |   3.1 MiB/s |  88.8 MiB |  00m28s
+[20/20] Installing compiler-rt20-0:20.1 100% |  22.8 MiB/s |  37.9 MiB |  00m02s
+Complete!
+[owner@192.168.1.135-20260226-063631 ~]$ sudo bpftrace -e 'tracepoint:signal:signal_generate { printf("Signal %d sent to PID %d by PID %d\n", args->sig, args->pid, pid); }'
+Attached 1 probe
+Signal 17 sent to PID 2962999 by PID 2963002
+Signal 17 sent to PID 2962998 by PID 2962999
+Signal 17 sent to PID 2962998 by PID 2963000
+Signal 17 sent to PID 2962998 by PID 2963001
+Signal 17 sent to PID 2962997 by PID 2962998
+Signal 17 sent to PID 2883068 by PID 2962997
+Signal 17 sent to PID 959 by PID 2963004
+Signal 17 sent to PID 959 by PID 2963005
+Signal 17 sent to PID 959 by PID 2963006
+Signal 17 sent to PID 2962953 by PID 2962985
+Signal 17 sent to PID 2962953 by PID 2963007
+Signal 17 sent to PID 2962953 by PID 2963008
+Signal 17 sent to PID 2962953 by PID 2963009
+Signal 17 sent to PID 2962953 by PID 2963010
+Signal 17 sent to PID 2962953 by PID 2963011
+Signal 17 sent to PID 2962953 by PID 2963012
+Signal 17 sent to PID 2962953 by PID 2963013
+Signal 17 sent to PID 2962953 by PID 2963014
+Signal 17 sent to PID 2962953 by PID 2963015
+Signal 17 sent to PID 2962953 by PID 2963016
+Signal 17 sent to PID 2962953 by PID 2963017
+Signal 17 sent to PID 2962953 by PID 2963018
+Signal 17 sent to PID 2962953 by PID 2963019
+Signal 17 sent to PID 2962953 by PID 2963020
+Signal 17 sent to PID 2962953 by PID 2963021
+Signal 17 sent to PID 2962953 by PID 2963022
+Signal 17 sent to PID 2962953 by PID 2963023
+Signal 17 sent to PID 2962953 by PID 2963024
+Signal 17 sent to PID 2962953 by PID 2963025
+Signal 17 sent to PID 2962953 by PID 2963026
+Signal 17 sent to PID 2962953 by PID 2963027
+Signal 17 sent to PID 2962953 by PID 2963028
+Signal 17 sent to PID 2962953 by PID 2963029
+Signal 17 sent to PID 2962953 by PID 2963030
+Signal 17 sent to PID 2962953 by PID 2963031
+Signal 17 sent to PID 2962953 by PID 2963032
+Signal 17 sent to PID 2962953 by PID 2963033
+Signal 17 sent to PID 2962953 by PID 2963034
+Signal 17 sent to PID 2962953 by PID 2963035
+Signal 17 sent to PID 2962953 by PID 2963036
+Signal 17 sent to PID 2962953 by PID 2963037
+Signal 17 sent to PID 2962953 by PID 2963038
+Signal 17 sent to PID 2962953 by PID 2963039
+Signal 17 sent to PID 2962953 by PID 2963040
+Signal 17 sent to PID 2962953 by PID 2963041
+Signal 17 sent to PID 2962953 by PID 2963042
+Signal 17 sent to PID 2962953 by PID 2963043
+Signal 17 sent to PID 2962953 by PID 2963044
+Signal 17 sent to PID 2962953 by PID 2963045
+Signal 17 sent to PID 2962953 by PID 2963046
+Signal 17 sent to PID 2962953 by PID 2963047
+Signal 17 sent to PID 2962953 by PID 2963048
+Signal 17 sent to PID 2962953 by PID 2963049
+Signal 17 sent to PID 2962953 by PID 2963050
+Signal 17 sent to PID 2962953 by PID 2963051
+Signal 17 sent to PID 2962953 by PID 2963052
+Signal 17 sent to PID 2962953 by PID 2963053
+Signal 17 sent to PID 2962953 by PID 2963054
+Signal 17 sent to PID 2962953 by PID 2963055
+Signal 17 sent to PID 2962953 by PID 2963056
+Signal 17 sent to PID 2962953 by PID 2963057
+Signal 17 sent to PID 2962953 by PID 2963058
+Signal 17 sent to PID 2962953 by PID 2963059
+Signal 17 sent to PID 2962953 by PID 2963060
+Signal 17 sent to PID 2962953 by PID 2963061
+Signal 17 sent to PID 2962953 by PID 2963062
+Signal 17 sent to PID 2962953 by PID 2963063
+Signal 17 sent to PID 2962953 by PID 2963064
+Signal 17 sent to PID 2962953 by PID 2963065
+Signal 17 sent to PID 2359523 by PID 2962953
+Signal 17 sent to PID 959 by PID 2963066
+Signal 17 sent to PID 2963068 by PID 2963069
+Signal 17 sent to PID 2883581 by PID 2963068
+Signal 17 sent to PID 959 by PID 2963067
+Signal 17 sent to PID 959 by PID 2963070
+Signal 17 sent to PID 2963073 by PID 2963076
+Signal 17 sent to PID 2963072 by PID 2963074
+Signal 17 sent to PID 2963072 by PID 2963075
+Signal 17 sent to PID 2963072 by PID 2963073
+Signal 17 sent to PID 2963071 by PID 2963072
+Signal 17 sent to PID 2883068 by PID 2963071
+Signal 17 sent to PID 959 by PID 2963077
+Signal 17 sent to PID 959 by PID 2963078
+Signal 17 sent to PID 959 by PID 2963079
+Signal 23 sent to PID 901 by PID 901
+Signal 17 sent to PID 2963080 by PID 2963081
+Signal 17 sent to PID 2883581 by PID 2963080
+Signal 17 sent to PID 959 by PID 2963082
+Signal 17 sent to PID 959 by PID 2963083
+Signal 17 sent to PID 959 by PID 2963084
+Signal 17 sent to PID 2963087 by PID 2963090
+Signal 17 sent to PID 2963086 by PID 2963088
+Signal 17 sent to PID 2963086 by PID 2963089
+Signal 17 sent to PID 2963086 by PID 2963087
+Signal 17 sent to PID 2963085 by PID 2963086
+Signal 17 sent to PID 2883068 by PID 2963085
+Signal 17 sent to PID 2359523 by PID 2963091
+Signal 17 sent to PID 2359523 by PID 2963092
+Signal 17 sent to PID 2963093 by PID 2963094
+Signal 17 sent to PID 2963093 by PID 2963095
+Signal 17 sent to PID 2963093 by PID 2963096
+Signal 17 sent to PID 2963093 by PID 2963097
+Signal 17 sent to PID 2963093 by PID 2963098
+Signal 17 sent to PID 2963093 by PID 2963099
+Signal 17 sent to PID 2963093 by PID 2963100
+Signal 17 sent to PID 2963093 by PID 2963101
+Signal 17 sent to PID 2963093 by PID 2963102
+Signal 17 sent to PID 2963093 by PID 2963103
+Signal 17 sent to PID 2963093 by PID 2963104
+Signal 17 sent to PID 2963093 by PID 2963105
+Signal 17 sent to PID 2963093 by PID 2963106
+Signal 17 sent to PID 2963093 by PID 2963107
+Signal 17 sent to PID 2963093 by PID 2963108
+Signal 17 sent to PID 2963093 by PID 2963109
+Signal 17 sent to PID 2963093 by PID 2963110
+Signal 17 sent to PID 2963093 by PID 2963111
+Signal 17 sent to PID 2963093 by PID 2963112
+Signal 17 sent to PID 2963093 by PID 2963113
+Signal 17 sent to PID 2963093 by PID 2963114
+Signal 17 sent to PID 2963093 by PID 2963115
+Signal 17 sent to PID 2963093 by PID 2963116
+Signal 17 sent to PID 2963093 by PID 2963117
+Signal 17 sent to PID 2963093 by PID 2963118
+Signal 17 sent to PID 2963093 by PID 2963119
+Signal 17 sent to PID 2963093 by PID 2963120
+Signal 17 sent to PID 2963093 by PID 2963121
+Signal 17 sent to PID 2963093 by PID 2963123
+Signal 17 sent to PID 2963093 by PID 2963124
+Signal 17 sent to PID 959 by PID 2963122
+Signal 17 sent to PID 959 by PID 2963126
+Signal 17 sent to PID 959 by PID 2963127
+Signal 23 sent to PID 901 by PID 901
+Signal 23 sent to PID 2835873 by PID 1196
+Signal 23 sent to PID 1170 by PID 901
+Signal 17 sent to PID 2963128 by PID 2963129
+Signal 17 sent to PID 2883581 by PID 2963128
+Signal 17 sent to PID 959 by PID 2963130
+Signal 17 sent to PID 959 by PID 2963131
+Signal 17 sent to PID 959 by PID 2963132
+Signal 17 sent to PID 2963135 by PID 2963138
+Signal 17 sent to PID 2963134 by PID 2963135
+Signal 17 sent to PID 2963134 by PID 2963136
+Signal 17 sent to PID 2963134 by PID 2963137
+Signal 17 sent to PID 2963133 by PID 2963134
+Signal 17 sent to PID 2883068 by PID 2963133
+Signal 23 sent to PID 1170 by PID 901
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 2963093 by PID 2963125
+Signal 17 sent to PID 2963093 by PID 2963139
+Signal 17 sent to PID 2963093 by PID 2963140
+Signal 17 sent to PID 2963093 by PID 2963141
+Signal 17 sent to PID 2963093 by PID 2963142
+Signal 17 sent to PID 2963093 by PID 2963143
+Signal 17 sent to PID 2963093 by PID 2963144
+Signal 17 sent to PID 2963093 by PID 2963145
+Signal 17 sent to PID 2963093 by PID 2963146
+Signal 17 sent to PID 2963093 by PID 2963147
+Signal 17 sent to PID 2963093 by PID 2963148
+Signal 17 sent to PID 2963093 by PID 2963149
+Signal 17 sent to PID 2963093 by PID 2963150
+Signal 17 sent to PID 2963093 by PID 2963151
+Signal 17 sent to PID 2963093 by PID 2963152
+Signal 17 sent to PID 2963093 by PID 2963153
+Signal 17 sent to PID 2963093 by PID 2963154
+Signal 17 sent to PID 2963093 by PID 2963155
+Signal 17 sent to PID 2963093 by PID 2963156
+Signal 17 sent to PID 2963093 by PID 2963157
+Signal 17 sent to PID 2963093 by PID 2963158
+Signal 17 sent to PID 2963093 by PID 2963159
+Signal 17 sent to PID 2963093 by PID 2963160
+Signal 17 sent to PID 2963093 by PID 2963161
+Signal 17 sent to PID 2963093 by PID 2963162
+Signal 17 sent to PID 2963093 by PID 2963163
+Signal 17 sent to PID 2963093 by PID 2963164
+Signal 17 sent to PID 2963093 by PID 2963165
+Signal 17 sent to PID 2963093 by PID 2963166
+Signal 17 sent to PID 2963093 by PID 2963167
+Signal 17 sent to PID 2963093 by PID 2963168
+Signal 17 sent to PID 2963093 by PID 2963169
+Signal 17 sent to PID 2963093 by PID 2963170
+Signal 17 sent to PID 2963093 by PID 2963171
+Signal 17 sent to PID 2963093 by PID 2963172
+Signal 17 sent to PID 2963093 by PID 2963173
+Signal 17 sent to PID 2963093 by PID 2963174
+Signal 17 sent to PID 2963093 by PID 2963175
+Signal 17 sent to PID 2963093 by PID 2963176
+Signal 17 sent to PID 2963093 by PID 2963177
+Signal 17 sent to PID 2963093 by PID 2963178
+Signal 17 sent to PID 2963093 by PID 2963179
+Signal 17 sent to PID 2963093 by PID 2963180
+Signal 17 sent to PID 2963093 by PID 2963181
+Signal 17 sent to PID 2963093 by PID 2963182
+Signal 17 sent to PID 2963093 by PID 2963183
+Signal 17 sent to PID 2963093 by PID 2963184
+Signal 17 sent to PID 2963093 by PID 2963185
+Signal 17 sent to PID 2963093 by PID 2963186
+Signal 17 sent to PID 2963093 by PID 2963187
+Signal 17 sent to PID 2963093 by PID 2963188
+Signal 17 sent to PID 2963093 by PID 2963189
+Signal 17 sent to PID 2963093 by PID 2963190
+Signal 17 sent to PID 2963093 by PID 2963191
+Signal 17 sent to PID 2963093 by PID 2963192
+Signal 17 sent to PID 2963093 by PID 2963193
+Signal 17 sent to PID 2963093 by PID 2963194
+Signal 17 sent to PID 2963093 by PID 2963195
+Signal 17 sent to PID 2963093 by PID 2963196
+Signal 17 sent to PID 2963093 by PID 2963197
+Signal 17 sent to PID 2963093 by PID 2963198
+Signal 17 sent to PID 2359523 by PID 2963093
+Signal 17 sent to PID 959 by PID 2963199
+Signal 17 sent to PID 959 by PID 2963200
+Signal 17 sent to PID 959 by PID 2963201
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 2963202 by PID 2963203
+Signal 17 sent to PID 2883581 by PID 2963202
+Signal 17 sent to PID 959 by PID 2963204
+Signal 17 sent to PID 959 by PID 2963205
+Signal 17 sent to PID 2963208 by PID 2963211
+Signal 17 sent to PID 2963207 by PID 2963210
+Signal 17 sent to PID 2963207 by PID 2963208
+Signal 17 sent to PID 2963207 by PID 2963209
+Signal 17 sent to PID 2963206 by PID 2963207
+Signal 17 sent to PID 2883068 by PID 2963206
+Signal 17 sent to PID 959 by PID 2963212
+Signal 23 sent to PID 1170 by PID 901
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 959 by PID 2963213
+Signal 23 sent to PID 901 by PID 901
+Signal 17 sent to PID 959 by PID 2963214
+Signal 17 sent to PID 959 by PID 2963215
+Signal 17 sent to PID 2963216 by PID 2963217
+Signal 17 sent to PID 2883581 by PID 2963216
+Signal 17 sent to PID 2963220 by PID 2963223
+Signal 17 sent to PID 2963219 by PID 2963221
+Signal 17 sent to PID 2963219 by PID 2963222
+Signal 17 sent to PID 2963219 by PID 2963220
+Signal 17 sent to PID 2963218 by PID 2963219
+Signal 17 sent to PID 2883068 by PID 2963218
+Signal 17 sent to PID 959 by PID 2963224
+Signal 17 sent to PID 959 by PID 2963225
+Signal 17 sent to PID 959 by PID 2963226
+Signal 17 sent to PID 2359523 by PID 2963227
+Signal 17 sent to PID 2359523 by PID 2963228
+Signal 17 sent to PID 2963229 by PID 2963230
+Signal 17 sent to PID 2963229 by PID 2963231
+Signal 17 sent to PID 2963229 by PID 2963232
+Signal 17 sent to PID 2963229 by PID 2963233
+Signal 17 sent to PID 2963229 by PID 2963234
+Signal 17 sent to PID 2963229 by PID 2963235
+Signal 17 sent to PID 2963229 by PID 2963236
+Signal 17 sent to PID 2963229 by PID 2963237
+Signal 17 sent to PID 2963229 by PID 2963238
+Signal 17 sent to PID 2963229 by PID 2963239
+Signal 17 sent to PID 2963229 by PID 2963240
+Signal 17 sent to PID 2963229 by PID 2963241
+Signal 17 sent to PID 2963229 by PID 2963242
+Signal 17 sent to PID 2963229 by PID 2963243
+Signal 17 sent to PID 2963229 by PID 2963244
+Signal 17 sent to PID 2963229 by PID 2963245
+Signal 17 sent to PID 2963229 by PID 2963246
+Signal 17 sent to PID 2963229 by PID 2963247
+Signal 17 sent to PID 2963229 by PID 2963248
+Signal 17 sent to PID 2963229 by PID 2963249
+Signal 17 sent to PID 2963229 by PID 2963250
+Signal 17 sent to PID 2963229 by PID 2963251
+Signal 17 sent to PID 2963229 by PID 2963252
+Signal 17 sent to PID 2963229 by PID 2963253
+Signal 17 sent to PID 2963229 by PID 2963254
+Signal 17 sent to PID 2963229 by PID 2963255
+Signal 17 sent to PID 2963229 by PID 2963256
+Signal 17 sent to PID 2963229 by PID 2963257
+Signal 17 sent to PID 2963229 by PID 2963258
+Signal 17 sent to PID 2963229 by PID 2963259
+Signal 17 sent to PID 2359723 by PID 2963261
+Signal 17 sent to PID 2359723 by PID 2963262
+Signal 17 sent to PID 2359723 by PID 2963263
+Signal 17 sent to PID 2359723 by PID 2963264
+Signal 17 sent to PID 2359723 by PID 2963265
+Signal 17 sent to PID 2359723 by PID 2963266
+Signal 17 sent to PID 2359723 by PID 2963267
+Signal 17 sent to PID 909 by PID 2962798
+Signal 17 sent to PID 959 by PID 2963270
+Signal 17 sent to PID 2963271 by PID 2963272
+Signal 17 sent to PID 2883581 by PID 2963271
+Signal 17 sent to PID 959 by PID 2963273
+Signal 17 sent to PID 959 by PID 2963274
+Signal 17 sent to PID 909 by PID 2963268
+Signal 17 sent to PID 909 by PID 2963269
+Signal 17 sent to PID 909 by PID 2963275
+Signal 17 sent to PID 909 by PID 2963276
+Signal 17 sent to PID 2963280 by PID 2963283
+Signal 17 sent to PID 2963279 by PID 2963281
+Signal 17 sent to PID 2963279 by PID 2963280
+Signal 17 sent to PID 2963279 by PID 2963282
+Signal 17 sent to PID 2963278 by PID 2963279
+Signal 17 sent to PID 2883068 by PID 2963278
+Signal 17 sent to PID 959 by PID 2963284
+Signal 17 sent to PID 959 by PID 2963285
+Signal 17 sent to PID 2963229 by PID 2963260
+Signal 17 sent to PID 2963229 by PID 2963287
+Signal 17 sent to PID 2963229 by PID 2963288
+Signal 17 sent to PID 2963229 by PID 2963289
+Signal 17 sent to PID 2963229 by PID 2963290
+Signal 17 sent to PID 2963229 by PID 2963291
+Signal 17 sent to PID 2963229 by PID 2963292
+Signal 17 sent to PID 2963229 by PID 2963293
+Signal 17 sent to PID 2963229 by PID 2963294
+Signal 17 sent to PID 2963229 by PID 2963295
+Signal 17 sent to PID 2963229 by PID 2963296
+Signal 17 sent to PID 2963229 by PID 2963297
+Signal 17 sent to PID 2963229 by PID 2963298
+Signal 17 sent to PID 2963229 by PID 2963299
+Signal 17 sent to PID 2963229 by PID 2963300
+Signal 17 sent to PID 2963229 by PID 2963301
+Signal 17 sent to PID 2963229 by PID 2963302
+Signal 17 sent to PID 2963229 by PID 2963303
+Signal 17 sent to PID 2963229 by PID 2963304
+Signal 14 sent to PID 1180646 by PID 2963305
+Signal 17 sent to PID 2963229 by PID 2963305
+Signal 17 sent to PID 2963229 by PID 2963306
+Signal 17 sent to PID 2963229 by PID 2963307
+Signal 17 sent to PID 2963229 by PID 2963308
+Signal 17 sent to PID 2963229 by PID 2963309
+Signal 17 sent to PID 2963229 by PID 2963310
+Signal 17 sent to PID 2963229 by PID 2963311
+Signal 17 sent to PID 2963229 by PID 2963312
+Signal 17 sent to PID 2963229 by PID 2963313
+Signal 17 sent to PID 959 by PID 2963286
+Signal 17 sent to PID 2963229 by PID 2963314
+Signal 17 sent to PID 2963229 by PID 2963315
+Signal 17 sent to PID 2963229 by PID 2963316
+Signal 17 sent to PID 2963229 by PID 2963317
+Signal 17 sent to PID 2963229 by PID 2963318
+Signal 17 sent to PID 2963229 by PID 2963319
+Signal 17 sent to PID 2963229 by PID 2963320
+Signal 17 sent to PID 2963229 by PID 2963321
+Signal 17 sent to PID 2963229 by PID 2963322
+Signal 17 sent to PID 2963229 by PID 2963323
+Signal 17 sent to PID 2963229 by PID 2963324
+Signal 17 sent to PID 2963229 by PID 2963325
+Signal 17 sent to PID 2963229 by PID 2963326
+Signal 17 sent to PID 2963229 by PID 2963327
+Signal 17 sent to PID 2963229 by PID 2963328
+Signal 17 sent to PID 2963229 by PID 2963329
+Signal 17 sent to PID 2963229 by PID 2963330
+Signal 17 sent to PID 2963229 by PID 2963331
+Signal 17 sent to PID 2963229 by PID 2963332
+Signal 17 sent to PID 2963229 by PID 2963333
+Signal 17 sent to PID 2963229 by PID 2963334
+Signal 17 sent to PID 2963229 by PID 2963335
+Signal 17 sent to PID 2963229 by PID 2963336
+Signal 17 sent to PID 2963229 by PID 2963337
+Signal 17 sent to PID 2963229 by PID 2963338
+Signal 17 sent to PID 2963229 by PID 2963339
+Signal 17 sent to PID 2963229 by PID 2963340
+Signal 17 sent to PID 2963229 by PID 2963341
+Signal 17 sent to PID 2963229 by PID 2963342
+Signal 17 sent to PID 2963229 by PID 2963343
+Signal 17 sent to PID 2963229 by PID 2963344
+Signal 17 sent to PID 2963229 by PID 2963345
+Signal 17 sent to PID 2359523 by PID 2963229
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 2963346 by PID 2963347
+Signal 17 sent to PID 2883581 by PID 2963346
+Signal 17 sent to PID 959 by PID 2963348
+Signal 17 sent to PID 959 by PID 2963349
+Signal 23 sent to PID 5543 by PID 1196
+Signal 17 sent to PID 959 by PID 2963350
+Signal 17 sent to PID 2963353 by PID 2963356
+Signal 17 sent to PID 2963352 by PID 2963354
+Signal 17 sent to PID 2963352 by PID 2963355
+Signal 17 sent to PID 2963352 by PID 2963353
+Signal 17 sent to PID 2963351 by PID 2963352
+Signal 17 sent to PID 2883068 by PID 2963351
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 959 by PID 2963357
+Signal 17 sent to PID 959 by PID 2963358
+Signal 17 sent to PID 959 by PID 2963359
+Signal 17 sent to PID 2963360 by PID 2963361
+Signal 17 sent to PID 2883581 by PID 2963360
+Signal 17 sent to PID 959 by PID 2963362
+Signal 17 sent to PID 959 by PID 2963363
+Signal 17 sent to PID 959 by PID 2963364
+Signal 17 sent to PID 2963367 by PID 2963370
+Signal 17 sent to PID 2963366 by PID 2963368
+Signal 17 sent to PID 2963366 by PID 2963369
+Signal 17 sent to PID 2963366 by PID 2963367
+Signal 17 sent to PID 2963365 by PID 2963366
+Signal 17 sent to PID 2883068 by PID 2963365
+Signal 17 sent to PID 2359523 by PID 2963371
+Signal 17 sent to PID 2359523 by PID 2963372
+Signal 17 sent to PID 2963373 by PID 2963374
+Signal 17 sent to PID 2963373 by PID 2963375
+Signal 17 sent to PID 2963373 by PID 2963376
+Signal 17 sent to PID 2963373 by PID 2963377
+Signal 17 sent to PID 2963373 by PID 2963378
+Signal 17 sent to PID 2963373 by PID 2963379
+Signal 17 sent to PID 2963373 by PID 2963380
+Signal 17 sent to PID 2963373 by PID 2963381
+Signal 17 sent to PID 2963373 by PID 2963382
+Signal 17 sent to PID 2963373 by PID 2963383
+Signal 17 sent to PID 2963373 by PID 2963384
+Signal 17 sent to PID 2963373 by PID 2963385
+Signal 17 sent to PID 2963373 by PID 2963386
+Signal 17 sent to PID 2963373 by PID 2963387
+Signal 17 sent to PID 2963373 by PID 2963388
+Signal 17 sent to PID 2963373 by PID 2963389
+Signal 17 sent to PID 2963373 by PID 2963390
+Signal 17 sent to PID 2963373 by PID 2963391
+Signal 17 sent to PID 2963373 by PID 2963392
+Signal 17 sent to PID 2963373 by PID 2963393
+Signal 17 sent to PID 2963373 by PID 2963394
+Signal 17 sent to PID 2963373 by PID 2963395
+Signal 17 sent to PID 2963373 by PID 2963396
+Signal 17 sent to PID 2963373 by PID 2963397
+Signal 17 sent to PID 2963373 by PID 2963398
+Signal 17 sent to PID 2963373 by PID 2963399
+Signal 17 sent to PID 2963373 by PID 2963400
+Signal 17 sent to PID 2963373 by PID 2963401
+Signal 17 sent to PID 2963373 by PID 2963402
+Signal 17 sent to PID 2963373 by PID 2963403
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 959 by PID 2963405
+Signal 17 sent to PID 959 by PID 2963406
+Signal 17 sent to PID 959 by PID 2963407
+Signal 17 sent to PID 2963408 by PID 2963409
+Signal 17 sent to PID 2883581 by PID 2963408
+Signal 17 sent to PID 959 by PID 2963410
+Signal 17 sent to PID 959 by PID 2963411
+Signal 17 sent to PID 959 by PID 2963412
+Signal 17 sent to PID 2963415 by PID 2963418
+Signal 17 sent to PID 2963414 by PID 2963416
+Signal 17 sent to PID 2963414 by PID 2963415
+Signal 17 sent to PID 2963414 by PID 2963417
+Signal 17 sent to PID 2963413 by PID 2963414
+Signal 17 sent to PID 2883068 by PID 2963413
+Signal 17 sent to PID 2963373 by PID 2963404
+Signal 17 sent to PID 2963373 by PID 2963419
+Signal 17 sent to PID 2963373 by PID 2963420
+Signal 17 sent to PID 2963373 by PID 2963421
+Signal 17 sent to PID 2963373 by PID 2963422
+Signal 17 sent to PID 2963373 by PID 2963423
+Signal 17 sent to PID 2963373 by PID 2963424
+Signal 17 sent to PID 2963373 by PID 2963425
+Signal 17 sent to PID 2963373 by PID 2963426
+Signal 17 sent to PID 2963373 by PID 2963427
+Signal 17 sent to PID 2963373 by PID 2963428
+Signal 17 sent to PID 2963373 by PID 2963429
+Signal 17 sent to PID 2963373 by PID 2963430
+Signal 17 sent to PID 2963373 by PID 2963431
+Signal 17 sent to PID 2963373 by PID 2963432
+Signal 17 sent to PID 2963373 by PID 2963433
+Signal 17 sent to PID 2963373 by PID 2963434
+Signal 17 sent to PID 2963373 by PID 2963435
+Signal 17 sent to PID 2963373 by PID 2963436
+Signal 17 sent to PID 2963373 by PID 2963437
+Signal 17 sent to PID 2963373 by PID 2963438
+Signal 17 sent to PID 2963373 by PID 2963439
+Signal 17 sent to PID 2963373 by PID 2963440
+Signal 17 sent to PID 2963373 by PID 2963441
+Signal 17 sent to PID 2963373 by PID 2963442
+Signal 17 sent to PID 2963373 by PID 2963443
+Signal 17 sent to PID 2963373 by PID 2963444
+Signal 17 sent to PID 2963373 by PID 2963445
+Signal 17 sent to PID 2963373 by PID 2963446
+Signal 17 sent to PID 2963373 by PID 2963447
+Signal 17 sent to PID 2963373 by PID 2963448
+Signal 17 sent to PID 2963373 by PID 2963449
+Signal 17 sent to PID 2963373 by PID 2963450
+Signal 17 sent to PID 2963373 by PID 2963451
+Signal 17 sent to PID 2963373 by PID 2963452
+Signal 17 sent to PID 2963373 by PID 2963453
+Signal 17 sent to PID 2963373 by PID 2963454
+Signal 17 sent to PID 2963373 by PID 2963455
+Signal 17 sent to PID 2963373 by PID 2963456
+Signal 17 sent to PID 2963373 by PID 2963457
+Signal 17 sent to PID 2963373 by PID 2963458
+Signal 17 sent to PID 2963373 by PID 2963459
+Signal 17 sent to PID 2963373 by PID 2963460
+Signal 17 sent to PID 2963373 by PID 2963461
+Signal 17 sent to PID 2963373 by PID 2963462
+Signal 17 sent to PID 2963373 by PID 2963463
+Signal 17 sent to PID 2963373 by PID 2963464
+Signal 17 sent to PID 2963373 by PID 2963465
+Signal 17 sent to PID 2963373 by PID 2963466
+Signal 17 sent to PID 2963373 by PID 2963467
+Signal 17 sent to PID 2963373 by PID 2963468
+Signal 17 sent to PID 2963373 by PID 2963469
+Signal 17 sent to PID 2963373 by PID 2963470
+Signal 17 sent to PID 2963373 by PID 2963471
+Signal 17 sent to PID 2963373 by PID 2963472
+Signal 17 sent to PID 2963373 by PID 2963473
+Signal 17 sent to PID 2963373 by PID 2963474
+Signal 17 sent to PID 2963373 by PID 2963475
+Signal 17 sent to PID 2963373 by PID 2963476
+Signal 17 sent to PID 2963373 by PID 2963477
+Signal 17 sent to PID 2963373 by PID 2963478
+Signal 17 sent to PID 2359523 by PID 2963373
+Signal 23 sent to PID 901 by PID 901
+Signal 17 sent to PID 959 by PID 2963479
+Signal 17 sent to PID 959 by PID 2963480
+Signal 17 sent to PID 959 by PID 2963481
+Signal 17 sent to PID 2963482 by PID 2963483
+Signal 17 sent to PID 2883581 by PID 2963482
+Signal 23 sent to PID 901 by PID 901
+Signal 17 sent to PID 959 by PID 2963484
+Signal 17 sent to PID 959 by PID 2963490
+Signal 17 sent to PID 959 by PID 2963492
+Signal 17 sent to PID 2963487 by PID 2963491
+Signal 17 sent to PID 2963486 by PID 2963487
+Signal 17 sent to PID 2963486 by PID 2963489
+Signal 17 sent to PID 2963486 by PID 2963488
+Signal 17 sent to PID 2963485 by PID 2963486
+Signal 17 sent to PID 2883068 by PID 2963485
+Signal 23 sent to PID 749317 by PID 901
+Signal 17 sent to PID 2359723 by PID 2963493
+Signal 17 sent to PID 959 by PID 2963494
+Signal 17 sent to PID 2963496 by PID 2963497
+Signal 17 sent to PID 2883581 by PID 2963496
+Signal 17 sent to PID 959 by PID 2963495
+Signal 17 sent to PID 959 by PID 2963498
+Signal 23 sent to PID 1170 by PID 901
+Signal 17 sent to PID 2359523 by PID 2963499
+Signal 17 sent to PID 2359523 by PID 2963500
+Signal 17 sent to PID 2963501 by PID 2963502
+Signal 17 sent to PID 2963501 by PID 2963503
+Signal 17 sent to PID 2963501 by PID 2963504
+Signal 17 sent to PID 2963501 by PID 2963505
+Signal 17 sent to PID 2963501 by PID 2963506
+Signal 17 sent to PID 2963501 by PID 2963507
+Signal 17 sent to PID 2963501 by PID 2963508
+Signal 17 sent to PID 2963501 by PID 2963509
+Signal 17 sent to PID 2963501 by PID 2963510
+Signal 17 sent to PID 2963501 by PID 2963511
+Signal 17 sent to PID 2963501 by PID 2963512
+Signal 17 sent to PID 2963501 by PID 2963513
+Signal 17 sent to PID 2963501 by PID 2963514
+Signal 17 sent to PID 2963501 by PID 2963515
+Signal 17 sent to PID 2963501 by PID 2963516
+Signal 17 sent to PID 2963501 by PID 2963517
+Signal 17 sent to PID 2963501 by PID 2963518
+Signal 17 sent to PID 2963501 by PID 2963519
+Signal 17 sent to PID 2963501 by PID 2963520
+Signal 17 sent to PID 2963501 by PID 2963521
+Signal 17 sent to PID 2963501 by PID 2963522
+Signal 17 sent to PID 2963501 by PID 2963523
+Signal 17 sent to PID 2963501 by PID 2963524
+Signal 17 sent to PID 2963501 by PID 2963525
+Signal 17 sent to PID 2963501 by PID 2963526
+Signal 17 sent to PID 2963501 by PID 2963529
+Signal 17 sent to PID 2963501 by PID 2963533
+Signal 17 sent to PID 2963501 by PID 2963534
+Signal 17 sent to PID 2963501 by PID 2963536
+Signal 17 sent to PID 2963501 by PID 2963537
+Signal 17 sent to PID 2963530 by PID 2963535
+Signal 17 sent to PID 2963528 by PID 2963531
+Signal 17 sent to PID 2963528 by PID 2963532
+Signal 17 sent to PID 2963528 by PID 2963530
+Signal 17 sent to PID 2963527 by PID 2963528
+Signal 17 sent to PID 2883068 by PID 2963527
+Signal 17 sent to PID 959 by PID 2963539
+Signal 17 sent to PID 959 by PID 2963540
+Signal 17 sent to PID 959 by PID 2963541
+^C
+
+[owner@192.168.1.135-20260226-063916 ~]$ 
+
+Signal 17 sent to PID 2963093 by PID 2963169
+Signal 17 sent to PID 2963093 by PID 2963170
+Signal 17 sent to PID 2963093 by PID 2963171
+Signal 17 sent to PID 2963093 by PID 2963172
+Signal 17 sent to PID 2963093 by PID 2963173
+Signal 17 sent to PID 2963093 by PID 2963174
+Signal 17 sent to PID 2963093 by PID 2963175
+Signal 17 sent to PID 2963093 by PID 2963176
+Signal 17 sent to PID 2963093 by PID 2963177
+Signal 17 sent to PID 2963093 by PID 2963178
+Signal 17 sent to PID 2963093 by PID 2963179
+Signal 17 sent to PID 2963093 by PID 2963180
+Signal 17 sent to PID 2963093 by PID 2963181
+Signal 17 sent to PID 2963093 by PID 2963182
+Signal 17 sent to PID 2963093 by PID 2963183
+Signal 17 sent to PID 2963093 by PID 2963184
+Signal 17 sent to PID 2963093 by PID 2963185
+Signal 17 sent to PID 2963093 by PID 2963186
+Signal 17 sent to PID 2963093 by PID 2963187
+Signal 17 sent to PID 2963093 by PID 2963188
+Signal 17 sent to PID 2963093 by PID 2963189
+Signal 17 sent to PID 2963093 by PID 2963190
+Signal 17 sent to PID 2963093 by PID 2963191
+Signal 17 sent to PID 2963093 by PID 2963192
+Signal 17 sent to PID 2963093 by PID 2963193
+Signal 17 sent to PID 2963093 by PID 2963194
+Signal 17 sent to PID 2963093 by PID 2963195
+Signal 17 sent to PID 2963093 by PID 2963196
+Signal 17 sent to PID 2963093 by PID 2963197
+Signal 17 sent to PID 2963093 by PID 2963198
+Signal 17 sent to PID 2359523 by PID 2963093
+Signal 17 sent to PID 959 by PID 2963199
+Signal 17 sent to PID 959 by PID 2963200
+Signal 17 sent to PID 959 by PID 2963201
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 2963202 by PID 2963203
+Signal 17 sent to PID 2883581 by PID 2963202
+Signal 17 sent to PID 959 by PID 2963204
+Signal 17 sent to PID 959 by PID 2963205
+Signal 17 sent to PID 2963208 by PID 2963211
+Signal 17 sent to PID 2963207 by PID 2963210
+Signal 17 sent to PID 2963207 by PID 2963208
+Signal 17 sent to PID 2963207 by PID 2963209
+Signal 17 sent to PID 2963206 by PID 2963207
+Signal 17 sent to PID 2883068 by PID 2963206
+Signal 17 sent to PID 959 by PID 2963212
+Signal 23 sent to PID 1170 by PID 901
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 959 by PID 2963213
+Signal 23 sent to PID 901 by PID 901
+Signal 17 sent to PID 959 by PID 2963214
+Signal 17 sent to PID 959 by PID 2963215
+Signal 17 sent to PID 2963216 by PID 2963217
+Signal 17 sent to PID 2883581 by PID 2963216
+Signal 17 sent to PID 2963220 by PID 2963223
+Signal 17 sent to PID 2963219 by PID 2963221
+Signal 17 sent to PID 2963219 by PID 2963222
+Signal 17 sent to PID 2963219 by PID 2963220
+Signal 17 sent to PID 2963218 by PID 2963219
+Signal 17 sent to PID 2883068 by PID 2963218
+Signal 17 sent to PID 959 by PID 2963224
+Signal 17 sent to PID 959 by PID 2963225
+Signal 17 sent to PID 959 by PID 2963226
+Signal 17 sent to PID 2359523 by PID 2963227
+Signal 17 sent to PID 2359523 by PID 2963228
+Signal 17 sent to PID 2963229 by PID 2963230
+Signal 17 sent to PID 2963229 by PID 2963231
+Signal 17 sent to PID 2963229 by PID 2963232
+Signal 17 sent to PID 2963229 by PID 2963233
+Signal 17 sent to PID 2963229 by PID 2963234
+Signal 17 sent to PID 2963229 by PID 2963235
+Signal 17 sent to PID 2963229 by PID 2963236
+Signal 17 sent to PID 2963229 by PID 2963237
+Signal 17 sent to PID 2963229 by PID 2963238
+Signal 17 sent to PID 2963229 by PID 2963239
+Signal 17 sent to PID 2963229 by PID 2963240
+Signal 17 sent to PID 2963229 by PID 2963241
+Signal 17 sent to PID 2963229 by PID 2963242
+Signal 17 sent to PID 2963229 by PID 2963243
+Signal 17 sent to PID 2963229 by PID 2963244
+Signal 17 sent to PID 2963229 by PID 2963245
+Signal 17 sent to PID 2963229 by PID 2963246
+Signal 17 sent to PID 2963229 by PID 2963247
+Signal 17 sent to PID 2963229 by PID 2963248
+Signal 17 sent to PID 2963229 by PID 2963249
+Signal 17 sent to PID 2963229 by PID 2963250
+Signal 17 sent to PID 2963229 by PID 2963251
+Signal 17 sent to PID 2963229 by PID 2963252
+Signal 17 sent to PID 2963229 by PID 2963253
+Signal 17 sent to PID 2963229 by PID 2963254
+Signal 17 sent to PID 2963229 by PID 2963255
+Signal 17 sent to PID 2963229 by PID 2963256
+Signal 17 sent to PID 2963229 by PID 2963257
+Signal 17 sent to PID 2963229 by PID 2963258
+Signal 17 sent to PID 2963229 by PID 2963259
+Signal 17 sent to PID 2359723 by PID 2963261
+Signal 17 sent to PID 2359723 by PID 2963262
+Signal 17 sent to PID 2359723 by PID 2963263
+Signal 17 sent to PID 2359723 by PID 2963264
+Signal 17 sent to PID 2359723 by PID 2963265
+Signal 17 sent to PID 2359723 by PID 2963266
+Signal 17 sent to PID 2359723 by PID 2963267
+Signal 17 sent to PID 909 by PID 2962798
+Signal 17 sent to PID 959 by PID 2963270
+Signal 17 sent to PID 2963271 by PID 2963272
+Signal 17 sent to PID 2883581 by PID 2963271
+Signal 17 sent to PID 959 by PID 2963273
+Signal 17 sent to PID 959 by PID 2963274
+Signal 17 sent to PID 909 by PID 2963268
+Signal 17 sent to PID 909 by PID 2963269
+Signal 17 sent to PID 909 by PID 2963275
+Signal 17 sent to PID 909 by PID 2963276
+Signal 17 sent to PID 2963280 by PID 2963283
+Signal 17 sent to PID 2963279 by PID 2963281
+Signal 17 sent to PID 2963279 by PID 2963280
+Signal 17 sent to PID 2963279 by PID 2963282
+Signal 17 sent to PID 2963278 by PID 2963279
+Signal 17 sent to PID 2883068 by PID 2963278
+Signal 17 sent to PID 959 by PID 2963284
+Signal 17 sent to PID 959 by PID 2963285
+Signal 17 sent to PID 2963229 by PID 2963260
+Signal 17 sent to PID 2963229 by PID 2963287
+Signal 17 sent to PID 2963229 by PID 2963288
+Signal 17 sent to PID 2963229 by PID 2963289
+Signal 17 sent to PID 2963229 by PID 2963290
+Signal 17 sent to PID 2963229 by PID 2963291
+Signal 17 sent to PID 2963229 by PID 2963292
+Signal 17 sent to PID 2963229 by PID 2963293
+Signal 17 sent to PID 2963229 by PID 2963294
+Signal 17 sent to PID 2963229 by PID 2963295
+Signal 17 sent to PID 2963229 by PID 2963296
+Signal 17 sent to PID 2963229 by PID 2963297
+Signal 17 sent to PID 2963229 by PID 2963298
+Signal 17 sent to PID 2963229 by PID 2963299
+Signal 17 sent to PID 2963229 by PID 2963300
+Signal 17 sent to PID 2963229 by PID 2963301
+Signal 17 sent to PID 2963229 by PID 2963302
+Signal 17 sent to PID 2963229 by PID 2963303
+Signal 17 sent to PID 2963229 by PID 2963304
+Signal 14 sent to PID 1180646 by PID 2963305
+Signal 17 sent to PID 2963229 by PID 2963305
+Signal 17 sent to PID 2963229 by PID 2963306
+Signal 17 sent to PID 2963229 by PID 2963307
+Signal 17 sent to PID 2963229 by PID 2963308
+Signal 17 sent to PID 2963229 by PID 2963309
+Signal 17 sent to PID 2963229 by PID 2963310
+Signal 17 sent to PID 2963229 by PID 2963311
+Signal 17 sent to PID 2963229 by PID 2963312
+Signal 17 sent to PID 2963229 by PID 2963313
+Signal 17 sent to PID 959 by PID 2963286
+Signal 17 sent to PID 2963229 by PID 2963314
+Signal 17 sent to PID 2963229 by PID 2963315
+Signal 17 sent to PID 2963229 by PID 2963316
+Signal 17 sent to PID 2963229 by PID 2963317
+Signal 17 sent to PID 2963229 by PID 2963318
+Signal 17 sent to PID 2963229 by PID 2963319
+Signal 17 sent to PID 2963229 by PID 2963320
+Signal 17 sent to PID 2963229 by PID 2963321
+Signal 17 sent to PID 2963229 by PID 2963322
+Signal 17 sent to PID 2963229 by PID 2963323
+Signal 17 sent to PID 2963229 by PID 2963324
+Signal 17 sent to PID 2963229 by PID 2963325
+Signal 17 sent to PID 2963229 by PID 2963326
+Signal 17 sent to PID 2963229 by PID 2963327
+Signal 17 sent to PID 2963229 by PID 2963328
+Signal 17 sent to PID 2963229 by PID 2963329
+Signal 17 sent to PID 2963229 by PID 2963330
+Signal 17 sent to PID 2963229 by PID 2963331
+Signal 17 sent to PID 2963229 by PID 2963332
+Signal 17 sent to PID 2963229 by PID 2963333
+Signal 17 sent to PID 2963229 by PID 2963334
+Signal 17 sent to PID 2963229 by PID 2963335
+Signal 17 sent to PID 2963229 by PID 2963336
+Signal 17 sent to PID 2963229 by PID 2963337
+Signal 17 sent to PID 2963229 by PID 2963338
+Signal 17 sent to PID 2963229 by PID 2963339
+Signal 17 sent to PID 2963229 by PID 2963340
+Signal 17 sent to PID 2963229 by PID 2963341
+Signal 17 sent to PID 2963229 by PID 2963342
+Signal 17 sent to PID 2963229 by PID 2963343
+Signal 17 sent to PID 2963229 by PID 2963344
+Signal 17 sent to PID 2963229 by PID 2963345
+Signal 17 sent to PID 2359523 by PID 2963229
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 2963346 by PID 2963347
+Signal 17 sent to PID 2883581 by PID 2963346
+Signal 17 sent to PID 959 by PID 2963348
+Signal 17 sent to PID 959 by PID 2963349
+Signal 23 sent to PID 5543 by PID 1196
+Signal 17 sent to PID 959 by PID 2963350
+Signal 17 sent to PID 2963353 by PID 2963356
+Signal 17 sent to PID 2963352 by PID 2963354
+Signal 17 sent to PID 2963352 by PID 2963355
+Signal 17 sent to PID 2963352 by PID 2963353
+Signal 17 sent to PID 2963351 by PID 2963352
+Signal 17 sent to PID 2883068 by PID 2963351
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 959 by PID 2963357
+Signal 17 sent to PID 959 by PID 2963358
+Signal 17 sent to PID 959 by PID 2963359
+Signal 17 sent to PID 2963360 by PID 2963361
+Signal 17 sent to PID 2883581 by PID 2963360
+Signal 17 sent to PID 959 by PID 2963362
+Signal 17 sent to PID 959 by PID 2963363
+Signal 17 sent to PID 959 by PID 2963364
+Signal 17 sent to PID 2963367 by PID 2963370
+Signal 17 sent to PID 2963366 by PID 2963368
+Signal 17 sent to PID 2963366 by PID 2963369
+Signal 17 sent to PID 2963366 by PID 2963367
+Signal 17 sent to PID 2963365 by PID 2963366
+Signal 17 sent to PID 2883068 by PID 2963365
+Signal 17 sent to PID 2359523 by PID 2963371
+Signal 17 sent to PID 2359523 by PID 2963372
+Signal 17 sent to PID 2963373 by PID 2963374
+Signal 17 sent to PID 2963373 by PID 2963375
+Signal 17 sent to PID 2963373 by PID 2963376
+Signal 17 sent to PID 2963373 by PID 2963377
+Signal 17 sent to PID 2963373 by PID 2963378
+Signal 17 sent to PID 2963373 by PID 2963379
+Signal 17 sent to PID 2963373 by PID 2963380
+Signal 17 sent to PID 2963373 by PID 2963381
+Signal 17 sent to PID 2963373 by PID 2963382
+Signal 17 sent to PID 2963373 by PID 2963383
+Signal 17 sent to PID 2963373 by PID 2963384
+Signal 17 sent to PID 2963373 by PID 2963385
+Signal 17 sent to PID 2963373 by PID 2963386
+Signal 17 sent to PID 2963373 by PID 2963387
+Signal 17 sent to PID 2963373 by PID 2963388
+Signal 17 sent to PID 2963373 by PID 2963389
+Signal 17 sent to PID 2963373 by PID 2963390
+Signal 17 sent to PID 2963373 by PID 2963391
+Signal 17 sent to PID 2963373 by PID 2963392
+Signal 17 sent to PID 2963373 by PID 2963393
+Signal 17 sent to PID 2963373 by PID 2963394
+Signal 17 sent to PID 2963373 by PID 2963395
+Signal 17 sent to PID 2963373 by PID 2963396
+Signal 17 sent to PID 2963373 by PID 2963397
+Signal 17 sent to PID 2963373 by PID 2963398
+Signal 17 sent to PID 2963373 by PID 2963399
+Signal 17 sent to PID 2963373 by PID 2963400
+Signal 17 sent to PID 2963373 by PID 2963401
+Signal 17 sent to PID 2963373 by PID 2963402
+Signal 17 sent to PID 2963373 by PID 2963403
+Signal 23 sent to PID 1293 by PID 901
+Signal 17 sent to PID 959 by PID 2963405
+Signal 17 sent to PID 959 by PID 2963406
+Signal 17 sent to PID 959 by PID 2963407
+Signal 17 sent to PID 2963408 by PID 2963409
+Signal 17 sent to PID 2883581 by PID 2963408
+Signal 17 sent to PID 959 by PID 2963410
+Signal 17 sent to PID 959 by PID 2963411
+Signal 17 sent to PID 959 by PID 2963412
+Signal 17 sent to PID 2963415 by PID 2963418
+Signal 17 sent to PID 2963414 by PID 2963416
+Signal 17 sent to PID 2963414 by PID 2963415
+Signal 17 sent to PID 2963414 by PID 2963417
+Signal 17 sent to PID 2963413 by PID 2963414
+Signal 17 sent to PID 2883068 by PID 2963413
+Signal 17 sent to PID 2963373 by PID 2963404
+Signal 17 sent to PID 2963373 by PID 2963419
+Signal 17 sent to PID 2963373 by PID 2963420
+Signal 17 sent to PID 2963373 by PID 2963421
+Signal 17 sent to PID 2963373 by PID 2963422
+Signal 17 sent to PID 2963373 by PID 2963423
+Signal 17 sent to PID 2963373 by PID 2963424
+Signal 17 sent to PID 2963373 by PID 2963425
+Signal 17 sent to PID 2963373 by PID 2963426
+Signal 17 sent to PID 2963373 by PID 2963427
+Signal 17 sent to PID 2963373 by PID 2963428
+Signal 17 sent to PID 2963373 by PID 2963429
+Signal 17 sent to PID 2963373 by PID 2963430
+Signal 17 sent to PID 2963373 by PID 2963431
+Signal 17 sent to PID 2963373 by PID 2963432
+Signal 17 sent to PID 2963373 by PID 2963433
+Signal 17 sent to PID 2963373 by PID 2963434
+Signal 17 sent to PID 2963373 by PID 2963435
+Signal 17 sent to PID 2963373 by PID 2963436
+Signal 17 sent to PID 2963373 by PID 2963437
+Signal 17 sent to PID 2963373 by PID 2963438
+Signal 17 sent to PID 2963373 by PID 2963439
+Signal 17 sent to PID 2963373 by PID 2963440
+Signal 17 sent to PID 2963373 by PID 2963441
+Signal 17 sent to PID 2963373 by PID 2963442
+Signal 17 sent to PID 2963373 by PID 2963443
+Signal 17 sent to PID 2963373 by PID 2963444
+Signal 17 sent to PID 2963373 by PID 2963445
+Signal 17 sent to PID 2963373 by PID 2963446
+Signal 17 sent to PID 2963373 by PID 2963447
+Signal 17 sent to PID 2963373 by PID 2963448
+Signal 17 sent to PID 2963373 by PID 2963449
+Signal 17 sent to PID 2963373 by PID 2963450
+Signal 17 sent to PID 2963373 by PID 2963451
+Signal 17 sent to PID 2963373 by PID 2963452
+Signal 17 sent to PID 2963373 by PID 2963453
+Signal 17 sent to PID 2963373 by PID 2963454
+Signal 17 sent to PID 2963373 by PID 2963455
+Signal 17 sent to PID 2963373 by PID 2963456
+Signal 17 sent to PID 2963373 by PID 2963457
+Signal 17 sent to PID 2963373 by PID 2963458
+Signal 17 sent to PID 2963373 by PID 2963459
+Signal 17 sent to PID 2963373 by PID 2963460
+Signal 17 sent to PID 2963373 by PID 2963461
+Signal 17 sent to PID 2963373 by PID 2963462
+Signal 17 sent to PID 2963373 by PID 2963463
+Signal 17 sent to PID 2963373 by PID 2963464
+Signal 17 sent to PID 2963373 by PID 2963465
+Signal 17 sent to PID 2963373 by PID 2963466
+Signal 17 sent to PID 2963373 by PID 2963467
+Signal 17 sent to PID 2963373 by PID 2963468
+Signal 17 sent to PID 2963373 by PID 2963469
+Signal 17 sent to PID 2963373 by PID 2963470
+Signal 17 sent to PID 2963373 by PID 2963471
+Signal 17 sent to PID 2963373 by PID 2963472
+Signal 17 sent to PID 2963373 by PID 2963473
+Signal 17 sent to PID 2963373 by PID 2963474
+Signal 17 sent to PID 2963373 by PID 2963475
+Signal 17 sent to PID 2963373 by PID 2963476
+Signal 17 sent to PID 2963373 by PID 2963477
+Signal 17 sent to PID 2963373 by PID 2963478
+Signal 17 sent to PID 2359523 by PID 2963373
+Signal 23 sent to PID 901 by PID 901
+Signal 17 sent to PID 959 by PID 2963479
+Signal 17 sent to PID 959 by PID 2963480
+Signal 17 sent to PID 959 by PID 2963481
+Signal 17 sent to PID 2963482 by PID 2963483
+Signal 17 sent to PID 2883581 by PID 2963482
+Signal 23 sent to PID 901 by PID 901
+Signal 17 sent to PID 959 by PID 2963484
+Signal 17 sent to PID 959 by PID 2963490
+Signal 17 sent to PID 959 by PID 2963492
+Signal 17 sent to PID 2963487 by PID 2963491
+Signal 17 sent to PID 2963486 by PID 2963487
+Signal 17 sent to PID 2963486 by PID 2963489
+Signal 17 sent to PID 2963486 by PID 2963488
+Signal 17 sent to PID 2963485 by PID 2963486
+Signal 17 sent to PID 2883068 by PID 2963485
+Signal 23 sent to PID 749317 by PID 901
+Signal 17 sent to PID 2359723 by PID 2963493
+Signal 17 sent to PID 959 by PID 2963494
+Signal 17 sent to PID 2963496 by PID 2963497
+Signal 17 sent to PID 2883581 by PID 2963496
+Signal 17 sent to PID 959 by PID 2963495
+Signal 17 sent to PID 959 by PID 2963498
+Signal 23 sent to PID 1170 by PID 901
+Signal 17 sent to PID 2359523 by PID 2963499
+Signal 17 sent to PID 2359523 by PID 2963500
+Signal 17 sent to PID 2963501 by PID 2963502
+Signal 17 sent to PID 2963501 by PID 2963503
+Signal 17 sent to PID 2963501 by PID 2963504
+Signal 17 sent to PID 2963501 by PID 2963505
+Signal 17 sent to PID 2963501 by PID 2963506
+Signal 17 sent to PID 2963501 by PID 2963507
+Signal 17 sent to PID 2963501 by PID 2963508
+Signal 17 sent to PID 2963501 by PID 2963509
+Signal 17 sent to PID 2963501 by PID 2963510
+Signal 17 sent to PID 2963501 by PID 2963511
+Signal 17 sent to PID 2963501 by PID 2963512
+Signal 17 sent to PID 2963501 by PID 2963513
+Signal 17 sent to PID 2963501 by PID 2963514
+Signal 17 sent to PID 2963501 by PID 2963515
+Signal 17 sent to PID 2963501 by PID 2963516
+Signal 17 sent to PID 2963501 by PID 2963517
+Signal 17 sent to PID 2963501 by PID 2963518
+Signal 17 sent to PID 2963501 by PID 2963519
+Signal 17 sent to PID 2963501 by PID 2963520
+Signal 17 sent to PID 2963501 by PID 2963521
+Signal 17 sent to PID 2963501 by PID 2963522
+Signal 17 sent to PID 2963501 by PID 2963523
+Signal 17 sent to PID 2963501 by PID 2963524
+Signal 17 sent to PID 2963501 by PID 2963525
+Signal 17 sent to PID 2963501 by PID 2963526
+Signal 17 sent to PID 2963501 by PID 2963529
+Signal 17 sent to PID 2963501 by PID 2963533
+Signal 17 sent to PID 2963501 by PID 2963534
+Signal 17 sent to PID 2963501 by PID 2963536
+Signal 17 sent to PID 2963501 by PID 2963537
+Signal 17 sent to PID 2963530 by PID 2963535
+Signal 17 sent to PID 2963528 by PID 2963531
+Signal 17 sent to PID 2963528 by PID 2963532
+Signal 17 sent to PID 2963528 by PID 2963530
+Signal 17 sent to PID 2963527 by PID 2963528
+Signal 17 sent to PID 2883068 by PID 2963527
+Signal 17 sent to PID 959 by PID 2963539
+Signal 17 sent to PID 959 by PID 2963540
+Signal 17 sent to PID 959 by PID 2963541
+^C
+
+[owner@192.168.1.135-20260226-063916 ~]$ sudo bpftrace -e 'tracepoint:sched:sched_process_fork { printf("Fork: parent %d -> child %d\n", args->parent_pid, args->child_pid); }'
+Attached 1 probe
+Fork: parent 959 -> child 2964651
+Fork: parent 959 -> child 2964652
+Fork: parent 959 -> child 2964653
+Fork: parent 2883068 -> child 2964654
+Fork: parent 2964654 -> child 2964655
+Fork: parent 2964655 -> child 2964656
+Fork: parent 2964655 -> child 2964657
+Fork: parent 2964655 -> child 2964658
+Fork: parent 2964656 -> child 2964659
+Fork: parent 2359523 -> child 2964660
+Fork: parent 2359523 -> child 2964661
+Fork: parent 2359523 -> child 2964662
+Fork: parent 2964662 -> child 2964663
+Fork: parent 2964662 -> child 2964664
+Fork: parent 2883581 -> child 2964665
+Fork: parent 2964665 -> child 2964666
+Fork: parent 2964662 -> child 2964667
+Fork: parent 2964662 -> child 2964668
+Fork: parent 2964662 -> child 2964669
+Fork: parent 2964662 -> child 2964670
+Fork: parent 2964662 -> child 2964671
+Fork: parent 2964662 -> child 2964672
+Fork: parent 2964662 -> child 2964673
+Fork: parent 2964662 -> child 2964674
+Fork: parent 2964662 -> child 2964675
+Fork: parent 2964662 -> child 2964676
+Fork: parent 2964662 -> child 2964677
+Fork: parent 2964662 -> child 2964678
+Fork: parent 2964662 -> child 2964679
+Fork: parent 2964662 -> child 2964680
+Fork: parent 2964662 -> child 2964681
+Fork: parent 2964662 -> child 2964682
+Fork: parent 2964662 -> child 2964683
+Fork: parent 2964662 -> child 2964684
+Fork: parent 2964662 -> child 2964685
+Fork: parent 2964662 -> child 2964686
+Fork: parent 2964662 -> child 2964687
+Fork: parent 2964662 -> child 2964688
+Fork: parent 2964662 -> child 2964689
+Fork: parent 2964662 -> child 2964690
+Fork: parent 2964662 -> child 2964691
+Fork: parent 959 -> child 2964692
+Fork: parent 2964662 -> child 2964693
+Fork: parent 2964662 -> child 2964694
+Fork: parent 2964662 -> child 2964695
+Fork: parent 2964662 -> child 2964696
+Fork: parent 959 -> child 2964697
+Fork: parent 959 -> child 2964698
+Fork: parent 959 -> child 2964699
+Fork: parent 959 -> child 2964700
+Fork: parent 959 -> child 2964701
+Fork: parent 909 -> child 2964702
+Fork: parent 909 -> child 2964703
+Fork: parent 909 -> child 2964704
+Fork: parent 909 -> child 2964705
+Fork: parent 2883068 -> child 2964706
+Fork: parent 2964706 -> child 2964707
+Fork: parent 909 -> child 2964708
+Fork: parent 2964707 -> child 2964709
+Fork: parent 2964707 -> child 2964710
+Fork: parent 2964707 -> child 2964711
+Fork: parent 2964709 -> child 2964712
+Fork: parent 2883581 -> child 2964713
+Fork: parent 2964713 -> child 2964714
+Fork: parent 2964662 -> child 2964715
+Fork: parent 2964662 -> child 2964716
+Fork: parent 2964662 -> child 2964717
+Fork: parent 2964662 -> child 2964718
+Fork: parent 2964662 -> child 2964719
+Fork: parent 2964662 -> child 2964720
+Fork: parent 2964662 -> child 2964721
+Fork: parent 2964662 -> child 2964722
+Fork: parent 2964662 -> child 2964723
+Fork: parent 2964662 -> child 2964724
+Fork: parent 2964662 -> child 2964725
+Fork: parent 2964662 -> child 2964726
+Fork: parent 2964662 -> child 2964727
+Fork: parent 2964662 -> child 2964728
+Fork: parent 2964662 -> child 2964729
+Fork: parent 2964662 -> child 2964730
+Fork: parent 2964662 -> child 2964731
+Fork: parent 2964662 -> child 2964732
+Fork: parent 2964662 -> child 2964733
+Fork: parent 2964662 -> child 2964734
+Fork: parent 2964662 -> child 2964735
+Fork: parent 2964662 -> child 2964736
+Fork: parent 2964662 -> child 2964737
+Fork: parent 2964662 -> child 2964738
+Fork: parent 2964662 -> child 2964739
+Fork: parent 2964662 -> child 2964740
+Fork: parent 2964662 -> child 2964741
+Fork: parent 2964662 -> child 2964742
+Fork: parent 2964662 -> child 2964743
+Fork: parent 2964662 -> child 2964744
+Fork: parent 2964662 -> child 2964745
+Fork: parent 2964662 -> child 2964746
+Fork: parent 2964662 -> child 2964747
+Fork: parent 2964662 -> child 2964748
+Fork: parent 2964662 -> child 2964749
+Fork: parent 2964662 -> child 2964750
+Fork: parent 2964662 -> child 2964751
+Fork: parent 2964662 -> child 2964752
+Fork: parent 2964662 -> child 2964753
+Fork: parent 2964662 -> child 2964754
+Fork: parent 2964662 -> child 2964755
+Fork: parent 2964662 -> child 2964756
+Fork: parent 2964662 -> child 2964757
+Fork: parent 2964662 -> child 2964758
+Fork: parent 2964662 -> child 2964759
+Fork: parent 2964662 -> child 2964760
+Fork: parent 2964662 -> child 2964761
+Fork: parent 2964662 -> child 2964762
+Fork: parent 2964662 -> child 2964763
+Fork: parent 2964662 -> child 2964764
+Fork: parent 2964662 -> child 2964765
+Fork: parent 2964662 -> child 2964766
+Fork: parent 2964662 -> child 2964767
+Fork: parent 2964662 -> child 2964768
+Fork: parent 2964662 -> child 2964769
+Fork: parent 2964662 -> child 2964770
+Fork: parent 2964662 -> child 2964771
+Fork: parent 2964662 -> child 2964772
+Fork: parent 2964662 -> child 2964773
+Fork: parent 959 -> child 2964774
+Fork: parent 959 -> child 2964775
+Fork: parent 959 -> child 2964776
+Fork: parent 959 -> child 2964777
+Fork: parent 959 -> child 2964778
+Fork: parent 959 -> child 2964779
+Fork: parent 2883068 -> child 2964780
+Fork: parent 2964780 -> child 2964781
+Fork: parent 2964781 -> child 2964782
+Fork: parent 2964781 -> child 2964783
+Fork: parent 2964781 -> child 2964784
+Fork: parent 2964782 -> child 2964785
+Fork: parent 2883581 -> child 2964786
+Fork: parent 2964786 -> child 2964787
+Fork: parent 959 -> child 2964788
+Fork: parent 959 -> child 2964789
+Fork: parent 959 -> child 2964790
+Fork: parent 959 -> child 2964791
+Fork: parent 959 -> child 2964792
+Fork: parent 959 -> child 2964793
+Fork: parent 2359523 -> child 2964794
+Fork: parent 2359523 -> child 2964795
+Fork: parent 2359523 -> child 2964796
+Fork: parent 2883068 -> child 2964797
+Fork: parent 2964797 -> child 2964798
+Fork: parent 2964796 -> child 2964799
+Fork: parent 2964798 -> child 2964800
+Fork: parent 2964798 -> child 2964801
+Fork: parent 2964798 -> child 2964802
+Fork: parent 2964796 -> child 2964803
+Fork: parent 2964796 -> child 2964804
+Fork: parent 2964800 -> child 2964805
+Fork: parent 2964796 -> child 2964806
+Fork: parent 2964796 -> child 2964807
+Fork: parent 2964796 -> child 2964808
+Fork: parent 2964796 -> child 2964809
+Fork: parent 2964796 -> child 2964810
+Fork: parent 2964796 -> child 2964811
+Fork: parent 2964796 -> child 2964812
+Fork: parent 2964796 -> child 2964813
+Fork: parent 2964796 -> child 2964814
+Fork: parent 2964796 -> child 2964815
+Fork: parent 2964796 -> child 2964816
+Fork: parent 2964796 -> child 2964817
+Fork: parent 2964796 -> child 2964818
+Fork: parent 2964796 -> child 2964819
+Fork: parent 2964796 -> child 2964820
+Fork: parent 2964796 -> child 2964821
+Fork: parent 2964796 -> child 2964822
+Fork: parent 2964796 -> child 2964823
+Fork: parent 2964796 -> child 2964824
+Fork: parent 2964796 -> child 2964825
+Fork: parent 2964796 -> child 2964826
+Fork: parent 2964796 -> child 2964827
+Fork: parent 2964796 -> child 2964828
+Fork: parent 2964796 -> child 2964829
+Fork: parent 2964796 -> child 2964830
+Fork: parent 2964796 -> child 2964831
+Fork: parent 2964796 -> child 2964832
+Fork: parent 2964796 -> child 2964833
+Fork: parent 2883581 -> child 2964834
+Fork: parent 2964834 -> child 2964835
+Fork: parent 959 -> child 2964836
+Fork: parent 959 -> child 2964837
+Fork: parent 959 -> child 2964838
+Fork: parent 959 -> child 2964839
+Fork: parent 959 -> child 2964840
+Fork: parent 959 -> child 2964841
+Fork: parent 2883068 -> child 2964842
+Fork: parent 2964842 -> child 2964843
+Fork: parent 2964843 -> child 2964844
+Fork: parent 2964843 -> child 2964845
+Fork: parent 2964843 -> child 2964846
+Fork: parent 2964844 -> child 2964847
+Fork: parent 2964796 -> child 2964848
+Fork: parent 2964796 -> child 2964849
+Fork: parent 2964796 -> child 2964850
+Fork: parent 2964796 -> child 2964851
+Fork: parent 2964796 -> child 2964852
+Fork: parent 2964796 -> child 2964853
+Fork: parent 2964796 -> child 2964854
+Fork: parent 2964796 -> child 2964855
+Fork: parent 2964796 -> child 2964856
+Fork: parent 2964796 -> child 2964857
+Fork: parent 2964796 -> child 2964858
+Fork: parent 2964796 -> child 2964859
+Fork: parent 2964796 -> child 2964860
+Fork: parent 2964796 -> child 2964861
+Fork: parent 2964796 -> child 2964862
+Fork: parent 2964796 -> child 2964863
+Fork: parent 2964796 -> child 2964864
+Fork: parent 2964796 -> child 2964865
+Fork: parent 2964796 -> child 2964866
+Fork: parent 2964796 -> child 2964867
+Fork: parent 2964796 -> child 2964868
+Fork: parent 2964796 -> child 2964869
+Fork: parent 2883581 -> child 2964870
+Fork: parent 2964870 -> child 2964871
+Fork: parent 2964796 -> child 2964872
+Fork: parent 2964796 -> child 2964873
+Fork: parent 2964796 -> child 2964874
+Fork: parent 2964796 -> child 2964875
+Fork: parent 2964796 -> child 2964876
+Fork: parent 2964796 -> child 2964877
+Fork: parent 2964796 -> child 2964878
+Fork: parent 2964796 -> child 2964879
+Fork: parent 2964796 -> child 2964880
+Fork: parent 2964796 -> child 2964881
+Fork: parent 2964796 -> child 2964882
+Fork: parent 2964796 -> child 2964883
+Fork: parent 2964796 -> child 2964884
+Fork: parent 2964796 -> child 2964885
+Fork: parent 2964796 -> child 2964886
+Fork: parent 2964796 -> child 2964887
+Fork: parent 2964796 -> child 2964888
+Fork: parent 2964796 -> child 2964889
+Fork: parent 2964796 -> child 2964890
+Fork: parent 2964796 -> child 2964891
+Fork: parent 2964796 -> child 2964892
+Fork: parent 2964796 -> child 2964893
+Fork: parent 2964796 -> child 2964894
+Fork: parent 2964796 -> child 2964895
+Fork: parent 2964796 -> child 2964896
+Fork: parent 2964796 -> child 2964897
+Fork: parent 2964796 -> child 2964898
+Fork: parent 2964796 -> child 2964899
+Fork: parent 2964796 -> child 2964900
+Fork: parent 2964796 -> child 2964901
+Fork: parent 2964796 -> child 2964902
+Fork: parent 2964796 -> child 2964903
+Fork: parent 2964796 -> child 2964904
+Fork: parent 2964796 -> child 2964905
+Fork: parent 2964796 -> child 2964906
+Fork: parent 2964796 -> child 2964907
+Fork: parent 2964796 -> child 2964908
+Fork: parent 959 -> child 2964909
+Fork: parent 959 -> child 2964910
+Fork: parent 959 -> child 2964911
+Fork: parent 2883068 -> child 2964912
+Fork: parent 2964912 -> child 2964913
+Fork: parent 2964913 -> child 2964914
+Fork: parent 2964913 -> child 2964915
+Fork: parent 2964913 -> child 2964916
+Fork: parent 2964914 -> child 2964917
+Fork: parent 2883581 -> child 2964918
+Fork: parent 2964918 -> child 2964919
+Fork: parent 959 -> child 2964920
+Fork: parent 959 -> child 2964921
+Fork: parent 959 -> child 2964922
+Fork: parent 2359723 -> child 2964923
+Fork: parent 959 -> child 2964924
+Fork: parent 959 -> child 2964925
+Fork: parent 959 -> child 2964926
+Fork: parent 2359523 -> child 2964927
+Fork: parent 2359523 -> child 2964928
+Fork: parent 2359523 -> child 2964929
+Fork: parent 2964929 -> child 2964930
+Fork: parent 2964929 -> child 2964931
+Fork: parent 2964929 -> child 2964932
+Fork: parent 2964929 -> child 2964933
+Fork: parent 2964929 -> child 2964934
+Fork: parent 2964929 -> child 2964935
+Fork: parent 2964929 -> child 2964936
+Fork: parent 2964929 -> child 2964937
+Fork: parent 2964929 -> child 2964938
+Fork: parent 2964929 -> child 2964939
+Fork: parent 2964929 -> child 2964940
+Fork: parent 2964929 -> child 2964941
+Fork: parent 2964929 -> child 2964942
+Fork: parent 2964929 -> child 2964943
+Fork: parent 2964929 -> child 2964944
+Fork: parent 2964929 -> child 2964945
+Fork: parent 2964929 -> child 2964946
+Fork: parent 2964929 -> child 2964947
+Fork: parent 2964929 -> child 2964948
+Fork: parent 2964929 -> child 2964949
+Fork: parent 2964929 -> child 2964950
+Fork: parent 2964929 -> child 2964951
+Fork: parent 2964929 -> child 2964952
+Fork: parent 2964929 -> child 2964953
+Fork: parent 2964929 -> child 2964954
+Fork: parent 2964929 -> child 2964955
+Fork: parent 2964929 -> child 2964956
+Fork: parent 2964929 -> child 2964957
+Fork: parent 2964929 -> child 2964958
+Fork: parent 2964929 -> child 2964959
+Fork: parent 2964929 -> child 2964960
+Fork: parent 2883068 -> child 2964961
+Fork: parent 2964961 -> child 2964962
+Fork: parent 2964962 -> child 2964963
+Fork: parent 2964962 -> child 2964964
+Fork: parent 2883581 -> child 2964965
+Fork: parent 2964965 -> child 2964966
+Fork: parent 2964962 -> child 2964967
+Fork: parent 2964963 -> child 2964968
+Fork: parent 959 -> child 2964969
+Fork: parent 959 -> child 2964970
+Fork: parent 959 -> child 2964971
+^C
+
+[owner@192.168.1.135-20260226-063946 ~]$ sudo bpftrace -e 'tracepoint:sched:sched_process_exec { printf("Exec: PID %d executed %s\n", pid, str(args->filename)); }'
+Attached 1 probe
+Exec: PID 2965593 executed /bin/sh
+Exec: PID 2965596 executed /usr/bin/wc
+Exec: PID 2965595 executed /usr/bin/grep
+Exec: PID 2965594 executed /usr/bin/lsof
+Exec: PID 2965598 executed /bin/loginctl
+Exec: PID 2965599 executed /bin/sh
+Exec: PID 2965599 executed /usr/bin/pgrep
+Exec: PID 2965600 executed /bin/ps
+Exec: PID 2965601 executed /usr/bin/journalctl
+Exec: PID 2965602 executed /usr/bin/sed
+Exec: PID 2965603 executed /usr/bin/cat
+Exec: PID 2965605 executed /usr/bin/cat
+Exec: PID 2965607 executed /usr/bin/cat
+Exec: PID 2965609 executed /usr/bin/cat
+Exec: PID 2965611 executed /usr/bin/cat
+Exec: PID 2965613 executed /usr/bin/cat
+Exec: PID 2965615 executed /usr/bin/cat
+Exec: PID 2965617 executed /usr/bin/cat
+Exec: PID 2965619 executed /usr/bin/cat
+Exec: PID 2965621 executed /usr/bin/cat
+Exec: PID 2965623 executed /usr/bin/cat
+Exec: PID 2965625 executed /usr/bin/cat
+Exec: PID 2965627 executed /usr/bin/cat
+Exec: PID 2965629 executed /usr/bin/cat
+Exec: PID 2965631 executed /usr/bin/cat
+Exec: PID 2965633 executed /usr/bin/cat
+Exec: PID 2965635 executed /usr/bin/cat
+Exec: PID 2965637 executed /usr/bin/cat
+Exec: PID 2965639 executed /usr/bin/cat
+Exec: PID 2965641 executed /usr/bin/cat
+Exec: PID 2965643 executed /usr/bin/cat
+Exec: PID 2965645 executed /usr/bin/cat
+Exec: PID 2965647 executed /usr/bin/cat
+Exec: PID 2965649 executed /usr/bin/cat
+Exec: PID 2965651 executed /usr/bin/cat
+Exec: PID 2965653 executed /usr/bin/cat
+Exec: PID 2965655 executed /usr/bin/cat
+Exec: PID 2965657 executed /usr/bin/cat
+Exec: PID 2965659 executed /usr/bin/cat
+Exec: PID 2965661 executed /usr/bin/journalctl
+Exec: PID 2965662 executed /usr/bin/dmesg
+Exec: PID 2965663 executed /usr/bin/sh
+Exec: PID 2965665 executed /usr/bin/grep
+Exec: PID 2965666 executed /usr/bin/tail
+Exec: PID 2965664 executed /usr/bin/tail
+Exec: PID 2965667 executed /usr/bin/sqlite3
+Exec: PID 2965668 executed /usr/bin/sqlite3
+Exec: PID 2965669 executed /usr/bin/sqlite3
+Exec: PID 2965670 executed /usr/bin/sqlite3
+Exec: PID 2965671 executed /usr/bin/sqlite3
+Exec: PID 2965672 executed /usr/bin/sqlite3
+Exec: PID 2965674 executed /bin/sh
+Exec: PID 2965674 executed /usr/bin/ps
+Exec: PID 2965675 executed /bin/loginctl
+Exec: PID 2965676 executed /bin/sh
+Exec: PID 2965676 executed /usr/bin/pgrep
+Exec: PID 2965678 executed /bin/sh
+Exec: PID 2965679 executed /usr/bin/lsof
+Exec: PID 2965680 executed /usr/bin/grep
+Exec: PID 2965681 executed /usr/bin/wc
+Exec: PID 2965683 executed /bin/ps
+Exec: PID 2965684 executed /bin/loginctl
+Exec: PID 2965685 executed /bin/sh
+Exec: PID 2965685 executed /usr/bin/pgrep
+Exec: PID 2965686 executed /bin/ps
+Exec: PID 2965687 executed /usr/bin/ps
+Exec: PID 2965688 executed /usr/bin/journalctl
+Exec: PID 2965689 executed /usr/bin/lsof
+Exec: PID 2965692 executed /bin/sh
+Exec: PID 2965692 executed /usr/bin/ps
+Exec: PID 2965694 executed /bin/sh
+Exec: PID 2965695 executed /usr/bin/lsof
+Exec: PID 2965696 executed /usr/bin/grep
+Exec: PID 2965697 executed /usr/bin/wc
+Exec: PID 2965699 executed /bin/loginctl
+Exec: PID 2965700 executed /bin/sh
+Exec: PID 2965700 executed /usr/bin/pgrep
+Exec: PID 2965701 executed /bin/ps
+Exec: PID 2965702 executed /usr/bin/vmstat
+Exec: PID 2965703 executed /bin/sh
+Exec: PID 2965703 executed /usr/bin/which
+Exec: PID 2965704 executed /bin/sh
+Exec: PID 2965704 executed /usr/bin/ps
+Exec: PID 2965705 executed /bin/sh
+Exec: PID 2965705 executed /usr/share/code/resources/app/out/vs/base/node/cpuUsage.sh
+Exec: PID 2965706 executed /usr/bin/sed
+Exec: PID 2965707 executed /usr/bin/cat
+Exec: PID 2965708 executed /usr/bin/cat
+Exec: PID 2965709 executed /usr/bin/cat
+Exec: PID 2965710 executed /usr/bin/cat
+Exec: PID 2965711 executed /usr/bin/cat
+Exec: PID 2965712 executed /usr/bin/cat
+Exec: PID 2965713 executed /usr/bin/cat
+Exec: PID 2965714 executed /usr/bin/cat
+Exec: PID 2965715 executed /usr/bin/cat
+Exec: PID 2965716 executed /usr/bin/cat
+Exec: PID 2965717 executed /usr/bin/cat
+Exec: PID 2965718 executed /usr/bin/cat
+Exec: PID 2965719 executed /usr/bin/cat
+Exec: PID 2965720 executed /usr/bin/cat
+Exec: PID 2965721 executed /usr/bin/cat
+Exec: PID 2965722 executed /usr/bin/cat
+Exec: PID 2965723 executed /usr/bin/cat
+Exec: PID 2965724 executed /usr/bin/cat
+Exec: PID 2965725 executed /usr/bin/cat
+Exec: PID 2965726 executed /usr/bin/cat
+Exec: PID 2965727 executed /usr/bin/cat
+Exec: PID 2965728 executed /usr/bin/cat
+Exec: PID 2965729 executed /usr/bin/cat
+Exec: PID 2965730 executed /usr/bin/cat
+Exec: PID 2965731 executed /usr/bin/cat
+Exec: PID 2965732 executed /usr/bin/cat
+Exec: PID 2965733 executed /usr/bin/cat
+Exec: PID 2965734 executed /usr/bin/cat
+Exec: PID 2965735 executed /usr/bin/cat
+Exec: PID 2965736 executed /usr/bin/cat
+Exec: PID 2965737 executed /usr/bin/cat
+Exec: PID 2965738 executed /usr/bin/cat
+Exec: PID 2965739 executed /usr/bin/sleep
+Exec: PID 2965740 executed /usr/bin/ps
+Exec: PID 2965741 executed /usr/bin/usbip
+Exec: PID 2965742 executed /usr/bin/grep
+Exec: PID 2965743 executed /bin/loginctl
+Exec: PID 2965744 executed /bin/sh
+Exec: PID 2965744 executed /usr/bin/pgrep
+Exec: PID 2965745 executed /usr/bin/date
+Exec: PID 2965746 executed /usr/bin/usbip
+Exec: PID 2965747 executed /bin/ps
+Exec: PID 2965748 executed /usr/bin/sleep
+Exec: PID 2965750 executed /bin/sh
+Exec: PID 2965750 executed /usr/bin/ps
+Exec: PID 2965752 executed /bin/sh
+Exec: PID 2965753 executed /usr/bin/lsof
+Exec: PID 2965754 executed /usr/bin/grep
+Exec: PID 2965755 executed /usr/bin/wc
+Exec: PID 2965757 executed /bin/loginctl
+Exec: PID 2965758 executed /bin/sh
+Exec: PID 2965758 executed /usr/bin/pgrep
+Exec: PID 2965759 executed /bin/ps
+Exec: PID 2965760 executed /usr/bin/sed
+Exec: PID 2965761 executed /usr/bin/cat
+Exec: PID 2965763 executed /usr/bin/cat
+Exec: PID 2965765 executed /usr/bin/cat
+Exec: PID 2965767 executed /usr/bin/cat
+Exec: PID 2965769 executed /usr/bin/cat
+Exec: PID 2965771 executed /usr/bin/cat
+Exec: PID 2965773 executed /usr/bin/cat
+Exec: PID 2965775 executed /usr/bin/cat
+Exec: PID 2965777 executed /usr/bin/cat
+Exec: PID 2965779 executed /usr/bin/cat
+Exec: PID 2965781 executed /usr/bin/cat
+Exec: PID 2965783 executed /usr/bin/cat
+Exec: PID 2965785 executed /usr/bin/cat
+Exec: PID 2965787 executed /usr/bin/cat
+Exec: PID 2965789 executed /usr/bin/cat
+Exec: PID 2965791 executed /usr/bin/cat
+Exec: PID 2965793 executed /usr/bin/cat
+Exec: PID 2965795 executed /usr/bin/cat
+Exec: PID 2965797 executed /usr/bin/cat
+Exec: PID 2965799 executed /usr/bin/cat
+Exec: PID 2965801 executed /usr/bin/cat
+Exec: PID 2965803 executed /usr/bin/cat
+Exec: PID 2965805 executed /usr/bin/cat
+Exec: PID 2965807 executed /usr/bin/cat
+Exec: PID 2965809 executed /usr/bin/cat
+Exec: PID 2965812 executed /usr/bin/cat
+Exec: PID 2965814 executed /usr/bin/cat
+Exec: PID 2965816 executed /usr/bin/cat
+Exec: PID 2965818 executed /usr/bin/cat
+Exec: PID 2965820 executed /usr/bin/cat
+Exec: PID 2965822 executed /usr/bin/cat
+Exec: PID 2965825 executed /bin/loginctl
+Exec: PID 2965827 executed /bin/sh
+Exec: PID 2965828 executed /bin/sh
+Exec: PID 2965827 executed /usr/bin/pgrep
+Exec: PID 2965828 executed /usr/bin/ps
+Exec: PID 2965829 executed /bin/ps
+Exec: PID 2965831 executed /bin/sh
+Exec: PID 2965832 executed /usr/bin/lsof
+Exec: PID 2965833 executed /usr/bin/grep
+Exec: PID 2965834 executed /usr/bin/wc
+Exec: PID 2965836 executed /bin/loginctl
+Exec: PID 2965837 executed /bin/sh
+Exec: PID 2965837 executed /usr/bin/pgrep
+Exec: PID 2965838 executed /bin/ps
+Exec: PID 2965840 executed /bin/sh
+Exec: PID 2965840 executed /usr/bin/ps
+Exec: PID 2965841 executed /bin/loginctl
+Exec: PID 2965842 executed /bin/sh
+Exec: PID 2965842 executed /usr/bin/pgrep
+Exec: PID 2965843 executed /bin/ps
+Exec: PID 2965844 executed /usr/bin/sqlite3
+Exec: PID 2965846 executed /bin/sh
+Exec: PID 2965848 executed /usr/bin/grep
+Exec: PID 2965849 executed /usr/bin/wc
+Exec: PID 2965847 executed /usr/bin/lsof
+Exec: PID 2965851 executed /bin/sh
+Exec: PID 2965851 executed /usr/bin/which
+Exec: PID 2965852 executed /bin/sh
+Exec: PID 2965852 executed /usr/bin/ps
+Exec: PID 2965853 executed /bin/sh
+Exec: PID 2965853 executed /usr/share/code/resources/app/out/vs/base/node/cpuUsage.sh
+Exec: PID 2965854 executed /usr/bin/sed
+Exec: PID 2965855 executed /usr/bin/cat
+Exec: PID 2965856 executed /usr/bin/cat
+Exec: PID 2965857 executed /usr/bin/cat
+Exec: PID 2965858 executed /usr/bin/cat
+Exec: PID 2965859 executed /usr/bin/cat
+Exec: PID 2965860 executed /usr/bin/cat
+Exec: PID 2965861 executed /usr/bin/cat
+Exec: PID 2965862 executed /usr/bin/cat
+Exec: PID 2965863 executed /usr/bin/cat
+Exec: PID 2965864 executed /usr/bin/cat
+Exec: PID 2965865 executed /usr/bin/cat
+Exec: PID 2965866 executed /usr/bin/cat
+Exec: PID 2965867 executed /usr/bin/cat
+Exec: PID 2965868 executed /usr/bin/cat
+Exec: PID 2965869 executed /usr/bin/cat
+Exec: PID 2965870 executed /usr/bin/cat
+Exec: PID 2965871 executed /usr/bin/cat
+Exec: PID 2965872 executed /usr/bin/cat
+Exec: PID 2965873 executed /usr/bin/cat
+Exec: PID 2965874 executed /usr/bin/cat
+Exec: PID 2965875 executed /usr/bin/cat
+Exec: PID 2965876 executed /usr/bin/cat
+Exec: PID 2965877 executed /usr/bin/cat
+Exec: PID 2965878 executed /usr/bin/cat
+Exec: PID 2965879 executed /usr/bin/cat
+Exec: PID 2965880 executed /usr/bin/cat
+Exec: PID 2965881 executed /usr/bin/cat
+Exec: PID 2965882 executed /usr/bin/cat
+Exec: PID 2965883 executed /usr/bin/cat
+Exec: PID 2965884 executed /usr/bin/sleep
+Exec: PID 2965885 executed /bin/loginctl
+Exec: PID 2965886 executed /bin/sh
+Exec: PID 2965886 executed /usr/bin/pgrep
+Exec: PID 2965887 executed /bin/ps
+Exec: PID 2965889 executed /bin/sh
+Exec: PID 2965889 executed /usr/bin/ps
+Exec: PID 2965891 executed /bin/sh
+Exec: PID 2965892 executed /bin/loginctl
+Exec: PID 2965893 executed /usr/bin/lsof
+Exec: PID 2965894 executed /usr/bin/grep
+Exec: PID 2965895 executed /usr/bin/wc
+Exec: PID 2965897 executed /bin/sh
+Exec: PID 2965897 executed /usr/bin/pgrep
+Exec: PID 2965898 executed /bin/ps
+Exec: PID 2965899 executed /usr/bin/sed
+Exec: PID 2965900 executed /usr/bin/cat
+Exec: PID 2965902 executed /usr/bin/cat
+Exec: PID 2965904 executed /usr/bin/cat
+Exec: PID 2965906 executed /usr/bin/cat
+Exec: PID 2965908 executed /usr/bin/cat
+Exec: PID 2965910 executed /usr/bin/cat
+Exec: PID 2965912 executed /usr/bin/cat
+Exec: PID 2965914 executed /usr/bin/cat
+Exec: PID 2965917 executed /usr/bin/cat
+Exec: PID 2965919 executed /usr/bin/cat
+Exec: PID 2965921 executed /usr/bin/cat
+Exec: PID 2965923 executed /usr/bin/cat
+Exec: PID 2965925 executed /usr/bin/cat
+Exec: PID 2965927 executed /usr/bin/cat
+Exec: PID 2965929 executed /usr/bin/cat
+Exec: PID 2965931 executed /usr/bin/cat
+Exec: PID 2965933 executed /usr/bin/cat
+Exec: PID 2965935 executed /usr/bin/cat
+Exec: PID 2965937 executed /usr/bin/cat
+Exec: PID 2965939 executed /usr/bin/cat
+Exec: PID 2965941 executed /usr/bin/cat
+Exec: PID 2965943 executed /usr/bin/cat
+Exec: PID 2965945 executed /usr/bin/cat
+Exec: PID 2965947 executed /usr/bin/cat
+Exec: PID 2965949 executed /usr/bin/cat
+Exec: PID 2965951 executed /usr/bin/cat
+Exec: PID 2965953 executed /usr/bin/cat
+Exec: PID 2965955 executed /usr/bin/cat
+Exec: PID 2965957 executed /usr/bin/cat
+^C
+
+[owner@192.168.1.135-20260226-064005 ~]$ 
+
+explain what this does and how it works:
+
+7️⃣ Auditd (Forensic Audit Trail)
+
+If you want persistent logs:
+
+Install:
+
+sudo apt install auditd
+
+Then watch the extension host binary:
+
+sudo auditctl -a always,exit -F arch=b64 -S kill
+
+Then view:
+
+sudo ausearch -sc kill
+
+This logs kill syscalls system-wide.
+
+does killing syscalls system-wide harm the system?
+
+[owner@192.168.1.135-20260226-064009 ~]$ sudo dnf install perf
+Updating and loading repositories:
+Repositories loaded.
+Package                  Arch    Version                  Repository        Size
+Installing:
+ perf                    x86_64  6.18.13-200.fc43         updates       11.9 MiB
+Installing dependencies:
+ libpfm                  x86_64  4.13.0-16.fc43           fedora         1.7 MiB
+ libtraceevent           x86_64  1.8.4-4.fc43             fedora         1.4 MiB
+
+Transaction Summary:
+ Installing:         3 packages
+
+Total size of inbound packages is 3 MiB. Need to download 3 MiB.
+After this operation, 15 MiB extra will be used (install 15 MiB, remove 0 B).
+Is this ok [y/N]: y
+[1/3] libpfm-0:4.13.0-16.fc43.x86_64    100% | 279.6 KiB/s | 224.5 KiB |  00m01s
+[2/3] libtraceevent-0:1.8.4-4.fc43.x86_ 100% | 341.9 KiB/s | 277.3 KiB |  00m01s
+[3/3] perf-0:6.18.13-200.fc43.x86_64    100% | 575.7 KiB/s |   2.7 MiB |  00m05s
+--------------------------------------------------------------------------------
+[3/3] Total                             100% | 441.0 KiB/s |   3.2 MiB |  00m07s
+Running transaction
+[1/5] Verify package files              100% |  83.0   B/s |   3.0   B |  00m00s
+[2/5] Prepare transaction               100% |   5.0   B/s |   3.0   B |  00m01s
+[3/5] Installing libtraceevent-0:1.8.4- 100% |  13.4 MiB/s |   1.4 MiB |  00m00s
+[4/5] Installing libpfm-0:4.13.0-16.fc4 100% | 107.5 MiB/s |   1.7 MiB |  00m00s
+[5/5] Installing perf-0:6.18.13-200.fc4 100% |   8.2 MiB/s |  12.0 MiB |  00m01s
+Complete!
+[owner@192.168.1.135-20260226-064306 ~]$ sudo perf record -p 2359723
+[sudo] password for owner: 
+^C[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.066 MB perf.data (859 samples) ]
+
+[owner@192.168.1.135-20260226-064856 ~]$ sudo perf report
+[owner@192.168.1.135-20260226-064928 ~]$ 
+
+[owner@192.168.1.135-20260226-065006 ~]$ pgrep -fa extensionHost
+[owner@192.168.1.135-20260226-065007 ~]$ ^Cdo strace -ff -e trace=signal,process -p
+[owner@192.168.1.135-20260226-065023 ~]$ sudo strace -ff -e trace=signal,process -p 2359723
+strace: Process 2359723 attached with 21 threads
+[pid 2359723] rt_sigprocmask(SIG_BLOCK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], [], 8) = 0
+[pid 2359723] rt_sigprocmask(SIG_BLOCK, ~[], ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], 8) = 0
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2995583 attached
+, child_tidptr=0x7efcd77b95d0) = 2995583
+[pid 2995583] rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1] <unfinished ...>
+[pid 2359723] rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1] <unfinished ...>
+[pid 2995583] <... rt_sigprocmask resumed>, NULL, 8) = 0
+[pid 2359723] <... rt_sigprocmask resumed>, NULL, 8) = 0
+[pid 2359723] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGHUP, {sa_handler=SIG_DFL, sa_mask=[HUP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[INT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f32153b20, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESETHAND, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[QUIT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGILL, {sa_handler=SIG_DFL, sa_mask=[ILL], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGTRAP, {sa_handler=SIG_DFL, sa_mask=[TRAP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigprocmask(SIG_BLOCK, ~[], ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], 8) = 0
+[pid 2995583] rt_sigaction(SIGABRT, {sa_handler=SIG_DFL, sa_mask=[ABRT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGBUS, {sa_handler=SIG_DFL, sa_mask=[BUS], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGFPE, {sa_handler=SIG_DFL, sa_mask=[FPE], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGUSR1, {sa_handler=SIG_DFL, sa_mask=[USR1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f3238a090, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGSEGV, {sa_handler=SIG_DFL, sa_mask=[SEGV], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGUSR2, {sa_handler=SIG_DFL, sa_mask=[USR2], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGPIPE, {sa_handler=SIG_DFL, sa_mask=[PIPE], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f31e68530, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGALRM, {sa_handler=SIG_DFL, sa_mask=[ALRM], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=[TERM], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f32153b20, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESETHAND, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGSTKFLT, {sa_handler=SIG_DFL, sa_mask=[STKFLT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[CHLD], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f31e68530, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGCONT, {sa_handler=SIG_DFL, sa_mask=[CONT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[TSTP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[TTIN], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[TTOU], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGURG, {sa_handler=SIG_DFL, sa_mask=[URG], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGXCPU, {sa_handler=SIG_DFL, sa_mask=[XCPU], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGXFSZ, {sa_handler=SIG_DFL, sa_mask=[XFSZ], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGVTALRM, {sa_handler=SIG_DFL, sa_mask=[VTALRM], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGPROF, {sa_handler=SIG_DFL, sa_mask=[PROF], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995583] rt_sigaction(SIGWINCH, {sa_handler=SIG_DFL, sa_mask=[WINCH], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGIO, {sa_handler=SIG_DFL, sa_mask=[IO], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGPWR, {sa_handler=SIG_DFL, sa_mask=[PWR], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigaction(SIGSYS, {sa_handler=SIG_DFL, sa_mask=[SYS], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995583] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 2995583] execve("/home/owner/.opencode/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b4480 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995583] execve("/home/owner/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b4480 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995583] execve("/home/owner/.opencode/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b4480 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995583] execve("/home/owner/.config/nvm/versions/node/v22.18.0/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b4480 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995583] execve("/home/owner/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b4480 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995583] execve("/home/owner/.local/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b4480 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995583] execve("/home/owner/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b4480 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995583] execve("/usr/local/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b4480 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995583] execve("/usr/bin/ps", ["ps", "-eo", "pid,comm"], 0x3a3c030b4480 /* 77 vars */) = 0
+[pid 2359723] io_uring_enter(18, 2, 2, IORING_ENTER_GETEVENTS, NULL, 0) = 2
+[pid 2995583] rt_sigaction(SIGSYS, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGPWR, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGIO, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGVTALRM, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGXFSZ, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGXCPU, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGTTIN, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGCHLD, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGSTKFLT, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGTERM, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGALRM, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGPIPE, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGUSR2, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGSEGV, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGUSR1, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGFPE, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGBUS, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 2995583] rt_sigaction(SIGABRT, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGTRAP, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGILL, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] rt_sigaction(SIGHUP, {sa_handler=0x55fd80e1cd90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7fbc6cc9c290}, NULL, 8) = 0
+[pid 2995583] exit_group(0)             = ?
+[pid 2995583] +++ exited with 0 +++
+[pid 2359764] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2995583, si_uid=1000, si_status=0, si_utime=0, si_stime=6 /* 0.06 s */} ---
+[pid 2359764] rt_sigreturn({mask=[]})   = 0
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2995583, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2995583
+[pid 2359723] rt_sigprocmask(SIG_BLOCK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], [], 8) = 0
+[pid 2359723] rt_sigprocmask(SIG_BLOCK, ~[], ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], 8) = 0
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2995597 attached
+, child_tidptr=0x7efcd77b95d0) = 2995597
+[pid 2995597] rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1] <unfinished ...>
+[pid 2359723] rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1] <unfinished ...>
+[pid 2995597] <... rt_sigprocmask resumed>, NULL, 8) = 0
+[pid 2359723] <... rt_sigprocmask resumed>, NULL, 8) = 0
+[pid 2359723] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 2995597] rt_sigaction(SIGHUP, {sa_handler=SIG_DFL, sa_mask=[HUP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[INT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f32153b20, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESETHAND, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[QUIT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGILL, {sa_handler=SIG_DFL, sa_mask=[ILL], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGTRAP, {sa_handler=SIG_DFL, sa_mask=[TRAP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigprocmask(SIG_BLOCK, ~[], ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], 8) = 0
+[pid 2995597] rt_sigaction(SIGABRT, {sa_handler=SIG_DFL, sa_mask=[ABRT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], NULL, 8) = 0
+[pid 2995597] rt_sigaction(SIGBUS, {sa_handler=SIG_DFL, sa_mask=[BUS], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGFPE, {sa_handler=SIG_DFL, sa_mask=[FPE], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGUSR1, {sa_handler=SIG_DFL, sa_mask=[USR1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f3238a090, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGSEGV, {sa_handler=SIG_DFL, sa_mask=[SEGV], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGUSR2, {sa_handler=SIG_DFL, sa_mask=[USR2], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGPIPE, {sa_handler=SIG_DFL, sa_mask=[PIPE], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f31e68530, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGALRM, {sa_handler=SIG_DFL, sa_mask=[ALRM], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=[TERM], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f32153b20, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESETHAND, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGSTKFLT, {sa_handler=SIG_DFL, sa_mask=[STKFLT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[CHLD], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f31e68530, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGCONT, {sa_handler=SIG_DFL, sa_mask=[CONT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[TSTP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[TTIN], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[TTOU], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGURG, {sa_handler=SIG_DFL, sa_mask=[URG], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGXCPU, {sa_handler=SIG_DFL, sa_mask=[XCPU], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGXFSZ, {sa_handler=SIG_DFL, sa_mask=[XFSZ], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGVTALRM, {sa_handler=SIG_DFL, sa_mask=[VTALRM], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGPROF, {sa_handler=SIG_DFL, sa_mask=[PROF], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995597] rt_sigaction(SIGWINCH, {sa_handler=SIG_DFL, sa_mask=[WINCH], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGIO, {sa_handler=SIG_DFL, sa_mask=[IO], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGPWR, {sa_handler=SIG_DFL, sa_mask=[PWR], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigaction(SIGSYS, {sa_handler=SIG_DFL, sa_mask=[SYS], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995597] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 2995597] execve("/home/owner/.opencode/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995597] execve("/home/owner/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995597] execve("/home/owner/.opencode/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995597] execve("/home/owner/.config/nvm/versions/node/v22.18.0/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995597] execve("/home/owner/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995597] execve("/home/owner/.local/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995597] execve("/home/owner/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995597] execve("/usr/local/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995597] execve("/usr/bin/vmstat", ["vmstat", "1", "2"], 0x3a3c030b4e80 /* 77 vars */) = 0
+[pid 2359723] io_uring_enter(18, 2, 2, IORING_ENTER_GETEVENTS, NULL, 0) = 2
+[pid 2359723] rt_sigprocmask(SIG_BLOCK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], [], 8) = 0
+[pid 2359723] rt_sigprocmask(SIG_BLOCK, ~[], ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], 8) = 0
+[pid 2359723] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 2995634 attached
+, child_tidptr=0x7efcd77b95d0) = 2995634
+[pid 2995634] rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1] <unfinished ...>
+[pid 2359723] rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1] <unfinished ...>
+[pid 2995634] <... rt_sigprocmask resumed>, NULL, 8) = 0
+[pid 2359723] <... rt_sigprocmask resumed>, NULL, 8) = 0
+[pid 2359723] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGHUP, {sa_handler=SIG_DFL, sa_mask=[HUP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[INT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f32153b20, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESETHAND, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[QUIT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGILL, {sa_handler=SIG_DFL, sa_mask=[ILL], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGTRAP, {sa_handler=SIG_DFL, sa_mask=[TRAP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigprocmask(SIG_BLOCK, ~[], ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], 8) = 0
+[pid 2995634] rt_sigaction(SIGABRT, {sa_handler=SIG_DFL, sa_mask=[ABRT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS KILL SEGV STOP SYS RTMIN RT_1], NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGBUS, {sa_handler=SIG_DFL, sa_mask=[BUS], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGFPE, {sa_handler=SIG_DFL, sa_mask=[FPE], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGUSR1, {sa_handler=SIG_DFL, sa_mask=[USR1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f3238a090, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGSEGV, {sa_handler=SIG_DFL, sa_mask=[SEGV], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGUSR2, {sa_handler=SIG_DFL, sa_mask=[USR2], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGPIPE, {sa_handler=SIG_DFL, sa_mask=[PIPE], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f31e68530, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGALRM, {sa_handler=SIG_DFL, sa_mask=[ALRM], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=[TERM], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f32153b20, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESETHAND, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGSTKFLT, {sa_handler=SIG_DFL, sa_mask=[STKFLT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[CHLD], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f31e68530, sa_mask=~[KILL STOP RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGCONT, {sa_handler=SIG_DFL, sa_mask=[CONT], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[TSTP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[TTIN], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[TTOU], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGURG, {sa_handler=SIG_DFL, sa_mask=[URG], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGXCPU, {sa_handler=SIG_DFL, sa_mask=[XCPU], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=0x556f36526e40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO|0x800, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGXFSZ, {sa_handler=SIG_DFL, sa_mask=[XFSZ], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGVTALRM, {sa_handler=SIG_DFL, sa_mask=[VTALRM], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGPROF, {sa_handler=SIG_DFL, sa_mask=[PROF], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7efcd8a91290}, 8) = 0
+[pid 2995634] rt_sigaction(SIGWINCH, {sa_handler=SIG_DFL, sa_mask=[WINCH], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGIO, {sa_handler=SIG_DFL, sa_mask=[IO], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGPWR, {sa_handler=SIG_DFL, sa_mask=[PWR], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigaction(SIGSYS, {sa_handler=SIG_DFL, sa_mask=[SYS], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7efcd8a91290}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+[pid 2995634] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 2995634] execve("/home/owner/.opencode/bin/ps", ["ps", "aux"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995634] execve("/home/owner/bin/ps", ["ps", "aux"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995634] execve("/home/owner/.opencode/bin/ps", ["ps", "aux"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995634] execve("/home/owner/.config/nvm/versions/node/v22.18.0/bin/ps", ["ps", "aux"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995634] execve("/home/owner/bin/ps", ["ps", "aux"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995634] execve("/home/owner/.local/bin/ps", ["ps", "aux"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995634] execve("/home/owner/bin/ps", ["ps", "aux"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995634] execve("/usr/local/bin/ps", ["ps", "aux"], 0x3a3c030b4e80 /* 77 vars */) = -1 ENOENT (No such file or directory)
+[pid 2995634] execve("/usr/bin/ps", ["ps", "aux"], 0x3a3c030b4e80 /* 77 vars */) = 0
+[pid 2359723] io_uring_enter(18, 2, 2, IORING_ENTER_GETEVENTS, NULL, 0) = 2
+[pid 2995634] rt_sigaction(SIGSYS, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGPWR, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGIO, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGVTALRM, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGXFSZ, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGXCPU, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGTTIN, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGCHLD, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGSTKFLT, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGTERM, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGALRM, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGPIPE, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGUSR2, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGSEGV, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGUSR1, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGFPE, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGBUS, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 2995634] rt_sigaction(SIGABRT, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGTRAP, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGILL, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] rt_sigaction(SIGHUP, {sa_handler=0x55f0325d0d90, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0x7f79485b6290}, NULL, 8) = 0
+[pid 2995634] exit_group(0)             = ?
+[pid 2995634] +++ exited with 0 +++
+[pid 2359735] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2995634, si_uid=1000, si_status=0, si_utime=1 /* 0.01 s */, si_stime=6 /* 0.06 s */} ---
+[pid 2359735] rt_sigreturn({mask=[]})   = 202
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2995597, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2995634, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2995634
+[pid 2995597] exit_group(0)             = ?
+[pid 2995597] +++ exited with 0 +++
+[pid 2359723] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2995597, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 2359723] rt_sigreturn({mask=[]})   = 1
+[pid 2359723] wait4(2360891, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2360892, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2361977, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362030, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362031, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2362052, 0x7ffee9710c84, WNOHANG, NULL) = 0
+[pid 2359723] wait4(2995597, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 2995597
+^Cstrace: Process 2359764 detached
+strace: Process 2361988 detached
+strace: Process 2361246 detached
+strace: Process 2359763 detached
+strace: Process 2359762 detached
+strace: Process 2359761 detached
+strace: Process 2359760 detached
+strace: Process 2359758 detached
+strace: Process 2359740 detached
+strace: Process 2359739 detached
+strace: Process 2359738 detached
+strace: Process 2359737 detached
+strace: Process 2359736 detached
+strace: Process 2359735 detached
+strace: Process 2359734 detached
+strace: Process 2359733 detached
+strace: Process 2359732 detached
+strace: Process 2359731 detached
+strace: Process 2359730 detached
+strace: Process 2359729 detached
+strace: Process 2359723 detached
+
+[owner@192.168.1.135-20260226-065040 ~]$ 
+
+Samples: 859  of event 'cycles:P', Event count (approx.): 350344108
+Overhead  Command          Shared Object         Symbol
+   1.84%  code             libc.so.6             [.] __memmove_avx_unaligned_erm
+   1.12%  ps               libproc2.so.0.0.2     [.] escape_str
+   1.00%  ps               [kernel.kallsyms]     [k] __d_lookup_rcu
+   0.99%  code             [kernel.kallsyms]     [k] zap_present_ptes.constprop.
+   0.97%  code             [kernel.kallsyms]     [k] _raw_spin_lock
+   0.97%  code             [kernel.kallsyms]     [k] copy_present_ptes
+   0.93%  ps               libc.so.6             [.] __vfscanf_internal
+   0.81%  code             [kernel.kallsyms]     [k] pvclock_clocksource_read_no
+   0.79%  ps               [kernel.kallsyms]     [k] __pi_memset
+   0.76%  ps               [kernel.kallsyms]     [k] entry_SYSCALL_64
+   0.58%  code             [kernel.kallsyms]     [k] asm_exc_page_fault
+   0.58%  code             [kernel.kallsyms]     [k] __d_lookup_rcu
+   0.51%  code             [kernel.kallsyms]     [k] timerqueue_add
+   0.50%  code             code                  [.] 0x00000000066c263b
+   0.49%  code             code                  [.] 0x0000000005ad98bf
+   0.49%  code             code                  [.] v8::String::WriteUtf8(v8::I
+   0.46%  code             [kernel.kallsyms]     [k] native_write_msr
+   0.44%  code             [kernel.kallsyms]     [k] __get_user_8
+   0.44%  code             code                  [.] 0x00000000027c5297
+   0.44%  code             code                  [.] node::fs_dir::CreatePerCont
+   0.43%  code             code                  [.] node::AsyncHooks::pop_async
+Tip: If you have debuginfo enabled, try: perf report -s sym,srcline

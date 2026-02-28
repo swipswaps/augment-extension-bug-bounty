@@ -1,0 +1,13 @@
+=== Hidden Terminal Monitor ===
+Date: 2026-02-14 14:48:37
+
+[INFO] Detecting VS Code terminals and extension hosts...
+[INFO] Found 2 hidden terminals/processes.
+[DETAILS] PIDs: 1972756 1972759
+
+[DETAILS] Command lines:
+  PID 1972756: [cmdline unavailable]
+  PID 1972759: [cmdline unavailable]
+
+=== End of Monitoring ===
+Date: 2026-02-14 14:48:38

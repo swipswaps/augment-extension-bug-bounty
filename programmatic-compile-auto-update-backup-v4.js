@@ -1,0 +1,196 @@
+/**
+ * programmatic-compile-auto-update-backup-v4.js
+ *
+ * CRITICAL DESIGN CORRECTIONS:
+ *
+ * 1. DO NOT FILTER CODE LINES.
+ *    Filtering lines containing exec( breaks syntax integrity.
+ *    The spec file must contain correct final code.
+ *
+ * 2. ONLY EXTRACT FENCED CODE BLOCKS.
+ *    We extract code strictly between ```typescript fences.
+ *    This prevents prose or examples from contaminating output.
+ *
+ * 3. CLEAN OUT DIRECTORY BEFORE COMPILATION.
+ *    Prevent stale JS files from triggering false forbidden API alerts.
+ *
+ * 4. SCAN ONLY FRESHLY EMITTED FILES.
+ *
+ * 5. LOG EVERY STEP.
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+// ---------------- STEP 0: LOAD TYPESCRIPT ----------------
+
+let ts;
+try {
+    ts = require(path.join(__dirname, 'hidden-terminal-watchdog', 'node_modules', 'typescript'));
+    console.log("STEP 0: TypeScript module loaded successfully.");
+} catch (err) {
+    console.error("STEP 0 FAILED: Cannot load TypeScript module.");
+    process.exit(1);
+}
+
+// ---------------- STEP 1: SETUP LOGGING ----------------
+
+const LOGDIR = '.notes';
+const BACKUPDIR = path.join(LOGDIR, '.backup', Date.now().toString());
+fs.mkdirSync(LOGDIR, { recursive: true });
+fs.mkdirSync(BACKUPDIR, { recursive: true });
+
+const logFile = path.join(LOGDIR, `programmatic-compile-auto-v4-${Date.now()}.log`);
+
+function log(msg) {
+    console.log(msg);
+    fs.appendFileSync(logFile, msg + '\n');
+}
+
+log("STEP 1: Logging initialized.");
+
+// ---------------- STEP 2: BACKUP TS FILES ----------------
+
+const TS_FILES = {
+    "ExecBanEnforcer.ts": "hidden-terminal-watchdog/src/core/ExecBanEnforcer.ts",
+    "FullComplianceRun.ts": "hidden-terminal-watchdog/src/commands/FullComplianceRun.ts",
+    "extension.ts": "hidden-terminal-watchdog/src/extension.ts"
+};
+
+log("STEP 2: Backing up TypeScript files.");
+
+for (const file of Object.values(TS_FILES)) {
+    if (fs.existsSync(file)) {
+        const dest = path.join(BACKUPDIR, path.basename(file));
+        fs.copyFileSync(file, dest);
+        log(`Backed up ${file} → ${dest}`);
+    } else {
+        log(`WARNING: File missing, skipping backup: ${file}`);
+    }
+}
+
+// ---------------- STEP 3: READ SPEC ----------------
+
+const SPEC_FILE = path.join(LOGDIR, '69935426-075c-8329-b732-ceb8a5e0b600_0055.txt');
+
+log("STEP 3: Reading spec file.");
+
+let specContent;
+try {
+    specContent = fs.readFileSync(SPEC_FILE, 'utf8');
+    log("Spec file read successfully.");
+} catch (err) {
+    log("FAILED to read spec file.");
+    process.exit(1);
+}
+
+// ---------------- STEP 4: EXTRACT FENCED TYPESCRIPT BLOCKS ----------------
+
+log("STEP 4: Extracting fenced TypeScript code blocks.");
+
+/**
+ * We ONLY extract:
+ * ```typescript
+ * <code>
+ * ```
+ *
+ * This guarantees:
+ * - No prose contamination
+ * - No emoji section parsing needed
+ * - No destructive filtering
+ */
+
+const blockRegex = /```typescript([\s\S]*?)```/g;
+let match;
+const extractedBlocks = [];
+
+while ((match = blockRegex.exec(specContent)) !== null) {
+    extractedBlocks.push(match[1].trim());
+}
+
+log(`Found ${extractedBlocks.length} TypeScript fenced blocks.`);
+
+if (extractedBlocks.length === 0) {
+    log("No fenced TypeScript blocks found. Aborting.");
+    process.exit(1);
+}
+
+// Map blocks by filename markers inside code
+for (const block of extractedBlocks) {
+    for (const [name, filePath] of Object.entries(TS_FILES)) {
+        if (block.includes(`// FILE: ${name}`)) {
+            const cleaned = block.replace(`// FILE: ${name}`, '').trim();
+            fs.writeFileSync(filePath, cleaned, 'utf8');
+            log(`Wrote clean code to ${filePath}`);
+        }
+    }
+}
+
+// ---------------- STEP 5: CLEAN OUT DIRECTORY ----------------
+
+log("STEP 5: Cleaning previous compilation output.");
+
+const outDir = 'hidden-terminal-watchdog/out';
+
+if (fs.existsSync(outDir)) {
+    fs.rmSync(outDir, { recursive: true, force: true });
+    log("Old out/ directory removed.");
+}
+
+// ---------------- STEP 6: COMPILE PROGRAMMATICALLY ----------------
+
+log("STEP 6: Compiling TypeScript.");
+
+const configPath = ts.findConfigFile(
+    path.join(__dirname, 'hidden-terminal-watchdog'),
+    ts.sys.fileExists,
+    'tsconfig.json'
+);
+
+if (!configPath) {
+    log("tsconfig.json not found.");
+    process.exit(1);
+}
+
+const { config } = ts.readConfigFile(configPath, ts.sys.readFile);
+const parsed = ts.parseJsonConfigFileContent(config, ts.sys, path.dirname(configPath));
+const program = ts.createProgram(parsed.fileNames, parsed.options);
+const emitResult = program.emit();
+
+const diagnostics = ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics);
+
+if (diagnostics.length > 0) {
+    log(`Compilation produced ${diagnostics.length} diagnostics.`);
+    diagnostics.forEach(d => {
+        log(ts.flattenDiagnosticMessageText(d.messageText, '\n'));
+    });
+    process.exit(1);
+}
+
+log("Compilation successful.");
+
+// ---------------- STEP 7: SCAN FRESH OUTPUT ----------------
+
+log("STEP 7: Scanning fresh output for forbidden APIs.");
+
+function scanDir(dir) {
+    for (const entry of fs.readdirSync(dir)) {
+        const full = path.join(dir, entry);
+        const stat = fs.statSync(full);
+        if (stat.isDirectory()) {
+            scanDir(full);
+        } else if (entry.endsWith('.js')) {
+            const content = fs.readFileSync(full, 'utf8');
+            if (/exec\(|execSync\(|spawnSync\(/.test(content)) {
+                log(`FORBIDDEN API DETECTED: ${full}`);
+                process.exit(1);
+            }
+        }
+    }
+}
+
+scanDir(outDir);
+
+log("No forbidden APIs detected.");
+log("STEP 8: Compliance complete.");
+

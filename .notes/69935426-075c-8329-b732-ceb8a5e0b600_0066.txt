@@ -1,0 +1,247 @@
+10:31 AM
+
+without trying to evade what we have addressed here
+
+you must read the output from the logs at each and every single step
+
+repeat that prompt as working example code 
+
+repeat that before you start
+
+then write that as code and explain that code
+
+[owner@192.168.1.135-20260220-103012 6984bd27-4494-8330-9803-7b6895a48aa5]$ locate extension.js |grep 6984b
+/home/owner/Documents/6984bd27-4494-8330-9803-7b6895a48aa5/firefox-performance-tuner/node_modules/eslint-plugin-react/lib/rules/jsx-filename-extension.js
+/home/owner/Documents/6984bd27-4494-8330-9803-7b6895a48aa5/hidden-terminal-watchdog/out/extension.js
+/home/owner/Documents/6984bd27-4494-8330-9803-7b6895a48aa5/hidden-terminal-watchdog/out/extension.js.map
+/home/owner/Documents/6984bd27-4494-8330-9803-7b6895a48aa5/vscode-resource-guardian/out/extension.js
+/home/owner/Documents/6984bd27-4494-8330-9803-7b6895a48aa5/vscode-resource-guardian/out/extension.js.map
+
+REPEATING THE PROMPT AS WORKING EXAMPLE CODE
+
+From  .notes/69935426-075c-8329-b732-ceb8a5e0b600_0063.txt:
+
+The v3.1 script performs:
+
+Backup all TS files
+Read spec file
+Extract code with Unicode-aware emoji splitting /\n\d+\uFE0F?\u20E3.*\n/gm
+Filter forbidden APIs - Remove lines with exec(, execSync(, spawnSync(
+Overwrite TS files
+Compile TypeScript programmatically
+Scan emitted JS for forbidden APIs
+Log every step
+CRITICAL ISSUE IDENTIFIED: The user's locate output shows  hidden-terminal-watchdog/out/extension.js exists. This is an OLD compiled file that contains forbidden APIs. The script is scanning OLD files, not newly compiled ones.
+
+NOW EXAMINING THE EXTRACTED FILES TO SEE WHAT WAS ACTUALLY WRITTEN
+
+Read lines 1-50
+
+ExecBanEnforcer.ts
+Read lines 1-60
+
+FullComplianceRun.ts
+READING THE EXTRACTED FILES - CRITICAL FINDINGS
+
+ExecBanEnforcer.ts: ✅ LOOKS GOOD
+
+41 lines, clean code
+No forbidden APIs visible
+Properly formatted TypeScript
+FullComplianceRun.ts: ❌ SEVERELY CORRUPTED
+
+Line 48: /** comment with no content
+Line 49: const files = fs.readdirSync(dir); -  dir is undefined (no function declaration)
+Line 50: for (const f of files) { - inside no function
+Line 53: else if (f.endsWith(".js")) { - else with no if
+Line 54-56: Orphaned code blocks
+The code extraction is BROKEN - it's extracting fragments, not complete functions
+ROOT CAUSE: The filtering logic .filter(line => !/(exec\(|execSync\(|spawnSync\()/i.test(line)) is removing lines that contain forbidden APIs, but this is also removing VALID code that might have those strings in comments or error messages, AND it's leaving behind orphaned code fragments.
+
+NOW READING THE LOG FILE TO SEE WHAT WAS LOGGED
+
+Terminal
+$ cat .notes/programmatic-compile-auto-v3.1-1771601408477.log 2>&1 | head -50
+READING LOG FILE - CONFIRMED FINDINGS
+
+The log shows:
+
+6 sections extracted (not 1 like v2, so Unicode regex is working)
+FullComplianceRun.ts has syntax errors - orphaned code, missing function declarations
+The filtering approach is fundamentally broken
+CRITICAL REALIZATION: The spec file  .notes/69935426-075c-8329-b732-ceb8a5e0b600_0055.txt contains code that SHOULD have exec() calls because it's showing EXAMPLES of what NOT to do. The filtering is removing those lines, leaving behind broken code fragments.
+
+THE REAL SOLUTION: Don't filter the spec file. Instead, the spec file itself should contain ONLY the correct code without forbidden APIs. The user needs to provide a spec file that has the CORRECT implementation.
+
+NOW RESTORING FROM BACKUP AND EXPLAINING THE ISSUE
+
+Terminal
+$ cp .notes/.backup/1771601408477/ExecBanEnforcer.ts hidden-terminal-watchdog/src/core/ExecBanEnforcer.ts && cp .notes/.backup/1771601408477/FullComplianceRun.ts hidden-terminal-watchdog/src/commands/FullComplianceRun.ts && echo "✅ Files restored from backup"
+EXPLANATION OF THE PROBLEM AND SOLUTION
+
+What happened:
+
+v3.1 script successfully split spec into 6 sections (Unicode regex working)
+Filtering removed lines containing exec(, execSync(, spawnSync(
+This left behind orphaned code fragments (function bodies without declarations)
+FullComplianceRun.ts became corrupted with syntax errors
+Files restored from backup successfully
+Why filtering failed:
+
+The spec file contains EXAMPLE code showing what NOT to do
+Filtering removes those lines but leaves behind incomplete code blocks
+Result: Broken TypeScript files that won't compile
+The correct solution:
+
+The spec file itself must contain ONLY correct code (no forbidden APIs)
+No filtering needed - just extract and write the code as-is
+The user needs to provide a spec file ( .notes/69935426-075c-8329-b732-ceb8a5e0b600_0055.txt) that has the FINAL correct implementation, not examples of what to avoid
+Summary: The v3.1 approach of filtering forbidden APIs from the spec is fundamentally flawed. The spec file must contain clean, correct code from the start. The script should extract and write code without modification.
+
+10:46 AM
+[owner@192.168.1.135-20260220-104456 6984bd27-4494-8330-9803-7b6895a48aa5]$ ls -la .
+notes/69935426-075c-8329-b732-ceb8a5e0b600_0064.txt
+-rw-r--r--. 1 owner owner 11800 Feb 20 10:42 .notes/69935426-075c-8329-b732-ceb8a5e0b600_0064.txt
+[owner@192.168.1.135-20260220-104508 6984bd27-4494-8330-9803-7b6895a48aa5]$ ls -la .notes/69935426-075c-8329-b732-ceb8a5e0b600_0065.txt
+-rw-r--r--. 1 owner owner 7605 Feb 20 10:44 .notes/69935426-075c-8329-b732-ceb8a5e0b600_0065.txt
+
+//requests informed by official docs, reputable forum posts and popular github repo code, resolve the issues with code and guide the LLM (Augment Code) to request compliance prompt with working example code where prose is in verbose code comments, not .md or text to be overlooked by the LLM
+
+
+without trying to evade what we have addressed here
+
+you must read the output from the logs at each and every single step
+
+repeat that prompt as working example code 
+
+repeat that before you start
+
+then write that as code and explain that code
+
+READING THE NEW SPEC FILES FIRST
+
+Read file
+
+69935426-075c-8329-b732-ceb8a5e0b600_0064.txt
+Read file
+
+69935426-075c-8329-b732-ceb8a5e0b600_0065.txt
+REPEATING THE PROMPT AS WORKING EXAMPLE CODE
+
+From  .notes/69935426-075c-8329-b732-ceb8a5e0b600_0065.txt:
+
+The v4 script implements CRITICAL DESIGN CORRECTIONS:
+
+NO FILTERING - Do not mutate extracted code (filtering breaks syntax)
+FENCED CODE BLOCKS ONLY - Extract code strictly between ```typescript fences
+CLEAN OUT DIRECTORY - Delete  hidden-terminal-watchdog/out/ before compilation (prevents stale JS false positives)
+SCAN ONLY FRESH FILES - Only scan newly compiled output
+LOG EVERY STEP - Full audit trail
+KEY ARCHITECTURAL FIX: The spec file must contain ONLY fenced TypeScript blocks with // FILE: filename.ts markers. No prose, no examples, no forbidden APIs.
+
+NOW WRITING THE v4 CODE AND EXPLAINING IT
+
+Created file
+
+programmatic-compile-auto-update-backup-v4.js
+READING OUTPUT FROM FILE CREATION
+
+✅ File created:  programmatic-compile-auto-update-backup-v4.js (150 lines)
+
+NOW COMPLETING THE v4 SCRIPT WITH STEPS 7-8
+
+Edited file
+
+programmatic-compile-auto-update-backup-v4.js
++37
+EXPLANATION OF THE COMPLETED v4 CODE
+
+What was added (lines 151-195):
+
+Diagnostics handling: Checks compilation errors, logs all diagnostics, exits if any found
+Forbidden API scanning: Recursively scans ONLY fresh out/ directory for exec(, execSync(, spawnSync(
+Success logging: Confirms no forbidden APIs detected and compliance complete
+Why this works:
+
+No filtering - Code extracted as-is from fenced blocks
+Clean slate - Old out/ directory deleted before compilation
+Fresh scan - Only newly compiled files are scanned
+No false positives - Stale extension.js and teeRunner.js are gone
+How it differs from v3.1:
+
+v3.1: Filtered lines → corrupted syntax
+v4: No filtering → clean extraction
+v3.1: Scanned old files → false positives
+v4: Deletes out/ first → only fresh files
+NOW EXECUTING THE v4 SCRIPT AND READING OUTPUT AT EVERY STEP
+
+Terminal
+$ node programmatic-compile-auto-update-backup-v4.js 2>&1
+READING OUTPUT FROM ALL STEPS
+
+STEP 0 - Load TypeScript: ✅ SUCCESS
+
+TypeScript module loaded successfully
+STEP 1 - Logging: ✅ SUCCESS
+
+Logging initialized
+STEP 2 - Backup: ✅ SUCCESS
+
+All 3 files backed up to  .notes/.backup/1771602761112/
+STEP 3 - Read spec: ✅ SUCCESS
+
+Spec file read successfully
+STEP 4 - Extract fenced blocks: ❌ FAILED
+
+Found 0 TypeScript fenced blocks
+Script aborted (as designed)
+ROOT CAUSE: The spec file  .notes/69935426-075c-8329-b732-ceb8a5e0b600_0055.txt does NOT contain fenced TypeScript blocks with ```typescript markers. It contains emoji section markers and mixed prose/code.
+
+NOW READING THE LOG FILE TO CONFIRM
+
+Terminal
+$ cat .notes/programmatic-compile-auto-v4-*.log 2>&1
+READING LOG FILE - CONFIRMED
+
+The log confirms:
+
+All steps executed correctly up to extraction
+0 fenced TypeScript blocks found in spec file
+Script aborted as designed (no code to extract)
+NOW CHECKING THE SPEC FILE FORMAT
+
+Terminal
+$ grep -c '```typescript' .notes/69935426-075c-8329-b732-ceb8a5e0b600_0055.txt 2>&1
+READING GREP OUTPUT - CONFIRMED
+
+0 occurrences of ```typescript in the spec file.
+
+SUMMARY OF v4 EXECUTION
+
+What worked:
+
+✅ TypeScript module loading
+✅ Logging system
+✅ Backup system
+✅ Spec file reading
+✅ Fenced block extraction logic (correctly found 0 blocks)
+✅ Abort on no blocks (prevents writing empty files)
+What's needed:
+
+The spec file must be rewritten to contain fenced TypeScript blocks in this format:
+```typescript
+// FILE: ExecBanEnforcer.ts
+import * as child_process from "child_process";
+
+export class ExecBanEnforcer {
+    public static enforce(): void {
+        // ... implementation without exec() calls ...
+
+// FILE: FullComplianceRun.ts
+import * as ts from "typescript";
+
+export class FullComplianceRun {
+    public static async execute(projectRoot: string): Promise<void> {
+        // ... implementation without exec() calls ...
+
+implementation.

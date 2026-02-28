@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# =============================================================================
+# enforce-instrumentation-compliance.sh
+# -----------------------------------------------------------------------------
+# Bash wrapper for safe local execution of Augment instrumentation, ensuring
+# full RULE 0–22 compliance, avoiding empty <output> blocks, and enforcing
+# retry/exponential backoff behavior.
+#
+# Usage: ./enforce-instrumentation-compliance.sh [max_retries] [backoff_seconds]
+# Default: max_retries=5, backoff_seconds=2
+#
+# Verbose comments explain each compliance step inline.
+# =============================================================================
+
+set -euo pipefail
+
+# ----------------------------
+# CONFIGURATION
+# ----------------------------
+MAX_RETRIES="${1:-5}"        # Maximum retry attempts
+BACKOFF_BASE="${2:-2}"       # Exponential backoff base (seconds)
+LOG_DIR="${HOME}/.notes"     # Directory where instrumentation logs reside
+DEBUG_LOG="${LOG_DIR}/augment-closingPromise-debug.log"
+TOOL_PATH="/usr/local/bin/augment-tool"   # Instrumented launcher
+TMP_LOG="${LOG_DIR}/tmp_augment.log"
+
+# ----------------------------
+# FUNCTION: clean_previous_logs
+# RULE 13: Ensure clean state before execution
+# ----------------------------
+clean_previous_logs() {
+    echo "[INFO] Cleaning previous temporary logs..."
+    rm -f "${TMP_LOG}" "${DEBUG_LOG}"
+}
+
+# ----------------------------
+# FUNCTION: execute_tool
+# Executes the tool, capturing stdout/stderr verbatim for RULE 7/9 compliance
+# ----------------------------
+execute_tool() {
+    echo "[INFO] Executing instrumentation tool..."
+    # START marker for full log visibility
+    echo "START: $(date '+%Y-%m-%d %H:%M:%S')" >> "${TMP_LOG}"
+    # Run tool with stdout/stderr redirected to TMP_LOG
+    "${TOOL_PATH}" >> "${TMP_LOG}" 2>&1
+    # END marker
+    echo "END: $(date '+%Y-%m-%d %H:%M:%S')" >> "${TMP_LOG}"
+}
+
+# ----------------------------
+# FUNCTION: verify_output
+# Check for required internal markers (_closingPromise, STACK TRACE)
+# RULES 7,9,15: Mandatory output reading, zero-hang
+# ----------------------------
+verify_output() {
+    if grep -q "_closingPromise" "${TMP_LOG}" && grep -q "STACK TRACE" "${TMP_LOG}"; then
+        echo "[INFO] Required markers found in logs. Output valid."
+        cp "${TMP_LOG}" "${DEBUG_LOG}"   # Copy verified log for reference
+        return 0
+    else
+        echo "[WARN] Output incomplete or missing required markers."
+        return 1
+    fi
+}
+
+# ----------------------------
+# FUNCTION: exponential_backoff
+# Wait before retrying execution
+# ----------------------------
+exponential_backoff() {
+    local attempt=$1
+    local sleep_time=$(( BACKOFF_BASE ** attempt ))
+    echo "[INFO] Backing off for ${sleep_time}s before retry..."
+    sleep "${sleep_time}"
+}
+
+# ----------------------------
+# MAIN LOOP
+# ----------------------------
+clean_previous_logs
+
+for (( attempt=1; attempt<=MAX_RETRIES; attempt++ )); do
+    echo "[INFO] Attempt ${attempt} of ${MAX_RETRIES}..."
+    execute_tool
+
+    if verify_output; then
+        echo "[INFO] Instrumentation succeeded on attempt ${attempt}."
+        exit 0
+    else
+        if (( attempt < MAX_RETRIES )); then
+            exponential_backoff "${attempt}"
+        else
+            echo "[ERROR] Maximum retries reached; output remains incomplete."
+            exit 1
+        fi
+    fi
+done

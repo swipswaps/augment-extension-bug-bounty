@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Data Load</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <h1>Testing application-logs.json Load</h1>
+    <div id="status">Loading...</div>
+    <div id="data"></div>
+    
+    <script>
+        // TEST: Can we load application-logs.json?
+        console.log('Test: Loading application-logs.json...');
+        
+        d3.json('application-logs.json')
+            .then(data => {
+                console.log('✅ SUCCESS: Loaded data', data);
+                document.getElementById('status').innerHTML = `
+                    <h2 style="color: green;">✅ SUCCESS</h2>
+                    <p>Loaded ${data.length} entries</p>
+                `;
+                
+                // Show first 10 entries
+                const dataDiv = document.getElementById('data');
+                dataDiv.innerHTML = '<h3>First 10 Entries:</h3>';
+                data.slice(0, 10).forEach((entry, i) => {
+                    dataDiv.innerHTML += `
+                        <div style="margin: 10px 0; padding: 10px; background: #f0f0f0; border-left: 3px solid #4ec9b0;">
+                            <strong>${i + 1}. ${entry.timestamp}</strong><br>
+                            <strong>Source:</strong> ${entry.source}<br>
+                            <strong>Severity:</strong> ${entry.severity}<br>
+                            <strong>Message:</strong> ${entry.message}
+                        </div>
+                    `;
+                });
+            })
+            .catch(error => {
+                console.error('❌ FAILED:', error);
+                document.getElementById('status').innerHTML = `
+                    <h2 style="color: red;">❌ FAILED</h2>
+                    <p>Error: ${error.message}</p>
+                    <p>Check browser console for details</p>
+                `;
+            });
+    </script>
+</body>
+</html>
+

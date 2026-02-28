@@ -1,0 +1,11 @@
+[{"name":"REG","value":40092,"description":"File watchers (potential leak source)"},
+{"name":"a_inode","value":4213,"description":"Anonymous inodes (eventfd, signalfd)"},
+{"name":"unix","value":3073,"description":"IPC sockets (inter-process communication)"},
+{"name":"FIFO","value":2726,"description":"Named pipes"},
+{"name":"pipe","value":2678,"description":"Subprocess pipes"},
+{"name":"CHR","value":832,"description":"Character devices (terminals)"},
+{"name":"DIR","value":465,"description":"Directory handles"},
+{"name":"sock","value":341,"description":"Network sockets"},
+{"name":"netlink","value":231,"description":"Netlink sockets (kernel communication)"},
+{"name":"IPv4","value":48,"description":"IPv4 network connections"},
+{"name":"IPv6","value":16,"description":"IPv6 network connections"}]

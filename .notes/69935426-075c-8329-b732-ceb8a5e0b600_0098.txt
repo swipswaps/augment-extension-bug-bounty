@@ -1,0 +1,176 @@
+
+//requests request is now for a prompt _as working example code_ with prose _limited to verbose comments_ to enumerate, plan and effect request compliance
+#!/usr/bin/env python3
+"""
+REQUEST COMPLIANCE DRIVER — PROMPT GENERATOR (WORKING EXAMPLE)
+
+PURPOSE:
+- Enumerate requirements from a user request.
+- Plan deterministic execution steps.
+- Effect compliance by emitting a structured prompt suitable for LLM execution.
+- Enforce zero-assumption, zero-placeholder, evidence-first workflow.
+- Designed for Augment/MCP-style tool environments with latch/timeout risks.
+
+RUNTIME:
+- Python 3.9+
+- No external dependencies
+- Deterministic output ordering
+"""
+
+import hashlib
+import json
+import textwrap
+from datetime import datetime
+from typing import Dict, List
+
+
+# -------------------------------------------------------------------------
+# SECTION 1 — INPUT CONTRACT
+# -------------------------------------------------------------------------
+# The driver expects a single structured request definition.
+# This avoids ambiguity and prevents assumption-based execution.
+# All fields are mandatory to satisfy zero-hang and determinism rules.
+# -------------------------------------------------------------------------
+
+REQUEST: Dict = {
+    "request_id": "REQ-ENUM-PLAN-EFFECT-001",
+    "title": "Enumerate, Plan, and Effect Request Compliance",
+    "objective": "Produce a structured execution prompt that enforces tool-output reading, logging, and verification.",
+    "constraints": [
+        "No assumptions",
+        "No placeholders",
+        "Deterministic output",
+        "Evidence before state advancement",
+        "Single-terminal hygiene discipline"
+    ],
+    "environment": {
+        "runtime": "VS Code + Augment MCP",
+        "risk_factors": [
+            "Terminal accumulation",
+            "One-way cancellation latch",
+            "Hidden output sections",
+            "Tool timeout partial output"
+        ]
+    },
+    "required_sections": [
+        "Enumeration",
+        "Execution Plan",
+        "Verification Protocol",
+        "Rollback Strategy",
+        "Compliance Audit"
+    ]
+}
+
+
+# -------------------------------------------------------------------------
+# SECTION 2 — ENUMERATION LOGIC
+# -------------------------------------------------------------------------
+# Enumerates constraints, risks, and mandatory actions.
+# Output is ordered and hashed for deterministic traceability.
+# -------------------------------------------------------------------------
+
+def enumerate_requirements(request: Dict) -> List[str]:
+    items = []
+    items.append(f"OBJECTIVE: {request['objective']}")
+    items.append("CONSTRAINTS:")
+    for c in sorted(request["constraints"]):
+        items.append(f" - {c}")
+    items.append("RISK FACTORS:")
+    for r in sorted(request["environment"]["risk_factors"]):
+        items.append(f" - {r}")
+    return items
+
+
+# -------------------------------------------------------------------------
+# SECTION 3 — PLAN GENERATION
+# -------------------------------------------------------------------------
+# Converts enumerated requirements into deterministic execution phases.
+# Each phase must produce observable output.
+# -------------------------------------------------------------------------
+
+def generate_plan() -> List[str]:
+    return [
+        "PHASE 1: Validate environment state before mutation.",
+        "PHASE 2: Execute single consolidated command with wait=true.",
+        "PHASE 3: Read <output> section verbatim.",
+        "PHASE 4: Verify log file created and matches tool output.",
+        "PHASE 5: Parse for success/failure markers.",
+        "PHASE 6: Halt if missing START/END markers.",
+        "PHASE 7: Provide rollback command if mutation occurred."
+    ]
+
+
+# -------------------------------------------------------------------------
+# SECTION 4 — PROMPT EMISSION
+# -------------------------------------------------------------------------
+# Emits final structured prompt suitable for LLM execution.
+# This is the artifact intended to be copied into the LLM environment.
+# -------------------------------------------------------------------------
+
+def build_prompt(enumeration: List[str], plan: List[str]) -> str:
+    timestamp = datetime.utcnow().isoformat()
+    payload = {
+        "timestamp_utc": timestamp,
+        "enumeration": enumeration,
+        "execution_plan": plan,
+        "mandatory_rules": {
+            "always_wait_true": True,
+            "always_read_output_section": True,
+            "never_use_hidden_tools": True,
+            "single_terminal_policy": True,
+            "require_logfile_verification": True
+        }
+    }
+
+    digest = hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
+
+    structured_prompt = f"""
+# COMPLIANCE EXECUTION PROMPT
+
+## ENUMERATION
+{chr(10).join(enumeration)}
+
+## EXECUTION PLAN
+{chr(10).join(plan)}
+
+## VERIFICATION PROTOCOL
+- After every command, quote <output> verbatim.
+- Confirm logfile exists.
+- Compare logfile content to tool output.
+- Abort if mismatch.
+
+## ROLLBACK STRATEGY
+- Restore modified files from timestamped backup.
+- Reload VS Code window if latch behavior detected.
+
+## TRACEABILITY
+- SHA256(payload) = {digest}
+- Generated at UTC {timestamp}
+
+## ENFORCEMENT DIRECTIVE
+Proceed stepwise.
+No assumption.
+No hidden terminals.
+No placeholder values.
+Halt on missing evidence.
+"""
+
+    return textwrap.dedent(structured_prompt).strip()
+
+
+# -------------------------------------------------------------------------
+# SECTION 5 — MAIN EXECUTION
+# -------------------------------------------------------------------------
+# Deterministic orchestration.
+# Prints final prompt only (artifact).
+# -------------------------------------------------------------------------
+
+def main():
+    enumeration = enumerate_requirements(REQUEST)
+    plan = generate_plan()
+    prompt = build_prompt(enumeration, plan)
+    print(prompt)
+
+
+if __name__ == "__main__":
+    main()

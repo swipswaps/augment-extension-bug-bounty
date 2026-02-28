@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code Resource Contention Dashboard</title>
+    <!-- 
+        USER REQUEST: "show with react and or d3.js visualizations of evidence what processes persist at stalling or slowing"
+        PURPOSE: Interactive dashboard showing which processes cause resource contention and performance degradation
+        VISUALIZATIONS:
+          1. Timeline chart: FD count over time (shows when stalling occurs)
+          2. Pie chart: FD type distribution (shows what type of leak: file/IPC/network)
+          3. Stacked area chart: FD type trends (shows which leak type is growing)
+          4. Bar chart: Process resource usage (shows which PID is the culprit)
+          5. Scatter plot: Error vs FD correlation (shows if errors cause stalling)
+        TROUBLESHOOTING VALUE: Visual evidence that "PID 123893 has 7968 FDs, mostly REG type, growing over time"
+    -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* LAYOUT: Grid layout for dashboard cards */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .card h2 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            color: #4ec9b0;
+            border-bottom: 2px solid #3e3e42;
+            padding-bottom: 10px;
+        }
+        
+        /* SUMMARY CARDS: Key metrics at top */
+        .summary-cards {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #2d2d30 0%, #252526 100%);
+            border: 1px solid #3e3e42;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .summary-card .value {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .summary-card .label {
+            font-size: 14px;
+            color: #858585;
+            text-transform: uppercase;
+        }
+        
+        .summary-card.critical .value { color: #f48771; }
+        .summary-card.warning .value { color: #dcdcaa; }
+        .summary-card.good .value { color: #4ec9b0; }
+        
+        /* CHART STYLES */
+        .axis text { fill: #d4d4d4; }
+        .axis line, .axis path { stroke: #3e3e42; }
+        .grid line { stroke: #3e3e42; stroke-opacity: 0.3; }
+        
+        .tooltip {
+            position: absolute;
+            background: #1e1e1e;
+            border: 1px solid #4ec9b0;
+            border-radius: 4px;
+            padding: 10px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 12px;
+            z-index: 1000;
+        }
+        
+        /* LEGEND */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #4ec9b0; margin-bottom: 30px;">
+        🔍 VS Code Resource Contention Analysis Dashboard
+    </h1>
+    
+    <!-- SUMMARY CARDS: Quick overview of system health -->
+    <div class="summary-cards" id="summary-cards"></div>
+    
+    <div class="dashboard">
+        <!-- CHART 1: Timeline showing FD count over time -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>📈 File Descriptor Count Timeline</h2>
+            <p style="font-size: 12px; color: #858585; margin-top: -10px;">
+                Shows when resource contention occurs. Spikes indicate stalling/slowdown events.
+            </p>
+            <div id="timeline-chart"></div>
+        </div>
+        
+        <!-- CHART 2: Pie chart showing FD type distribution -->
+        <div class="card">
+            <h2>🥧 FD Type Distribution</h2>
+            <p style="font-size: 12px; color: #858585; margin-top: -10px;">
+                Identifies leak type: REG=file watchers, unix=IPC, pipe=subprocesses
+            </p>
+            <div id="pie-chart"></div>
+        </div>
+        
+        <!-- CHART 3: Bar chart showing process resource usage -->
+        <div class="card">
+            <h2>📊 Top Processes by FD Count</h2>
+            <p style="font-size: 12px; color: #858585; margin-top: -10px;">
+                Identifies which VS Code process is causing resource contention
+            </p>
+            <div id="process-chart"></div>
+        </div>
+        
+        <!-- CHART 4: Stacked area chart showing FD type trends -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>📉 FD Type Trends Over Time</h2>
+            <p style="font-size: 12px; color: #858585; margin-top: -10px;">
+                Shows which FD type is growing (leak source). Growing REG layer = file watcher leak.
+            </p>
+            <div id="trends-chart"></div>
+        </div>
+    </div>
+    
+    <div class="tooltip" id="tooltip"></div>
+    
+    <script>
+        // COLOR SCHEME: VS Code dark theme colors
+        const colors = {
+            critical: '#f48771',  // Red: critical threshold
+            warning: '#dcdcaa',   // Yellow: warning threshold
+            good: '#4ec9b0',      // Teal: normal range
+            REG: '#f48771',       // Red: file watchers (leak source)
+            unix: '#569cd6',      // Blue: IPC sockets
+            pipe: '#4ec9b0',      // Teal: subprocess pipes
+            FIFO: '#c586c0',      // Purple: named pipes
+            CHR: '#dcdcaa',       // Yellow: terminals
+            DIR: '#9cdcfe',       // Light blue: directories
+            sock: '#ce9178',      // Orange: network sockets
+            a_inode: '#6a9955',   // Green: anonymous inodes
+            IPv4: '#d16969',      // Dark red: IPv4
+            IPv6: '#d7ba7d',      // Gold: IPv6
+            netlink: '#808080'    // Gray: netlink
+        };
+        
+        // LOAD DATA: Fetch all JSON files generated by generate-visualization-data.sh
+        Promise.all([
+            d3.json('timeline.json'),
+            d3.json('fd-distribution.json'),
+            d3.json('process-resources.json'),
+            d3.json('fd-trends.json'),
+            d3.json('summary-stats.json')
+        ]).then(([timeline, distribution, processes, trends, stats]) => {
+            // RENDER SUMMARY CARDS
+            renderSummaryCards(stats[0]);
+            
+            // RENDER CHARTS
+            renderTimeline(timeline);
+            renderPieChart(distribution);
+            renderProcessChart(processes);
+            renderTrendsChart(trends);
+        });
+        
+        // SUMMARY CARDS: Show key metrics
+        // TROUBLESHOOTING: Quick health check - red cards = problems, green cards = healthy
+        function renderSummaryCards(stats) {
+            const cards = [
+                { label: 'Current FD Count', value: stats.current_fd_count, status: stats.current_fd_count > 55000 ? 'critical' : stats.current_fd_count > 50000 ? 'warning' : 'good' },
+                { label: 'Peak FD Count', value: stats.peak_fd_count, status: 'critical' },
+                { label: 'Min FD Count', value: stats.min_fd_count, status: 'good' },
+                { label: 'Total Errors', value: stats.total_errors, status: stats.total_errors > 20 ? 'critical' : stats.total_errors > 10 ? 'warning' : 'good' },
+                { label: 'Avg Change/Min', value: stats.avg_fd_change_per_measurement, status: stats.avg_fd_change_per_measurement > 1000 ? 'critical' : stats.avg_fd_change_per_measurement < -1000 ? 'good' : 'warning' }
+            ];
+
+            const container = d3.select('#summary-cards');
+            cards.forEach(card => {
+                const div = container.append('div').attr('class', `summary-card ${card.status}`);
+                div.append('div').attr('class', 'label').text(card.label);
+                div.append('div').attr('class', 'value').text(card.value.toLocaleString());
+            });
+        }
+
+        // TIMELINE CHART: Line chart showing FD count over time
+        // TROUBLESHOOTING: Spikes = stalling events, downward slope = recovery, flat line = stable
+        // THRESHOLD LINES: 50000 (warning), 55000 (critical)
+        function renderTimeline(data) {
+            const margin = {top: 20, right: 30, bottom: 50, left: 60};
+            const width = 1400 - margin.left - margin.right;
+            const height = 300 - margin.top - margin.bottom;
+
+            const svg = d3.select('#timeline-chart')
+                .append('svg')
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+                .append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+
+            // PARSE TIMESTAMPS: Convert ISO strings to Date objects
+            data.forEach(d => d.timestamp = new Date(d.timestamp));
+
+            // X-AXIS: Time scale
+            const x = d3.scaleTime()
+                .domain(d3.extent(data, d => d.timestamp))
+                .range([0, width]);
+
+            // Y-AXIS: FD count scale (start from 0 to show full context)
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.fd_count) * 1.1])
+                .range([height, 0]);
+
+            // GRID LINES: Horizontal lines for easier reading
+            svg.append('g')
+                .attr('class', 'grid')
+                .call(d3.axisLeft(y).tickSize(-width).tickFormat(''));
+
+            // THRESHOLD LINES: Show warning and critical levels
+            svg.append('line')
+                .attr('x1', 0).attr('x2', width)
+                .attr('y1', y(50000)).attr('y2', y(50000))
+                .attr('stroke', colors.warning)
+                .attr('stroke-dasharray', '5,5')
+                .attr('stroke-width', 2);
+
+            svg.append('text')
+                .attr('x', width - 5)
+                .attr('y', y(50000) - 5)
+                .attr('text-anchor', 'end')
+                .attr('fill', colors.warning)
+                .attr('font-size', '12px')
+                .text('Warning: 50000');
+
+            svg.append('line')
+                .attr('x1', 0).attr('x2', width)
+                .attr('y1', y(55000)).attr('y2', y(55000))
+                .attr('stroke', colors.critical)
+                .attr('stroke-dasharray', '5,5')
+                .attr('stroke-width', 2);
+
+            svg.append('text')
+                .attr('x', width - 5)
+                .attr('y', y(55000) - 5)
+                .attr('text-anchor', 'end')
+                .attr('fill', colors.critical)
+                .attr('font-size', '12px')
+                .text('Critical: 55000');
+
+            // LINE: FD count over time
+            const line = d3.line()
+                .x(d => x(d.timestamp))
+                .y(d => y(d.fd_count))
+                .curve(d3.curveMonotoneX);
+
+            svg.append('path')
+                .datum(data)
+                .attr('fill', 'none')
+                .attr('stroke', colors.good)
+                .attr('stroke-width', 3)
+                .attr('d', line);
+
+            // POINTS: Show individual measurements
+            svg.selectAll('.dot')
+                .data(data)
+                .enter().append('circle')
+                .attr('class', 'dot')
+                .attr('cx', d => x(d.timestamp))
+                .attr('cy', d => y(d.fd_count))
+                .attr('r', 5)
+                .attr('fill', d => d.status === 'critical' ? colors.critical : d.status === 'warning' ? colors.warning : colors.good)
+                .attr('stroke', '#1e1e1e')
+                .attr('stroke-width', 2)
+                .on('mouseover', function(event, d) {
+                    d3.select('#tooltip')
+                        .style('opacity', 1)
+                        .html(`
+                            <strong>Time:</strong> ${d.timestamp.toLocaleString()}<br>
+                            <strong>FD Count:</strong> ${d.fd_count.toLocaleString()}<br>
+                            <strong>Status:</strong> ${d.status}<br>
+                            <strong>Errors (last min):</strong> ${d.errors_in_last_minute}
+                        `)
+                        .style('left', (event.pageX + 10) + 'px')
+                        .style('top', (event.pageY - 10) + 'px');
+                })
+                .on('mouseout', function() {
+                    d3.select('#tooltip').style('opacity', 0);
+                });
+
+            // AXES
+            svg.append('g')
+                .attr('class', 'axis')
+                .attr('transform', `translate(0,${height})`)
+                .call(d3.axisBottom(x).ticks(5));
+
+            svg.append('g')
+                .attr('class', 'axis')
+                .call(d3.axisLeft(y).tickFormat(d => d.toLocaleString()));
+
+            // AXIS LABELS
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', height + 40)
+                .attr('text-anchor', 'middle')
+                .attr('fill', '#d4d4d4')
+                .text('Time');
+
+            svg.append('text')
+                .attr('transform', 'rotate(-90)')
+                .attr('x', -height / 2)
+                .attr('y', -45)
+                .attr('text-anchor', 'middle')
+                .attr('fill', '#d4d4d4')
+                .text('File Descriptor Count');
+        }
+
+        // PIE CHART: FD type distribution
+        // TROUBLESHOOTING: Large REG slice = file watcher leak, large unix slice = IPC leak
+        // COLOR CODING: REG=red (leak source), unix=blue (IPC), pipe=teal (subprocesses)
+        function renderPieChart(data) {
+            const width = 450;
+            const height = 400;
+            const radius = Math.min(width, height) / 2 - 40;
+
+            const svg = d3.select('#pie-chart')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height)
+                .append('g')
+                .attr('transform', `translate(${width/2},${height/2})`);
+
+            // PIE LAYOUT: Convert data to pie slices
+            const pie = d3.pie()
+                .value(d => d.value)
+                .sort((a, b) => b.value - a.value);
+
+            // ARC GENERATOR: Create pie slice paths
+            const arc = d3.arc()
+                .innerRadius(radius * 0.5)  // Donut chart (inner radius > 0)
+                .outerRadius(radius);
+
+            const arcHover = d3.arc()
+                .innerRadius(radius * 0.5)
+                .outerRadius(radius * 1.1);  // Expand on hover
+
+            // SLICES: Draw pie chart
+            const slices = svg.selectAll('.slice')
+                .data(pie(data))
+                .enter().append('g')
+                .attr('class', 'slice');
+
+            slices.append('path')
+                .attr('d', arc)
+                .attr('fill', d => colors[d.data.name] || '#808080')
+                .attr('stroke', '#1e1e1e')
+                .attr('stroke-width', 2)
+                .on('mouseover', function(event, d) {
+                    d3.select(this)
+                        .transition().duration(200)
+                        .attr('d', arcHover);
+
+                    d3.select('#tooltip')
+                        .style('opacity', 1)
+                        .html(`
+                            <strong>${d.data.name}</strong><br>
+                            ${d.data.description}<br>
+                            <strong>Count:</strong> ${d.data.value.toLocaleString()}<br>
+                            <strong>Percentage:</strong> ${((d.data.value / d3.sum(data, d => d.value)) * 100).toFixed(1)}%
+                        `)
+                        .style('left', (event.pageX + 10) + 'px')
+                        .style('top', (event.pageY - 10) + 'px');
+                })
+                .on('mouseout', function() {
+                    d3.select(this)
+                        .transition().duration(200)
+                        .attr('d', arc);
+                    d3.select('#tooltip').style('opacity', 0);
+                });
+
+            // CENTER TEXT: Total FD count
+            svg.append('text')
+                .attr('text-anchor', 'middle')
+                .attr('dy', '-0.5em')
+                .attr('font-size', '24px')
+                .attr('font-weight', 'bold')
+                .attr('fill', colors.good)
+                .text(d3.sum(data, d => d.value).toLocaleString());
+
+            svg.append('text')
+                .attr('text-anchor', 'middle')
+                .attr('dy', '1.5em')
+                .attr('font-size', '14px')
+                .attr('fill', '#858585')
+                .text('Total FDs');
+
+            // LEGEND: Show FD types with colors
+            const legend = d3.select('#pie-chart')
+                .append('div')
+                .attr('class', 'legend');
+
+            data.forEach(d => {
+                const item = legend.append('div').attr('class', 'legend-item');
+                item.append('div')
+                    .attr('class', 'legend-color')
+                    .style('background-color', colors[d.name] || '#808080');
+                item.append('span').text(`${d.name} (${d.value.toLocaleString()})`);
+            });
+        }
+
+        // BAR CHART: Process resource usage
+        // TROUBLESHOOTING: Longest bar = culprit process causing resource contention
+        // PID IDENTIFICATION: 123893=extension host, 124008=renderer, 124045=shared process
+        function renderProcessChart(data) {
+            const margin = {top: 20, right: 30, bottom: 50, left: 80};
+            const width = 450 - margin.left - margin.right;
+            const height = 400 - margin.top - margin.bottom;
+
+            const svg = d3.select('#process-chart')
+                .append('svg')
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+                .append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+
+            // Y-AXIS: Process PIDs
+            const y = d3.scaleBand()
+                .domain(data.map(d => `PID ${d.pid}`))
+                .range([0, height])
+                .padding(0.2);
+
+            // X-AXIS: FD count
+            const x = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.fd_count) * 1.1])
+                .range([0, width]);
+
+            // BARS: Horizontal bars showing FD count per process
+            svg.selectAll('.bar')
+                .data(data)
+                .enter().append('rect')
+                .attr('class', 'bar')
+                .attr('y', d => y(`PID ${d.pid}`))
+                .attr('x', 0)
+                .attr('height', y.bandwidth())
+                .attr('width', d => x(d.fd_count))
+                .attr('fill', (d, i) => i === 0 ? colors.critical : i === 1 ? colors.warning : colors.good)
+                .attr('rx', 4)
+                .on('mouseover', function(event, d) {
+                    d3.select('#tooltip')
+                        .style('opacity', 1)
+                        .html(`
+                            <strong>PID:</strong> ${d.pid}<br>
+                            <strong>Process:</strong> ${d.process}<br>
+                            <strong>FD Count:</strong> ${d.fd_count.toLocaleString()}<br>
+                            <strong>Type:</strong> ${d.pid === 123893 ? 'Extension Host' : d.pid === 124008 ? 'Renderer' : d.pid === 124045 ? 'Shared Process' : 'Worker'}
+                        `)
+                        .style('left', (event.pageX + 10) + 'px')
+                        .style('top', (event.pageY - 10) + 'px');
+                })
+                .on('mouseout', function() {
+                    d3.select('#tooltip').style('opacity', 0);
+                });
+
+            // VALUE LABELS: Show FD count on bars
+            svg.selectAll('.label')
+                .data(data)
+                .enter().append('text')
+                .attr('class', 'label')
+                .attr('y', d => y(`PID ${d.pid}`) + y.bandwidth() / 2)
+                .attr('x', d => x(d.fd_count) + 5)
+                .attr('dy', '0.35em')
+                .attr('fill', '#d4d4d4')
+                .attr('font-size', '12px')
+                .text(d => d.fd_count.toLocaleString());
+
+            // AXES
+            svg.append('g')
+                .attr('class', 'axis')
+                .call(d3.axisLeft(y));
+
+            svg.append('g')
+                .attr('class', 'axis')
+                .attr('transform', `translate(0,${height})`)
+                .call(d3.axisBottom(x).ticks(5).tickFormat(d => d.toLocaleString()));
+
+            // AXIS LABEL
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', height + 40)
+                .attr('text-anchor', 'middle')
+                .attr('fill', '#d4d4d4')
+                .text('File Descriptor Count');
+        }
+
+        // STACKED AREA CHART: FD type trends over time
+        // TROUBLESHOOTING: Growing layer = leak source (e.g., REG layer growing = file watcher leak)
+        // LAYERS: REG (bottom), unix, pipe, FIFO, CHR, etc (stacked on top)
+        function renderTrendsChart(data) {
+            const margin = {top: 20, right: 120, bottom: 50, left: 60};
+            const width = 1400 - margin.left - margin.right;
+            const height = 300 - margin.top - margin.bottom;
+
+            const svg = d3.select('#trends-chart')
+                .append('svg')
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+                .append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+
+            // PARSE TIMESTAMPS
+            data.forEach(d => d.timestamp = new Date(d.timestamp));
+
+            // GROUP BY TIMESTAMP: Pivot data for stacking
+            const grouped = d3.group(data, d => d.timestamp.getTime());
+            const timestamps = Array.from(grouped.keys()).sort();
+            const fdTypes = Array.from(new Set(data.map(d => d.fd_type)));
+
+            const stackData = timestamps.map(ts => {
+                const obj = { timestamp: new Date(ts) };
+                const entries = grouped.get(ts);
+                fdTypes.forEach(type => {
+                    const entry = entries.find(e => e.fd_type === type);
+                    obj[type] = entry ? entry.count : 0;
+                });
+                return obj;
+            });
+
+            // STACK LAYOUT: Convert to stacked format
+            const stack = d3.stack()
+                .keys(fdTypes)
+                .order(d3.stackOrderNone)
+                .offset(d3.stackOffsetNone);
+
+            const series = stack(stackData);
+
+            // X-AXIS: Time scale
+            const x = d3.scaleTime()
+                .domain(d3.extent(stackData, d => d.timestamp))
+                .range([0, width]);
+
+            // Y-AXIS: FD count scale
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(series, s => d3.max(s, d => d[1]))])
+                .range([height, 0]);
+
+            // AREA GENERATOR
+            const area = d3.area()
+                .x(d => x(d.data.timestamp))
+                .y0(d => y(d[0]))
+                .y1(d => y(d[1]))
+                .curve(d3.curveMonotoneX);
+
+            // LAYERS: Draw stacked areas
+            svg.selectAll('.layer')
+                .data(series)
+                .enter().append('path')
+                .attr('class', 'layer')
+                .attr('d', area)
+                .attr('fill', d => colors[d.key] || '#808080')
+                .attr('opacity', 0.8)
+                .on('mouseover', function(event, d) {
+                    d3.select(this).attr('opacity', 1);
+                    d3.select('#tooltip')
+                        .style('opacity', 1)
+                        .html(`<strong>FD Type:</strong> ${d.key}`)
+                        .style('left', (event.pageX + 10) + 'px')
+                        .style('top', (event.pageY - 10) + 'px');
+                })
+                .on('mouseout', function() {
+                    d3.select(this).attr('opacity', 0.8);
+                    d3.select('#tooltip').style('opacity', 0);
+                });
+
+            // AXES
+            svg.append('g')
+                .attr('class', 'axis')
+                .attr('transform', `translate(0,${height})`)
+                .call(d3.axisBottom(x).ticks(5));
+
+            svg.append('g')
+                .attr('class', 'axis')
+                .call(d3.axisLeft(y).tickFormat(d => d.toLocaleString()));
+
+            // AXIS LABELS
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', height + 40)
+                .attr('text-anchor', 'middle')
+                .attr('fill', '#d4d4d4')
+                .text('Time');
+
+            svg.append('text')
+                .attr('transform', 'rotate(-90)')
+                .attr('x', -height / 2)
+                .attr('y', -45)
+                .attr('text-anchor', 'middle')
+                .attr('fill', '#d4d4d4')
+                .text('File Descriptor Count (Stacked)');
+
+            // LEGEND: Show FD types
+            const legend = svg.append('g')
+                .attr('transform', `translate(${width + 10}, 0)`);
+
+            fdTypes.forEach((type, i) => {
+                const item = legend.append('g')
+                    .attr('transform', `translate(0, ${i * 20})`);
+
+                item.append('rect')
+                    .attr('width', 12)
+                    .attr('height', 12)
+                    .attr('fill', colors[type] || '#808080');
+
+                item.append('text')
+                    .attr('x', 18)
+                    .attr('y', 10)
+                    .attr('fill', '#d4d4d4')
+                    .attr('font-size', '12px')
+                    .text(type);
+            });
+        }
+    </script>
+</body>
+</html>
